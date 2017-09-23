@@ -99,7 +99,7 @@ BCEH : PQSV : CDGK : STVY (第二三位间隔2)
 BECD: FTGH :: JMKL : NQOP 同上，+4
 BHE : FLI => JPM :(NTQ) (每位+4)
 CEH : PRV: TVY: MOR (间隔：+2, +3)
-DEB: FGD: PQN: TUS  (第二位第三位差3)
+DEB: FGD: PQN: TUR  (第二位第三位差3)
 DELHI : CDAGH =>MUMBAI : BJBAZH
 DICE : 3824 =>EDGE : 4364 (每位减1)
 DJ:  WQ =>  FK : UP (DJ +6, WQ -6; FK + 5, UP -5)
@@ -109,7 +109,7 @@ KML : PRQ: NPQ : TVU (第三位是第一和第二位间隔的字母)
 LOMN : HJIK: QTRS : UXVW (第一位和第二位差3)
 MARKET->12-26-17-10-4-19. PRODUCT: 15,17,14,3,20,2,19(-1)
 NORMAL : LAMRON =>SYSTEM : (METSYS)就是把字母顺序倒过来
-POM,KJH, TSQ, UVS 数字-1-2
+POM,KJH, TSQ, VUS 数字-1-2
 QDXM : SFYN :: UIOZ :WKPA (a1’ = a1+2, a2’ = a2+2, a3’=a3+1, a4’ = a4+1)
 QSV :CFK : PSX : RUZ
 SOUP: RPTQ => TOUR: SPTS (-1, +1, -1, +1)
