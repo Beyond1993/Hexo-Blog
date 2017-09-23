@@ -1,5 +1,5 @@
 ---
-title: CMU-15640-2
+title: CMU-15640-2-Two‐phase-Commit-Service
 date: 2017-08-20 08:03:01
 categories: CMU课程
 tags: cmu
