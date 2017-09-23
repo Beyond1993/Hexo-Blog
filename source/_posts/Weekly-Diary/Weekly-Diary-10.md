@@ -24,3 +24,5 @@ tags:
 
 7. 今天在跑hive 代码时，在自定的function 里抛了一个exception
 但是看不到全部的 exception trace stack
+
+8. 现在发现一个检查数据集的好方法，就是看看group by 之后，sum 某个值的结果,去验证
