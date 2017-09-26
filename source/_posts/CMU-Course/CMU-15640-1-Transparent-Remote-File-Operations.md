@@ -4,6 +4,10 @@ date: 2017-08-20 08:03:01
 categories: CMU课程
 tags: cmu
 ---
+分布式系统，总的来说分两类。分布式文件系统，分布式调度系统。
+这次作业的1，3 就是分布式文件系统。
+作业2，4分布式调度系统 
+
 # Project 1 Transparent-Remote-File-Operations
 实现 cat filename 的远程调用，file 不在本机上.
 

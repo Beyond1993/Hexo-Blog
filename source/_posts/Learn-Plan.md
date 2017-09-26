@@ -6,3 +6,5 @@ tags:
 ---
 summary for cascading, 
 apache mesos, kafka, spark, 命令行调用 zookeeper,redis cassandra, pig
+
+SDE-University-Interviews@amazon.com

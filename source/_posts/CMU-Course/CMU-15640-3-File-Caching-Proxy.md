@@ -6,8 +6,8 @@ tags: cmu
 ---
 # Project 3 File Caching Proxy
 
-References  number of attempts to find an object in the cache Hits  number of successes
-Misses  number of failures
+References number of attempts to find an object in the cache Hits number of successes
+Misses number of failures
 Miss Ratio = Misses/References
 Hit Ratio = Hits/References = (1 − Miss Ratio)
 Expected cost of a reference = (Miss Ratio * cost of miss) + (Hit Ratio * cost of hit)
@@ -22,13 +22,13 @@ Update propagation policy
 Cache replacement policy
 
 传统分布式cache
-
+```text
 machine1     machine2
        \     /
        product
        /     \
 machineN     machine3
-
+```
 sync solution's shortcomings
 
 1. Storage for entry on every replica
@@ -66,3 +66,8 @@ one-copy semantics
 Google-File-System:
 
 Lustre-File-System:
+
+## Project
+Writeup:
+这个项目是基于第一个项目remote call file system 的，在第一个项目的基础上加上cache
+

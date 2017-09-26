@@ -1,5 +1,5 @@
 ---
-title: LeetCode-138-Copy-List-with-Random-Pointer
+title: 138-Copy-List-with-Random-Pointer
 date: 2017-09-16 21:41:53
 categories: LeetCode
 tags:
