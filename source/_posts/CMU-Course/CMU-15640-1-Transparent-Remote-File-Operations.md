@@ -54,10 +54,8 @@ gcc -Wall -I/home/wayne/Desktop/15440-Distributed-Systems/Transparent-Remote-Fil
 │   └── libdirtree.so
 ├── README
 ├── tcp-sample
-│   ├── client
 │   ├── client.c
 │   ├── Makefile
-│   ├── server
 │   └── server.c
 └── tools
     ├── 440cat
@@ -216,11 +214,18 @@ int main(int argc, char**argv) {
 ```
 ## Run
 ```shell
+cd tcp-sample
 make
 ./server
 ./client
 ```
 ## Coding
+以上是handout 提供给我们的部分。现在轮到我们自己动手了。
+
+首先是编译，怎么把dirtree.h 和 mylib.c  编译进来,这是个大问题。
+
+
+
 我们主要要编写两个文件，server.c, mylib.c
 
 mylib比标准库先链接到client里，mylib里是一些和标准库里名字一样的rpc函数 比如read，write，open，用来重载标准库函数。
