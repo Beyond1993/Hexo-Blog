@@ -13,6 +13,5 @@ tags:
 
 3. 今天跑数据，出现了Container preempted by scheduler, 然后 就大面积的kill map task
 
-3. 今天跑数据，出现了Container preempted by scheduler, 然后 就大面积的kill map task
+4. 上传文件到 terrapin 时出现 'Requested s3 bucket and prefix name conflict with fileset content'
 
-3. 今天跑数据，出现了Container preempted by scheduler, 然后 就大面积的kill map task
