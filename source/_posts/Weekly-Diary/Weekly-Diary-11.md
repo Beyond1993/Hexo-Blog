@@ -10,3 +10,9 @@ tags:
 
 2. 在处理别人给的数据的时候，我应该自己先跑一遍，设好reduce 数量。 在做别的操作。
 在数据处理的开始一步，要先验证数据的正确性，看看有没有优化方案。
+
+3. 今天跑数据，出现了Container preempted by scheduler, 然后 就大面积的kill map task
+
+3. 今天跑数据，出现了Container preempted by scheduler, 然后 就大面积的kill map task
+
+3. 今天跑数据，出现了Container preempted by scheduler, 然后 就大面积的kill map task
