@@ -6,7 +6,7 @@ tags:
 ---
 https://instant.1point3acres.com/tag/amazon
 https://www.amazon.jobs/principles
-
+http://www.1point3acres.com/bbs/thread-295606-1-1.html
 Onsite 共三轮.
 BQ 问题貌似很重要。
 
@@ -14,6 +14,9 @@ BQ 问题貌似很重要。
 链表简单操作集合
 island 找组成的方块，island, matrix 1 组成的正方形数，or 最大的方块，方块长度， maximal square dp
 longest repeated substring:
+
+merge of two dimensional intervals
+对于start point, 选 hight 高的， 对于 end point,选低的。
 
 系统设计：
 教室实时人数和座位数
