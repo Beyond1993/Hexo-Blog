@@ -17,6 +17,10 @@ longest repeated substring:
 
 merge of two dimensional intervals
 对于start point, 选 hight 高的， 对于 end point,选低的。
+其实，这题应该是 interval merge 一维情况的的延伸版。
+
+
+ 
 
 系统设计：
 教室实时人数和座位数
@@ -24,5 +28,3 @@ merge of two dimensional intervals
 OOD设计:
 
 大数据设计:
-
-
