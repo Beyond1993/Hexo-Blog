@@ -16,3 +16,5 @@ follow up 难就难在，不能用 priority queue.
 既然linkedHashMap 自然而然就想到了双链表。
 
 重点来了，链表和HashMap 之间的关系!!! 在此之前，这一环是缺失的
+
+双链表加HashMap 使得get set的时间复杂度降到O(1)
