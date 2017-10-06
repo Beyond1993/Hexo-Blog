@@ -43,7 +43,18 @@ public int[] twoSum(int[] nums, int target) {
 
 解法二：O(nlogn)
 
+这是常见的优化，一般工作中算法优化到这就可以运行了，常见方法。
+
+排序，
+二分，
+各种树，
+堆，
+区间最大值. 
+
 解法三：O(n)
+constanet variable
+HashMap 
+LRU
 
 解法四: O(n)
 
