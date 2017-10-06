@@ -230,8 +230,18 @@ make
 
 mylib比标准库先链接到client里，mylib里是一些和标准库里名字一样的rpc函数 比如read，write，open，用来重载标准库函数。
 
-client--call--&gt mylib.c --> send request --> server
+mylib.so --> send request --> server
 
+example: cat filename
+
+mylib:open --socket--> server open +  
+     +------------------return <---+
+
+mylib:read --socket--> server open +  
+     +------------------return <---+
+
+
+通过socket 远程调用，效果应该和本地等价. 并不是将命令行直接传到server, 而是调用自己的库文件里的函数。
 ## Analysis
 
 ## 小结
