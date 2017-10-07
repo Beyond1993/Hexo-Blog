@@ -69,5 +69,10 @@ Lustre-File-System:
 
 ## Project
 Writeup:
-这个项目是基于第一个项目remote call file system 的，在第一个项目的基础上加上cache
+这个项目是基于第一个项目remote call file system 的，在第一个项目的基础上加上proxy-cache
+
+在分布式系统中，Hash + Cache 基本就是大杀器。
+
+
+
 
