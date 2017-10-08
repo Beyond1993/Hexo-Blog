@@ -51,12 +51,12 @@ public int[] twoSum(int[] nums, int target) {
 堆，
 区间最大值. 
 
-解法三：O(n)
+解法三：O(n) 利用HashMap, LRU 优化算法。达到O(n) 
 constanet variable
 HashMap 
 LRU
 
-解法四: O(n)
+解法四: O(n) 优化空间复杂度。
 
 Follow UP:
 
