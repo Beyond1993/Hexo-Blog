@@ -46,7 +46,7 @@ Correctness
 
 [Vending Machine](http://javarevisited.blogspot.com/2016/06/design-vending-machine-in-java.html)
 
-[Juke Box]
+[Juke Box] 投币式自动播放点唱机
 
 
 第五节 游戏棋牌类面向对象设计 
