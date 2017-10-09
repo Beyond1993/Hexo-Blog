@@ -42,6 +42,11 @@ Correctness
 
 第三节 预定类面向对象设计
 
-第四节 实物类面向对象设计
+第四节 实物类面向对象设计 OOD for Real Life Object
+
+[Vending Machine](http://javarevisited.blogspot.com/2016/06/design-vending-machine-in-java.html)
+
+[Juke Box]
+
 
 第五节 游戏棋牌类面向对象设计 
