@@ -20,6 +20,7 @@ merge of two dimensional intervals
 其实，这题应该是 interval merge 一维情况的的延伸版。
 
 
+http://www.geeksforgeeks.org/find-number-of-days-between-two-given-dates/
  
 
 系统设计：

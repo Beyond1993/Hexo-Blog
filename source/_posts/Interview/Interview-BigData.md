@@ -1,7 +1,7 @@
 ---
 title: Interview-BigData
 date: 2017-09-22 00:02:45
-categories: Interview
+categories: 面试
 tags:
 ---
 

@@ -12,11 +12,11 @@ SearchEngineLand.com
 ## overview
 
 ```text
-                         ______________ advertiser __________
+                           ______________ advertiser __________
                           /                                    \
-                 ad_campaign_1        ...                ad_campaign_n
+                 ad_campaign_1          ...                ad_campaign_n
                /             \                            /           \
-    ad_group_1   ...   ad_group_n             ad_group_1     ...    ad_group_n
+    ad_group_1   ...   ad_group_n                ad_group_1     ...    ad_group_n
      /      \           /       \               /      \              /      \  
 ad_pin_1...ad_pin_n   ad_pin_1...ad_pin_n    ad_pin_1...ad_pin_n   ad_pin_1...ad_pin_n
 ```
