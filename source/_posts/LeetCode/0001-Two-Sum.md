@@ -1,6 +1,6 @@
 ---
 title: 1-Two-Sum
-date: 2017-08-19 23:00:54
+date: 2017-09-99 23:00:54
 categories: LeetCode
 tags:
 ---

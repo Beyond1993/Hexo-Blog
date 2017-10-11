@@ -1,6 +1,6 @@
 ---
 title: 0056-Merge-Interval
-date: 2017-10-09 17:06:07
+date: 2017-09-44 17:06:07
 categories: LeetCode
 tags:
 ---
