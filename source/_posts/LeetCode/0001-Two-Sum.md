@@ -2,6 +2,7 @@
 title: 1-Two-Sum
 date: 2017-09-99 23:00:54
 categories: LeetCode
+top: 1
 tags:
 ---
 

@@ -40,7 +40,48 @@ Correctness
 
 第二节 管理类面向对象设计
 
+不要以为为主体设计系统，人的属性越少，系统越简单． 我们设计的是系统，而不是模拟游戏．　所以面试中减少人到的属性．
+
+Management 类常见　use case
+Reverve :
+Serve:
+Checkout:
+
+设计停车场
+
+设计餐馆
+
+```text
+       +--------------------------------+  +-------------------------+   +-------------------+
+party  | Restaurant                     |  | Table                   |   | Order             |  Meal
+       +--------------------------------+  +-------------------------+   +-------------------+
+       |- List<Table> tables            |  | - Boolean avaliable     |   | - List<Meal> meals|
+       |- List<Meal> menu               |  +-------------------------+
+       |- Map<Table, List<Order>> orders|  | + Boolean isAvalibale() |   
+       +--------------------------------+  | + void markUnavaliable()|
+       |+ Table findTale()              |  | + void markAvaliable()  |
+       +--------------------------------+  +-------------------------+
+
+
+NoTableException                                         
+```
+
+用 markUnavailible(), bool 型变量，一定要意思明确
+
+table 里加　order, 违反了　单一责任原则.
+
 第三节 预定类面向对象设计
+
+预定类比较难．和其他不同.更具体．
+
+Use Case
+
+- Search
+- Select
+- Cancel
+
+重要公式:
+*Search criteria -> Search() -> List&lt;Result&gt; -> Select() -> Receipt*
 
 第四节 实物类面向对象设计 OOD for Real Life Object
 
@@ -50,3 +91,6 @@ Correctness
 
 
 第五节 游戏棋牌类面向对象设计 
+
+
+
