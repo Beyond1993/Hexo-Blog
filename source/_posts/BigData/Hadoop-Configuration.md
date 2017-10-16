@@ -1,7 +1,7 @@
 ---
 title: Hadoop-Configuration
 date: 2017-10-16 05:39:37
-categories: Bigdata
+categories: BigData
 tags:
 ---
 
