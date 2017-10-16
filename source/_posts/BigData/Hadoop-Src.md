@@ -20,3 +20,50 @@ Hadoop MapReduce: a programming model for large scale data processing
 # Hadoop HDFS
 要先了解分布式文件系统，就必须先了解单机的文件系统，分布式文件系统是单机文件系统的拓展。
 
+
+
+第一部分
+
+第一章：阅读源代码前的准备
+
+第二章：MapReduce 设计理念与基本架构
+
+
+
+2.4 Hadoop 基本架构
+
+2.4.1 HDFS架构
+
+分布式文件系统和分布式计算框架MapReduce
+
+2.4.2 Hadoop MapReduce 架构
+
+--Client
+
+--JobTracker
+
+--TaskTracker
+
+--Task
+
+
+
+2.5 Hadoop MapReduce 作业的生命周期
+
+
+
+3.4 非 Java API 解析
+
+3.4.1 Hadoop Streaming 的实现原理
+
+    hadoop streamming 使用标准输入输出流，被运用在aws emr 上
+
+
+
+
+
+第二部分
+
+
+
+

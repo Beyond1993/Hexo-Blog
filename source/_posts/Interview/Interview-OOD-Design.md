@@ -94,3 +94,108 @@ Use Case
 
 
 
+一．五种 创建型模式
+
+１．单例模式Singleton
+
+
+
+２．创造者模式 Builder
+
+
+
+3. 工厂方法模式 Factory Method
+
+
+
+4, 抽象工厂模式 Abstract Factory
+
+
+
+5.原型模式 Prototype
+
+
+
+二．七种 结构型模式
+
+1.适配器模式 Adapter
+
+
+
+2. 装饰器模式 Decorator
+
+
+
+3.代理模式 Proxy
+
+
+
+4.外观模式
+
+
+
+5.桥模式 Bridge
+
+
+
+6. 组合模式 Composite
+
+
+
+7. 享元模式 Flyweight
+
+    string pool
+
+
+
+三.十一种行为模式
+
+1.策略模式 stategy
+
+
+
+2. 模板方法模式 Template Method
+
+
+
+3. 观察者模式　Observer
+
+
+
+4. 迭代模式 Iterator
+
+
+
+5.责任链模式　Chain of Responsibility
+
+
+
+6. 命令模式　Command 
+
+
+
+7.备忘录模式　memento 
+
+
+
+8. 状态模式　state
+
+
+
+9.访问者模式 Visitor
+
+
+
+10. 中介者模式 Mediator
+
+
+
+11. 解释器模式 Interpreter
+
+
+
+
+
+
+
+
