@@ -11,4 +11,7 @@ tags: english
    right: the week after next; in two weeks; in three weeks etc.
 
 
+3. 显而易见的
+This test will be a no brainer 
 
+it's a no-brainer
