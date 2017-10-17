@@ -1,18 +1,17 @@
 ---
-title: 0252-Meeting-Rooms
-date: 2017-07-84 18:51:14
+title: 252-Meeting-Rooms
+date: 2017-10-16 22:03:12
 categories: LeetCode
 tags:
 ---
 
-题目描述:
+题目描述：
 
 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), determine if a person could attend all meetings.
 
 For example,
 Given [[0, 30],[5, 10],[15, 20]],
 return false.
-
 
 ```java
 /**
@@ -45,5 +44,3 @@ public class Solution {
     }
 }
 ```
-
-

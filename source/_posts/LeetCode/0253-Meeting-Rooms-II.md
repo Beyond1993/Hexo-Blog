@@ -1,11 +1,10 @@
 ---
 title: 0253-Meeting-Rooms-II
-date: 2017-10-09 19:19:14
-categories:
+date: 2017-10-16 22:05:30
+categories: LeetCode
 tags:
 ---
 
-题目描述:
 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), find the minimum number of conference rooms required.
 
 For example,
@@ -51,5 +50,3 @@ class IntervalComparator implements Comparator<Interval> {
     }  
 } 
 ```
-
-
