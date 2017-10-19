@@ -1,7 +1,7 @@
 ---
 title: Maven
 date: 2017-08-28 02:57:00
-categories: Tools
+categories: Java
 tags:
 ---
 # Maven 详解
@@ -67,8 +67,4 @@ $ mvn clean install
 
 $ mvn compile
 
-
-
-
-
-mvn clean package -pl hadoop -DskipTests
+mvn clean package -pl hadoop -DskipTestsi -Dcheckstyle.skip=true
