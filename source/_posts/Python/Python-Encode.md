@@ -9,4 +9,7 @@ tags:
 
 如果 a 是 unioncode 编码，
 
-转成 ascii 码，也就是str时，需要str(x.encode('utf-8'))
+转成 ascii 码，也就是str时, x.encode('utf-8'), 转化的结果已经是str 类型了，不需要再在前面加 str()
+
+
+
