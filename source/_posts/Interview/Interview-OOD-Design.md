@@ -87,6 +87,30 @@ Use Case
 
 [Vending Machine](http://javarevisited.blogspot.com/2016/06/design-vending-machine-in-java.html)
 
+关键词: Vending Machiing coins items
+
+大小是否有限制，
+
+Input --> VendingMaching --> Output
+
+keyword : Item. Payment
+
+sold out
+
+Coin/Paper money:知道当前收了多少钱，找零．
+card: 不需要找零．
+
+Map&lt;String,Item&gt; 更新不好处理  --> Map&lt;String, ItemInfo&gt; Enum
+
+Vending Maching 的类是不希望改变的．
+
+```text
+
+```
+
+
+静态Object, 动态Object
+
 [Juke Box] 投币式自动播放点唱机
 
 
