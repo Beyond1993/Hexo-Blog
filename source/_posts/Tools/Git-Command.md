@@ -38,3 +38,7 @@ git stash pop 再还原。
 git reset --hard HEAD
 
 git pull
+
+
+更新单个文件.
+git checkout origin/master -- pinflow_workflows/m10n/jobs.py
