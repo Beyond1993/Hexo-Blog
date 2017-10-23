@@ -73,6 +73,6 @@ Writeup:
 
 在分布式系统中，Hash + Cache 基本就是大杀器。
 
-
+这是一个Client Cache, 一个Client 对应一个Cache. 每次cache 过来的时候check 是否是 up-to-date cache.
 
 
