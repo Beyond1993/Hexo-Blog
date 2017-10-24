@@ -114,7 +114,95 @@ Vending Maching 的类是不希望改变的．
 [Juke Box] 投币式自动播放点唱机
 
 
-第五节 游戏棋牌类面向对象设计 
+## 第五节 游戏棋牌类面向对象设计 
+棋类： 象棋，国际象棋，围棋，军棋，跳棋，五子棋
+类棋类： Tic Tac Toe， 扫雷
+牌类： Black jack, 德州扑克，斗地主，狼人杀
+
+棋牌类特点：
+玩家
+规则
+胜负
+积分
+
+
+术语：
+Board
+Suit
+hand
+...
+
+
+Tic Tac Toe
+```text
+TicTacToe
+- Board board
+- Char currentMove
++ void changePlayer()
+
+Board
+- char[][] board
++ void initializeBoard()
++ void makeMove(int row, int col, char currentMove) + boolean checkWin()
++ boolean isBoardFull()
+
+Use cases
+ Initialize board
+ Makemove
+ Change player
+ Checkforwin/lose /tie
+```
+Chinese Chess
+```text
+Player
+- Int points
++ void updatePointsBy(int diff)
+
+ChineseChess
+- List<Game> games
+
+<<enumeration>> Color
+RED BLACK
+
+<<enumeration>> 
+    Role
+GENERAL 
+HORSE
+...
+
+Piece
+- Color color 
+- Role role
+
+
+Game
+- Player redPlayer
+- Player blackPlayer
+- Player currentPlayer 
+- Piece[][] board
+- Intsteps
+- ChineseChess chess
+-----------------------------------------------
++ void joinGame(Player p)
++ void initializeBoard()
++ boolean move(Piece piece, int row, int col) 
++ void changePlayer()
++ boolean ifCurrentPlayerWin()
+- void gameDraw()
+- void currentPlayerWin()
+
+Use cases
+ Join table
+ Set up game
+ Makemove
+ Change player
+ Check for win
+ Increasesteps
+ Calculate points
+
+```
+Black jack
+
 
 
 
