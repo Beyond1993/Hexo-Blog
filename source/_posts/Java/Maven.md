@@ -68,3 +68,6 @@ $ mvn clean install
 $ mvn compile
 
 mvn clean package -pl hadoop -DskipTestsi -Dcheckstyle.skip=true
+
+
+
