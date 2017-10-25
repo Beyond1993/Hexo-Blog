@@ -1,7 +1,7 @@
 ---
 title: Paxos-Algorithm
 date: 2017-09-26 22:54:28
-categories: 分布式系统
+categories: Distributed-System
 tags:
 ---
 
