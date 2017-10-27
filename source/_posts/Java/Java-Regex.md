@@ -32,4 +32,4 @@ public class Regex {
 
 3. 去除逗号， 但是可能是 "a,b"  "a, b", "a,  b", 用 ",\\\s*"
 
-
+4. 去掉hive 里的 tab comma, space, regexp_replace(regexp_replace(b.unstemmed_keyword, '[,\\s*]', ' '), '\\s+', ' ')
