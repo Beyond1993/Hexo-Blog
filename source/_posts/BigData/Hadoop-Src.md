@@ -1,5 +1,5 @@
 ---
-title: Hadoop-Src
+title: Hadoop-技术内幕
 date: 2017-09-01 16:11:25
 categories: BigData
 tags:
@@ -25,6 +25,11 @@ Hadoop MapReduce: a programming model for large scale data processing
 第一部分
 
 第一章：阅读源代码前的准备
+1.3.3 Hadoop源代码组织：
+Hadoop-2.8.1-src/
+BUILDING.txt             README.txt               hadoop-build-tools       hadoop-dist              hadoop-maven-plugins     hadoop-project-dist      patchprocess
+LICENSE.txt              dev-support              hadoop-client            hadoop-hdfs-project      hadoop-minicluster       hadoop-tools             pom.xml
+NOTICE.txt               hadoop-assemblies        hadoop-common-project    hadoop-mapreduce-project hadoop-project           hadoop-yarn-project      start-build-env.sh
 
 第二章：MapReduce 设计理念与基本架构
 

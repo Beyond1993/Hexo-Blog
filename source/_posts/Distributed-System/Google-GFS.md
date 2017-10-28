@@ -8,6 +8,7 @@ Google File System
 
 大名顶顶的google 三架马车之一。
 
+读文件：
 
 
 写文件：
@@ -47,3 +48,8 @@ Google File System
 先是串联缓存。
 如果写失败，让client重新发写请求。
 而不是引用恢复机制，恢复机制可能带来更多问题.
+
+删除文件：
+
+
+http://blog.luoyuanhang.com/2017/05/15/gfs-reading-notes/
