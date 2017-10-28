@@ -1,10 +1,6 @@
 ---
-title: Java-Concurrency-Volatile
-date: 2017-09-01 22:26:39
-categories: Java
+title: Java-Concurrency-Volidate
+date: 2017-10-28 21:15:19
+categories:
 tags:
 ---
-
-
-http://tutorials.jenkov.com/java-concurrency/volatile.html
-
