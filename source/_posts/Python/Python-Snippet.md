@@ -64,6 +64,18 @@ WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, RESU
     	print(item.text)
 ```
 
+
+python map
+```Python
+
+map = {}
+下标访问:
+map[]
+
+get访问:
+
+
+```
 pip install selenium-requests
 
 # Import any WebDriver class that you would usually import from
