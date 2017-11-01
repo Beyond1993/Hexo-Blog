@@ -50,3 +50,5 @@ class IntervalComparator implements Comparator<Interval> {
     }  
 } 
 ```
+follow up:
+把每个 meeting room 中的 intervals 打印出来
