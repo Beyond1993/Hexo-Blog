@@ -7,3 +7,6 @@ tags:
 
 今天遇到查询thrift 里的enum
 变量名后面.value 直接返回Integer
+
+
+2. 巧用index, 在数据存储中， 有很多pin, 很多对应的links, 但是pins 对应的 links 有很多重复， 所以只存一份links array, 在pins 里记录下index, 节省空间
