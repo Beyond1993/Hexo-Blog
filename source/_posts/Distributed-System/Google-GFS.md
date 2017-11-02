@@ -6,6 +6,7 @@ tags:
 ---
 Google File System
 
+http://loopjump.com/gfs_paper_note/
 大名顶顶的google 三架马车之一。
 
 读文件：
@@ -53,3 +54,6 @@ Google File System
 
 
 http://blog.luoyuanhang.com/2017/05/15/gfs-reading-notes/
+
+Consistent
+GFS 里 defined 和 consist的概念
