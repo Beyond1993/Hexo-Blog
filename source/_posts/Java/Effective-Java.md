@@ -313,6 +313,21 @@ Image.flush()会释放实例相关资源, 但该实例仍处于可用的状态, 
 
 为了避免忘记调用超类的终结方法, 还有一种写法, 是在子类中写一个匿名的类, 该匿名类的单个实例被称为终结方法守卫者(finalizer guardian), 当守卫者被终结的时候, 它执行外围实例的终结行为. 这样外围类并没有覆盖超类的终结方法, 保证了超类的终结方法一定会被执行.
 
+## 第3章 对于所有对象都通用的方法
+第8条 覆盖equals时请遵守通用约定
+
+实现高质量equals 方法的诀窍
+1. 使用 == 操作符检查 “参数是否为这个对象的引用”
+2. 使用 instanceof 操作符检查“参数是否为正确的类型”
+3. 把参数转成正确的类型
+4. 对于该类中的每个“关键(significant)" 域，检查参数中的域是否与该对象中对应的域相匹配
+5. 
+
+6. 不要将equals 声明中的Object对象替换为其他对象(使用@Override 注解) 
+http://cwind.iteye.com/blog/2214107
+
+原因就是当equals方法被隐式调用时，比如像 hashset ， 直接调用equals(Object) 方法。所以要覆盖，而不是重载
+
 
 第16条 复合优于继承
 
@@ -323,7 +338,7 @@ Image.flush()会释放实例相关资源, 但该实例仍处于可用的状态, 
 
 
 第22条， 优先考虑静态成员类
-
+```text
                          + static member class
 
 nested class ---+ nonstatic member class  +
@@ -331,7 +346,7 @@ nested class ---+ nonstatic member class  +
                          + anonymous class            + --- inner class 
 
                          + local class                       +
-
+```
 
 
 nonstatic member class always linked with enclosing instance, and it can call enclosing instance method.
@@ -355,7 +370,7 @@ A well-designed API must not force its clients to use exceptions for ordinary co
 重写Equals 时，参数用Object
 
 重写compare 时参数用自己的类。
-
+```java
 import java.util.*;
 
 class Student {
@@ -421,7 +436,7 @@ public class Hello{
     }
 
 }
-
+```
 
 
 
