@@ -50,5 +50,7 @@ class IntervalComparator implements Comparator<Interval> {
     }  
 } 
 ```
+
+不能用pq解，不是最优解
 follow up:
 把每个 meeting room 中的 intervals 打印出来
