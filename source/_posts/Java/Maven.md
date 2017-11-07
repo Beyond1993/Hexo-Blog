@@ -67,7 +67,5 @@ $ mvn clean install
 
 $ mvn compile
 
-mvn clean package -pl hadoop -DskipTestsi -Dcheckstyle.skip=true
-
-
+mvn clean package -pl hadoop -DskipTest -Dcheckstyle.skip=true
 
