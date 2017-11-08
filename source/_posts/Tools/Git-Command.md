@@ -26,19 +26,28 @@ git push origin master.
 git status
 
 
-
 git stash 先把冲突文件存好
 
-git pull --rebase origin master
+git pull --rebase origin master 或者直接 git rebase origin/master
 
 git stash pop 再还原。
 
 
-
+版本回退：
 git reset --hard HEAD
+git reset --hard HEAD^ ^ 表示上一版本
+git reset --hard HEAD^^ 上上一个版本
+git reset --hasr HEAD~100 上100个版本
+
+git log
+git reset --hard commit_id 某一版本
 
 git pull
 
 
 更新单个文件.
 git checkout origin/master -- pinflow_workflows/m10n/jobs.py
+
+创建分支:
+git checkout -b keyword-normalization
+
