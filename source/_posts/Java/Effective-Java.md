@@ -329,47 +329,13 @@ http://cwind.iteye.com/blog/2214107
 原因就是当equals方法被隐式调用时，比如像 hashset ， 直接调用equals(Object) 方法。所以要覆盖，而不是重载
 
 
-第16条 复合优于继承
-
-
-
-当在考虑类的继承时，可以考虑用复合的方式。
-
-
-
-第22条， 优先考虑静态成员类
-```text
-                         + static member class
-
-nested class ---+ nonstatic member class  +
-
-                         + anonymous class            + --- inner class 
-
-                         + local class                       +
-```
-
-
-nonstatic member class always linked with enclosing instance, and it can call enclosing instance method.
-
-waste space and construct time
-
-
-
-static member class can only be created when using it, and independent to enclosing instance.
-
-                       
-Item 57: Use exceptions only for exceptional conditions
-
-exceptions are, as their name implies, to be used only for exceptional conditions; they should never be used for ordinary control flow 
-
-A well-designed API must not force its clients to use exceptions for ordinary control flow 
-
-
-
-
 重写Equals 时，参数用Object
+public boolean equals(Object obj)
 
 重写compare 时参数用自己的类。
+int compareTo(T o)
+
+一个要override的是 Obejct, 一个是泛型，这才是本质区别
 ```java
 import java.util.*;
 
@@ -437,6 +403,45 @@ public class Hello{
 
 }
 ```
+
+
+
+
+第16条 复合优于继承
+
+
+
+当在考虑类的继承时，可以考虑用复合的方式。
+
+
+
+第22条， 优先考虑静态成员类
+```text
+                         + static member class
+
+nested class ---+ nonstatic member class  +
+
+                         + anonymous class            + --- inner class 
+
+                         + local class                       +
+```
+
+
+nonstatic member class always linked with enclosing instance, and it can call enclosing instance method.
+
+waste space and construct time
+
+
+
+static member class can only be created when using it, and independent to enclosing instance.
+
+                       
+Item 57: Use exceptions only for exceptional conditions
+
+exceptions are, as their name implies, to be used only for exceptional conditions; they should never be used for ordinary control flow 
+
+A well-designed API must not force its clients to use exceptions for ordinary control flow 
+
 
 
 
