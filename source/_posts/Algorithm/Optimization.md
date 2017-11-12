@@ -7,6 +7,8 @@ tags:
 
 浅谈怎么优化， how to optimiaziton.
 
-HashMap, LinkedHashMap, TreeMap, LRU Cache.
+HashMap, LinkedHashMap, TreeMap, 
 
 优化的终极武器DP, 优化到O(n)
+map, set, LRU Cache. index
+

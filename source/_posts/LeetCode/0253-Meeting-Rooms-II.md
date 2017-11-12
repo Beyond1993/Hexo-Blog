@@ -51,6 +51,9 @@ class IntervalComparator implements Comparator<Interval> {
 } 
 ```
 
+这个思路应该是最优解.很多时候，O(nlogn) 不是最优解。 要优化到O(n) 才行，
+
+用roomNums 记录每个interval 对应的房间的位置，如果当前的start > end, 则表示可以使用上一个interval的房间
 ```java
 /**
  * Definition for an interval.
