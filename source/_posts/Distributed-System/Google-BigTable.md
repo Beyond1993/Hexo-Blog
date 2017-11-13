@@ -6,7 +6,7 @@ tags:
 ---
 https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf
 Hbase is kind of BigTable
-
+http://chouqin.github.io/blog/2013/10/24/bigtable/
 BigTable
 
 A Distributed Storage System for Structured Data
@@ -15,3 +15,5 @@ A Distributed Storage System for Structured Data
 goals:wide applicability, scalability, high per- formance, and high availability
 
 Bigtable使用一个类似B+树的数据结构存储片的位置信息
+
+
