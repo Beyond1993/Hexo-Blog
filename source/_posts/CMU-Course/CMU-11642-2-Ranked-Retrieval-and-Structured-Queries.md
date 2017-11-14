@@ -7,3 +7,7 @@ tags:
 
 HW2 Ranked Retrieval and Structured Queries
 BM25 and Indri ranking algorithms
+
+BM25
+
+Indri
