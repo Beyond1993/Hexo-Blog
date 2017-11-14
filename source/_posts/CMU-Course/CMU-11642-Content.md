@@ -68,8 +68,18 @@ exact-match 的不足:
  – Unranked Boolean
  – Ranked Boolean
 • Indexing
- – Inverted lists 倒排索引
- – Term dictionary • Query processing
- – TAAT
- – DAAT
+ – Inverted Lists 倒排列表，一步一步优化, Inverted Lists, query --> list&lt;docid&gt;
+ – Term dictionary 就是一个缓存
+
+• Query processing
+ – TAAT Term-at-a-Time
+ – DAAT Document-at-a-Time
+ – TAAT / DAAT hybrids
+
 • Query operators
+
+在搜索引擎和信息检索领域中，针对词组查询主要有TAAT策略，和DAAT策略两种经典的索引结构查询遍历算法
+TAAT策略每次只选择一个查询词项对应的倒排链对其进行完整的遍历，
+http://www.docin.com/p-1643110232.html
+
+http://www.360doc.com/content/13/0201/09/1200324_263539380.shtml
