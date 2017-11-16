@@ -42,12 +42,20 @@ git reset --hasr HEAD~100 上100个版本
 git log
 git reset --hard commit_id 某一版本
 
-git pull
-
+git pull : is what you would do to bring a local branch up-to-date with its remote version, while also updating your other remote-tracking branches.
 
 更新单个文件.
 git checkout origin/master -- pinflow_workflows/m10n/jobs.py
 
 创建分支:
+不论增加什么代码的时候，都new branch， 然后合并
 git checkout -b keyword-normalization
 
+查看 git branch graph
+git log --all --graph --decorate --oneline --simplify-by-decoration
+
+同步远程master
+# fetch from the default remote, origin
+git fetch :In the simplest terms, git pull does a git fetch followed by a git merge.
+# reset your current branch (master) to origin's master
+git reset --hard origin/master
