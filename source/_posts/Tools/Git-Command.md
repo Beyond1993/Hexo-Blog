@@ -59,3 +59,11 @@ git log --all --graph --decorate --oneline --simplify-by-decoration
 git fetch :In the simplest terms, git pull does a git fetch followed by a git merge.
 # reset your current branch (master) to origin's master
 git reset --hard origin/master
+
+
+git --squash
+
+land code
+git fetch
+git rebase origin/master
+arc land

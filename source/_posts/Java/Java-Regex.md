@@ -4,6 +4,7 @@ date: 2017-08-28 17:11:13
 categories: Java
 tags:
 ---
+https://regex101.com/
 
 ```java
 import java.util.regex.Matcher;
@@ -34,3 +35,6 @@ public class Regex {
 
 4. 去掉hive 里的 tab comma, space, regexp_replace(regexp_replace(b.unstemmed_keyword, '[,\\s*]', ' '), '\\s+', ' ')
 * 零次或多次匹配前面的字符或子表达式。例如，zo* 匹配"z"和"zoo"。* 等效于 {0,}。+ 一次或多次匹配前面的字符或子表达式。例如，"zo+"与"zo"和"zoo"匹配，但与"z"不匹配。+ 等效于 {1,}。
+
+5. 正则前瞻
+\|(?=[-+]) 匹配 |+ 或者 |- 里的 |
