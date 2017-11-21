@@ -67,3 +67,8 @@ land code
 git fetch
 git rebase origin/master
 arc land
+
+
+https://www.derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/
+
+使用rebase 的主要目的，就是解决commit tree 过于复杂的问题
