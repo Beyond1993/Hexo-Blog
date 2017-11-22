@@ -1,7 +1,7 @@
 ---
 title: Hive-Records
 date: 2017-08-22 18:36:13
-categories: Hive
+categories: BigData
 tags: BigData
 ---
 Input File:

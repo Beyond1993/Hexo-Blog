@@ -1,7 +1,7 @@
 ---
 title: Hive-Windows-Function
 date: 2017-09-07 16:54:44
-categories: Hive
+categories: BigData
 tags:
 ---
 
