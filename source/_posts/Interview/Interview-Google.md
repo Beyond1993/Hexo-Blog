@@ -8,3 +8,9 @@ tags:
 OA:
 
 K 
+
+
+Onsite : 
+Design an algorithm to figure out if someone has won a game of tic-tac-toe
+
+参考 cc189 的 16.4
