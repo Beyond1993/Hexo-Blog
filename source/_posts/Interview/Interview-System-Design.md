@@ -1,3 +1,6 @@
+
+
+
 ---
 title: Interview-System-Design
 date: 2017-09-22 00:42:50
@@ -5,10 +8,45 @@ categories: 面试
 tags:
 ---
 
+Snake 原则
+
+Scenario: case/interface
+Necessary: constrain/hypotheis
+Application: service/algorithm
+Kilobit: data 数据流，数据存储
+Evolve: 评估
+
 系统设计的面试。其实主要是针对大规模，分布式系统的设计。
 
 1. Tiny URL 
 Tiny URL 是系统设计中的hello word. 
+Scenario:
+插入短链接，
+查找长链接
+
+Necessary:
+月活跃用户，日活跃用户.
+
+Daily active users
+*1,000,000
+
+Insert 
+Per day: 1,000,000 * 1% (function usage) * 10(function frequency) = 1000,000
+Per Year: 100,000 * 365 = 36,500,000
+Per second: 100,000/86400 = 1.2
+Lookup:
+Per day: 1,000,000 * 100 % (function usage) * 3 (function frequency) = 3,000,000
+Per second: 3,000,000/86400 = 35
+
+一般请求数超过100 ／ 一秒， 就需要考虑分布式架构
+但是35只是一个平均值，可能白天到达七八十， 高峰期过一百，就需要分布式了
+
+做个总结：
+     日活用户是基础 ，
+     插入查找算清楚。
+     字母编码省空间，
+     随机算法防冲突 。
+
 
 2. Web Crawler 
 
@@ -28,6 +66,9 @@ http://dbaplus.cn/news-21-483-1.html
 用户在线状态的获取与查询 Online Status
 访问限制系统及其设计原理 Rate Limiter
 
+6. 设计一个Uber
+
+7. 设计一个twitter
 
 (1) 要求设计一个DNS的Cache结构，要求能够满足每秒5000以上的查询，满足IP数据的快速插入，查询的速度要快。（题目还给出了一系列的数据，比如：站点数总共为5000万，IP地址有1000万，等等）
 
