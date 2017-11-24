@@ -52,6 +52,7 @@ Per second: 3,000,000/86400 = 35
 
 3. Google Suggestion
 http://dbaplus.cn/news-21-483-1.html
+只对一个query 的前四个字符 inverted index
 
 4. Location Based Service
 系统学习LBS相关系统设计的核心要点：
