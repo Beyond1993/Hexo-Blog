@@ -405,7 +405,7 @@ public class Hello{
 ```
 
 
-
+优先使用 Object.equals Object.hash， 防止 null point exception
 
 第16条 复合优于继承
 
