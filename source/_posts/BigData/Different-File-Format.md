@@ -6,3 +6,8 @@ tags:
 ---
 
 http://blog.cloudera.com/blog/2012/06/hbase-io-hfile-input-output/
+
+
+sequenceFile : binary key/value pairs
+mapFile
+HFile : Based on BigTable
