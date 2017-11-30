@@ -738,3 +738,21 @@ select * from ad.ad_search_query_onsite_agg where dt <= and="" dt="">= '2017-07-
 
 
 group by keyword+"random string" ) group by substr(  keyword+"random string" )
+
+
+Redshift performed best in the terabyte range, but Hive caught up and surpassed Redshift in the petabyte range of data.
+Redshift is cheaper than Hive
+
+Comparison Chart
+
+| Features                   | Redshift | Hive |
+|:----------------------------:|:---------:|:------|
+| Open Surce                 | No       | Yes  |
+| MapReduce                  | No*      | Yes  |
+| Standard SQL               | Yes      | No   |
+| Full Administration        | Yes      | No   |
+| Support                    | Yes      | Yes  |
+| Technical Expertise Needed | No       | Yes  |
+| Cloud-base Platform        | Yes      | No** |
+
+
