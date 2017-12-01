@@ -12,51 +12,48 @@ checked 是在编译时就check的，必须要 declaration.
 uncheck 在编译时不检查，不必须 declaration. 除了 Error和 RuntimeException 其他都是checked.
 
 ```text
-
                    +-----------+
-		   | Throwable |
+                   | Throwable |
                    +-----------+
                     /         \
-		   /           \
+                   /           \
           +-------+          +-----------+
           | Error |          | Exception |
           +-------+          +-----------+
-	   /  |  \           / |        \
-         \        /	  \______/    	 \
-	  \      /	                +------------------+
-	  unchecked	 checked	| RuntimeException |
-					+------------------+
-					  /   |    |      \
-					 \_________________/
-					   
-					   unchecked
+           /  |   \          /  |   \      \
+          \________/         \______/       \
+           unchecked          checked   +------------------+
+                                        | RuntimeException |
+                                        +------------------+
+                                         /     |    |      \
+                                         \_________________/
+                                              unchecked
 
 
 
 ```
 
-
+```java
 public long Factorial (int n) throws FactorialException {
-	Int sign = 1;
-	If (n < 0) {
-	 throw new FactorialException(“the number is negtive!”);
-	}
-long result  = 1;
-	For (int i = n; i >=1 ; i--) {
-		Result *= i;
+ int sign = 1;
+ if (n < 0) {
+  throw new FactorialException(“the number is negtive!”);
+ }
+ long result  = 1;
+ for (int i = n; i >=1 ; i--) {
+   Result *= i;
+  }
+  Return result * sign;
 }
-Return result * sign;
-}
-
 
 // must throw
-Public class FactorialException extends Exception {
+public class FactorialException extends Exception {
 …
 }
 //don't have to throw
-Public class FactorialException extends RuntimeException {
+public class FactorialException extends RuntimeException {
 …
 }
-
+```
 
 
