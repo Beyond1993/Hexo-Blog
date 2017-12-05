@@ -1,7 +1,7 @@
 ---
 title: Reinforcement-Learning
 date: 2017-10-16 06:12:57
-categories: Machine-Leaning
+categories: Machine-Learning
 tags:
 ---
 

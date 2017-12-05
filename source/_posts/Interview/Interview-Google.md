@@ -29,3 +29,12 @@ transitive, 传递性
 Union Find
 
 159 
+
+Onsite Interview:
+https://leetcode.com/problems/isomorphic-strings
+https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters
+https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters
+https://leetcode.com/problems/lru-cache
+
+
+

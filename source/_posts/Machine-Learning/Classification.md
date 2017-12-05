@@ -1,7 +1,7 @@
 ---
 title: Classification
 date: 2017-12-04 02:10:21
-categories: Marchine-Learning
+categories: Machine-Learning
 tags:
 ---
 
