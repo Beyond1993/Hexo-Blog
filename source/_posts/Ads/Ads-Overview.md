@@ -28,15 +28,15 @@ metrics: 根据这样表的index，拿到的信息。
 
 query:
 keyword:
-cpc:
-ctr:
+cpc: Cost per Click
+ctr: Click Through Rate
 pctr * price ==> 每个impression 可能会获得收益
 pctr * 1 ==> 每个impression 可能获得点击次数
-eCPM:
+eCPM: expericenced Cost Per 1000 Impressions
 stem: 取单词的词根，去掉过去式，将来时态等。
 organic pin： 正常的Pin
 promotion pin: 广告 Pin
-engagement
+engagement:
 
 insertition
 action: onsite action 用户的一个操作

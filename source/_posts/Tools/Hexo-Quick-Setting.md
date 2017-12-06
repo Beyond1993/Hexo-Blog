@@ -21,3 +21,6 @@ tags:
 2. 增加本地图片
 
 在 source/ 目录下增减 images/ 修改images/ 权限
+```text
+![](/images/rpc.png)
+```
