@@ -17,8 +17,8 @@ http://www.ruanyifeng.com/blog/2017/07/neural-network.html
 https://www.zhihu.com/question/34681168/answer/84061846
 
 DNN 深度神经网络
-CNN 空间上的深度神经网
-RNN 时间上的深度神经网
+CNN 卷积神经网 空间上的深度神经网
+RNN 循环神经网络 间上的深度神经网
 
 卷积的
 
