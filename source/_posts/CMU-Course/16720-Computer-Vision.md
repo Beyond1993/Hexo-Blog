@@ -6,3 +6,12 @@ tags:
 ---
 
 http://16720.courses.cs.cmu.edu/lec.html
+
+Homework 0
+
+1. Color Channel alignment
+2. Normalized Cross Correlation (NCC)
+
+
+Homework 1
+Spatial Pyramid Matching for Scene Classification
