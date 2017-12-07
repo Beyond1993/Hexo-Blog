@@ -39,3 +39,8 @@ https://leetcode.com/problems/lru-cache
 
 
 其实第三题without-repeating-characters, 就是at-most-one-characters
+
+
+https://en.wikipedia.org/wiki/Mastermind_(board_game)
+
+weight random

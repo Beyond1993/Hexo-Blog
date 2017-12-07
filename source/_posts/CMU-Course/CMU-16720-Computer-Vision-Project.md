@@ -8,4 +8,4 @@ tags:
     
 ![](/images/cv_project-1.png)
 ![](/images/cv_project-2.png)
-
+![](/images/Plate_Recognition_Poster-1.png)
