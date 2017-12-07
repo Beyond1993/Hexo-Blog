@@ -5,12 +5,17 @@ categories: BigData
 tags:
 ---
 
+http://www.infoq.com/cn/articles/how-to-build-a-distributed-database
 https://www.zhihu.com/question/21165724
+
 HBase master slave
 
 Cassandra leaderless 
 
 dynamoDB leaderless 
+
+RocksDB 
+
 
 
 
