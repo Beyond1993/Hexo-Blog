@@ -31,3 +31,34 @@ The number of calls to MyCalendar.book per test case will be at most 1000.
 In calls to MyCalendar.book(start, end), start and end are integers in the range [0, 10^9].
 
 这题本质上还是interval， 有点像meeting room的 OOD 设计。
+
+
+这一题考的本质是，一个interval 是否重叠的公式。
+
+if (Math.max(b[0], start) < Math.min(b[1], end)) return false;
+
+为什么这个公式重要。
+
+TreeMap
+```java
+class MyCalendar {
+
+    TreeMap<Integer, Integer> calendar;
+
+    public MyCalendar() {
+        calendar = new TreeMap<>();
+    }
+
+    public boolean book(int start, int end) {
+        Integer floorKey = calendar.floorKey(start);
+        if (floorKey != null && calendar.get(floorKey) > start) return false;
+        Integer ceilingKey = calendar.ceilingKey(start);
+        if (ceilingKey != null && ceilingKey < end) return false;
+
+        calendar.put(start, end);
+        return true;
+    }
+}
+```
+
+
