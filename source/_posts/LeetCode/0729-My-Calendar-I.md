@@ -39,7 +39,27 @@ if (Math.max(b[0], start) < Math.min(b[1], end)) return false;
 
 为什么这个公式重要。
 
+```
+class MyCalendar {
+    private List<int[]> books;
+    public MyCalendar() {
+        this.books = new ArrayList<>();
+    }
+    
+    public boolean book(int start, int end) {
+        for (int[] b: this.books) {
+            if (Math.max(start, b[0]) < Math.min(end,b[1])) {
+                return false;
+            }
+        }
+        this.books.add(new int[]{start,end} );
+        return true;  
+    }
+}
+```
+
 TreeMap
+
 ```java
 class MyCalendar {
 
@@ -60,5 +80,8 @@ class MyCalendar {
     }
 }
 ```
+
+
+
 
 
