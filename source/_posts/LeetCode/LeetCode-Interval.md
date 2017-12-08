@@ -9,7 +9,13 @@ tags:
 
 区间合并问题,包括摩天大楼问题
 
-一般都是interval, 排序，然后用priority queue
+一般都是interval, 排序，然后用
+
+Priority Queue
+
+TreeMap, TreeSet
+
+排序 双指针
 
 
 meeting-room 问题
