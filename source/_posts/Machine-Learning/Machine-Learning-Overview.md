@@ -8,6 +8,8 @@ tags:
 ![](http://www.chinacloud.cn/upload/2017-04/170428143391171.jpg)
 
 
+http://blog.csdn.net/column/details/15279.html
+
 机器学习说白了就是概率统计，离散数学，只不过在实现这些数学公式的时候，恰好有很多编程罢了。
 
 回归函数
