@@ -5,6 +5,28 @@ categories: C/C++
 tags:
 ---
 
+## vector
+
+## array
+
+## list
+
+## map
+
+## multimap
+
+## set
+
+## multiset
+
+## queue
+
+## priority_queue
+
+## stack  
+
+## deque
+
 C++ STL中的remove和erase函数曾经让我迷惑，同样都是删除，两者有什么区别呢？
 
 
