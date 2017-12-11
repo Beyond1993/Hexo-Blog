@@ -5,40 +5,49 @@ categories: LeetCode
 tags: binary-tree
 ---
 二叉树
+
 ```text
       node1
      /     \
-   node2  node3 
+   node2  node3        
+
+                           +-DFS
+       +-search--+-traverse+-BFS
+Tree---+         +-divide & conquer -->DFS BFS? 
+       +-build-->
 ```
+Tree的题目大致分为两种，第一种是遍历一棵树，第二种是构造一棵树。
 
-
-二叉树题目简单，但是变化繁多．特此总结．
-
+## travese. 普通递归，将结果用参数的形式返回 
 
 
 类型一： 遍历二叉树．
 
 遍历二叉树是很多题目的基础，重中之重．
 
+二叉树遍历分为深度(DFS)，层次遍历(BFS)．
 
-
-二叉树遍历分为深度，层次遍历．
-
-
-
+### DFS
 深度遍历又分为前序，中序，后序．三大遍历．
 
-
-
-三种遍历的递归写法比较简单，暂时不讨论．
-
+三种遍历的递归写法比较简单
+```cpp
+void traverse(TreeNode root) {
+  if (root == NULL) {
+     return NULL;
+  }
+  //cout<<root->val<<endl; //preorder
+  traverse(root->left);
+  //cout<<root->val<<endl; //inorder
+  traverse(root->right);
+  //cout<<root->val<<endl; //postorder
+}
+```
 
 
 二叉树的非递归遍历：
 
 基本思路，先将左子树不断压栈，左子树为空时，将从栈顶节点の右子树作为当前节点．
-
-
 
 中序：
 ```java
@@ -70,41 +79,28 @@ while( !s.isEmpty() || p != null) {
 ```
 
 ```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public List<Integer> preorderTraversal(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<Integer>();
-        }
-        List<Integer> result = new ArrayList<Integer>();
-        Stack<TreeNode> s = new Stack<TreeNode>();
-        s.push(root);
-        while(!s.isEmpty()) {
-            TreeNode cur = s.pop();
-            result.add(cur.val);
-            if (cur.right != null) {
-                s.push(cur.right);
-            }
-            
-            if (cur.left != null) {
-                s.push(cur.left);
-            }
-        }
-        return result;
+public List<Integer> preorderTraversal(TreeNode root) {
+    if (root == null) {
+        return new ArrayList<Integer>();
     }
+    List<Integer> result = new ArrayList<Integer>();
+    Stack<TreeNode> s = new Stack<TreeNode>();
+    s.push(root);
+    while(!s.isEmpty()) {
+       TreeNode cur = s.pop();
+       result.add(cur.val);
+       if (cur.right != null) {
+            s.push(cur.right);
+        }
+            
+        if (cur.left != null) {
+            s.push(cur.left);
+        }
+    }
+   return result;
 }
 ```
 前序，中序的思路一样，只是打印节点的位置不同．
-
-
 
 后序：还是前序，中序基本的思路，只不过节点第一次出栈时先压回栈顶，第二次出栈在打印出来,　可以在TreeNode 节点里加 flag 或者　用hashSet 记录是否第一次出现.
 
@@ -129,13 +125,103 @@ while (!s.empty() || p != null) {
     }    
 }
 ```
+**树的DFS， 是如此重要，很多很多题，都是DFS的变种题**
+
+[114. Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
+
+### 分治法，典型代码
+分支法最后由return value 返回。
+例子： 求树的hight
+```cpp
+int left = maxpath(root->left);
+int right = maxpath(root->right);
+return math.max(left, right) + 1;
+```
 
 类型二： 构造二叉树
 
+核心结构
+```cpp
+TreeNode * root = new TreeNode();
+root->left = helper();
+root->right = helper(); 
+```
 
+或者
+
+```cpp
+vector<TreeNode *> lefts = helper();
+vector<TreeNode *> rights = helper();
+for (int i = 0; i < lefts.size(); i++) 
+  for (int j = 0; rights.size(); i++)
+{
+    TreeNode * root = new TreeNode();
+    root->left = left;
+    root->right = right;
+}
+```
+这两种结构的最大区别就是，第一种helper function 只返回一种情况，但是第二种模板是返回多种情况, lefts,rights
+
+[Unique Binary Search Trees II](https://leetcode.com/problems/unique-binary-search-trees-ii/description/)
 
 
 线段树，索引树
+
+Tree Questions Categories:
+
+94 Binary Tree Inorder Traversal
+
+95 Unique Binary Search Trees II
+
+96 Unique Binary Search Trees
+
+98 Valid Binary Search Tree
+
+99 Revocer Binary Search Tree
+
+100 Same Tree
+
+101 Symmetric Tree
+
+102 Binary Tree Level Order Traversal
+
+103 Binary Tree Zigzag Level Order Traversal
+
+104    Maximum Depth of Binary Tree    53.5%    Easy    
+105    Construct Binary Tree from Preorder and Inorder Traversal    32.9%    Medium    
+106    Construct Binary Tree from Inorder and Postorder Traversal    32.6%    Medium    
+107    Binary Tree Level Order Traversal II    41.1%    Easy    
+108    Convert Sorted Array to Binary Search Tree    42.9%    Easy    
+110    Balanced Binary Tree    38.0%    Easy    
+111    Minimum Depth of Binary Tree    33.4%    Easy    
+112    Path Sum    34.4%    Easy    
+113    Path Sum II    34.7%    Medium    
+114    Flatten Binary Tree to Linked List    35.8%    Medium    
+116    Populating Next Right Pointers in Each Node    36.9%    Medium    
+117    Populating Next Right Pointers in Each Node II    33.9%    Medium    
+124    Binary Tree Maximum Path Sum    26.7%    Hard    
+129    Sum Root to Leaf Numbers    37.2%    Medium    
+144    Binary Tree Preorder Traversal    45.9%    Medium    
+145    Binary Tree Postorder Traversal    41.0%    Hard    
+156    Binary Tree Upside Down     45.2%    Medium    
+173    Binary Search Tree Iterator    42.6%    Medium    
+199    Binary Tree Right Side View    41.7%    Medium    
+222    Count Complete Tree Nodes    27.6%    Medium    
+226    Invert Binary Tree    52.6%    Easy    
+230    Kth Smallest Element in a BST    44.6%    Medium    
+235    Lowest Common Ancestor of a Binary Search Tree    39.5%    Easy    
+236    Lowest Common Ancestor of a Binary Tree    30.0%    Medium    
+250    Count Univalue Subtrees     43.0%    Medium    
+255    Verify Preorder Sequence in Binary Search Tree     40.8%    Medium    
+257    Binary Tree Paths    39.9%    Easy    
+270    Closest Binary Search Tree Value     40.2%    Easy    
+272    Closest Binary Search Tree Value II     39.5%    Hard    
+285    Inorder Successor in BST     36.3%    Medium    
+297    Serialize and Deserialize Binary Tree    34.1%    Hard    
+298    Binary Tree Longest Consecutive Sequence     41.5%    Medium    
+333    Largest BST Subtree     30.7%    Medium    
+337    House Robber III    44.1%    Medium    
+366    Find Leaves of Binary Tree 
 
 303Range Sum Query - Immutable   29.3%Easy
 
