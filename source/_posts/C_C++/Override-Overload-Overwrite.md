@@ -6,7 +6,10 @@ tags:
 ---
 https://wuciawe.github.io/object%20oriented/2014/08/29/override-overload-overwrite.html
 
-            继承有关  C++， Java， 参数返回值是否相等
-override     yes      yes   yes       yes
-overload     no       yes   yes       no
-overwrite    yes      yes    no       no
+| 名称     |  继承有关 | C++  | Java  | 参数返回值是否相等|
+|---------:|----------:|-----:|------:|------------------:|
+|override  |   yes     | yes  | yes   |    yes            |
+|overload  |   no      | yes  | yes   |    no             |
+|overwrite |   yes     | yes  |  no   |    no             |
+
+override 翻译成 覆盖比较好 重载运算符是overload.

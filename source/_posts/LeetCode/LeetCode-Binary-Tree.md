@@ -5,9 +5,11 @@ categories: LeetCode
 tags: binary-tree
 ---
 二叉树
+```text
       node1
      /     \
    node2  node3 
+```
 
 
 二叉树题目简单，但是变化繁多．特此总结．
@@ -39,7 +41,7 @@ tags: binary-tree
 
 
 中序：
-
+```java
 Stack s = new Stack();
 TreeNode p = root;
 while( !s.isEmpty() || p != null) {
@@ -51,10 +53,10 @@ while( !s.isEmpty() || p != null) {
     System.out.println(node.val);
     p = node.right;
 }
-
+```
 
 前序：
-
+```java
 Stack s = new Stack();
 TreeNode p = root;
 while( !s.isEmpty() || p != null) {
@@ -65,8 +67,41 @@ while( !s.isEmpty() || p != null) {
     TreeNode node = s.pop();
     p = node.right;
 }
+```
 
-
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<Integer>();
+        }
+        List<Integer> result = new ArrayList<Integer>();
+        Stack<TreeNode> s = new Stack<TreeNode>();
+        s.push(root);
+        while(!s.isEmpty()) {
+            TreeNode cur = s.pop();
+            result.add(cur.val);
+            if (cur.right != null) {
+                s.push(cur.right);
+            }
+            
+            if (cur.left != null) {
+                s.push(cur.left);
+            }
+        }
+        return result;
+    }
+}
+```
 前序，中序的思路一样，只是打印节点的位置不同．
 
 
@@ -74,7 +109,7 @@ while( !s.isEmpty() || p != null) {
 后序：还是前序，中序基本的思路，只不过节点第一次出栈时先压回栈顶，第二次出栈在打印出来,　可以在TreeNode 节点里加 flag 或者　用hashSet 记录是否第一次出现.
 
 
-
+```java
 Stack s = new Stack();
 Set set = new HashSet();    
         
@@ -93,7 +128,7 @@ while (!s.empty() || p != null) {
         list.add(node.val);
     }    
 }
-
+```
 
 类型二： 构造二叉树
 
