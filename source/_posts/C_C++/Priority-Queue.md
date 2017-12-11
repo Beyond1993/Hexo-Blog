@@ -16,14 +16,17 @@ STL里面默认用的是 vector. 比较方式默认用 operator< , 所以如果�
 
 默认最大堆
 
-priority_queue<int> qi;
+priority_queue<int> q;
 
 
 
 最小堆
 
-priority_queue<int, vector<int>, greater<int> >qi2;
+priority_queue<int, vector<int>, greater<int> >q2;
 
+auto compare  = [](int a, int b) {
+  return a < b;
+};
 
-
+小于号是最大堆，大于号是最小堆
 
