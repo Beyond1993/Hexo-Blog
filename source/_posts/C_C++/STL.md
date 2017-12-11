@@ -6,9 +6,11 @@ tags:
 ---
 
 ## vector
+vector 是STL最常见的数据结构了。
+std::vector is a template class that encapsulated a dynamic array, stored in the heap 
 
 ## array
-
+STL 里的array， 就是对C++ 普通array 的一种封装。 它是fixed size, more efficiect for small size, alloecated in stack.
 ## list
 
 ## map
