@@ -22,4 +22,6 @@ Return ["eat","oath"].
 Note:
 You may assume that all inputs are consist of lowercase letters a-z.
 
+时间复杂度 : k*len + m*n*4^len
 
+如果不建树， k*len + k*m*n*4^len

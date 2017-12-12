@@ -63,3 +63,13 @@ Plate Recognition                                                              0
 • Used Logistic Regression method to train classification model, accuracy is 95%
 ```
 
+Huawei
+```text
+• Developed software based on Internet of Things Cloud Platform
+• Applied the Two Phase Algorithm to ensure the consistency of MongoDB in Distribute System 
+• Built the data model with spring framework and MongoDB database in Java, Scala
+
+• Developed Real Time Alarm System on Internet of Things Cloud Platform
+• Added home fire alarm feature with Kafka and Samza to decrease latency
+• Landed the code for production in Brazil and Egypt
+```
