@@ -1,6 +1,6 @@
 ---
 title: LeetCode-Binary-Tree
-date: 2017-08-23 01:13:59
+date: 2017-12-12 01:13:59
 categories: LeetCode
 tags: binary-tree
 ---
@@ -18,7 +18,7 @@ Tree---+         +-divide & conquer -->DFS BFS?
 ```
 Tree的题目大致分为两种，第一种是遍历一棵树，第二种是构造一棵树。
 
-## travese. 普通递归，将结果用参数的形式返回 
+## Traversal. 普通递归，将结果用参数的形式返回 
 
 
 类型一： 遍历二叉树．
@@ -27,8 +27,18 @@ Tree的题目大致分为两种，第一种是遍历一棵树，第二种是构�
 
 二叉树遍历分为深度(DFS)，层次遍历(BFS)．
 
-### DFS
+### Traversal-DFS
 深度遍历又分为前序，中序，后序．三大遍历．
+
+最近重新复习, binary tree. 发现之前结论是错误的，前序遍历的第二种写法。其实是BFS. 先右子树压栈，再左子树压栈。
+
+**也就是说前序遍历有DFS, BFS 两种实现**
+
+而且后序遍历的有一种写法是反前序遍历倒过来。所以**后序遍历也有BFS 的写法**
+
+那么问题来了。中序遍历有没有BFS 的写法呢？
+果然有
+http://blog.163.com/guo_linda/blog/static/1237730572010928251143/
 
 三种遍历的递归写法比较简单
 ```cpp
@@ -49,6 +59,20 @@ void traverse(TreeNode root) {
 
 基本思路，先将左子树不断压栈，左子树为空时，将从栈顶节点の右子树作为当前节点．
 
+前序：
+```java
+Stack s = new Stack();
+TreeNode p = root;
+while( !s.isEmpty() || p != null) {
+    while( p != null) {
+        System.out.println(p.val);
+        p = p.left;
+    }
+    TreeNode node = s.pop();
+    p = node.right;
+}
+```
+
 中序：
 ```java
 Stack s = new Stack();
@@ -64,42 +88,6 @@ while( !s.isEmpty() || p != null) {
 }
 ```
 
-前序：
-```java
-Stack s = new Stack();
-TreeNode p = root;
-while( !s.isEmpty() || p != null) {
-    while( p != null) {
-        System.out.println(p.val);
-        p = p.left;
-    }
-    TreeNode node = s.pop();
-    p = node.right;
-}
-```
-
-```java
-public List<Integer> preorderTraversal(TreeNode root) {
-    if (root == null) {
-        return new ArrayList<Integer>();
-    }
-    List<Integer> result = new ArrayList<Integer>();
-    Stack<TreeNode> s = new Stack<TreeNode>();
-    s.push(root);
-    while(!s.isEmpty()) {
-       TreeNode cur = s.pop();
-       result.add(cur.val);
-       if (cur.right != null) {
-            s.push(cur.right);
-        }
-            
-        if (cur.left != null) {
-            s.push(cur.left);
-        }
-    }
-   return result;
-}
-```
 前序，中序的思路一样，只是打印节点的位置不同．
 
 后序：还是前序，中序基本的思路，只不过节点第一次出栈时先压回栈顶，第二次出栈在打印出来,　可以在TreeNode 节点里加 flag 或者　用hashSet 记录是否第一次出现.
@@ -125,9 +113,106 @@ while (!s.empty() || p != null) {
     }    
 }
 ```
-**树的DFS， 是如此重要，很多很多题，都是DFS的变种题**
 
+
+### Traversal-BFS
+以前一直认为前序，中序，后序遍历是属于DFS, 这次总结发现了以前还是too young too simple
+用BFS 照样可以做
+
+前序
+ 
+```java
+public List<Integer> preorderTraversal(TreeNode root) {
+    if (root == null) {
+        return new ArrayList<Integer>();
+    }
+    List<Integer> result = new ArrayList<Integer>();
+    Stack<TreeNode> s = new Stack<TreeNode>();
+    s.push(root);
+    while(!s.isEmpty()) {
+       TreeNode cur = s.pop();
+       result.add(cur.val);
+       if (cur.right != null) {
+            s.push(cur.right);
+        }
+            
+        if (cur.left != null) {
+            s.push(cur.left);
+        }
+    }
+   return result;
+}
+```
+中序 用栈 + BFS 的版本却并不乐观。preOrder可以用栈很好的执行的原因是，将左右节点压入栈后，根节点就再也用不着了；而中序和后序却不一样，左右节点入栈后，根节点后面还需要访问。
+因此三个节点都要入栈，而且入栈的先后顺序必须为：右节点，根节点，左节点。但是，当入栈以后，根节点与其左右子树的节点就分不清楚了。
+因此必须引入一个标志位，表示 是否已经将该节点的左右子树入栈了。每次入栈时，根节点标志位为true,左右子树标志位为false。
+```cpp
+void InOrder2(TNode* root) 
+{ 
+    Stack S; 
+    if( root != NULL ) 
+    { 
+        S.push(root); 
+    } 
+    while ( !S.empty() ) 
+    { 
+        TNode* node = S.pop();  
+        if ( node->bPushed ) 
+        {   // 如果标识位为true,则表示其左右子树都已经入栈，那么现在就需要访问该节点了 
+            Visit(node);         
+        } 
+        else 
+        {   // 左右子树尚未入栈，则依次将 右节点，根节点，左节点 入栈 
+            if ( node->right != NULL ) 
+            { 
+                node->right->bPushed = false; // 左右子树均设置为false 
+                S.push(node->right); 
+            } 
+            node->bPushed = true;  // 根节点标志位为true 
+            S.push(node); 
+            if ( node->left != NULL ) 
+            { 
+                node->left->bPushed = false; 
+                S.push(node->left); 
+            } 
+        } 
+    } 
+}
+```
+后序
+```java
+public List<Integer> postorderTraversal(TreeNode root) {
+    if (root == null) {
+        return new ArrayList<Integer>();
+    }
+    Stack<TreeNode> s = new Stack<TreeNode>();
+    List<Integer> list = new ArrayList<Integer>();
+    s.push(root);
+    while(!s.isEmpty()) {
+        TreeNode p = s.pop();
+        
+        list.add(p.val);
+        if (p.left != null) {
+            s.push(p.left);
+        }
+        
+        if(p.right != null) {
+            s.push(p.right);
+        }
+    }
+        
+    Collections.reverse(list);
+    return list;
+        
+}
+```
+
+
+**树的前中后三序搜索是如此重要， 如此重要，是如此重要，很多很多题，都是Traversal的变种题**
 [114. Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
+
+### 时间复杂度
+搞了一大推
 
 ### 分治法，典型代码
 分支法最后由return value 返回。
@@ -137,6 +222,7 @@ int left = maxpath(root->left);
 int right = maxpath(root->right);
 return math.max(left, right) + 1;
 ```
+
 
 类型二： 构造二叉树
 
