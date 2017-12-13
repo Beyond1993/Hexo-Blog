@@ -1,5 +1,5 @@
 ---
-title: Median-of-Two-Sorted-Arrays
+title: 0004-Median-of-Two-Sorted-Arrays
 date: 2017-10-16 07:39:04
 categories: LeetCode
 tags:
@@ -24,3 +24,5 @@ tags:
 3.[3,4,5] [1,2] k = 5, k - k / 2 = 3, 去掉两个求第3个了, k = 3
 
 去掉 B的1，2， A_start = 0 + 2 = 2, 直接返回A的第3个 A_start + 3 - 1
+
+
