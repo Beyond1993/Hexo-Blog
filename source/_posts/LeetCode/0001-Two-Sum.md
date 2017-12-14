@@ -57,6 +57,25 @@ constanet variable
 HashMap 
 LRU
 
+```cpp
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> map;
+        vector<int> result;
+        for (int i = 0; i < nums.size(); i++) {
+            
+            int v = target - nums[i];
+            if (map.find(v) != map.end()) {
+                result.push_back(map[v]);
+                result.push_back(i);
+                return result;
+            }
+            
+            map[nums[i]] = i;
+        }
+        return result;
+    }
+```
+
 解法四: O(n) 优化空间复杂度。
 
 Follow UP:
