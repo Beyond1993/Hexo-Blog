@@ -16,7 +16,11 @@ tags: binary-tree
 Tree---+         +-divide & conquer -->DFS BFS? 
        +-build-->
 ```
-Tree的题目大致分为两种，第一种是遍历一棵树，第二种是构造一棵树。
+Tree的题目大致分为三种，第一种是遍历一棵树，第二种是divde conquer, 第三种是构造一棵树。
+
+第二种 divide conquer:
+
+[543. Diameter of Binary Tree](http://www.wayne.ink/2017/12/14/LeetCode/0543-Diameter-of-Binary-Tree/)
 
 ## Traversal. 普通递归，将结果用参数的形式返回 
 

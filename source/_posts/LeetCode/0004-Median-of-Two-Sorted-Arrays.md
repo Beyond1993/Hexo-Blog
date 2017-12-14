@@ -46,6 +46,7 @@ The median is (2 + 3)/2 = 2.5
 
 去掉 B的1，2， A_start = 0 + 2 = 2, 直接返回A的第3个 A_start + 3 - 1
 
+这题还可以用quick select 去求解。 延伸到多台机器求Kth 的问题，
 ```java
     public double findMedianSortedArrays(int[] A, int[] B) {
       int m = A.length, n = B.length;
