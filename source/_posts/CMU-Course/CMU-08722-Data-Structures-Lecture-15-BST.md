@@ -47,6 +47,8 @@ BST 删除节点是最复杂的
 • CASE 3: The node has one child.
 • CASE 4: The node has two children.
 
+其中case2, case3 是需要 记录被删除的节点是否是左子树的，因为关系到 parent.left, parent.right
+
 Case 3 就是相当于删除一个单链表
 
 Case4 比较有意思。一个父亲节点给退休了，但是他有两个儿子，谁来顶替父亲的职位呢？
