@@ -145,7 +145,13 @@ printf( "sum = %ld\n", sum);
 
 8. copyin 子句
 
+copyin 子句用来将主线程中 threadprivate 变量的值拷贝到执行并行区域的各个线程的 threadprivate 变量中， 便亍线程可以访问主线程中的变量值，
+
+copyin 和 firstprivate 有什么区别.
+
+其实我觉得就是 threadprivate  和 firstprivate 区别。一个是global or static, 一个是 local
 9. copyprivate 子句
+copyprivate 子句提供了一种机制用一个私有变量将一个值仍一个线程广播到执行同一并行区域的其他线程。
 
 OpenMP 中的任务调度
 1. Schedule 子句用法
@@ -157,3 +163,10 @@ OpenMP 中的任务调度
 4. guided 调度(guided)
 
 5. runtime 调度 
+
+
+OpenMP 程序设计的两个小技巧
+
+1. 动态设置并行循环的线程数量
+
+2. 嵌套循环的并行化
