@@ -20,4 +20,5 @@ Relocates symbols from their relative locations in the .o files to their final a
 
 Updates all references to these symbols to reflect their new positions 
 
+BSS Block Started by Symbol
 ![](http://img.blog.csdn.net/20141120144640019?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG92ZV9nYW9oeg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
