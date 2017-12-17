@@ -44,3 +44,12 @@ Expected:
 选择？ 冒泡？ 归并？ 好像都不行，快排！！
 
 选一个中点，比这个值大的都放在奇数index 的slot 里，比这个值小的放在偶数index 的 slot 里，这样子不就保证奇树位置上的值比偶数位置上的值大了？
+
+
+其实这题leetCode 里的那个java 写法，用了一个heap， 来求Kth element。
+
+问题是这样求第k大元素空间复杂度并不是最优解，也就是说不是O(1)
+
+所以说C++ 那版用 nth_element 的复杂度是O(1). 因为 nth_element 使用Introselect 来实现的
+
+[refer] 
