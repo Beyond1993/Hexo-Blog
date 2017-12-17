@@ -70,3 +70,6 @@ The median is (2 + 3)/2 = 2.5
           return getkth(A, aStart, B, bStart + k/2, k - k/2);// Check: bRight + aLeft
     }
 ```
+
+
+还可以直接用 PriorityQueue 实现

@@ -1,8 +1,11 @@
 ---
 title: Deep-Learning
-date: 2017-12-06 04:48:55
+date: 2017-12-17 00:34:57
 categories: Machine-Learning
 tags:
 ---
 
+
 https://github.com/exacity/deeplearningbook-chinese
+
+
