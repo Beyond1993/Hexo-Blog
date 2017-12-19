@@ -1,6 +1,5 @@
 ---
-title: Resume
-
+title: Interview-Resume
 date: 2017-12-01 05:09:23
 categories: 面试
 tags:
@@ -25,9 +24,9 @@ Search & Ads Experiments
 • Improved + 0.9% for CTR (click through rate), + 1.6 % for revenue 
 
 pCTR Model
-• Train the GBDT part first by itself. Then use GBDT to train the LR (logistic regression)
-• 
-•
+• Trained ads pCTR model for Pinterest Search & Ads Team
+• Trained GBDT with ads feature, then use GBDT to train Logistic Regression model
+• Saved the model to AWS S3 as json file, which is used for keyword generator tools 
 ```
 
 CMU 
