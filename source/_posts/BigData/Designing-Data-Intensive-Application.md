@@ -69,7 +69,45 @@ Part II Distributed Data
 
 Part III.  Derived Data
 
-10. Batch Processing
+### 10. Batch Processing
+首先我们要区分三种不同的系统:
+
+Service(online system)
+
+Batch processing system(offline systems)
+Hadoop 的 map reduce
+其实 map reduce的架构是一个非常基础，low-level 的编程模型，虽然现在看来已经有些过时了，但是它为大规模计算从单机到集群迈出了里程碑式的一步
+
+Stream processing systems(near-real-time systems)
+
+流处理是基于 online 和 offline/batch 处理之间的处理。
+
+#### Bath Processing with Unix Tools
+分布式系统的原理，很多都是来自单机的unix 哲学，学好unix 才是学好分布式的关键
+
+Simple Log Analysis
+
+```text
+cat /var/log/nginx/access.log |
+      awk '{print $7}' |
+      sort             |
+      uniq -c          |
+      sort -r -n       |
+      head -n 5
+```
+
+其实有时候在处理gigabytes 的文件时，简单的awk,sed,grep,sort,uniq xargs 就可以在几分钟之内搞定。
+
+The Unix Philosophy
+#### MapReduce and Distributed Filesystems
+
+MapReduce Job Execution
+Reduce-Side Joins and Grouping
+Map-Side Joins
+The Output of Batch Workflows
+Comparing Hadoop to Distributed Databases
+Beyond MapReduce
+
 
 11. Stream Processing
 
