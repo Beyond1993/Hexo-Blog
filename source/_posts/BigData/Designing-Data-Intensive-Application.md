@@ -99,8 +99,26 @@ cat /var/log/nginx/access.log |
 其实有时候在处理gigabytes 的文件时，简单的awk,sed,grep,sort,uniq xargs 就可以在几分钟之内搞定。
 
 The Unix Philosophy
-#### MapReduce and Distributed Filesystems
 
+为什么linux 下的不同group 写的小工具  可以做到无缝对接，因为 linux 提供了最基本的三大特性。 
+
+**a uniform interface** 
+
+**Separation of logic and wiring** wiring是装电线的意思。这里应该是缝合
+
+这种特性同样适合于大型分布式系统。
+
+其实像stdin stdout 这种在hadoop streaming 里也有广泛的应用
+
+**Transparency and experimentation**
+输入文件是immutable的
+整个pipeline 可以任意终止
+一个stage 的 output 作为另一个stage 的 input
+
+想想spark 的任务迭代，是不是就是这个样子？
+
+#### MapReduce and Distributed Filesystems
+这么来看，MapReduce 有点像一个大型的分布式的Unix tools
 MapReduce Job Execution
 Reduce-Side Joins and Grouping
 Map-Side Joins
@@ -108,6 +126,43 @@ The Output of Batch Workflows
 Comparing Hadoop to Distributed Databases
 Beyond MapReduce
 
+MapReduce 框架的原理很简单，但是实际使用却是件很复杂的事，比如各种Join 操作就很难实现，像Pig, Hive, Cascading, Crunch这些high level的框架就应运而生
+
+Materialization of Intermediate State
+实例化。
+
+MapReduce job 之间是相互独立的，一个job 必须要要等它依赖的job完成才可以继续执行。
+
+这样子的话，我们就要把各个中间结果public 到一个公共的分布式文件系统下。
+
+如果这个中间结果被多个jobs同时使用，还可以接受，但是如果这个job 的结果只是针对某一个job, 那么这种方式就显的很低效了。
+(突然想起来之前写的pipeline, 存各种无用的信息到s3,效率低不说，总感觉很蛋疼)
+所以就出现了 stream 处理。
+
+好，我们来看看Unix pipe 是怎么做的
+
+• 在Unix 管道中，所有的管道是同时运行的，每个stage 产生的数据，只要计算出一个，就直接传给下一个stage. 有没有想到指令流水线？ 原理都是一样的。
+• Mappers 很多时候都是多余的，完全可以把Mapper 里的数据，直接写到上一个reducer里
+then reducers could be chained together directly, without interleaving with mapper stages。
+• 更蛋疼的是，我们在distributed filesystem 里存这些materailization的中间结果，必然会有多处备份，但这只是个中间结果啊。有必要吗？
+
+Dataflow engines
+
+为了解决上述三个问题：新型的计算引擎就千呼万唤始出来了。
+
+最出名的三个货： Spark, Tez, Flink
+
+虽然这三个家伙各有姿色，但是他们有一个共同的特性：
+they handle an entire workflow as one job, rather than breaking it up into independent subjobs.
+
+除此之外, 传统的Map Reduce 的并行，体现在将input 分成 partition，然后各自调用单线程的function，再将这个function的输入作为输出。这样子还是一中类似于输入输出的简单模型。
+
+但是在spark中，我们是直接给数据集加operation, 这就是为什么我们称RDD 是一个类（虽然源码实现中，确实也是这样子的)
+
+Spark 里的operation 分两种，一种是Transforamtion, 另一种是Action
+Fault tolerance
+容错，在MapReduce 的容错系统中，一个坏了，直接取备份就好
+但是spark 是直接记录了这些数据产生的来源。失败了，就重试一次
 
 11. Stream Processing
 
