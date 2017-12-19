@@ -1,0 +1,94 @@
+---
+title: Apache Spark 源码剖析
+date: 2017-12-19 00:35:23
+categories: BigData
+tags:
+---
+
+## 第一部分 Spark 概述
+### 第1章 初识Spark
+#### 1.1 大数据和Spark
+
+##### 1.1.1 大数据的由来
+主要还是互联网用户的飞速发展
+
+##### 1.1.2 大数据的分析
+一台机器处理不了
+
+##### 1.1.3 Hadoop
+Google的三驾马车
+MapReduce 计算框架 
+GFS 数据存储  
+BigTable NoSQL 始祖。
+
+##### 1.1.4 Spark 简介
+在Hadoop 的整个生态系统中，Spark 和 MapReduce 在同一个层级，即主要解决分布式分布式计算框架问题.
+与MapReduce 提供的编程模型相比，Spark 具有如下两个鲜明的特点: 
+(1) 计算更为快速，速度可以提高10到100倍不等
+(2) 计算过程中，如果某一节点出现问题，事件重演的代价远远小于MapReduce
+
+Spark 所要涉及的知识领域：
+
+(1) 分布式并行处理，集群管理
+(2) 高可靠的两重含义，一是服务的有效性，二是计算结果的准确性
+(3) 高性能计算在可以接受的时间内完成
+
+Streaming: 流数据的实时处理
+SQL      : 类SQL的数据分析 
+GraphX   : 常用的图计算    
+MLLib    : 机器学习算法    
+
+Spark 和 Hadoop 有如下关联
+(1) Spark 和 Hadoop 的 MapReduce 处在同一层面。
+(2) Spark 可以部署在YARN 上
+(3) Spark 原生支持对HDFS文件系统的访问
+
+```text
+问题的产生 ===> 解决方案 ===> 工程实现 ====> 方案优化
+   |              |            |              |
+   |              |            |              |
+   V              V            V              V
+ 网页搜索     Google论文      Hadoop         Spark
+```
+
+#### 1.2 与Spark的第一次亲密接触
+##### 1.2.1 环境准备
+##### 1.2.2 下载安装Spark
+##### 1.2.3 Spark 下的WordCount
+
+Spark 的 word count
+```scala
+val rawFile = sc.textFile("README.md")
+val words = rawFile.flatMap(line => line.split(" "))
+val wordNumber = word.map(w => (w,1));
+val wordCount = wordNumber.reduceByKey(_ + _);
+wordCounts.foreach(println)
+```
+其实你会发现，这里的scala 很像 python 里的dataframe
+
+## 第二部分 Spark 核心概念
+
+### 第2章 Spark 整体框架
+#### 2.1 编程模型
+2.1.1 RDD
+#### 2.2 运行框架
+#### 2.3 源码阅读环境准备
+
+### 第3章 SparkContext 初始化
+3.1 spark-shell
+3.2 SparkContext 的初始化综述
+3.3 SparkRepl 综述
+
+第4章 Spark 作业提交
+4.1 作业提交
+4.2 作业执行
+
+第5章 部署方式分析
+
+第三部分 Spark Lib
+第6章 Spark Streaming
+第7章 SQL
+第8章 GraphX
+第9章 MLLib
+
+第四部分 附录
