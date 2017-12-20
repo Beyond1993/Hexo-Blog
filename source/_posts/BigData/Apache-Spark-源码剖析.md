@@ -81,6 +81,26 @@ RDD 就是一个分布式的无序的列表
 
 ### 第3章 SparkContext 初始化
 3.1 spark-shell
+首次使用spark.
+spark-shell --> spark-submit --> spark-calss --> repl.Main --> SparkSubmit.main --> SparkILoop --> createSparkContext
+
+3.2 SparkContext 的初始化综述
+
+SparkContext 是进行Spark 应用开发的主要接口，是Spark 上层应用与底层实现的中转站
+
+SparkContext 在初始化过程中，主要涉及以下内容
+• SparkEnv
+• DAGScheduler
+• TaskScheduler
+• SchedulerBackend
+• WebUI
+
+SparkContext 的构造函数中最重要的入参是SparkConf
+
+3.3 Spark Repl 综述
+
+Scala 原生的Repl 是使用Obejct 来封装输入的代码。那么有什么不妥呢？ 那是因为在序列化和反序列化过程中，对象的构造函数会被再次调用，产生副作用
+
 3.2 SparkContext 的初始化综述
 3.3 SparkRepl 综述
 
