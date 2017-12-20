@@ -1,7 +1,7 @@
 ---
 title: A Scala Tutorial for Java progrmmers
 date: 2017-12-19 21:22:14
-categories: LeetCode
+categories: Algorithm
 tags:
 ---
 

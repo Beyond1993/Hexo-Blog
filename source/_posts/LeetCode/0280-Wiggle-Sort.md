@@ -1,5 +1,5 @@
 ---
-title: 280 Wiggle Sort
+title: 0280 Wiggle Sort
 date: 2017-12-17 02:14:49
 categories: LeetCode
 tags:
