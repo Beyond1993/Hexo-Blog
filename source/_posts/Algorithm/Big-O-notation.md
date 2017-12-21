@@ -22,3 +22,23 @@ tags:
 好了，就简单介绍到这儿吧，以后有什么再做补充。
 
 大 O , 小 o, 大 omega, 小 omega 区别就是有没有可能相等
+
+[wiki time complexities](https://en.wikipedia.org/wiki/Time_complexity)
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Comparison_computational_complexity.svg/512px-Comparison_computational_complexity.svg.png)
+
+常见时间复杂度
+constant time : O(1)
+logarithmic time : O(log n)
+exponential time : O(2^n)
+factical time : O(n!)
+linear time : O(n)
+quasti
+
+
+[leetcode 46 Permutation] 的时间复杂度是多少？
+
+
+1. 第一发
+permutation, combination, subset 的递归写法分别是多少？
+
