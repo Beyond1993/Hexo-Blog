@@ -26,3 +26,12 @@ http://www.cnblogs.com/tornadomeet/archive/2013/08/23/3276753.html
 segment k-means <--> HMM
 
 那问题来了， 为什么非要通过GMM train model？ 而不是直接把数据喂给HMM
+
+拟合mfcc点的分布，这样在后面就可以算一个特定点在这个分布底下的概率密度。
+
+直观来讲就是可以算距离?
+
+通过delta 拓展 mfcc 向量。引入速度和加速度的信息，使得特征有更丰富的表达能力。
+
+
+

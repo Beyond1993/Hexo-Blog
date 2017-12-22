@@ -67,6 +67,37 @@ for (int i = pos; i <= n; i++) {
 }
 ```
 
+时间复杂度，N(N-1)(N-2)...(N-k+1)
+k = 2 的话只有N (N - 1) 
+
+2^n=C(n,0)+C(n,1)+...+C(n,n).
+
+这样子算 combination 其实是，O( k * C(n, k))
+
+
+```java
+void dfs(int n, int k, int num, int count, List<List<Integer>> ans, 
+         List<Integer> path) {
+   if (count == k ) {
+     ans.add(new ArrayList<Integer>(path));
+     return;
+   }
+   if (num > n) return;
+   dfs(n, k, num + 1, conut + 1, ans, path);
+   path.add(num);
+   dfs(n, k, num + 1, count + 1, ans, path);
+   path.remove(path.size() - 1);
+}
+
+public List<List<Integer>> combine(int n, int k) {
+  List<List<Integer>> ans = new ArrayList<>();
+  List<Integer> path = new ArrayList<>();
+  dfs(n , k, 1, 0, ans, path);
+  return ans;
+}
+```
+
+
 先给出答案 permuation 是 O(n!), combination 是 O(2^n)
 
 permutation 是 O(n!) 很明确了, 循环的次数 n * n - 1 * n - 2 * ... 1
@@ -101,3 +132,4 @@ void solve() {
 
 每一层的搜索需要两个分支，所以就是O(2 ^ n)
 
+经典的计算时间复杂度的公式 O(构造解的复杂度 * 解的个数)
