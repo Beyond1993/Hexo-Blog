@@ -30,15 +30,74 @@ tags:
 常见时间复杂度
 constant time : O(1)
 logarithmic time : O(log n)
+linear time : O(n)
+quasilinear time : O(nlogn)
+quadratic time : O(n^2)
+cubic time : O(n^3)
 exponential time : O(2^n)
 factical time : O(n!)
-linear time : O(n)
-quasti
 
 
-[leetcode 46 Permutation] 的时间复杂度是多少？
 
+[LeetCode 46 Permutation] 的时间复杂度是多少？
+[LeetCode 77 Combinations] 的时间复杂度是多少？
+[LeetCode 78 Subsets] 的时间复杂度是多少？
 
 1. 第一发
 permutation, combination, subset 的递归写法分别是多少？
+
+其实subset 的复杂度和 combination 是一样的.
+
+permuation 的核心代码
+```java
+for (int i = 0; i < nums.length; i++) {
+    if (tmp.contains(nums[i])) continue;
+    tmp.add(nums[i]);        
+    dfs(nums);
+    tmp.remove(tmp.size() -1 );
+}
+```
+
+combination 的核心代码
+```java
+for (int i = pos; i <= n; i++) {
+    tmp.add(i);
+    dfs(n,k, i + 1);
+    tmp.remove(tmp.size() - 1);
+}
+```
+
+先给出答案 permuation 是 O(n!), combination 是 O(2^n)
+
+permutation 是 O(n!) 很明确了, 循环的次数 n * n - 1 * n - 2 * ... 1
+所以是 O(n!)
+
+但是 combination 就奇怪了, 明明是一个循环里 dfs 为什么不是阶乘？
+
+O(2 ^ n) 这个时间复杂度，是不是很眼熟，在0 1背包问题的递归解法中，时间复杂度就是O(2 ^ n)
+
+来回顾下那次的代码
+
+```cpp
+int n, W
+int w[MAX_N], v[MAX_N]
+// 从第i个物品开始挑选总重小于j的部分
+int rec(int i, int j) {
+  int res;
+  if (i == n) {
+    //已经没有剩余物品了
+    res = 0;
+  } else if ( j < w[i]) {
+    res = res( i + 1, j);
+  } else {
+    res = max(rec(i + 1, j), rec( i + 1, j - w[i]) + v[i]);
+  }
+  return res;
+}
+void solve() {
+  printf("%d\n",rec(0, W));
+}
+```
+
+每一层的搜索需要两个分支，所以就是O(2 ^ n)
 
