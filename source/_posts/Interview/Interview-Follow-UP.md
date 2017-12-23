@@ -15,7 +15,7 @@ tags:
 5. 输出最优解或一个解 --> 所有可能解，track 信息，dfs + memorization 
 6. 图算法 --> 这个图无限大, 图无限大可以用key value pairs去表示一个图。然后存hdfs上mapreduce。然后再考虑spark和graphX包
 7. 一维 --> 多维
-
+8. 去重.
 
 这是我们今天总结的 常见 follow up, 欢迎大神补充
 

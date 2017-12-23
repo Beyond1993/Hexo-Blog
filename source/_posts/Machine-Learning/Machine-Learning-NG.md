@@ -5,6 +5,8 @@ categories: Machine-Learning
 tags:
 ---
 
+https://cjopengler.gitbooks.io/machinelearningbook/content/src/machineLearning/Lesson1.html
+
 1. Introduction
 
 2. Linear Regression with Multiple Variables
