@@ -7,7 +7,7 @@ tags:
 
 https://en.wikipedia.org/wiki/Streaming_algorithm
 http://www.chinaaet.com/article/3000055608
-
+https://rosona.github.io/post/20151223/
 
 1.1按照描述现象的方式分类
 
