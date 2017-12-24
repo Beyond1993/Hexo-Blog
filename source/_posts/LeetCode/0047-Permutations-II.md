@@ -1,5 +1,5 @@
 ---
-title: 47 Permutations II
+title: 0047 Permutations II
 date: 2017-12-23 18:43:49
 categories: LeetCode
 tags:
