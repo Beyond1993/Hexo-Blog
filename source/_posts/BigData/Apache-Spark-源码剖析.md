@@ -80,11 +80,11 @@ RDD 就是一个分布式的无序的列表
 #### 2.3 源码阅读环境准备
 
 ### 第3章 SparkContext 初始化
-3.1 spark-shell
+#### 3.1 spark-shell
 首次使用spark.
 spark-shell --> spark-submit --> spark-calss --> repl.Main --> SparkSubmit.main --> SparkILoop --> createSparkContext
 
-3.2 SparkContext 的初始化综述
+#### 3.2 SparkContext 的初始化综述
 
 SparkContext 是进行Spark 应用开发的主要接口，是Spark 上层应用与底层实现的中转站
 
@@ -97,34 +97,49 @@ SparkContext 在初始化过程中，主要涉及以下内容
 
 SparkContext 的构造函数中最重要的入参是SparkConf
 
-3.3 Spark Repl 综述
+#### 3.3 Spark Repl 综述
 
-Scala 原生的Repl 是使用Obejct 来封装输入的代码。那么有什么不妥呢？ 那是因为在序列化和反序列化过程中，对象的构造函数会被再次调用，产生副作用
+Scala 原生的Repl 是使用Obejct 来封装输入的代码。那么有什么不妥呢？ 那是因为在序列化和反序列化过程中，对象的构造函数会被再次调用，产生副作用。
 
-3.2 SparkContext 的初始化综述
-3.3 SparkRepl 综述
 
-第4章 Spark 作业提交
+### 第4章 Spark 作业提交
 4.1 作业提交
 4.2 作业执行
 
-第5章 部署方式分析
+### 第5章 部署方式分析
 
-第三部分 Spark Lib
-第6章 Spark Streaming
-第7章 SQL
-第8章 GraphX
-8.2 分布式图计算处理技术介绍
-8.2.1 属性图
+## 第三部分 Spark Lib
+### 第6章 Spark Streaming
+Spark Steam 能够对流数据 以近乎实时的速度处理。比storm 相比有更高的的吞吐能力
+
+### 6.1 Spark Streaming 的整体架构
+• 数据一直处在变化中。
+• 数据无法回退
+• 数据一直源源不断地涌进
+#### 6.1.1 DSteam 
+用一句话 概括Spark Stream 地处理思路，那就是 **将连续地数据持久化，离散化，然后进行批量处理**
+
+• 数据持久化：将网络上接受到地数据先暂时存储下来，为后续的处理出错时事件重演提供可能
+• 离散化：数据源源不断输入，将其按时间分片。 采用1分钟为时间间隔，将连续一分钟内得到的数据作为一个处理单元。
+• 分片处理 将持久化下来的数据分批进行处理，处理机制用RDD。
+
+DStream(Discretized Stream) 表示从数据源获取持续性的数据流以及经过转换后的数据流。DStream 由持续的RDD序列组成。
+
+![](http://images2015.cnblogs.com/blog/592648/201605/592648-20160520122801701-1805419023.jpg)
+
+### 第7章 SQL
+### 第8章 GraphX
+#### 8.2 分布式图计算处理技术介绍
+#### 8.2.1 属性图
 按照图中节点的复杂程度可以分：简单节点图模型，复杂节点图模型
 按照一条边可以连接的顶点数据：简单图模型，超图模型
-8.2.2 图数据的存储与分割
+##### 8.2.2 图数据的存储与分割
 图具有多种存储结构，常见的包括Adjacency Matrix, Adjacency List, Orthogonal List
 
 为了并行计算，就要有效分割，就要有效实现解耦，将一个大图分割为若干个子图，主要两个原则:
 (1) 提高子图内部的连通性，降低子图之间的连通性，这尤其适合分布式的并行处理机制。
 (2) 考虑子图规模的均衡性，尽量保证各子图的数据规模均衡，不要出现较大的偏斜，从数据规模方面防止各并行任务的执行时间相差过大，降低任务同步控制的影响。
 
-第9章 MLLib
+### 第9章 MLLib
 
-第四部分 附录
+#### 第四部分 附录
