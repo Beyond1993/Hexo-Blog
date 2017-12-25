@@ -9,6 +9,7 @@ graph 是面试中常考的体型．也是算法中的重中之重.
 
 理论上来说图的题目：
 
+```text
 有向图-----DFS-----有权重
                | |-无权重
                |-BFS-----有权重
@@ -19,7 +20,7 @@ graph 是面试中常考的体型．也是算法中的重中之重.
                | |-无权重
                |-BFS-----有权重
   |-无权重
-
+```
 
 但其实仔细一想，可以最终合并成几种．
 
@@ -30,6 +31,21 @@ DFS:
 
 BFS：只有非递归（队列）
 
+存储方法又可以分为点存储，和边存储
+
+比如clone graph, 用的就是点存储。
+```java
+class UndirectedGraphNode {
+      int label;
+      List<UndirectedGraphNode> neighbors;
+      UndirectedGraphNode(int x) {
+          label = x;
+          neighbors = new ArrayList<UndirectedGraphNode>(); }
+  };
+```
+
+[207 Course Schedule]
+这种拓扑排序，用的是 int[][] 存储一个边
 存储方法：
 1  邻接矩阵： n 阶方阵，无向图是对称矩阵，有向图行是出度，列是入度
 2  邻接表： 可用linked list, arraylist, set, priorityqueue.

@@ -127,7 +127,54 @@ DStream(Discretized Stream) 表示从数据源获取持续性的数据流以及�
 
 ![](http://images2015.cnblogs.com/blog/592648/201605/592648-20160520122801701-1805419023.jpg)
 
+Spark Streaming 主要由三个模块构成
+• Master 主要记录DStream 之间的依赖关系，并负责任务调度以生成新的RDD
+• Worker节点： 从网路接收数据，存储并执行RDD的计算
+• Client: Clint负责向Spark Streaming 中灌入数据
+
+#### 编程接口
+
 ### 第7章 SQL
+https://www.jianshu.com/p/23f445aeff1f
+在Spark 1.0 中又一个新增的功能，即对SQL 的支持，也就是说可以用SQL 来对数据进行查询。对于任何一个SQL 子系统都需要有parser, optimizizer, execution 三大功能。
+
+|工具                   |来源              |
+|-----------------------|:------------------|
+|Flume, Sribw, Chukwa   |日志收集和系统分析系统把来自Apche/Nginx 的日志收集到HDFS上，然后通过Hive 查询|
+|Sqoop|把用户和业务纬度数据（一般存储在oracle/MySQL中) 定期倒入Hive, 那么OLTP数据就有一个用于OLAP的副本了|
+|ETL| 通过ETL 工具从其他外部DW数据源里导入的数据|
+
+OLTP（On-line Transaction Processing) Insert Update Delete`
+OLAP (On-line Analytical Processing)  read
+#### 7.1 SQL 语句的通用执行过程分析
+       
+```text 
+        Projection                 FILTER
+           ^                          ^
+           |                          |
+SELECT  f1,f2,f3 FROM tableX WHERE condition
+   |                     |
+   V                     V
+INDICATOR             Data Source
+```
+
+最终发现 SQL 表达式中的顺序与常见的RDD 处理逻辑在表达顺序上有差异：
+
+```text
+Data Source ---> Operation ---> Result
+
+Result --- Data Source --- Operation
+```
+
+SQL 语句在分析执行过程中会经历四个步骤
+语法解析，操作绑定，优化执行策略，交付执行
+
+Query  --> Parse --> Bind --> Optimize --> Execute
+
+语法解析之后，会形成一个语法树。树中的每个节点是执行的规则（rule），整个树被称为执行策略。
+
+![](https://upload-images.jianshu.io/upload_images/2472711-2f793016da93391e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+
 ### 第8章 GraphX
 #### 8.2 分布式图计算处理技术介绍
 #### 8.2.1 属性图
