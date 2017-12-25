@@ -27,6 +27,11 @@ pCTR Model
 • Trained ads pCTR model for Pinterest Search & Ads Team
 • Trained GBDT with ads feature, then use GBDT to train Logistic Regression model
 • Saved the model to AWS S3 as json file, which is used for keyword generator tools 
+
+Real Time Spark Workflow
+• Created ads long click counts workflow in Ads Serving Real Time Stats System
+• Implemented a spark job with scala transfer the data from Kafka to s3
+• Join Accuracy is 97.63 % for 10 min, 99.99 % for 24 hours
 ```
 
 CMU 
@@ -72,3 +77,6 @@ Huawei
 • Added home fire alarm feature with Kafka and Samza to decrease latency
 • Landed the code for production in Brazil and Egypt
 ```
+
+
+
