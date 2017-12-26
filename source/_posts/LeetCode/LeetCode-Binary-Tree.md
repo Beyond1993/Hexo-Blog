@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Binary-Tree
 date: 2017-12-12 01:13:59
-categories: LeetCode
+categories: LeetCode-Index
 tags: binary-tree
 ---
 二叉树
