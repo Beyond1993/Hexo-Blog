@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Back-Trace
 date: 2017-10-16 05:53:09
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 

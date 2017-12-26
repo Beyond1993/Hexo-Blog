@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Dynamic-Programming
 date: 2017-12-26 20:39:15
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 写在之前：

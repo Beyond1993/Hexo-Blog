@@ -1,13 +1,15 @@
 ---
 title: LeetCode-Binary-Search-Tree
 date: 2017-12-11 23:14:56
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 
 Binary Search Tree
 
 二叉搜索树，可能也算是面试的热门了吧。为什么热门，因为它实用。
+
+解BST 的题，基本the key 就是 中序遍历是有序的。 所以中序遍历的四种写法就格外重要.
 
 
 95 Unique Binary Search Trees II           31.8%    Medium    

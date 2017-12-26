@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Binary-Search 
 date: 2017-08-23 00:14:04
-categories: LeetCode
+categories: LeetCode-Index
 tags: Binary-Search
 ---
 基础的二分搜索是基于有序数组，不断二分，减小问题规模．这种思想可以推广到很多应用场景．
