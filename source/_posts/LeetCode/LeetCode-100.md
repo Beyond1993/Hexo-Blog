@@ -1,12 +1,12 @@
 ---
 title: LeetCode-100
 date: 2017-10-16 06:08:01
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 
 
-1	Two Sum   		33.8%	Easy	
+### 1. [Two Sum](http://www.wayne.ink/2017/10/16/LeetCode/0001-Two-Sum/)   		33.8%	Easy	
 
 找出两个和为target的，下标组合
 
@@ -16,13 +16,13 @@ tags:
 
 
 
-2	Add Two Numbers   		27.5%	Medium	
+### 2. [Add Two Numbers](http://www.wayne.ink/2017/12/05/LeetCode/0002-Add-Two-Numbers/)   		27.5%	Medium	
 
 两个链表相加．
 
 int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
-3    Longest Substring Without Repeating Characters   		24.2%	Medium	
+### 3. [Longest Substring Without Repeating Characters](http://www.wayne.ink/2017/12/05/LeetCode/0003-Longest-Substring-Without-Repeating-Characters/)   		24.2%	Medium	
 
 不包含重复字符的最长子串．
 
@@ -34,301 +34,154 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 
 
-4	
+### 4. [Median of Two Sorted Arrays](http://www.wayne.ink/2017/10/16/LeetCode/0004-Median-of-Two-Sorted-Arrays/)   		21.5%	Hard	
 
-Median of Two Sorted Arrays   		21.5%	Hard	
 
-5	
+### 5. [Longest Palindromic Substring](http://www.wayne.ink/2017/12/30/LeetCode/0005-Longest-Palindromic-Substring/)    		25.1%	Medium	
 
-Longest Palindromic Substring    		25.1%	Medium	
+### 6. [ZigZag Conversion](http://www.wayne.ink/2017/12/30/LeetCode/0006-ZigZag-Conversion/)   		26.6%	Medium	
 
-6	
+### 7. [Reverse Integer](http://www.wayne.ink/2017/12/25/LeetCode/0007-Reverse-Integer/)   		24.3%	Easy	
 
-ZigZag Conversion   		26.6%	Medium	
+### 8. [String to Integer (atoi)](http://www.wayne.ink/2017/12/26/LeetCode/0008-String-to-Integer-atoi/)   		14.0%	Medium	
 
-7	
+### 9. [Palindrome Number](http://www.wayne.ink/2017/12/26/LeetCode/0009-Palindrome-Number/)   		35.1%	Easy	
 
-Reverse Integer   		24.3%	Easy	
+### 10. [Regular Expression Matching](http://www.wayne.ink/2017/12/20/LeetCode/0010-Regular-Expression-Matching/)   		24.0%	Hard	
 
-8	
+### 11. Container With Most Water   		36.4%	Medium	
 
-String to Integer (atoi)   		14.0%	Medium	
+### 12. Integer to Roman   44.3%	Medium	
 
-9	
+### 13. Roman to Integer   		45.4%	Easy	
 
-Palindrome Number   		35.1%	Easy	
+### 14. Longest Common Prefix    		31.4%	Easy	
 
-10	
+### 15. 3Sum   		21.6%	Medium	
 
-Regular Expression Matching   		24.0%	Hard	
+### 16. 3Sum Closest   		31.0%	Medium	
 
-11	
+### 17. Letter Combinations of a Phone Number   		34.1%	Medium	
 
-Container With Most Water   		36.4%	Medium	
+### 18. 4Sum   		26.5%	Medium	
 
-12	
+### 19. Remove Nth Node From End of List   		33.2%	Medium	
 
-Integer to Roman   44.3%	Medium	
+### 20. Valid Parentheses   		33.2%	Easy	
 
-13	
+### 21. Merge Two Sorted Lists   		39.0%	Easy	
 
-Roman to Integer   		45.4%	Easy	
+### 22. Generate Parentheses   		44.3%	Medium	
 
-14	
+### 23. Merge k Sorted Lists   		27.0%	Hard	
 
-Longest Common Prefix    		31.4%	Easy	
+### 24. Swap Nodes in Pairs   		38.1%	Medium	
 
-15	
+### 25. Reverse Nodes in k-Group   		30.5%	Hard	
 
-3Sum   		21.6%	Medium	
+### 26. Remove Duplicates from Sorted Array   		35.5%	Easy	
 
-16	
+### 27. Remove Element   		38.7%	Easy	
 
-3Sum Closest   		31.0%	Medium	
+### 28. Implement strStr()   		27.9%	Easy	
 
-17	
+### 29. Divide Two Integers    		16.0%	Medium	
 
-Letter Combinations of a Phone Number   		34.1%	Medium	
+### 30. Substring with Concatenation of All Words   		21.9%	Hard	
 
-18	
+### 31. Next Permutation   		28.7%	Medium	
 
-4Sum   		26.5%	Medium	
+### 32. Longest Valid Parentheses   		23.0%	Hard	
 
-19	
+### 33. Search in Rotated Sorted Array   	32.1%	Medium	
 
-Remove Nth Node From End of List   		33.2%	Medium	
+### 34. Search for a Range    		31.3%	Medium	
 
-20	
+### 35. Search Insert Position   		39.6%	Easy	
 
-Valid Parentheses   		33.2%	Easy	
+### 36. Valid Sudoku   		35.4%	Medium	
 
-21	
+### 37. Sudoku Solver   	29.8%	Hard	
 
-Merge Two Sorted Lists   		39.0%	Easy	
+### 38. Count and Say   		34.2%	Easy	
 
-22	
+### 39. Combination Sum   		38.0%	Medium	
 
-Generate Parentheses   		44.3%	Medium	
+### 40. Combination Sum II   		33.3%	Medium	
 
-23	
+### 41. First Missing Positive   	25.4%	Hard	
 
-Merge k Sorted Lists   		27.0%	Hard	
+### 42. Trapping Rain Water   		36.5%	Hard	
 
-24	
+### 43.	Multiply Strings   		26.9%	Medium	
 
-Swap Nodes in Pairs   		38.1%	Medium	
+### 44. Wildcard Matching   		19.9%	Hard	
 
-25	
+### 45. Jump Game II   		26.1%	Hard	
 
-Reverse Nodes in k-Group   		30.5%	Hard	
+### 46. Permutations    		43.1%	Medium	
 
-26	
+### 47. Permutations II   		32.4%	Medium	
 
-Remove Duplicates from Sorted Array   		35.5%	Easy	
+### 48. Rotate Image   		38.3%	Medium	
 
-27	
+### 49. Group Anagrams   		34.1%	Medium	
 
-Remove Element   		38.7%	Easy	
+### 50. Pow(x, n)   		26.5%	Medium	
 
-28	
+### 51.	N-Queens   		30.6%	Hard	
 
-Implement strStr()   		27.9%	Easy	
+### 52. N-Queens II   		44.4%	Hard	
 
-29	
+### 53. Maximum Subarray   		39.4%	Easy	
 
-Divide Two Integers    		16.0%	Medium	
+### 54.	Spiral Matrix   		25.7%	Medium	
 
-30	
+### 55. Jump Game   		29.5%	Medium	
 
-Substring with Concatenation of All Words   		21.9%	Hard	
+### 56. Merge Intervals   		29.7%	Medium	
 
-31	
+### 57. Insert Interval   		27.4%	Hard	
 
-Next Permutation   		28.7%	Medium	
+### 58. Length of Last Word   		31.7%	Easy	
 
-32	
+### 59. Spiral Matrix II   		39.3%	Medium	
 
-Longest Valid Parentheses   		23.0%	Hard	
+### 60. Permutation Sequence   		28.2%	Medium	
 
-33	
+### 61. Rotate List   		24.3%	Medium	
 
-Search in Rotated Sorted Array   	32.1%	Medium	
+### 62. Unique Paths   		40.7%	Medium	
 
-34	
+### 63. Unique Paths II   		31.5%	Medium	
 
-Search for a Range    		31.3%	Medium	
+### 64. Minimum Path Sum   		38.2%	Medium	
 
-35	
+### 65. Valid Number   		12.7%	Hard	
 
-Search Insert Position   		39.6%	Easy	
+### 66. Plus One   		38.3%	Easy	
 
-36	
+### 67. Add Binary   		32.1%	Easy	
 
-Valid Sudoku   		35.4%	Medium	
+### 68. Text Justification   		18.9%	Hard	
 
-37	
+### 69. Sqrt(x)   		27.7%	Easy	
 
-Sudoku Solver   	29.8%	Hard	
+### 70. Climbing Stairs   		39.7%	Easy	
 
-38	
+### 71. Simplify Path   		25.0%	Medium	
 
-Count and Say   		34.2%	Easy	
+### 72. Edit Distance   		31.5%	Hard	
 
-39	
+### 73. Set Matrix Zeroes   		35.8%	Medium	
 
-Combination Sum   		38.0%	Medium	
+### 74. Search a 2D Matrix   		35.2%	Medium	
 
-40	
+### 75. Sort Colors   		37.7%	Medium	
 
-Combination Sum II   		33.3%	Medium	
+### 76.	Minimum Window Substring   		25.0%	Hard	
 
-41	
-
-First Missing Positive   	25.4%	Hard	
-
-42	
-
-Trapping Rain Water   		36.5%	Hard	
-
-43	
-
-Multiply Strings   		26.9%	Medium	
-
-44	
-
-Wildcard Matching   		19.9%	Hard	
-
-45	
-
-Jump Game II   		26.1%	Hard	
-
-46	
-
-Permutations    		43.1%	Medium	
-
-47	
-
-Permutations II   		32.4%	Medium	
-
-48	
-
-Rotate Image   		38.3%	Medium	
-
-49	
-
-Group Anagrams   		34.1%	Medium	
-
-50	
-
-Pow(x, n)   		26.5%	Medium	
-
-51	
-
-N-Queens   		30.6%	Hard	
-
-52	
-
-N-Queens II   		44.4%	Hard	
-
-53	
-
-Maximum Subarray   		39.4%	Easy	
-
-54	
-
-Spiral Matrix   		25.7%	Medium	
-
-55	
-
-Jump Game   		29.5%	Medium	
-
-56	
-
-Merge Intervals   		29.7%	Medium	
-
-57	
-
-Insert Interval   		27.4%	Hard	
-
-58	
-
-Length of Last Word   		31.7%	Easy	
-
-59	
-
-Spiral Matrix II   		39.3%	Medium	
-
-60	
-
-Permutation Sequence   		28.2%	Medium	
-
-61	
-
-Rotate List   		24.3%	Medium	
-
-62	
-
-Unique Paths   		40.7%	Medium	
-
-63	
-
-Unique Paths II   		31.5%	Medium	
-
-64	
-
-Minimum Path Sum   		38.2%	Medium	
-
-65	
-
-Valid Number   		12.7%	Hard	
-
-66	
-
-Plus One   		38.3%	Easy	
-
-67	
-
-Add Binary   		32.1%	Easy	
-
-68	
-
-Text Justification   		18.9%	Hard	
-
-69	
-
-Sqrt(x)   		27.7%	Easy	
-
-70	
-
-Climbing Stairs   		39.7%	Easy	
-
-71	
-
-Simplify Path   		25.0%	Medium	
-
-72	
-
-Edit Distance   		31.5%	Hard	
-
-73	
-
-Set Matrix Zeroes   		35.8%	Medium	
-
-74	
-
-Search a 2D Matrix   		35.2%	Medium	
-
-75	
-
-Sort Colors   		37.7%	Medium	
-
-76	
-
-Minimum Window Substring   		25.0%	Hard	
-
-77	
-
-Combinations   		39.3%	Medium	
+### 77. Combinations   		39.3%	Medium	
 
 78	
 

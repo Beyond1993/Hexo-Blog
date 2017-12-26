@@ -1,12 +1,12 @@
 ---
 title: LeetCode-Union-Find
 date: 2017-09-15 22:23:51
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 Union Findi 的模板
 ```java
-class unionFind {
+class UnionFind {
   int count = 0;// 多少个联通区域
   int[] father;
   int[] rank;
@@ -53,4 +53,7 @@ class unionFind {
 
 Union Find Class 维护了一个数组，用来存放一个节点的父节点。
 对于一个联通块，只有一个根结点。
+时间复杂度 O(n)
+
+
 

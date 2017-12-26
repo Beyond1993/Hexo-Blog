@@ -1,6 +1,6 @@
 ---
 title: 0006 ZigZag Conversion
-date: 2017-12-18 21:44:49
+date: 2017-12-30 21:44:49
 categories: LeetCode
 tags:
 ---

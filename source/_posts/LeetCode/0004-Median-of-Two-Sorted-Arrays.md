@@ -1,5 +1,5 @@
 ---
-title: 0004-Median-of-Two-Sorted-Arrays
+title: 0004 Median of Two Sorted Arrays
 date: 2017-10-16 07:39:04
 categories: LeetCode
 tags:

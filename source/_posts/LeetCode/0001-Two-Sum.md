@@ -1,5 +1,5 @@
 ---
-title: 1-Two-Sum
+title: 0001 Two Sum
 date: 2017-10-16 23:00:54
 categories: LeetCode
 top: 1

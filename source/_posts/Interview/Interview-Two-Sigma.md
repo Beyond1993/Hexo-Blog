@@ -1,7 +1,7 @@
 ---
 title: Interview-Two-Sigma
 date: 2017-12-24 01:47:42
-categories: LeetCode
+categories: Interview
 tags:
 ---
 

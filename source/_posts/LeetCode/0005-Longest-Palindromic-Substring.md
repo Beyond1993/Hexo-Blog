@@ -1,6 +1,6 @@
 ---
-title: 5-Longest-Palindromic-Substring
-date: 2017-09-15 17:50:13
+title: 0005 Longest Palindromic Substring
+date: 2017-12-30 17:50:13
 categories: LeetCode
 top: 2
 tags:
