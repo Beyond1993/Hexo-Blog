@@ -20,12 +20,21 @@ class UnionFind {
      rank[i]=1;// rank 在connect里会用到,比如a 和 b 相连，根据rank指定哪个为父节点。
   }
  
-
+  // 递归写法
   private int find(int x) {
     if( father[x]==x ){
        return x;
    }
    return father[x]=find(father[x]);
+  }
+  // 非递归写法
+  public int find(int x) {
+    validate(x);
+    while (p != parent[p]) {
+      parent[p] = parent[parent[p]];    // path compression by halving
+      p = parent[p];
+    }
+    return p;
   }
 
   public boolean is connect(int a,int b){

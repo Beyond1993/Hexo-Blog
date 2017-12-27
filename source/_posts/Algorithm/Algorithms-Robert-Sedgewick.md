@@ -10,15 +10,122 @@ https://algs4.cs.princeton.edu/code/
 之前一直是通过leetCode 来学习算法，管中窥豹，总不能提纲挈领.
 
 ## 第1章 基础
-1.1 基础编程模型
+### 1.1 基础编程模型
 
-1.2 数据抽象
+### 1.2 数据抽象
 
-1.3 背包队列和栈
+### 1.3 背包队列和栈
 
-1.4 算法分析
+### 1.4 算法分析
 
-1.5 案例研究 ：union-find
+### 1.5 案例研究 ：union-find
+我们研究这个问题，主要是为了说明设计和分析算法的基本方法。
+
+这就是为什么Union Find 在面试中如此受欢迎了，想想哪个面试官没有读过这本算法。
+#### 1.5.1 动态连通性
+
+相连满足：
+自反性： 
+对称性：
+传递性：
+##### 1.5.1.1 网路
+大型计算机网路中p和q是否需要架一条新的连接，才能通信，电路之间的触电是否联通，社交网络中的朋友的朋友，我们可能需要处理数百万的对象，和数十亿的连接。
+##### 1.5.1.2 变量名等价行
+等价的变量名(指向同一对象的多个引用)。垃圾回收机制
+
+##### 1.5.1.3 数学集合
+我们要明确一点，Union Find 不是针对图这一数据结构才产生的,这是一种数学集合的思想。
+#### 1.5.2 实现
+三种不同实现
+#### 1.5.2.1 quick-find 算法
+
+```java
+public int find(int p) {
+  return id[p];
+}
+
+public void union(int p, int q)
+{
+  // 将p和q归并到相同的分量中
+  int pID = find(p);
+  int qID = find(q);
+
+  // 如果p和q已经在相同的分量之中则不需采取任何行动 
+  if (pID == qID) return;
+  
+  // 将p的分量重命名为q的名称
+  for (int i = 0; i < id.length; i++)
+    if (id[i] == pID) id[i] = qID;
+   
+  count--;
+}
+```
+find() 操作速度显然很快，是O(1), 但是 union 是 O(n)
+
+#### 1.5.2.2 quick-find 算法的分析
+命题F 在quick-find 算法中，每次 find() 调用只需要访问数组一次，而归并两个分量的union() 操作访问数组的次数在(N + 3) 到 (2N + 1) 之间。
+
+证明: 由代码可知，每次connected() 调用都会检查id[] 数组中的两个元素是否相等，即会调用两次find() 方法。归并两个分量的union()操作会调用两次find(),检查id[] 数组中的全部N个元素并改变它们中1到N - 1个元素的值。
+
+假设我们使用quick-find 算法来解决动态连通性问题并且最后只得到了一个连通分量。那么这至少需要调用
+N - 1 次 union(), 又因为每次union() 操作访问数组次数在(N + 3) 到 (2N + 1)之间，即至少(N + 3)(N -1) ~ N^2, 平房级别
+#### 1.5.2.3 quick-union 算法
+
+#### 1.5.2.4 森林的表示
+
+#### 1.5.2.5 quick-union 算法的分析
+quick-union 最优是linear, 最差是quadratic.
+对于某些输入 quick-union 并不比 quick-find 快， 幸亏我们还有第三种实现
+```java
+private int find(int p)
+{
+  // 找出分量的名称
+  while ( p != id[p]) p = id[p];
+  return p;
+}
+
+public void union(int p, int q)
+{
+  // 将p和q的根节点统一
+  int pRoot == find(p);
+  int qRoot == find(q);
+  if (pRoot == qRoot) return;
+  
+  id[pRoot] = qRoot;
+
+  count--;
+}
+```
+##### 1.5.2.6 加权 quick-union 算法
+  在quick-union 的union 中随意将一棵树连接到另一棵树，但是我们加上权重后，总是将较小的树连接到较大的树上。 
+  
+##### 1.5.2.7 加权quick-union 算法的分析
+
+##### 1.5.2.8 最优算法
+要实现路径压缩，只需要为find() 添加一个循环，将在路径上遇到的所有节点都直接链接到根节点。我们所得到的结果几乎是完全扁平化的。
+
+```java
+public int find(int p) {
+  validate(p);
+  while (p != parent[p]) {
+      parent[p] = parent[parent[p]];    // path compression by halving
+      p = parent[p];
+  }
+  return p;
+}
+```
+
+存在N个触点时成本的增长数量级 （最坏情况下）|
+
+|算法|构造函数| union() | find()|
+|:---|:-------|:--------|:------|
+|quick-find 算法| N | N | 1 |
+|quick-union 算法| N | 树的高度 | 树的高度 |
+|加权 qiuck-union 算法| N | lgN| lgN |
+|使用路径压缩的加权quick-union 算法| N | 非常非常接近但是没达到1（均摊成本) |
+|理想情况| N | 1 | 1 | 
+
+#### 1.5.3 展望
 
 ## 第2章 排序
 
