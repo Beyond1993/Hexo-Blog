@@ -214,6 +214,72 @@ class UndirectedGraphNode {
 说起 BFS，刷了那么几道题，也是有点感觉了，不过以前是，哦这题要用BFS, BFS 是。。。但是为什么要用BFS?
 BFS 最经典的应用就是无权图的最短路径算法了。这个问题的经典方法BFS，他是许多图算法的基石。
 
+```java
+public class BreadthFirstPaths
+{
+  private boolean[] marked;
+  private int[] edgeTo;
+  private int[] distTo;
+  private fina int s;
+
+  public BreadthFirstPaths(Graph G, int s)
+  {
+    marked = new boolean[G.V()];
+    edgeTo = new int[G.V()];
+    distTo = new int[G.V()];
+    this.s = s;
+    bfs(G,s);
+  }
+  
+  private void bfs(Graph G, int s)
+  {
+    Queue<Integer> queue = new Queue<Integer>();
+    for (int v = 0; v < G.V(); v++) {
+      distTo[v] = INFINITY;
+    }
+    distTo[s] = 0;
+    mark[s] = true;
+    queue.enqueue(s);
+    while (!queue.isEmpty())
+    {
+      int v = queue.dequeue();
+      for (int w : G.adj(v)) {
+        if (!marked[w]) {
+          edgeTo[w] = v; //w 的上一点是 v
+          distTo[w] = distTo[v] + 1;
+          marked[w] = true;
+          queue.enqueue(w);
+        }    
+      }
+    }
+  }
+  
+  public boolean hashPathTo(int v) {
+    return marked[v];
+  }
+  
+  public Iterable<Integer> pathTo(int v) {
+    if (!hasPathTo(v)) return null;
+    Stack<Integer> path = new Stack<Integer>();
+    for (int x = v; x != s; x = edgeTo[x]) {
+      path.push(x);
+    }
+    path.push(x);
+    return path;
+  }
+  
+  public int distTo(int v) {
+    validateVertex(v);
+    return distTo[v];
+  }
+}
+```
+
+我们想想这种iterator的方法有什么弊端？ 
+
+那就是它只能找出最短路径之一. 而不能找出所有的最短路径。
+
+所以找所有最短路径的方法就是 dfs, 参考 [Word Ladder II](http://www.wayne.ink/2017/12/27/LeetCode/0126-Word-Ladder-II/)
 
 #### 4.1.6 联通分量
 
