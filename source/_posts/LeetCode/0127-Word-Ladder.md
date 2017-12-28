@@ -176,3 +176,5 @@ public class Solution {
 
 }
 ```
+
+two-end  方法，类似交替bfs, 一旦发现出现了，就return len + 1, 这样子就确保了路径是最短的。
