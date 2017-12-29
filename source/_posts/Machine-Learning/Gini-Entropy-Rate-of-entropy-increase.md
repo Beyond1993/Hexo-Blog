@@ -1,7 +1,7 @@
 ---
 title: Gini Entropy Rate of entropy increase
 date: 2017-12-28 07:06:57
-categories: Machine Learning
+categories: Machine-Learning
 tags:
 ---
 

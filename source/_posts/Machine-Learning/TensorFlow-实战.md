@@ -30,6 +30,23 @@ TensorFlow 中的计算可以表示为一个有向图(directed graph), 或称计
 
 **验证集 和 测试集 有什么区别？** 
 
+![](http://img.blog.csdn.net/20160403174832218?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+
+如上图所示，空白部分全为0，有笔记的地方根据颜色深浅有0 到 1 之间的取值。 我们有 28 * 28 = 784 维的特征向量，这样简单的特征丢失了图片的空间结构信息。但是对于这次的分类任务已经足够了。
+
+后面的章节将使用**卷积神经网络对空间结构信息进行利用**，并取得更高的准确率。 
+
+我们将图片展开成1维向量时，顺序并不重要，只要每一张图片都是同样顺序展开就行。
+
+我们的训练特征是一个 55000 * 784 的 Tensor, 这里是采用了 one-hot 编码, Label 是一个 10 维的向量。
+
+准备好数据后，接下来就是设计算法了， 这里使用 Softmax Regression 的算法。
+
+我们在处理多分类任务时，通常需要使用Softmax Regression 模型，即使是后面的卷积神经网络或者循环神经网络，如果是分类模型，最后一层也同样是Softmax Regression。
+
+
+[为什么取对数](https://stackoverflow.com/questions/17187507/why-use-softmax-as-opposed-to-standard-normalization)
+
 ## TensoFlow 实现自编码及多层感知机
 
 ## TensorFLow 实现卷积神经网络
