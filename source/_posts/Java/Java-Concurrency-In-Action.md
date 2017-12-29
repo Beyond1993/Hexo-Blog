@@ -78,6 +78,7 @@ public class LoggingWidget extends Widget {
 
 不仅要防止多个线程同时修改状态, 而且要确保当一个线程修改状态后,其他线程能够看到发生的变化. 同步
 
+```java
 public  class NoVisibility  {
      private static boolean ready;
      private static int number;
@@ -96,6 +97,7 @@ public  class NoVisibility  {
           ready = true;
      }
 }
+```
 
 while 循环可能无限循环,
 
