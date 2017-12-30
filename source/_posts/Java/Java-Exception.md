@@ -33,6 +33,13 @@ uncheck 在编译时不检查，不必须 declaration. 除了 Error和 RuntimeEx
 
 ```
 
+这里我们就需要理解， 为什么Error, 和继承自 Exception 的 RuntimeException 是unchecked。
+
+因为error 和 RuntimeException 都是不可控制的。
+
+
+
+
 ```java
 public long Factorial (int n) throws FactorialException {
  int sign = 1;
