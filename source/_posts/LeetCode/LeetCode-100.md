@@ -51,17 +51,17 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 11. [Container With Most Water](http://www.wayne.ink/2017/12/26/LeetCode/0011-Container-With-Most-Water/)   		36.4%	Medium	
 
-### 12. Integer to Roman   44.3%	Medium	
+### 12. [Integer to Roman](http://www.wayne.ink/2017/12/28/LeetCode/0012-Integer-to-Roman/)   44.3%	Medium	
 
-### 13. Roman to Integer   		45.4%	Easy	
+### 13. [Roman to Integer](http://www.wayne.ink/2017/12/28/LeetCode/0013-Roman-to-Integer/)   		45.4%	Easy	
 
-### 14. Longest Common Prefix    		31.4%	Easy	
+### 14. [Longest Common Prefix](http://www.wayne.ink/2017/12/28/LeetCode/0014-Longest-Common-Prefix/)    		31.4%	Easy	
 
-### 15. 3Sum   		21.6%	Medium	
+### 15. [3Sum](http://www.wayne.ink/2017/12/29/LeetCode/0015-3Sum/)   		21.6%	Medium	
 
-### 16. 3Sum Closest   		31.0%	Medium	
+### 16. [3Sum Closest](http://www.wayne.ink/2017/12/29/LeetCode/0016-3Sum-Closest/)		31.0%	Medium	
 
-### 17. Letter Combinations of a Phone Number   		34.1%	Medium	
+### 17. [Letter Combinations of a Phone Number](http://www.wayne.ink/2017/12/29/LeetCode/0017-Letter-Combinations-of-a-Phone-Number/)   		34.1%	Medium	
 
 ### 18. 4Sum   		26.5%	Medium	
 
