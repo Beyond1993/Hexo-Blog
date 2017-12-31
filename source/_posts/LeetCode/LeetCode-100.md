@@ -63,19 +63,19 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 17. [Letter Combinations of a Phone Number](http://www.wayne.ink/2017/12/29/LeetCode/0017-Letter-Combinations-of-a-Phone-Number/)   		34.1%	Medium	
 
-### 18. 4Sum   		26.5%	Medium	
+### 18. [4Sum](http://www.wayne.ink/2017/12/29/LeetCode/0018-4Sum/)   		26.5%	Medium	
 
-### 19. Remove Nth Node From End of List   		33.2%	Medium	
+### 19. [Remove Nth Node From End of List](http://www.wayne.ink/2017/12/29/LeetCode/0019-Remove-Nth-Node-From-End-of-List/)   		33.2%	Medium	
 
-### 20. Valid Parentheses   		33.2%	Easy	
+### 20. [Valid Parentheses](http://www.wayne.ink/2017/12/29/LeetCode/0020-Valid-Parentheses/)   		33.2%	Easy	
 
-### 21. Merge Two Sorted Lists   		39.0%	Easy	
+### 21. [Merge Two Sorted Lists](http://www.wayne.ink/2017/12/31/LeetCode/0021-Merge-Two-Sorted-Lists/)   		39.0%	Easy	
 
-### 22. Generate Parentheses   		44.3%	Medium	
+### 22. [Generate Parentheses](http://www.wayne.ink/2017/12/31/LeetCode/0022-Generate-Parentheses/)   		44.3%	Medium	
 
-### 23. Merge k Sorted Lists   		27.0%	Hard	
+### 23. [Merge k Sorted Lists](http://www.wayne.ink/2017/12/31/LeetCode/0023-Merge-k-Sorted-Lists/)   		27.0%	Hard	
 
-### 24. Swap Nodes in Pairs   		38.1%	Medium	
+### 24. [Swap Nodes in Pairs](http://www.wayne.ink/2017/12/31/LeetCode/0024-Swap-Nodes-in-Pairs/)   		38.1%	Medium	
 
 ### 25. Reverse Nodes in k-Group   		30.5%	Hard	
 

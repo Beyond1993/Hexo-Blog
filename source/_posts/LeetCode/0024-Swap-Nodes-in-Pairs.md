@@ -1,6 +1,6 @@
 ---
 title: 0024-Swap-Nodes-in-Pairs
-date: 2017-10-16 05:34:20
+date: 2017-12-31 05:34:20
 categories: LeetCode
 tags:
 ---
