@@ -30,4 +30,5 @@ https://rosona.github.io/post/20151223/
 　　(3)滑动窗口模型：处理数据的范围由固定窗口的大小决定，窗口的终点永远是当前时间。
 
 
+Weighted Randomly Selection
 

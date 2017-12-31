@@ -37,7 +37,9 @@ uncheck 在编译时不检查，不必须 declaration. 除了 Error和 RuntimeEx
 
 因为error 和 RuntimeException 都是不可控制的。
 
+Uually, a RuntimeException indicates a programming error (in which case you can't "handle" it, because if you knew to expect it you'd have avoided the error).
 
+所以 catch a RuntimeException is not a good practice
 
 
 ```java
