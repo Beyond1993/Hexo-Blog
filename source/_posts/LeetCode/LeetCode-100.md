@@ -147,7 +147,7 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 59. Spiral Matrix II   		39.3%	Medium	
 
-### 60. Permutation Sequence   		28.2%	Medium	
+### 60. [Permutation Sequence](http://www.wayne.ink/2017/12/31/LeetCode/0060-Permutation-Sequence/)   		28.2%	Medium	
 
 ### 61. Rotate List   		24.3%	Medium	
 

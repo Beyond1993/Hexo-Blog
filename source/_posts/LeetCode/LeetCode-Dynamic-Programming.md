@@ -24,6 +24,11 @@ tags:
 四种基本类型：
 矩阵型，单序列型 双序列型 背包型
 
+矩阵型： 10, 
+单序列型
+双序列型
+背包行
+
 <!-- more -->
 1.爬梯子，h阶梯子，一次只能爬一阶或两阶，
 状态：a[0]-a[n-1]代表第i+1个台阶的解法数
@@ -165,5 +170,105 @@ f[i][w] = max{ f[i-1][w], f[i-1][ w - Wi] + Vi;
 
 
 其实大多数情况下，动态规划的问题都能通过回溯法来解决．面试中可以先提出回溯的解法,再通过动态规划来优化. 但是递归的时间复杂度往往是指数级别的．
+
+
+10  Regular Expression Matching  24.3%  Hard  
+32  Longest Valid Parentheses  23.2%  Hard  
+44  Wildcard Matching  20.7%  Hard  
+53  Maximum Subarray  40.0%  Easy  
+62  Unique Paths  42.1%  Medium  
+63  Unique Paths II  32.0%  Medium  
+64  Minimum Path Sum  39.6%  Medium  
+70  Climbing Stairs  40.7%  Easy  
+72  Edit Distance  32.3%  Hard  
+85  Maximal Rectangle  29.0%  Hard  
+87  Scramble String  29.5%  Hard  
+91  Decode Ways  20.1%  Medium  
+95  Unique Binary Search Trees II  31.9%  Medium  
+96  Unique Binary Search Trees  41.6%  Medium  
+97  Interleaving String  25.0%  Hard  
+115  Distinct Subsequences  31.9%  Hard  
+120  Triangle  34.5%  Medium  
+121  Best Time to Buy and Sell Stock  42.3%  Easy  
+123  Best Time to Buy and Sell Stock III  30.0%  Hard  
+132  Palindrome Partitioning II  24.6%  Hard  
+139  Word Break  31.0%  Medium  
+140  Word Break II  24.1%  Hard  
+152  Maximum Product Subarray  26.4%  Medium  
+174  Dungeon Game  24.0%  Hard  
+188  Best Time to Buy and Sell Stock IV  24.7%  Hard  
+198  House Robber  39.6%  Easy  
+213  House Robber II  34.4%  Medium  
+221  Maximal Square  29.8%  Medium  
+256  Paint House   46.3%  Easy  
+264  Ugly Number II  33.1%  Medium  
+265  Paint House II   38.2%  Hard  
+276  Paint Fence   34.8%  Easy  
+279  Perfect Squares  37.6%  Medium  
+300  Longest Increasing Subsequence  38.7%  Medium  
+303  Range Sum Query - Immutable  31.2%  Easy  
+304  Range Sum Query 2D - Immutable  26.5%  Medium  
+309  Best Time to Buy and Sell Stock with Cooldown  41.5%  Medium  
+312  Burst Balloons  43.3%  Hard  
+321  Create Maximum Number  24.8%  Hard  
+322  Coin Change  26.7%  Medium  
+338  Counting Bits  61.9%  Medium  
+343  Integer Break  46.3%  Medium  
+351  Android Unlock Patterns   44.5%  Medium  
+354  Russian Doll Envelopes  32.5%  Hard  
+357  Count Numbers with Unique Digits  46.0%  Medium  
+361  Bomb Enemy   39.7%  Medium  
+363  Max Sum of Rectangle No Larger Than K  33.5%  Hard  
+368  Largest Divisible Subset  33.8%  Medium  
+375  Guess Number Higher or Lower II  36.0%  Medium  
+376  Wiggle Subsequence  36.1%  Medium  
+377  Combination Sum IV  42.5%  Medium  
+392  Is Subsequence  44.6%  Medium  
+403  Frog Jump  32.5%  Hard  
+410  Split Array Largest Sum  38.9%  Hard  
+413  Arithmetic Slices  54.6%  Medium  
+416  Partition Equal Subset Sum  39.1%  Medium  
+418  Sentence Screen Fitting   28.0%  Medium  
+446  Arithmetic Slices II - Subsequence  27.7%  Hard  
+464  Can I Win  25.3%  Medium  
+466  Count The Repetitions  27.6%  Hard  
+467  Unique Substrings in Wraparound String  33.1%  Medium  
+471  Encode String with Shortest Length   42.8%  Hard  
+472  Concatenated Words  30.7%  Hard  
+474  Ones and Zeroes  39.1%  Medium  
+486  Predict the Winner  45.2%  Medium  
+494  Target Sum  43.8%  Medium  
+514  Freedom Trail  39.1%  Hard  
+516  Longest Palindromic Subsequence  42.7%  Medium  
+517  Super Washing Machines  36.5%  Hard  
+523  Continuous Subarray Sum  23.3%  Medium  
+546  Remove Boxes  35.0%  Hard  
+552  Student Attendance Record II  31.4%  Hard  
+568  Maximum Vacation Days   38.5%  Hard  
+576  Out of Boundary Paths  30.8%  Medium  
+600  Non-negative Integers without Consecutive Ones  31.1%  Hard  
+629  K Inverse Pairs Array  26.8%  Hard  
+638  Shopping Offers  43.9%  Medium  
+639  Decode Ways II  24.5%  Hard  
+646  Maximum Length of Pair Chain  47.7%  Medium  
+647  Palindromic Substrings  55.7%  Medium  
+650  2 Keys Keyboard  44.7%  Medium  
+651  4 Keys Keyboard   49.1%  Medium  
+656  Coin Path   25.7%  Hard  
+664  Strange Printer  33.3%  Hard  
+673  Number of Longest Increasing Subsequence  31.3%  Medium  
+688  Knight Probability in Chessboard  39.6%  Medium  
+689  Maximum Sum of 3 Non-Overlapping Subarrays  41.5%  Hard  
+691  Stickers to Spell Word  34.4%  Hard  
+698  Partition to K Equal Sum Subsets  37.6%  Medium  
+712  Minimum ASCII Delete Sum for Two Strings  51.3%  Medium  
+714  Best Time to Buy and Sell Stock with Transaction Fee  42.7%  Medium  
+718  Maximum Length of Repeated Subarray  40.6%  Medium  
+727  Minimum Window Subsequence   31.3%  Hard  
+730  Count Different Palindromic Subsequences  33.4%  Hard  
+740  Delete and Earn  42.5%  Medium  
+741  Cherry Pickup  22.0%  Hard  
+746  Min Cost Climbing Stairs  46.3%  Easy  
+750  Number Of Corner Rectangles 
 
 
