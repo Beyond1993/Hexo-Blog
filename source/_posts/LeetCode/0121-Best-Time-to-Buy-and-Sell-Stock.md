@@ -21,6 +21,11 @@ Output: 0
 
 In this case, no transaction is done, i.e. max profit = 0.
 
+[7, 1, 5, 3, 6, 4],只允许买卖一次，求最大收益
+保存最小值
+一边扫描，一边更新最小值，一边用当前值减最小值
+更新最大值
+
 
 
 ```java
@@ -40,4 +45,7 @@ public int maxProfit(int[] prices) {
     return re;
 }
 ```
+
+
+
 
