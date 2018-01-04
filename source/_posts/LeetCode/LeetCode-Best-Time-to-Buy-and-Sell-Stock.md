@@ -19,7 +19,9 @@ https://discuss.leetcode.com/topic/107998/most-consistent-ways-of-dealing-with-t
 
 这样子的话我们可以得到很多子问题 T[i-1][k], T[i][k-1], T[i-1][k-1]
 
-**题外话,对于这种DP 一开始想想子问题，再想暴力解**
+**题外话,对于这种DP 一开始想想子问题，再想暴力解, 其实DP 最难的就是这个构造多维空间的地方，有点像ml 里构造多维特征空间，一开始要充分的理解这题，抓住有用信息，这里的信息就是指的是变量，然后构造解空间**
+
+好，在第i 天，我们可以使用哪些操作: buy, sell, rest
 
 
 hold[i][j] 表示 maximum profit with at most j transaction for 0 to i-th day
