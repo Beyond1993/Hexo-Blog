@@ -26,8 +26,7 @@ https://discuss.leetcode.com/topic/107998/most-consistent-ways-of-dealing-with-t
 
 hold[i][j] 表示 maximum profit with at most j transaction for 0 to i-th day
 
-
-hold[i][j] = Math.max(
+unhold[i][j] = Math.max(hold[i-1][j-1]+prices[i],unhold[i-1][j])
 
 121. Best Time to Buy and Sell Stock
 122. Best Time to Buy and Sell Stock II
@@ -111,5 +110,48 @@ public int maxProfit(int k, int[] prices) {
 }
 ```
 
+Case V: k = +Infinity but with cooldown
 
+```java
+public int maxProfit(int[] prices) {
+    int T_ik0_pre = 0, T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
+    
+    for (int price : prices) {
+        int T_ik0_old = T_ik0;
+        T_ik0 = Math.max(T_ik0, T_ik1 + price);
+        T_ik1 = Math.max(T_ik1, T_ik0_pre - price);
+        T_ik0_pre = T_ik0_old;
+    }
+    
+    return T_ik0;
+}
+```
 
+Case VI: k = +Infinity but with transaction fee
+```java
+public int maxProfit(int[] prices, int fee) {
+    int T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
+    
+    for (int price : prices) {
+        int T_ik0_old = T_ik0;
+        T_ik0 = Math.max(T_ik0, T_ik1 + price);
+        T_ik1 = Math.max(T_ik1, T_ik0_old - price - fee);
+    }
+        
+    return T_ik0;
+}
+```
+
+```java
+public int maxProfit(int[] prices, int fee) {
+    long T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
+    
+    for (int price : prices) {
+        long T_ik0_old = T_ik0;
+        T_ik0 = Math.max(T_ik0, T_ik1 + price - fee);
+        T_ik1 = Math.max(T_ik1, T_ik0_old - price);
+    }
+        
+    return (int)T_ik0;
+}
+```
