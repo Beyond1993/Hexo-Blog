@@ -45,3 +45,12 @@ http://jiaren.org/2010/07/10/linyutang-dulixuanyan/
 会被这句话。
 
 We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness
+
+
+Game of thrones
+I'm not going to get any better, you know? You can't get any worse。
+
+I'll find my own way out. 请您留步
+
+You can't fight, you can't see, you're afraid of heights and almost everything else probably. What are you doing here, Sam?
+

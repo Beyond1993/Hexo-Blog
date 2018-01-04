@@ -1,7 +1,7 @@
 ---
 title: LeetCode Best Time to Buy and Sell Stock
 date: 2018-01-03 18:41:26
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 
@@ -27,6 +27,89 @@ https://discuss.leetcode.com/topic/107998/most-consistent-ways-of-dealing-with-t
 hold[i][j] 表示 maximum profit with at most j transaction for 0 to i-th day
 
 
-hold[i][j] = Math.max(unho
+hold[i][j] = Math.max(
+
+121. Best Time to Buy and Sell Stock
+122. Best Time to Buy and Sell Stock II
+123. Best Time to Buy and Sell Stock III
+188. Best Time to Buy and Sell Stock IV
+309. Best Time to Buy and Sell Stock with Cooldown
+714. Best Time to Buy and Sell Stock with Transaction Fee
+
+case I: k = 1
+
+```java
+public int maxProfit(int[] prices) {
+    int T_i10 = 0, T_i11 = Integer.MIN_VALUE;
+        
+    for (int price : prices) {
+        T_i10 = Math.max(T_i10, T_i11 + price);
+        T_i11 = Math.max(T_i11, -price);
+    }
+        
+    return T_i10;
+}
+```
+case II: k = +Infinity
+```java
+public int maxProfit(int[] prices) {
+    int T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
+    
+    for (int price : prices) {
+        int T_ik0_old = T_ik0;
+        T_ik0 = Math.max(T_ik0, T_ik1 + price);
+        T_ik1 = Math.max(T_ik1, T_ik0_old - price);
+    }
+    
+    return T_ik0;
+}
+```
+
+Case II: k = 2
+```java
+public int maxProfit(int[] prices) {
+    int T_i10 = 0, T_i11 = Integer.MIN_VALUE, T_i20 = 0, T_i21 = Integer.MIN_VALUE;
+        
+    for (int price : prices) {
+        T_i20 = Math.max(T_i20, T_i21 + price);
+        T_i21 = Math.max(T_i21, T_i10 - price);
+        T_i10 = Math.max(T_i10, T_i11 + price);
+        T_i11 = Math.max(T_i11, -price);
+    }
+        
+    return T_i20;
+}
+```
+
+Case IV : k is arbitrary
+```java
+public int maxProfit(int k, int[] prices) {
+    if (k >= prices.length >>> 1) {
+        int T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
+    
+        for (int price : prices) {
+            int T_ik0_old = T_ik0;
+            T_ik0 = Math.max(T_ik0, T_ik1 + price);
+            T_ik1 = Math.max(T_ik1, T_ik0_old - price);
+        }
+        
+        return T_ik0;
+    }
+        
+    int[] T_ik0 = new int[k + 1];
+    int[] T_ik1 = new int[k + 1];
+    Arrays.fill(T_ik1, Integer.MIN_VALUE);
+        
+    for (int price : prices) {
+        for (int j = k; j > 0; j--) {
+            T_ik0[j] = Math.max(T_ik0[j], T_ik1[j] + price);
+            T_ik1[j] = Math.max(T_ik1[j], T_ik0[j - 1] - price);
+        }
+    }
+        
+    return T_ik0[k];
+}
+```
+
 
 
