@@ -15,7 +15,7 @@ https://discuss.leetcode.com/topic/107998/most-consistent-ways-of-dealing-with-t
 
 思想：最大收益决定于我们要计算多少天，和最多能做多少次交易
 
-这样子我们就得到一个状态 T[i][j] 表示 0 to i-th 天 最多 j 次交易的最大收益。
+这样子我们就得到一个状态 T[i][k] 表示 0 to i-th 天 最多 k 次交易的最大收益。
 
 这样子的话我们可以得到很多子问题 T[i-1][k], T[i][k-1], T[i-1][k-1]
 
@@ -23,10 +23,18 @@ https://discuss.leetcode.com/topic/107998/most-consistent-ways-of-dealing-with-t
 
 好，在第i 天，我们可以使用哪些操作: buy, sell, rest
 
+Basecase:
+hold[-1][k] = -Infinity, unhold[-1][k] = 0;
+hold[i][0] = -Infinity, unhold[-1][0] = 0;
 
-hold[i][j] 表示 maximum profit with at most j transaction for 0 to i-th day
+**为什么是 -Infinity**
 
-unhold[i][j] = Math.max(hold[i-1][j-1]+prices[i],unhold[i-1][j])
+
+hold[i][k] 表示 maximum profit with at most k transaction for 0 to i-th dayi, hold means you have a stock in your hand.
+
+hold[i][k] = Math.max(unhold[i-1][k] - prices[i], hold[i-1][k])
+
+unhold[i][k] = Math.max(hold[i-1][k-1]+prices[i],unhold[i-1][k])
 
 121. Best Time to Buy and Sell Stock
 122. Best Time to Buy and Sell Stock II
@@ -37,6 +45,33 @@ unhold[i][j] = Math.max(hold[i-1][j-1]+prices[i],unhold[i-1][j])
 
 case I: k = 1
 
+只能做一次交易。最简单的做法就是记录最小值，再用每个数减去最小值。
+
+上面那个一般性的, 方程令 k = 1
+hold[i][1] = Math.max(unhold[i-1][0] - prices[i], hold[i-1][1])
+又因为 unhold[i-1][0] = 0, 没有交易，收益为0，可以化简为
+
+hold[i][1] = Math.max( -prices[i], hold[i-1][1])
+ 
+```java
+public int maxProfit(int[] prices) {
+    
+  int[][] hold = new int[prices.length][1];
+  int[][] unhold = new int[prices.length][1];
+  
+  for (int i = 0; i < prices.length; i++) {
+    unhold[i][1] = 0;
+    hold[i][1] = Integer.MIN_VALUE;
+  }
+ 
+  for (int i = 0; i <  prices.length; i++) {
+    unhold[i][1] = Math.max(hold[i-1][0] + prices[i], unhold[i-1][1])
+    hold[i][1] = Math.max(- prices[i], hold[i-1][1]);
+  }
+  return unhold[prices.length-1][1]);
+}
+
+```
 ```java
 public int maxProfit(int[] prices) {
     int T_i10 = 0, T_i11 = Integer.MIN_VALUE;
@@ -50,7 +85,7 @@ public int maxProfit(int[] prices) {
 }
 ```
 case II: k = +Infinity
-```java
+```kava
 public int maxProfit(int[] prices) {
     int T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
     
@@ -65,7 +100,7 @@ public int maxProfit(int[] prices) {
 ```
 
 Case II: k = 2
-```java
+```kava
 public int maxProfit(int[] prices) {
     int T_i10 = 0, T_i11 = Integer.MIN_VALUE, T_i20 = 0, T_i21 = Integer.MIN_VALUE;
         
@@ -81,7 +116,7 @@ public int maxProfit(int[] prices) {
 ```
 
 Case IV : k is arbitrary
-```java
+```kava
 public int maxProfit(int k, int[] prices) {
     if (k >= prices.length >>> 1) {
         int T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
@@ -100,9 +135,9 @@ public int maxProfit(int k, int[] prices) {
     Arrays.fill(T_ik1, Integer.MIN_VALUE);
         
     for (int price : prices) {
-        for (int j = k; j > 0; j--) {
-            T_ik0[j] = Math.max(T_ik0[j], T_ik1[j] + price);
-            T_ik1[j] = Math.max(T_ik1[j], T_ik0[j - 1] - price);
+        for (int k = k; k > 0; k--) {
+            T_ik0[k] = Math.max(T_ik0[k], T_ik1[k] + price);
+            T_ik1[k] = Math.max(T_ik1[k], T_ik0[k - 1] - price);
         }
     }
         
@@ -112,7 +147,7 @@ public int maxProfit(int k, int[] prices) {
 
 Case V: k = +Infinity but with cooldown
 
-```java
+```kava
 public int maxProfit(int[] prices) {
     int T_ik0_pre = 0, T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
     
@@ -128,7 +163,7 @@ public int maxProfit(int[] prices) {
 ```
 
 Case VI: k = +Infinity but with transaction fee
-```java
+```kava
 public int maxProfit(int[] prices, int fee) {
     int T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
     
@@ -142,7 +177,7 @@ public int maxProfit(int[] prices, int fee) {
 }
 ```
 
-```java
+```kava
 public int maxProfit(int[] prices, int fee) {
     long T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
     
