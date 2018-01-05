@@ -5,25 +5,16 @@ categories: Interview
 tags:
 ---
 
-Hi, Corinne Mullen 
+Wayne a Software Engineer from Pinterest Search & Ads Team, who graduated from Carnegie Mellon University in May 2017.
 
-I am a Software Engineer from Pinterest Search & Ads Team, who graduated from Carnegie Mellon University in May 2017.
-In Pinterest, My job is building big data pipeline for Ads Product from the log with Kafka, Spark, Hive, Cascading. And Then upload the data to Terrapin(A key-value storage maintained by Pinterest) or RockDB.
+In Pinterest, his job is building big data pipeline for Ads Product from the log with Kafka, Spark, Hive, Cascading. And Then upload the data to Terrapin(A key-value storage maintained by Pinterest) or RocksDB. What’s more, he tried some search experiments for search ads, such as n-gram token and blacklist experiment with Go.
 
-I also tried some search experiments for search ads, such as n-gram token and blacklist experiment.
+He majored in computer science when he was in the stage of undergraduate. He started his career in a Chinese start-up (Wuya Network Inc) as a PHP / J2EE web application programmer. He built many different websites for many companies and designed the mobile online ordering system with WeChat API.
+What’s more, Wayne got an internship in Huawei and focused on Distributed System, Cloud Computing. Wayne applied the Two-Phase Algorithm to ensure the consistency of MongoDB in Huawei Things of Internet team. Then he took most of the courses related to Cloud Computing, Distributed System in CMU.
 
-I majored in computer science when I was an undergraduate student. I used to join a start-up in China as PHP / J2EE web application programmer. I built many different websites for many companies, and design the mobile online ordering system with WeChat API.
+Wayne is also familiar with C++ and python and implemented some interesting applications in the course of CMU, such as the recommendation system with python, the speech recognition system with C++.
 
-What’s more, I got an internship in Huawei and focused on and Distribute System
-and cloud computing. I applied the Two-Phase Algorithm to ensure the consistency of MongoDB in Distribute System.
+Right now he wants to find a new opportunity in Mircosoft. I believe his background is strong enough to apply for this job.
 
-I am also familiar with C++ and python, I used it build some interesting application in the course of the university, such as the recommendation system with python, the speech recognition system with C++.
-
-Right now I want to find a new opportunity in Microsoft. Mircosoft is the top international company, I am extremely interested in software position of Microsoft.  Could you please take a look at my resume, and provide an interview opportunity for me? Thanks very much!
-Thank you for your attention！
-
-Bests,
-
-Wayne
 
 
