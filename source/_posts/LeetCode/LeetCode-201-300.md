@@ -5,6 +5,8 @@ categories: LeetCode-Index
 tags:
 ---
 
+### 211 [Add and Search Word Data structure design](http://www.wayne.ink/2018/01/06/LeetCode/0211-Add-and-Search-Word-Data-structure-design/)
+
 ### 212. [Word Search II](http://www.wayne.ink/2018/01/03/LeetCode/0212-Word-Search-II/) 
 
 ### 218. [The Skyline Problem](http://www.wayne.ink/2018/01/04/LeetCode/0218-The-Skyline-Problem/)
