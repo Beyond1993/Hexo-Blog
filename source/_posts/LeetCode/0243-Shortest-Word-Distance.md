@@ -39,4 +39,29 @@ public int shortestDistance(String[] words, String word1, String word2) {
 }
 ```
 
+换一种更普通的思路， 这里只有一个index, 用一个index的目的可不是为了节省一个int 变量的空间。而是不再必须用index1 - index2, 或者 index2 - index1
+这种好处在 shortest word distance III 中发挥的淋漓尽致.
+
+考虑一个corner case, 
+[a,b,c,d,d], 'a', 'd'
+expected: 3, result : 1
+
+因为最后两个dd, 是重复的，所以每次 都要 **迭代index, 但只有这次的单词和上次单词不一样** 才计算距离。所以有了条件 !words[index].equals(words[i])
+
+```java
+public int shortestDistance(String[] words, String word1, String word2) {
+    int index = -1;
+    int min = words.length - 1;
+    for (int i = 0; i < words.length; i++) {
+        if (words[i].equals(word1) || words[i].equals(word2)) {
+            if (index != -1 && !words[index].equals(words[i])) {
+                min = Math.min(i - index, min);
+            }
+            index = i;
+        }
+    }
+    return min;
+}
+```
+
 
