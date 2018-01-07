@@ -133,7 +133,7 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 52. N-Queens II   		44.4%	Hard	
 
-### 53. Maximum Subarray   		39.4%	Easy	
+### 53. [Maximum Subarray](http://www.wayne.ink/2018/01/07/LeetCode/0053-Maxium-Subarray/) 		39.4%	Easy	
 
 ### 54.	Spiral Matrix   		25.7%	Medium	
 

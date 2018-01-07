@@ -38,9 +38,9 @@ In calls to MyCalendar.book(start, end), start and end are integers in the range
 
 这一题考的本质是，一个interval 是否重叠的公式。
 
-if (Math.max(b[0], start) < Math.min(b[1], end)) return false;
+**if (Math.max(b[0], start) < Math.min(b[1], end)) return false;**
 
-为什么这个公式重要。
+为什么这个公式重要。因为在各大interval 的题型中都能见到他的身影。
 
 ```java
 class MyCalendar {
