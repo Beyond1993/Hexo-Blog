@@ -83,7 +83,7 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 27. Remove Element   		38.7%	Easy	
 
-### 28. Implement strStr()   		27.9%	Easy	
+### 28. [Implement strStr()](http://www.wayne.ink/2018/01/10/LeetCode/0028-Implement-StrStr/)   		27.9%	Easy	
 
 ### 29. Divide Two Integers    		16.0%	Medium	
 

@@ -1,6 +1,6 @@
 ---
 title: 0028-Implement-StrStr
-date: 2017-12-10 19:36:47
+date: 2018-01-10 19:36:47
 categories: LeetCode
 tags:
 ---
