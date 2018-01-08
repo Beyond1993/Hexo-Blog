@@ -1,7 +1,7 @@
 ---
 title: IO-Operations-in-Single-Machine
 date: 2018-01-06 16:59:40
-categories: Distributed-System
+categories: Linux
 tags:
 ---
 
