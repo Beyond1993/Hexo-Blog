@@ -99,13 +99,13 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 35. Search Insert Position   		39.6%	Easy	
 
-### 36. Valid Sudoku   		35.4%	Medium	
+### 36. [Valid Sudoku](http://www.wayne.ink/2018/01/09/LeetCode/0036-Valid-Sudoku/)   		35.4%	Medium	
 
 ### 37. Sudoku Solver   	29.8%	Hard	
 
-### 38. Count and Say   		34.2%	Easy	
+### 38. [Count and Say](http://www.wayne.ink/2018/01/09/LeetCode/0038-Count-and-Say/)   		34.2%	Easy	
 
-### 39. Combination Sum   		38.0%	Medium	
+### 39. [Combination Sum](http://www.wayne.ink/2018/01/09/LeetCode/0039-Combination-Sum/)  		38.0%	Medium	
 
 ### 40. Combination Sum II   		33.3%	Medium	
 

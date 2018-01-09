@@ -21,4 +21,8 @@ tags:
 
 ### 138. [Copy List with Random Pointer](http://www.wayne.ink/2017/12/26/LeetCode/0138-Copy-List-with-Random-Pointer/)
 
+### 139. [Word Break](http://www.wayne.ink/2018/01/09/LeetCode/0139-Word-Break/)
+
+### 140. [Word Break II](http://www.wayne.ink/2018/01/09/LeetCode/0140-Word-Break-II/)
+
 ### 200. [Number of Islands](http://www.wayne.ink/2018/01/01/LeetCode/0200-Number-Of-Islands/)

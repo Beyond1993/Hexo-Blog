@@ -68,3 +68,7 @@ public class Solution {
 我们考虑 pattern : 'aba', str : 'aaa'
 
 如果不用set,  就变成 a --> a,  b --> a, 但是我们知道这是一一对应的关系，所以 b --> aa, 这才对，所以已经在Map&t;Character, String&gt; 的 String 里出现的值，我们直接跳过. 
+
+下面这个链接说 f(n) = n*(n-1)*...*1 = n^n
+
+https://www.programcreek.com/2014/07/leetcode-word-pattern-ii-java/
