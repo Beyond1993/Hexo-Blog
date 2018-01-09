@@ -1,7 +1,7 @@
 ---
 title: CMU-11642-1-Boolean-Retrieval
 date: 2017-11-13 21:41:15
-categories: CMU课程
+categories: CMU
 tags:
 ---
 

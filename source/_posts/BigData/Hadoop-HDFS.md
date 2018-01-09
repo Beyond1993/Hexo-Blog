@@ -30,6 +30,11 @@ NOTICE.txt               hadoop-assemblies        hadoop-common-project    hadoo
 ### 第2章 Hadoop 配置信息处理
 
 ### 第3章 序列化与压缩
+#### 3.2.1 Hadoop 压缩简介
+
+所有的压缩算法都会考虑时间和空间的权衡，当使用MapReduce 处理压缩文件时，需要考虑压缩文件的可分割性，考虑我们需要对保持在HDFS 上的一个大小为1GB 的文本进行处理，当前HDFS 的数据块大小为64MB情况下，该文件被分为16块，对应的MapReduce 作业会将该文件分为16个输入分片，提供给16个独立的Map 任务进行处理。
+
+如果这个文件是一个1G大小的 gzip 文件，则不能分片. 
 
 ### 第4章 Hadoop 远程过程调用
 4.1 远程过程调用的基础知识

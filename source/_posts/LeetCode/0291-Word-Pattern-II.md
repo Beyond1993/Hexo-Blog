@@ -58,4 +58,13 @@ public class Solution {
 }
 ```
 
-但是因为他是Java, 加上剪枝，可能不会很慢
+但是因为他是Java, 加上剪枝，可能不会很慢。 这种解法的时间复杂度是多少？这就可以衍生到一般 backtrace 的时间复杂度
+
+
+这题的Map 是建立一个字符 和 一个 word 之间的mapping
+
+那这个set 又是用来干嘛的?
+
+我们考虑 pattern : 'aba', str : 'aaa'
+
+如果不用set,  就变成 a --> a,  b --> a, 但是我们知道这是一一对应的关系，所以 b --> aa, 这才对，所以已经在Map&t;Character, String&gt; 的 String 里出现的值，我们直接跳过. 

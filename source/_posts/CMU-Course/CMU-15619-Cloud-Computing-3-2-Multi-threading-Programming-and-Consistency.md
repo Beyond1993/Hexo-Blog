@@ -1,7 +1,7 @@
 ---
 title: CMU-15619-Cloud-Computing-3-2-Multi-threading-Programming-and-Consistency
 date: 2017-11-14 22:26:00
-categories: CMU课程
+categories: CMU
 tags:
 ---
 

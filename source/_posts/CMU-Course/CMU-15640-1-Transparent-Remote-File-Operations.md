@@ -1,7 +1,7 @@
 ---
 title: CMU-15640-1-Transparent-Remote-File-Operations
 date: 2017-08-20 08:03:01
-categories: CMU课程
+categories: CMU
 tags: cmu
 ---
 分布式系统，总的来说分两类。分布式文件系统，分布式调度系统。

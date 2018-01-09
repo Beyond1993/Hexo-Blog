@@ -1,7 +1,7 @@
 ---
 title: 现代信息检索
 date: 2017-11-13 19:10:14
-categories: CMU课程
+categories: CMU
 tags:
 ---
 

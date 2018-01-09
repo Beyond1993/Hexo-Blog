@@ -1,7 +1,7 @@
 ---
 title: CMU-11642-Content
 date: 2017-10-27 20:52:57
-categories: CMU课程
+categories: CMU
 tags:
 ---
 
