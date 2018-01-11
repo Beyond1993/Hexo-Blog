@@ -1,7 +1,7 @@
 ---
 title: Interview-Follow-UP
 date: 2017-10-03 20:55:55
-categories: 面试
+categories: Interview
 tags:
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Interview-OOD-Design
 date: 2017-09-26 20:26:48
-categories: 面试
+categories: Interview
 tags:
 ---
 [UML](http://www.uml.org.cn/oobject/201510214.asp)

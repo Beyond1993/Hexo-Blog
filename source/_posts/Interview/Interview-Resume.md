@@ -1,7 +1,7 @@
 ---
 title: Interview-Resume
 date: 2017-12-01 05:09:23
-categories: 面试
+categories: Interview
 tags:
 ---
 

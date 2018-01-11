@@ -1,7 +1,7 @@
 ---
 title: Interview-Amazon-Onsite
 date: 2017-09-21 06:34:04
-categories: 面试
+categories: Interview
 tags:
 ---
 https://instant.1point3acres.com/tag/amazon

@@ -1,7 +1,7 @@
 ---
 title: Interview-Mysql
 date: 2017-11-12 07:23:37
-categories: 面试
+categories: Interview
 tags:
 ---
 

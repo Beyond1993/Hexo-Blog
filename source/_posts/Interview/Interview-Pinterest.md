@@ -1,7 +1,7 @@
 ---
 title: Interview-Pinterest
 date: 2017-10-16 06:20:11
-categories: 面试
+categories: Interview
 tags:
 ---
 

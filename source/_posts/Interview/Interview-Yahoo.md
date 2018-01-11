@@ -1,7 +1,7 @@
 ---
 title: Interview-Yahoo
 date: 2017-10-25 07:41:30
-categories: 面试
+categories: Interview
 tags:
 ---
 

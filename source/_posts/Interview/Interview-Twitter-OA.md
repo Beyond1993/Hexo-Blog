@@ -1,7 +1,7 @@
 ---
 title: Interview-Twitter-OA
 date: 2017-08-20 03:24:05
-categories: 面试
+categories: Interview
 tags:
 ---
 http://www.1point3acres.com/bbs/thread-209018-1-1.html
