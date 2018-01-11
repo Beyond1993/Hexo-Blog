@@ -1,7 +1,7 @@
 ---
 title: Interview-Mock
 date: 2017-12-03 03:01:08
-categories: 面试
+categories: Interview
 tags:
 ---
 

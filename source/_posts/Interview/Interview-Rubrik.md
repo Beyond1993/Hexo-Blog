@@ -6,29 +6,35 @@ tags:
 ---
 
 1 . paths Number
-首先是给定一个M x N grid，求从左下角走到右下角有多少种可能的路径。限 制:只可以走三个方向 right, diagonally right up, diagonally right down Follow up，现在给定额外参数h，求问高度超过h的路径有多少?某条路径的高 度为其最高点，见下图。
-```java
-class Solution { public:
-int numberOfPaths (int m, int n) { 
-  vector<vector<int>> dp(m, vector<int>(n,0)); 
-  int i = 0;
-  while (i < m && i < n) {
-    dp[i][i] = 1;
-    i++; 
-  }
-  for (int i = 1; i < n; i++) { 
-    int j = 0, k = i;
-    while (k < n && j < m) {
-      int d1 = 0, d2 = 0, d3 = 0;
-      d1 = dp[j][k-1];
-      if (j > 0) d2 = dp[j-1][k-1]; 
-      if (j < m - 1) d3 = dp[j+1][k-1]; 
-      dp[j][k] = d1 + d2 + d3;
-      k++; 
-      j++; 
+首先是给定一个M x N grid，求从左下角走到右下角有多少种可能的路径。
+限 制:只可以走三个方向 right, diagonally right up, diagonally right down 
+
+Follow up，现在给定额外参数h，求问高度超过h的路径有多少?某条路径的高 度为其最高点。
+```cpp
+class Solution { 
+
+  public:
+    int numberOfPaths (int m, int n) { 
+      vector<vector<int>> dp(m, vector<int>(n,0)); 
+      int i = 0;
+      while (i < m && i < n) {
+        dp[i][i] = 1;
+        i++; 
+      }
+      for (int i = 1; i < n; i++) { 
+        int j = 0, k = i;
+        while (k < n && j < m) {
+          int d1 = 0, d2 = 0, d3 = 0;
+          d1 = dp[j][k-1];
+          if (j > 0) d2 = dp[j-1][k-1]; 
+          if (j < m - 1) d3 = dp[j+1][k-1]; 
+          dp[j][k] = d1 + d2 + d3;
+          k++; 
+          j++; 
+        }
+      }
+      return dp[0][n - 1]; 
     }
-  }
-  return dp[0][n - 1]; }
 };
 
 int main() { 
@@ -40,85 +46,111 @@ int main() {
 ```
 2. Leetcode2 Add two numbers:
 
-```java
-class Solution { public:
-ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) { ListNode* dummy = new ListNode(0), *p = dummy; int carry = 0;
-while(l1 || l2 || carry) {
-int sum = 0;
-if (l1) { 
-  sum += l1->val; l1 = l1->next;} if (l2) {
-  sum += l2->val; l2 = l2->next;} sum += carry;
-  carry = sum/10;
-  p->next = new ListNode(sum%10); 
-  p = p->next;
-}
-return dummy->next; }
+```cpp
+class Solution { 
+public: 
+  ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) { 
+    ListNode* dummy = new ListNode(0), *p = dummy; int carry = 0;
+    while(l1 || l2 || carry) {
+      int sum = 0;
+      if (l1) { 
+        sum += l1->val; l1 = l1->next;
+      } 
+      if (l2) {
+        sum += l2->val; l2 = l2->next;} sum += carry;
+        carry = sum/10;
+        p->next = new ListNode(sum%10); 
+        p = p->next;
+    }
+    return dummy->next; 
+  }
 };
 ```
-3.
-leetcode7:Palindrome Number
-class Solution { public:
-bool isPalindrome(int x) {
-if (x < 0 || (x != 0) && (x%10 == 0)) return false; int res = 0;
-while (res < x) {
-res = res*10 + x%10;
-x /= 10; }
-return (x == res)||(res/10 == x); }
+3. leetcode7:Palindrome Number
+```cpp
+class Solution { 
+public:
+  bool isPalindrome(int x) {
+  if (x < 0 || (x != 0) && (x%10 == 0)) return false; 
+    int res = 0;
+    while (res < x) {
+      res = res*10 + x%10;
+      x /= 10; 
+    }
+    return (x == res)||(res/10 == x); 
+  }
 };
 follow up: at least k elements
+```
 4. leetcode:53 Maximum Subarray
+follow up: at least k elements
 
- follow up: at least k elements
-class Solution { public:
-int maxSubArray(vector<int>& nums) {
-if (nums.empty()) return 0;
-int curSum = nums[0], maxSum = nums[0]; for (int i = 1; i < nums.size(); i++) {
-curSum = max(curSum + nums[i], nums[i]);
-maxSum = max(curSum, maxSum); }
-return maxSum; }
-//follow up, at least k element in the subArray int maxSubArray(vector<int>& nums, int k) {
-if (nums.empty()) return 0;
-int prefix = 0;
-for(int i = 0; i < k - 1; i++) prefix += nums[i]; int curSum = prefix, maxSum = prefix;
-for (int i = k - 1; i < nums.size(); i++) {
-curSum = max(prefix + nums[i], curSum + nums[i]); maxSum = max(curSum, maxSum);
-prefix = prefix - nums[i - k + 1] + nums[i]; }
-return maxSum; }
+```cpp
+class Solution { 
+public:
+  int maxSubArray(vector<int>& nums) {
+    if (nums.empty()) return 0;
+    int curSum = nums[0], maxSum = nums[0]; 
+    for (int i = 1; i < nums.size(); i++) {
+      curSum = max(curSum + nums[i], nums[i]);
+      maxSum = max(curSum, maxSum); 
+    }
+    return maxSum; 
+}
+//follow up, at least k element in the subArray 
+
+int maxSubArray(vector<int>& nums, int k) {
+  if (nums.empty()) return 0;
+  int prefix = 0;
+  for(int i = 0; i < k - 1; i++) prefix += nums[i]; 
+  int curSum = prefix, maxSum = prefix;
+  for (int i = k - 1; i < nums.size(); i++) {
+    curSum = max(prefix + nums[i], curSum + nums[i]); 
+    maxSum = max(curSum, maxSum);
+    prefix = prefix - nums[i - k + 1] + nums[i]; 
+  }
+  return maxSum; 
+  }
 };
 int main() {
-vector<int> nums{-4, -2, 1, -3}; Solution sl;
-int res = sl.maxSubArray(nums, 2); cout<< res<<endl;
-return 0;
+  vector<int> nums{-4, -2, 1, -3}; 
+  Solution sl;
+  int res = sl.maxSubArray(nums, 2); 
+  cout<< res<<endl;
+  return 0;
 }
-5. leetcode 7. Reverse Integer
-class Solution {
-4. leetcode:53 Maximum Subarray
-public:
+```
 
-return 0;
-}
- 5. leetcode 7. Reverse Integer
+5. leetcode 7. Reverse Integer
+```cpp
 class Solution {
 public:
-int reverse(int x) {
-long long res = 0; int sign = 1;
-if (x < 0) {
-x = -x;
-sign = -1; }
-while (x > 0) {
-res = res*10 + x%10;
-x /= 10;
-if (res > INT_MAX) return 0;
-}
-return sign*res; }
+  int reverse(int x) {
+    long long res = 0; int sign = 1;
+    if (x < 0) {
+      x = -x;
+      sign = -1; 
+    }
+    while (x > 0) {
+      res = res*10 + x%10;
+      x /= 10;
+      if (res > INT_MAX) 
+        return 0;
+      }
+   return sign*res; 
+  }
 };
+```
 8. Clone list
+```cpp
 struct ListNode{ int val;
 ListNode* next, *random;
 ListNode(int x):val(x), next(NULL), random(NULL){} };
 class Solution { public:
-ListNode *cloneLinkList(ListNode* node) { unordered_map<int, ListNode*> m;
-return clone(node, m); }
+ListNode *cloneLinkList(ListNode* node) { 
+unordered_map<int, ListNode*> m;
+return clone(node, m); 
+}
 ListNode* clone(ListNode* node, unordered_map<int, ListNode*> &m) { if (!node) return NULL;
 if (m.count(node->val)) return m[node->val];
 m[node->val] = newNode;
@@ -146,21 +178,17 @@ ListNode *res = sl.cloneLinkList(n1);
 cout<< "node1's val = " << res->val<< "node->next "<<res->next->val<< "node->
 random"<< res->random->val<<endl;
 return 0; }
+```
 9. Next Permutation
-10.我应该只写出了第一问，然后就被follow up打趴了。要求实现一个 threadpool，每个队列存储的是thread并且有自己的weight. 第一问是写一个method， 根据每个weight，return random index。 比如有2 个queue, weight是[1， 2], 那么就是1/3的概率return 0, 2/3的概率return 1.
-11. Design and implement key value system
-//
-// string -> string
-. from: 1point3acres.com/bbs
-// Insert a key-value pair or modify a value
-void put(string key, string value);
+
+
+10. 我应该只写出了第一问，然后就被follow up打趴了。要求实现一个 threadpool，每个队列存储的是thread并且有自己的weight. 第一问是写一个method， 根据每个weight，return random index。 比如有2 个queue, weight是[1， 2], 那么就是1/3的概率return 0, 2/3的概率return 1.
 
 11. Design and implement key value system
 //
 // string -> string
-. from: 1point3acres.com/bbs
 // Insert a key-value pair or modify a value
-void put(string key, string value);. visit 1point3acres.com for more.
+void put(string key, string value);
 // Delete a key-value pair void delete(string key);
 // Gets a value given a snapshot string get(string key, Snapshot snap);
 // Take a snapshot Snapshot takeSnapshot();
@@ -168,16 +196,16 @@ void put(string key, string value);. visit 1point3acres.com for more.
 void deleteSnapshot(Snapshot snap);
 // put(k1,v1)
 // put(k2,v2)
-// put(k3,v3). more info on 1point3acres.com
+// put(k3,v3).
 // takeSnapshot -> snap1 { k1 -> v1, k2 -> v2, k3 -> v3 }
 // get(k1,snap1) -> v1
 // put(k1,v4)
 // delete(k3)
-// takeSnapshot -> snap2 { k1 -> v4, k2 -> v2 }.鐣欏 璁哄潧-涓€浜�-涓夊垎鍦� // get(k1,snap2) -> v4
+// takeSnapshot -> snap2 { k1 -> v4, k2 -> v2 } // get(k1,snap2) -> v4
 // get(k1,snap1) -> v1
 // get(k3,snap2) -> XX
  // deleteSnapshot(snap1)
-// get(k1,snap1) -> XX. from: 1point3acres.com/bbs
+// get(k1,snap1) -> XX. 
 
 // get(k1,snap1) -> v1 // get(k3,snap2) -> XX
 // deleteSnapshot(snap1)
@@ -185,37 +213,49 @@ void deleteSnapshot(Snapshot snap);
 // Space efficient > time efficient
 key -> value
 key {snap_id, _new_value} */
-class SnapShot { public:
-int id;
-SnapShot(int val): id(val){} };
-class Solution { public:
-void put(string key, string value) {
-temp[key] = value; }
-void delete1(string key) { temp.erase(key);
-snap.erase(key); }
-SnapShot* takeSnapShot (){
-SnapShot *res = new SnapShot(count); count++;
-return res;
-}
-string get(string key, SnapShot* snapShot) {
-if (!snap[key].count(snapShot->id)) return "XX";
- return snap[key][snapShot->id]; }
-void deleteSnapshot(SnapShot* snapShot) {
 
-string get(string key, SnapShot* snapShot) {
-if (!snap[key].count(snapShot->id)) return "XX";
-return snap[key][snapShot->id]; }
-void deleteSnapshot(SnapShot* snapShot) { int id1 = snapShot->id;
-for (auto a: snap) {
-if(a.second.count(id1)) a.second.erase(id1); }
-return; }
-private:
-unordered_map<string,string> temp; // present key and value. // Key,snapID, Value
-unordered_map<string, unordered_map<int,string>> snap;
-int count;
+```cpp
+class SnapShot { 
+public:
+  int id;
+  SnapShot(int val): id(val){} 
+};
+class Solution { 
+  public:
+    void put(string key, string value) {
+      temp[key] = value; 
+    }
+    void delete1(string key) { 
+      temp.erase(key);
+      snap.erase(key); 
+    }
+    SnapShot* takeSnapShot () {
+    SnapShot *res = new SnapShot(count); 
+    count++;
+    return res;
+  }
+
+  string get(string key, SnapShot* snapShot) {
+    if (!snap[key].count(snapShot->id)) return "XX";
+      return snap[key][snapShot->id]; 
+    }
+
+  void deleteSnapshot(SnapShot* snapShot) { 
+    int id1 = snapShot->id;
+    for (auto a: snap) {
+      if(a.second.count(id1)) a.second.erase(id1); }
+      return; 
+    }
+  private:
+    unordered_map<string,string> temp; // present key and value. // Key,snapID, Value
+    unordered_map<string, unordered_map<int,string>> snap;
+    int count;
 };
 int main (){
-return 0; }
+  return 0; 
+}
+```
+
 电面总结:
 20分钟讲背景，一直challenge 我的背景不符合， why rubrik，为什么测试岗，中 途信号不好，两次断掉，recruiter忘了给发codepad链接，向面试官问问题化解尴 尬与等待时间
 20分钟后开始做题

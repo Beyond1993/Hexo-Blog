@@ -1,7 +1,7 @@
 ---
 title: Interview-Amazon-OA1-Logic
 date: 2017-09-03 22:32:57
-categories: 面试
+categories: Interview
 tags:
 ---
 http://www.1point3acres.com/bbs/thread-210460-1-1.html

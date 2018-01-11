@@ -1,7 +1,7 @@
 ---
 title: Interview-Amazon-OA2-Simulation
 date: 2017-09-08 01:05:33
-categories: 面试
+categories: Interview
 tags:
 ---
 
