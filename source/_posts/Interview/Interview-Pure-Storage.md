@@ -1,7 +1,7 @@
 ---
 title: Interview-Pure-Storage
 date: 2017-10-24 01:05:33
-categories: 面试
+categories: Interview
 tags:
 ---
 
