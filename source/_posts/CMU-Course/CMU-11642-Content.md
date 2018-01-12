@@ -62,11 +62,54 @@ exact-match 的不足:
 02-IntroToSearch
 
 • Ad-hoc retrieval
+对于搜索广告, 我就不说啥了。
+
 • Information needs & queries 
+Query Trees:
+• Leaves are index terms
+• Leaves are pointers to inverted lists stored on disk ?
+
+```text
+      AND             |
+    /     \           | Memory
+   OR       \         |
+  /   \       \       |
+great terrific camera 
+  |     |        |    |
+  V     V        V    |
+  .     .        .    |Disk
+  .     .        .    |
+  .     .        .    |
+```
+
+
 • Document representation 怎么去选泽要展示的word
+  • Free-text indexing: use some of words
+  • Full-text indexing: use most of words
+
+  • The Binary Full-Text Representation: 给所有单词建表，Doc(i) 包含这个单词，则value is 1. position and frequency are ignored
+
+  bag of words, 简单有效，在 search classification 任务中表现良好。
+
+  Frequence Based Full-Text Representation
+
+  Binary Full-Text Representation value 从 0， 1 变成 frequence
+
+  More effective for search than the binary representation
+
 • Exact match retrieval
  – Unranked Boolean
+Documents are returned in no particular order
+
  – Ranked Boolean
+既然要rank, 那这个rank的score 是怎么计算的呢？
+
+AND 操作怎么算， OR 操作怎么算 。。。。
+
+优点 简单有效
+缺点 still a Exact-Math, it is difficult to get a good balance of Precision and Recall
+
+
 • Indexing
  – Inverted Lists 倒排列表，一步一步优化, Inverted Lists, query --> list&lt;docid&gt;
  – Term dictionary 就是一个缓存
