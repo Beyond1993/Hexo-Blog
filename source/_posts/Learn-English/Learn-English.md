@@ -54,3 +54,5 @@ I'll find my own way out. 请您留步
 
 You can't fight, you can't see, you're afraid of heights and almost everything else probably. What are you doing here, Sam?
 
+My cell phone is out of juice --> My cell phone is out of battery.
+
