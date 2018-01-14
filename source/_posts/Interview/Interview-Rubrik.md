@@ -703,5 +703,15 @@ https://leetcode.com/problems/3sum/description/
  
 
 
+第一轮，concurrence
+multithread同时向一个文件里输入输出，问如何保证这次的结果和某次的结果保持一致。他之后给了一个数据结构记录各个thread执行顺序，然后让我用这个数据结构来实现让这次的执行结果重演某一次的结果。
+
+第二轮，concurrence
+写一个task router，有些task要在其他task完成后才能考试，问如何以最快的速度完成所有task
+
+第三轮，面经题
+M*N的矩阵，从左下走到右下有多少种（可以向右，右下，右上走），follow up：至少到达高度h的方法有多少种
+Sky line，求面积
+
 
 

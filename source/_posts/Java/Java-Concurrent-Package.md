@@ -7,6 +7,8 @@ tags:
 
 [API](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#package_description) && [Description](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#package_description)
 
+其实这里的Java 5 之后出的 多线程包，可以说是和openMP 类似的 
+
 ![整体架构图](http://hi.csdn.net/attachment/201111/10/0_13209086922UBB.gif)
 
 ![](https://www.uml-diagrams.org/examples/java-7-concurrent-executors-uml-class-diagram-example.png)
