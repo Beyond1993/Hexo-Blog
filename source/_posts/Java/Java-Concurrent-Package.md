@@ -5,6 +5,8 @@ categories: Java
 tags:
 ---
 
+[API](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#package_description) && [Description](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#package_description)
+
 ![整体架构图](http://hi.csdn.net/attachment/201111/10/0_13209086922UBB.gif)
 
 ![](https://www.uml-diagrams.org/examples/java-7-concurrent-executors-uml-class-diagram-example.png)
@@ -13,6 +15,7 @@ tags:
 
 ![](https://www.uml-diagrams.org/examples/java-7-concurrent-future-uml-class-diagram-example.png)
 
+```java
 Executor: 执行对象
 
 * Executor: 执行已提交的Runnable任务的对象
@@ -112,4 +115,5 @@ Executor: 执行对象
 ---CyclicBarrier 同步辅助类，使一组线程相互等待
 
 ---Exchanger 可以再对中队元素进行配对和交换的线程的同步点
+```
 

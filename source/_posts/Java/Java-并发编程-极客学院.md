@@ -46,6 +46,10 @@ tags:
 ## 第19章 深入Java内存模型(2)
 
 ## 第20章 并发新特性-Executor 框架与线程池
+Executor 框架 包括,Thread Pool, Executor, Executors, ExecutorService, CompletionService, Future, Callable.
+
+
+
 
 ## 第21章 并发新特性-Lock 锁与条件变量
 
