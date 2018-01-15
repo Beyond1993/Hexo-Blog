@@ -33,27 +33,7 @@ public final class QuickSelect {
       }
   }
   
-  public static int selectRecursive(int[] array, int n) {
-    return recursive(array, 0, array.length - 1, n);
-  }
 
-  private static int recursive(int[] array, int left, int right, int n) {
-    if (left == right) { // If the list contains only one element,
-      return array[left]; // return that element
-    }
-    
-    // select a pivotIndex between left and right
-    int pivotIndex = randomPivot(left, right); 
-    pivotIndex = partition(array, left, right, pivotIndex);
-    // The pivot is in its final sorted position
-    if (n == pivotIndex) {
-      return array[n];
-    } else if (n < pivotIndex) {
-      return recursive(array, left, pivotIndex - 1, n);
-    } else {
-      return recursive(array, pivotIndex + 1, right, n);
-    }
-  }
   
   private static int partition(int[] array, int left, int right, int pivotIndex) {
     int pivotValue = array[pivotIndex];
@@ -92,4 +72,27 @@ public final class QuickSelect {
     }
 }
 
+```
+
+```java
+public static int selectRecursive(int[] array, int n) {
+  return recursive(array, 0, array.length - 1, n);
+}
+private static int recursive(int[] array, int left, int right, int n) {
+    if (left == right) { // If the list contains only one element,
+      return array[left]; // return that element
+    }
+    
+    // select a pivotIndex between left and right
+    int pivotIndex = randomPivot(left, right); 
+    pivotIndex = partition(array, left, right, pivotIndex);
+    // The pivot is in its final sorted position
+    if (n == pivotIndex) {
+      return array[n];
+    } else if (n < pivotIndex) {
+      return recursive(array, left, pivotIndex - 1, n);
+    } else {
+      return recursive(array, pivotIndex + 1, right, n);
+    }
+}
 ```
