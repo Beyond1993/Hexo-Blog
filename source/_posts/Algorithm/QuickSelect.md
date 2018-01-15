@@ -33,8 +33,6 @@ public final class QuickSelect {
       }
   }
   
-
-  
   private static int partition(int[] array, int left, int right, int pivotIndex) {
     int pivotValue = array[pivotIndex];
     swap(array, pivotIndex, right); // move pivot to end
