@@ -44,3 +44,14 @@ https://leetcode.com/problems/lru-cache
 https://en.wikipedia.org/wiki/Mastermind_(board_game)
 
 weight random
+
+
+Google 题目 1万台机器，1亿个数字，找第K大的数字。如果这些数字在月球上？
+
+最简单的是每台机器选取K个，传回地球，如果K很大的情况下，每个machine 先取第K大
+再在取最小的k, 作为threthold
+
+反复迭代
+
+每台机器也可以返回 小鱼等于 K 的 nums, max, min value
+
