@@ -19,3 +19,5 @@ https://www.topcoder.com/community/data-science/data-science-tutorials/range-min
 http://sortbenchmark.org/
 
 http://sortbenchmark.org/TencentSort2016.pdf
+
+https://www.topcoder.com/community/data-science/data-science-tutorials/range-minimum-query-and-lowest-common-ancestor/
