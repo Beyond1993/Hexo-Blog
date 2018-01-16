@@ -15,3 +15,7 @@ SDE-University-Interviews@amazon.com
 https://www.gitbook.com/book/soulmachine/algorithm-essentials/details
 
 https://www.topcoder.com/community/data-science/data-science-tutorials/range-minimum-query-and-lowest-common-ancestor/
+
+http://sortbenchmark.org/
+
+http://sortbenchmark.org/TencentSort2016.pdf
