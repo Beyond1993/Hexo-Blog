@@ -5,6 +5,10 @@ categories: LeetCode-Index
 tags:
 ---
 
+### 207 [Course Schedule](http://www.wayne.ink/2017/12/26/LeetCode/0207-Course-Schedule/)
+
+### 210 [Course Schedule](http://www.wayne.ink/2017/12/26/LeetCode/0210-Course-Schedule-II/)
+
 ### 211 [Add and Search Word Data structure design](http://www.wayne.ink/2018/01/06/LeetCode/0211-Add-and-Search-Word-Data-structure-design/)
 
 ### 212. [Word Search II](http://www.wayne.ink/2018/01/03/LeetCode/0212-Word-Search-II/) 
