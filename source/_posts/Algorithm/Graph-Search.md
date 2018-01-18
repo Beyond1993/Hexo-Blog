@@ -25,6 +25,8 @@ BFS 求最短路径只是针对无向图
 图的BFS 类似于树，出队一个节点，将neighbor 入队，　用set标记是否已经访问过．但为
 了能找出层次，先用size来　for 循环．
 
+这是存边的情况
+
 ```cpp
 #include<iostream>
 #include<fstream>
@@ -141,5 +143,15 @@ int main()
 4 7 1
 5 6 1
 ```
+对于经典的邻接矩阵
+
+BFS 
+```java
 ```
+
+DFS 
+```java
+
+```
+
 
