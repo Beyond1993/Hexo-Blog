@@ -713,5 +713,184 @@ multithread同时向一个文件里输入输出，问如何保证这次的结果
 M*N的矩阵，从左下走到右下有多少种（可以向右，右下，右上走），follow up：至少到达高度h的方法有多少种
 Sky line，求面积
 
+```java
+import java.io.*;
+import java.util.*;
+//
+file, conut++, 0-> 1,2,3 --> 3,2,1-> 0  
+  //AtomicInteger
+  //get
+  //set
+  //decrementAndGet
+  //compareAndSet(expect, update)
+  
+  class AtomicInteger
+{
+  int get()
+{
+  return backcingValue;
+}
+void set(int newVal)
+{
+  backingValue = newVal
+}
 
+//executed atomically
+void compareAndSet(int expect, int update)
+{
+  if (expect == bhackingValue)
+  {
+    backingValue = update;
+    return true;
+  }
+  return false;
+}
+
+int decrementAndGet()
+{
+  return --backingValue;
+}
+    
+    
+int incrementAndGet() {
+   return ++backingValue;
+}
+
+}
+  
+  //AtomicBoolean
+  //get
+  //set
+  //compareAndSet(boolean expect,boolean update)
+
+class ArcCloseable<T extends Closeable>
+{
+  AtomicInteger refCount = new AtomicInteger(0);
+  AtomicBoolean isClosing = new AtomicBoolean(false);
+
+  void decRef()
+  {
+    refCount.decrementAndGet();
+    //thread stops here
+    
+    refCount is 1
+    if (refCount.get() <= 0) {
+    //thread stops here
+       isClosing.set(true);
+       super.close();
+    }
+    
+    
+    int currentValue;
+    do
+    {
+      currentValue = refCount.get();
+      
+      if (currentvalue <= 0)
+      {
+        if (refCount.compareAndSet(currentValue, currentValue-1);
+        {
+          if (isClosing.compareAndSet(false, true))
+            return;
+        }
+      }
+      
+    while(some condition);
+    
+  }
+  
+  boolean incRef()
+  {
+  
+    if (isClosing.get() == true)
+    {
+      //failed to increment the refCount
+      return false;
+    }
+    
+    
+    //thread stops here
+
+    refCount.incrementAndGet();
+    
+    return true;
+  }
+  
+  @Override void close()
+  {
+    throw new Exception();
+  }
+
+}
+
+class BigClass
+{
+}
+
+class littleClass
+{
+  recursiveWrite(RcCloseable<BufferedWriter> writer, stuff)
+  {
+    if (!writer.incRef())
+    {
+      throw new Exception();
+    }
+    
+    writer.write(stuff);
+    
+    if (!stuff.hasMoreStuff())
+    {
+      return;
+    }
+    
+    recursiveWrite(stuff);
+    
+    writer.decRef();
+  }
+}
+
+/*
+ * To execute Java, please define "static void main" on a class
+ * named Solution.
+ *
+ * If you need more classes, simply define them inline.
+ */
+
+// class Solution {
+//   public static void main(String[] args) {
+//     ArrayList<String> strings = new ArrayList<String>();
+//     strings.add("Hello, World!");
+//     strings.add("Welcome to CoderPad.");
+//     strings.add("This pad is running Java 8.");
+
+//     for (String string : strings) {
+//       System.out.println(string);
+//     }
+//   }
+// }
+
+
+
+
+
+
+/* 
+Your previous Plain Text content is preserved below:
+
+This is just a simple shared plaintext pad, with no execution capabilities.
+
+When you know what language you'd like to use for your interview,
+simply choose it from the dropdown in the top bar.
+
+You can also change the default language your pads are created with
+in your account settings: https://coderpad.io/settings
+
+Enjoy your interview!
+
+Hi Wayne, could you join the google chat?
+
+
+
+ */
+```
 
