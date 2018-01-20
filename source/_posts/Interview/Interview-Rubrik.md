@@ -894,3 +894,13 @@ Hi Wayne, could you join the google chat?
  */
 ```
 
+
+其实这题考察的就是多线程里线程  stop 后 怎么样继续保持结果一致。
+一开始我以为// thread stop here, 是指的线程挂掉了，但是很遗憾这里只是指suspend.
+
+
+https://github.com/apache/lucene-solr
+https://github.com/joshbooks/JoshDB/blob/master/src/FunctionalZookeeperClient.java
+https://medium.com/osnap/futures-meet-lucene-10a51b03a9fb
+
+
