@@ -89,3 +89,21 @@ UnsupportedOperationException - 不支持的操作异常
 Nested Classes ---+ 
                   + non-static ---> inner classes
 ```
+
+### 6 Java Access
+
+||Class| Package|Subclass(same pkg)|Subclass(diff pkg)|World|
+|:-|:--|:--------------------------|:-----------------|:----|
+|public| + | + | + | + | + |
+|protected| + | + | + | + | |
+|default| + | + | + | | |
+|private| + |   |   | | |
+
+
+### 7 Final Class, Final Variale, Final Method
+Final Class 不能被继承
+Final Variable 不能被修改
+Final Method 不能被override
+
+
+
