@@ -87,3 +87,4 @@ https://leetcode.com/problems/find-all-anagrams-in-a-string/
 
 
 
+sliding window 优先考虑右指针 能 
