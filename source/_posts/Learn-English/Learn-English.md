@@ -56,3 +56,8 @@ You can't fight, you can't see, you're afraid of heights and almost everything e
 
 My cell phone is out of juice --> My cell phone is out of battery.
 
+remembrance
+
+patriotic
+
+imagery 意向，比喻
