@@ -61,3 +61,5 @@ remembrance
 patriotic
 
 imagery 意向，比喻
+
+https://www.youtube.com/watch?v=rmeGVhhbGrM
