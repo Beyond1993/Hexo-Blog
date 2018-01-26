@@ -1,6 +1,6 @@
 ---
 title: 0239-Sliding-Window-Maximum
-date: 2017-12-12 19:03:17
+date: 2018-01-30 19:03:17
 categories: LeetCode
 tags:
 ---
@@ -57,8 +57,11 @@ public int[] maxSlidingWindow(int[] nums, int k) {
     int index = 0;
     // store index
     Deque<Integer> q = new ArrayDeque<>();
+    // poll [DeQueue] pollLast
+    // the leftmost side of the queue always is the biggest in this window
+    // we need to make sure that the numbers inside queue are in decreasing order. why? because if the largest number is out of the range, we need to make sure the second leftmost element is the largest one after we pop out the leftmost element.   
     for (int i = 0; i < nums.length; i++) {
-
+	// if the new number is greater than the rightmost element in the dequeue, we pop the rightmost element so that the deque can maintain the decreasing order.
         // remove smaller numbers in k range as they are useless
         while (!q.isEmpty() && nums[q.peekLast()] < nums[i]) {
             q.pollLast();
