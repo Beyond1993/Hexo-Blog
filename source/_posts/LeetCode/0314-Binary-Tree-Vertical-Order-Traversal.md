@@ -1,6 +1,6 @@
 ---
 title: 0314-Binary-Tree-Vertical-Order-Traversal
-date: 2017-10-09 03:24:09
+date: 2018-01-30 03:24:09
 categories: LeetCode
 tags:
 ---
@@ -80,6 +80,7 @@ return its vertical order traversal as:
 
 思路： 以根节点为index 0, 左边 -1, 右边 1, 本质还是层次遍历取对应下标.再将 index 作为map的key,node 作为value
 
+其实这题有点像[ZigZag](http://www.wayne.ink/2017/12/30/LeetCode/0006-ZigZag-Conversion/)
 
 ```java
 /**

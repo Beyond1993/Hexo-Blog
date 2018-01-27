@@ -122,4 +122,4 @@ Thrift：Thrift是一个跨语言的RPC框架，分别解释一下“RPC”和�
 
 参考：http://dongxicheng.org/search-engine/system-designing-in-finging-jobs/
 
-
+https://soulmachine.gitbooks.io/system-design/content/cn/task-scheduler.html?q=

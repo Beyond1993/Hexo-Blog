@@ -46,7 +46,7 @@ BFS：只有非递归（队列）
 
 ## 汉密尔顿
 
-## 欧拉回路 
+## [欧拉回路](http://www.wayne.ink/2018/01/09/Algorithm/Euler-Circuit/)
 
 [127. Word Ladder](http://www.wayne.ink/2017/12/26/LeetCode/0127-Word-Ladder/)
 
