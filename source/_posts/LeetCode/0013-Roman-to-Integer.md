@@ -18,7 +18,7 @@ public class Solution {
       int res = toNum(str[0]);
       for(int i=1;i<str.length;i++){
         if(toNum(str[i]) > toNum(str[i-1]) ){
-          res += toNum(str[i]) - toNum(str[i-1]); //for 9 90 900 ,it impossible to show "XCC" 
+          res += toNum(str[i]) - 2 * toNum(str[i-1]); //for 9 90 900 ,it impossible to show "XCC" 
         }else{
           res += toNum(str[i]);
         }
