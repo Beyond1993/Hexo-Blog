@@ -7,6 +7,11 @@ tags:
 
 ## TensorFLow 基础
 
+tensorFlow 三大属性
+
+regular seesion
+interactive session
+
 DistBelief --> TensorFlow
 
 ### 1.2 TensoFlow 编程模型简介
