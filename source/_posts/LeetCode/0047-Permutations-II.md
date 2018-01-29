@@ -1,6 +1,6 @@
 ---
 title: 0047 Permutations II
-date: 2017-12-23 18:43:49
+date: 2018-02-01 18:43:49
 categories: LeetCode
 tags:
 ---
@@ -50,3 +50,7 @@ public void helper(ArrayList<List<Integer>> results,
     }
  } 
 ```
+
+这种题，就是画图，画图. 画back track tree
+
+![](/images/backtrack_tree.png)

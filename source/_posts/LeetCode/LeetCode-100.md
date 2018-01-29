@@ -121,7 +121,7 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 46. Permutations    		43.1%	Medium	
 
-### 47. Permutations II   		32.4%	Medium	
+### 47. [Permutations II](http://www.wayne.ink/2018/02/01/LeetCode/0047-Permutations-II/)   		32.4%	Medium	
 
 ### 48. Rotate Image   		38.3%	Medium	
 
