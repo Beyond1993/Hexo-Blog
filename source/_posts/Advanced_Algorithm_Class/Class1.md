@@ -78,6 +78,7 @@ return reslist ;
 }
 
 // 2 sum, sorted
+```java
 public int closestSum(int[] array, int target) {
    if(array == null || array.length < 2) throw new NoSuchElementException();
    Arrays.sort(array);
@@ -101,6 +102,7 @@ public int closestSum(int[] array, int target) {
 
    return target + offset;
 }
+```
 
 
 Public int closeSum(int[] array, int target) {
