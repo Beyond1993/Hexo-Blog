@@ -14,6 +14,8 @@ SDE-University-Interviews@amazon.com
 
 https://www.gitbook.com/book/soulmachine/algorithm-essentials/details
 
+https://soulmachine.gitbooks.io/system-design/content/cn/task-scheduler.html?q=
+
 https://www.topcoder.com/community/data-science/data-science-tutorials/range-minimum-query-and-lowest-common-ancestor/
 
 http://sortbenchmark.org/
