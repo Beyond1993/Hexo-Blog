@@ -23,3 +23,13 @@ http://sortbenchmark.org/
 http://sortbenchmark.org/TencentSort2016.pdf
 
 https://www.topcoder.com/community/data-science/data-science-tutorials/range-minimum-query-and-lowest-common-ancestor/
+
+在线code 的 link
+
+http://collabedit.com/6ewxn
+
+https://codepad.remoteinterview.io/GBHSQFRCMP
+
+https://codepad.remoteinterview.io/XYUHVYTOPO
+
+https://coderpad.io/4YQXY64Q
