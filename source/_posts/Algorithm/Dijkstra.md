@@ -36,3 +36,17 @@ node1 ---5---node3 --1-- node5
 
 如果用 pq的话， node2 出堆之后，就是node5 出堆, 然后紧接着把 node3 的distance 变成 4，这样就不会用 node1 --5-- node3 这条边去尝试了.
 这种的时间复杂度是 (m + n)logn
+
+http://www.cnblogs.com/dzkang2011/p/3828965.html
+https://codereview.stackexchange.com/questions/67704/optimizing-dijkstra-implementation-using-priorityqueue-in-java
+
+在具体代码实现的时候， 对于这种情况.
+```text
+
+A ---- 5 ---- B ------3-----D
+ \           /
+  2         2
+   \----C--/
+```
+
+当A出pq的时候，B, C 进入pq , 接着C出 pq 的时候，B 怎么处理？?
