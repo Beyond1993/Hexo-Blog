@@ -36,3 +36,7 @@ https://codepad.remoteinterview.io/GBHSQFRCMP
 https://codepad.remoteinterview.io/XYUHVYTOPO
 
 https://coderpad.io/4YQXY64Q
+
+https://codepad.remoteinterview.io/FQHIFJYYEF
+
+https://codepad.remoteinterview.io/FIJZHNNBRH
