@@ -1,5 +1,5 @@
 ---
-title: LeetCode-100
+title: LeetCode 1 ~ 100
 date: 2017-10-16 06:08:01
 categories: LeetCode-Index
 tags:
@@ -77,11 +77,11 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 24. [Swap Nodes in Pairs](http://www.wayne.ink/2017/12/31/LeetCode/0024-Swap-Nodes-in-Pairs/)   		38.1%	Medium	
 
-### 25. Reverse Nodes in k-Group   		30.5%	Hard	
+### 25. [Reverse Nodes in k-Group](http://www.wayne.ink/2018/02/07/LeetCode/0025-Reverse-Nodes-in-k-Group/)       30.5% Hard
 
-### 26. Remove Duplicates from Sorted Array   		35.5%	Easy	
+### 26. [Remove Duplicates from Sorted Array](http://www.wayne.ink/2018/02/09/LeetCode/0026-Romve-Duplicates-from-Sorted-Array/)   		35.5%	Easy	
 
-### 27. Remove Element   		38.7%	Easy	
+### 27. [Remove Element](http://www.wayne.ink/2018/01/09/LeetCode/0027-Remove-Element/)	38.7%	Easy	
 
 ### 28. [Implement strStr()](http://www.wayne.ink/2018/01/10/LeetCode/0028-Implement-StrStr/)   		27.9%	Easy	
 
