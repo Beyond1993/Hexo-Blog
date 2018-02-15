@@ -89,15 +89,15 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 30. [Substring with Concatenation of All Words](http://www.wayne.ink/2018/02/20/LeetCode/0030-Substring-with-Concatenation-of-All-Words/)   		21.9%	Hard	
 
-### 31. Next Permutation   		28.7%	Medium	
+### 31. [Next Permutation](http://www.wayne.ink/2018/02/20/LeetCode/0031-Next-Permutation/)   		28.7%	Medium	
 
-### 32. Longest Valid Parentheses   		23.0%	Hard	
+### 32. [Longest Valid Parentheses](http://www.wayne.ink/2018/03/03/LeetCode/0032-Longest-Valid-Parentheses/)   		23.0%	Hard	
 
-### 33. Search in Rotated Sorted Array   	32.1%	Medium	
+### 33. [Search in Rotated Sorted Array](http://www.wayne.ink/2018/02/28/LeetCode/0033-Search-in-Rotated-Sorted-Array/)   	32.1%	Medium	
 
-### 34. Search for a Range    		31.3%	Medium	
+### 34. [Search for a Range](http://www.wayne.ink/2018/02/18/LeetCode/0034-Search-for-a-Range/)    		31.3%	Medium	
 
-### 35. Search Insert Position   		39.6%	Easy	
+### 35. [Search Insert Position](http://www.wayne.ink/2018/02/09/LeetCode/0035-Search-Insert-Position/)   		39.6%	Easy	
 
 ### 36. [Valid Sudoku](http://www.wayne.ink/2018/01/09/LeetCode/0036-Valid-Sudoku/)   		35.4%	Medium	
 

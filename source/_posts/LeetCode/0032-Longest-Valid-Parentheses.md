@@ -1,6 +1,6 @@
 ---
 title: 0032 Longest Valid Parentheses
-date: 2017-12-31 23:50:48
+date: 2018-02-31 23:50:48
 categories: LeetCode
 tags:
 ---
