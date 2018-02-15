@@ -85,9 +85,9 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 28. [Implement strStr()](http://www.wayne.ink/2018/01/10/LeetCode/0028-Implement-StrStr/)   		27.9%	Easy	
 
-### 29. Divide Two Integers    		16.0%	Medium	
+### 29. [Divide Two Integers](http://www.wayne.ink/2017/10/16/LeetCode/0029-Divide-Two-Integer/)    		16.0%	Medium	
 
-### 30. Substring with Concatenation of All Words   		21.9%	Hard	
+### 30. [Substring with Concatenation of All Words](http://www.wayne.ink/2018/02/20/LeetCode/0030-Substring-with-Concatenation-of-All-Words/)   		21.9%	Hard	
 
 ### 31. Next Permutation   		28.7%	Medium	
 
