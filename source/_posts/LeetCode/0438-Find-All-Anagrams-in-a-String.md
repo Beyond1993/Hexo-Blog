@@ -35,6 +35,50 @@ The substring with start index = 0 is "ab", which is an anagram of "ab".
 The substring with start index = 1 is "ba", which is an anagram of "ab".
 The substring with start index = 2 is "ab", which is an anagram of "ab".
 
-
+```java
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        int len = p.length();
+        for (int i = 0; i < len; i++) {
+            map.put(p.charAt(i), map.getOrDefault(p.charAt(i), 0) + 1);
+        }
+        int begain = 0;
+        int end = 0;
+        int count = map.size();
+        int len = 0;
+        List<Integer> result = new ArrayList<Integer>();
+        
+        while(begain < s.length() && end < s.length()) {
+            while(count > 0 && end < s.length()) {
+                if (map.containsKey(s.charAt(end))) {
+                    int num = map.get(s.charAt(end));
+                    map.put(s.charAt(end), --num);
+                    if (num == 0) {
+                        count--;
+                    }
+                }
+                end++;
+            }
+            
+            while(count == 0) {
+                if (map.containsKey(s.charAt(begain))) {
+                  int num = map.get(s.charAt(begain));
+                  map.put(s.charAt(begain), ++num);
+                  if (num == 1) {
+                      count++;
+                  }
+                  if (end - begain == len) {
+                     result.add(begain);
+                  }
+                }
+                begain ++;
+            }
+        }
+        
+        return result;
+    }
+}
+```
 
 
