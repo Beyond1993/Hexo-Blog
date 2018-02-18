@@ -179,7 +179,7 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 75. Sort Colors   		37.7%	Medium	
 
-### 76.	Minimum Window Substring   		25.0%	Hard	
+### 76.	[Minimum Window Substring](http://www.wayne.ink/2018/02/17/LeetCode/0076-Minimum-Window-SubString/)   		25.0%	Hard	
 
 ### 77. [Combinations](http://www.wayne.ink/2018/01/25/LeetCode/0077-Combinations/)  		39.3%	Medium	
 

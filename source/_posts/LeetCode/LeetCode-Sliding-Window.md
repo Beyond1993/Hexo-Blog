@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Sliding-Window
 date: 2017-11-05 02:38:23
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 
@@ -79,12 +79,16 @@ Map&lt;Character,Integer> = &lt;char,index&gt;
 
 
 similar question:
-https://leetcode.com/problems/minimum-window-substring/
-https://leetcode.com/problems/longest-substring-without-repeating-characters/
-https://leetcode.com/problems/substring-with-concatenation-of-all-words/
-https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/
-https://leetcode.com/problems/find-all-anagrams-in-a-string/
+[3 Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
+[30 Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/)
 
+[76 Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
+
+[159 Longest Substring with At Most Two Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/)
+
+[438 Fina All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
+
+http://www.wayne.ink/2018/02/17/Interview/Interview-Amazon-%E7%A4%BE%E6%8B%9B-OA/
 
 sliding window 优先考虑右指针 能 

@@ -15,13 +15,12 @@ You are given a target value to search. If found in the array return its index, 
 You may assume no duplicate exists in the array.
 
 
-/*（1）如果target==A[mid]，那么mid就是我们要的结果，直接返回；
+（1）如果target==A[mid]，那么mid就是我们要的结果，直接返回；
 
-（2）如果A[begin]<=A[mid]，那么说明从begin到mid一定是有序的，同样只需要判断target是否在这个范围内，如果是则把右边缘移到mid-1，否则就target在另一半，即把左边缘移到mid+1。
+（2）如果A[begin]&lt;=A[mid]，那么说明从begin到mid一定是有序的，同样只需要判断target是否在这个范围内，如果是则把右边缘移到mid-1，否则就target在另一半，即把左边缘移到mid+1。
 
-（3）如果A[begin]>A[mid]，那么说明从mid到last一定是有序的（没有受到rotate的影响），那么我们只需要判断target是不是在mid到last之间，如果是则把左边缘移到mid+1，否则就target在另一半，即把右边缘移到mid-1。
+（3）如果A[begin]&gt;A[mid]，那么说明从mid到last一定是有序的（没有受到rotate的影响），那么我们只需要判断target是不是在mid到last之间，如果是则把左边缘移到mid+1，否则就target在另一半，即把右边缘移到mid-1。
 
-*/
 
 ```java
 public class Solution {
