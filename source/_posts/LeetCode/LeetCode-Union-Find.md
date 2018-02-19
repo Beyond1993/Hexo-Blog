@@ -4,7 +4,7 @@ date: 2017-09-15 22:23:51
 categories: LeetCode-Index
 tags:
 ---
-Union Findi 的模板
+Union Find 的模板
 ```java
 class UnionFind {
   int count = 0;// 多少个联通区域
