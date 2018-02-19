@@ -111,7 +111,7 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 41. [First Missing Positive](http://www.wayne.ink/2018/02/18/LeetCode/0041-First-Missing-Positive/)   	25.4%	Hard	
 
-### 42. Trapping Rain Water   		36.5%	Hard	
+### 42. [Trapping Rain Water](http://www.wayne.ink/2018/02/18/LeetCode/0042-Trapping-Rain-Water/)   		36.5%	Hard	
 
 ### 43.	Multiply Strings   		26.9%	Medium	
 
