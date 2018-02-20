@@ -35,7 +35,7 @@ node1 ---5---node3 --1-- node5
 
 
 如果用 pq的话， node2 出堆之后，就是node5 出堆, 然后紧接着把 node3 的distance 变成 4，这样就不会用 node1 --5-- node3 这条边去尝试了.
-这种的时间复杂度是 (m + n)logn
+这种的时间复杂度是 E  + VlogV
 
 http://www.cnblogs.com/dzkang2011/p/3828965.html
 https://codereview.stackexchange.com/questions/67704/optimizing-dijkstra-implementation-using-priorityqueue-in-java
@@ -50,3 +50,102 @@ A ---- 5 ---- B ------3-----D
 ```
 
 当A出pq的时候，B, C 进入pq , 接着C出 pq 的时候，B 怎么处理？?
+
+```java
+// Your last Java code is saved below:
+// package whatever; // don't place package name!
+// #       --2 -b ------\
+// #     /               1
+// #    a -- 6-- c -- 2 - e
+// #      \              
+// #       4-- d --10---/
+
+
+import java.io.*;
+import java.util.*;
+
+class MyCode {
+   
+  static class Node{
+    Character val; 
+    Integer weight; 
+    public Node(Character val, Integer weight){
+        this.val = val;
+        this.weight = weight;
+    }
+    
+    public Character getValue(){
+        return val;
+    } 
+    
+    public Integer getWeight(){
+        return weight;
+    } 
+    
+   };
+  
+  public static Map<Character, Integer> Dijsktra(Map<Character, List<Node>> graph, Character start) {
+   
+   //initial result
+   Map<Character, Integer> visited = new HashMap<>();
+     
+   PriorityQueue<Node> pq = new PriorityQueue<Node>(1,(a,b)->(a.weight - b.weight));
+   Node tempNode = new Node('a',0);
+          
+   pq.offer(tempNode);
+                 
+   while(!pq.isEmpty()) {
+       
+     Node node = pq.poll();
+     
+     if(visited.containsKey(node.getValue())) {
+        continue;
+     }
+     
+     visited.put(node.getValue(), node.getWeight()); // zhe li bu dui ba
+     
+     List<Node> neighbors = graph.get(node.getValue());
+     
+     for (Node val : neighbors) {
+       Node newNode = new Node(val.getValue(), val.weight + node.weight);
+       pq.offer(newNode);
+     }
+   }
+    
+   return visited;
+ }
+  
+public static void main (String[] args) {
+    Map<Character, List<Node>> map = new HashMap<>();
+    
+    map.put('a', new ArrayList<Node>());
+    map.get('a').add(new Node('b',2));
+    map.get('a').add(new Node('c',6));
+    map.get('a').add(new Node('d',4));
+         
+    map.put('b', new ArrayList<Node>());
+            
+    map.get('b').add(new Node('a',2));
+    map.get('b').add(new Node('e',11));
+    
+    map.put('c', new ArrayList<Node>());
+    map.get('c').add(new Node('a',6));
+    map.get('c').add(new Node('e',2));
+      
+    map.put('d', new ArrayList<Node>());
+    map.get('d').add(new Node('e',1)); 
+    map.get('d').add(new Node('a',4)); 
+            
+    map.put('e', new ArrayList<Node>()); 
+    map.get('e').add(new Node('b',11));
+    map.get('e').add(new Node('c',2));
+    map.get('e').add(new Node('d',1));
+  
+    Map<Character, Integer> dis =  Dijsktra(map, 'a');
+  
+    for (Map.Entry<Character, Integer> entry : dis.entrySet()) {
+      System.out.println(entry.getKey() + " "  + entry.getValue());
+    }
+  }
+}
+```
