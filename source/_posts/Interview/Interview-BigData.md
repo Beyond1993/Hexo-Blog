@@ -11,3 +11,6 @@ tags:
 
 2. 分布式系统怎么join 一张 大表和小表
 
+http://blog.csdn.net/v_july_v/article/details/6279498
+
+
