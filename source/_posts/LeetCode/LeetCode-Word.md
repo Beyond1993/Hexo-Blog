@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Word
 date: 2017-10-09 20:34:02
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 

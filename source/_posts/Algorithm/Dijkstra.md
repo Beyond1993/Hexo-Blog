@@ -9,13 +9,13 @@ Dijkstra 算法
 
 单源最短路径, 如果用负权重的话，很可能没有最短路径的.
 
-1. 最简单的方法
+### 1. 最简单的方法
 
 就是用bfs, 不断搜索，每出队一个节点， 就更新邻居。比当前值小，就更新.
 
 时间复杂度是 O(V^2), 因为最坏情况是一个完全图.
 
-2. 二叉堆 （就是一般意义的堆)
+### 2. 二叉堆 （就是一般意义的堆)
 
 
 用 priority queue 的好处不是heap pop 出来的一定是当前最小的.
@@ -60,12 +60,9 @@ A ---- 5 ---- B ------3-----D
 // #      \              
 // #       4-- d --10---/
 
-
 import java.io.*;
 import java.util.*;
-
 class MyCode {
-   
   static class Node{
     Character val; 
     Integer weight; 
@@ -73,45 +70,34 @@ class MyCode {
         this.val = val;
         this.weight = weight;
     }
-    
     public Character getValue(){
         return val;
     } 
-    
     public Integer getWeight(){
         return weight;
     } 
-    
    };
   
   public static Map<Character, Integer> Dijsktra(Map<Character, List<Node>> graph, Character start) {
    
    //initial result
    Map<Character, Integer> visited = new HashMap<>();
-     
    PriorityQueue<Node> pq = new PriorityQueue<Node>(1,(a,b)->(a.weight - b.weight));
    Node tempNode = new Node('a',0);
-          
    pq.offer(tempNode);
                  
    while(!pq.isEmpty()) {
-       
      Node node = pq.poll();
-     
      if(visited.containsKey(node.getValue())) {
         continue;
      }
-     
-     visited.put(node.getValue(), node.getWeight()); // zhe li bu dui ba
-     
+     visited.put(node.getValue(), node.getWeight());
      List<Node> neighbors = graph.get(node.getValue());
-     
      for (Node val : neighbors) {
        Node newNode = new Node(val.getValue(), val.weight + node.weight);
        pq.offer(newNode);
      }
    }
-    
    return visited;
  }
   
@@ -124,7 +110,6 @@ public static void main (String[] args) {
     map.get('a').add(new Node('d',4));
          
     map.put('b', new ArrayList<Node>());
-            
     map.get('b').add(new Node('a',2));
     map.get('b').add(new Node('e',11));
     

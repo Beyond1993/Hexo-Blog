@@ -1,7 +1,7 @@
 ---
 title: Interview-Apple-Contractor
 date: 2018-01-09 23:44:58
-categories: LeetCode
+categories: Interview
 tags:
 ---
 

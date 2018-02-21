@@ -1,7 +1,7 @@
 ---
 title: Java Design Pattern
 date: 2018-02-20 22:40:45
-categories: LeetCode
+categories: Java
 tags:
 ---
 

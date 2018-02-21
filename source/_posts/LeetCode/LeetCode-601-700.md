@@ -11,6 +11,6 @@ tags:
 
 ### 670 [Maximum Swap](http://www.wayne.ink/2018/02/14/LeetCode/0670-Maximum-Swap/) 
 
-
+### 694 [Number of Distinct IsIand](http://www.wayne.ink/2017/10/09/LeetCode/0694-Number-Of-Distinct-Island/)
 
 

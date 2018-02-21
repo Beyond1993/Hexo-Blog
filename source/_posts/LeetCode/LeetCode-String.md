@@ -1,7 +1,7 @@
 ---
 title: LeetCode-String
 date: 2017-10-16 06:04:38
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 

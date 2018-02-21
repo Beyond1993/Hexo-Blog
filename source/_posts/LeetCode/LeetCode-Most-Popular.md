@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Most-Popular
 date: 2017-12-14 00:39:13
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 

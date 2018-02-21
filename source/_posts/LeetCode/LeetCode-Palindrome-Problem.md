@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Palindrome-Problem
 date: 2017-08-23 00:45:42
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 回文是一个很有意思的专题

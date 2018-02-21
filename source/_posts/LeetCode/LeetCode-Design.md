@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Design
 date: 2017-08-24 00:43:07
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 设计类题目包含了各种数据结构，算法，空间复杂度，优化等知识。在面试中已经成为必考题

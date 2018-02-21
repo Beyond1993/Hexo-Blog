@@ -5,6 +5,8 @@ categories: LeetCode-Index
 tags:
 ---
 
+### 416 [Partition Equal Subset Sum](http://www.wayne.ink/2017/10/16/LeetCode/0416-Partition-Equal-Subset-Sum/)
+
 ### 438 [Find All Anagrams in a String](http://www.wayne.ink/2018/02/17/LeetCode/0438-Find-All-Anagrams-in-a-String/)
 
 ### 454 [4Sum II](http://www.wayne.ink/2018/01/14/LeetCode/0454-4Sum-II/)

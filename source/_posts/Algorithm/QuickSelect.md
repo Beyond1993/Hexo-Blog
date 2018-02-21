@@ -5,7 +5,8 @@ categories: Algorithm
 tags:
 ---
 
-QuickSelect
+QuickSelect 的时间复杂度一般来说是 O(N)
+
 
 ```java
 import java.util.Arrays;
@@ -14,7 +15,7 @@ public final class QuickSelect {
     return iterative(array, 0, array.length - 1, n);
   }
   
-    private static int iterative(int[] array, int left, int right, int n) {
+  private static int iterative(int[] array, int left, int right, int n) {
       if(left == right) {
         return array[left];
       }
@@ -71,6 +72,8 @@ public final class QuickSelect {
 }
 
 ```
+
+递归版代码
 
 ```java
 public static int selectRecursive(int[] array, int n) {

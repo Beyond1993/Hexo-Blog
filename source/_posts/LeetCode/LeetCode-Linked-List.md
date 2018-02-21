@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Linked-List
 date: 2017-10-16 06:16:44
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 

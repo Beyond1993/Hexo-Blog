@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Stack
 date: 2017-08-23 00:34:56
-categories: LeetCode
+categories: LeetCode-Index
 tags: stack
 ---
 stack 作为一个广泛运用的数据结构，在刷题中，一般可能要用到好几个stack，按照数组的正序，倒序进栈.

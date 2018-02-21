@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Bracket
 date: 2017-12-01 01:50:44
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 
