@@ -34,4 +34,3 @@ The number of bricks in each row is in range [1,10,000]. The height of wall is i
 这题也是用 hashMap.
 
 
-

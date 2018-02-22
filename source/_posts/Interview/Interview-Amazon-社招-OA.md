@@ -1,6 +1,6 @@
 ---
 title: Interview Amazon 社招 OA
-date: 2018-02-17 23:15:51
+date: 2018-02-18 23:15:51
 categories: Interview
 tags:
 ---
@@ -12,7 +12,7 @@ tags:
 public static List<String> kDist(String s, int k) {
     // corner case
     // TODO
-    
+ghgf    
     int[] map = new int[256];
     int count = 0;
     Set<String> res = new HashSet<>();
@@ -237,3 +237,6 @@ class MyCode {
   }
 }
 ```
+
+
+dsfasdfas
