@@ -195,7 +195,7 @@ public List<Integer> postorderTraversal(TreeNode root) {
     while(!s.isEmpty()) {
         TreeNode p = s.pop();
         
-        list.add(p.val);
+        list.add(p.val); // list.add(0,p.val) witout Collections.reverse(list);
         if (p.left != null) {
             s.push(p.left);
         }
