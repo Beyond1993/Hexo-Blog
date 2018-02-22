@@ -25,4 +25,6 @@ tags:
 
 ### 140. [Word Break II](http://www.wayne.ink/2018/01/09/LeetCode/0140-Word-Break-II/)
 
+### 142  [Linked List Cycle II](http://www.wayne.ink/2018/02/22/LeetCode/0142-Linked-List-Cycle-II/)
+
 ### 200. [Number of Islands](http://www.wayne.ink/2018/01/01/LeetCode/0200-Number-Of-Islands/)
