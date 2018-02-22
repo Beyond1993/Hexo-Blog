@@ -51,6 +51,63 @@ A ---- 5 ---- B ------3-----D
 
 当A出pq的时候，B, C 进入pq , 接着C出 pq 的时候，B 怎么处理？?
 
+就是在poririty queue 里的值怎么更新的问题。
+
+有两种思路
+
+思路1: 利用另外辅助的数据结构，维护Minimum distance. 比如 Map, Distance[][], 这样子priority queue 里会有很多冗余节点，可能对 priority queue 操作的时间复杂度 log(v*v) ==> 2logv.
+
+
+先来看看 505 The Maze II 的 Dijsktra 解法. 就是用一个全局的distance[][] 来记录当前的位置.
+这就是一个很常规的解法。要先判断。distance[s[0][s[1]] + count < distance[x - dir[0][y - dir[1]]
+
+if (distance[s[0]][s[1]] + count < distance[x - dir[0]][y - dir[1]]) {
+      distance[x - dir[0]][y - dir[1]] = distance[s[0]][s[1]] + count;
+      queue.offer(new int[]{x - dir[0], y - dir[1], distance[x - dir[0]][y - dir[1]]});
+    }
+
+```java
+public class Solution {
+    public int shortestDistance(int[][] maze, int[] start, int[] dest) {
+        int[][] distance = new int[maze.length][maze[0].length];
+        for (int[] row: distance)
+            Arrays.fill(row, Integer.MAX_VALUE);
+        distance[start[0]][start[1]] = 0;
+        dijkstra(maze, start, distance);
+        return distance[dest[0]][dest[1]] == Integer.MAX_VALUE ? -1 : distance[dest[0]][dest[1]];
+    }
+    public void dijkstra(int[][] maze, int[] start, int[][] distance) {
+        int[][] dirs={{0,1},{0,-1},{-1,0},{1,0}};
+        PriorityQueue < int[] > queue = new PriorityQueue < > ((a, b) -> a[2] - b[2]);
+        queue.offer(new int[]{start[0],start[1],0});
+        while (!queue.isEmpty()) {
+            int[] s = queue.poll();
+            if(distance[s[0]][s[1]] < s[2])
+                continue;
+            for (int[] dir: dirs) {
+                int x = s[0] + dir[0];
+                int y = s[1] + dir[1];
+                int count = 0;
+                while (x >= 0 && y >= 0 && x < maze.length && y < maze[0].length && maze[x][y] == 0) {
+                    x += dir[0];
+                    y += dir[1];
+                    count++;
+                }
+                if (distance[s[0]][s[1]] + count < distance[x - dir[0]][y - dir[1]]) {
+                    distance[x - dir[0]][y - dir[1]] = distance[s[0]][s[1]] + count;
+                    queue.offer(new int[]{x - dir[0], y - dir[1], distance[x - dir[0]][y - dir[1]]});
+                }
+            }
+        }
+    }
+}
+```
+
+@智慧哥 多谢智慧哥提供里一个 HashMap 的解法.十分巧妙
+这里的HashMap 有两个作用，一是存储当前点到 start 点的距离， 二是只要是从priority queue 里拿出来的点就已经是最优解里，只要出现过一次，就是最优解。所以HashMap 里的key 一旦存在，就直接跳过 (据说用反证法)
+
+上面的解法，是从 pq poll 出来的一点的 neighbors 来考虑的, 而这个解法，只着眼于 pq poll 出来的那点是不是已经在hashMap 里，neighbors 只是无脑放进堆.
+
 ```java
 // Your last Java code is saved below:
 // package whatever; // don't place package name!
@@ -135,6 +192,12 @@ public static void main (String[] args) {
 }
 ```
 
+
+思路2: 直接在数据结构里, 维护当前节点的最小值，数据结构里没有冗余节点. 这样要把数据结构里的 invalid 的节点remove 掉
+
+用 TreeSet 有一个问题, 那就是如果 b,c 到 start 点的距离都是最小的，TreeSet 里只能保存 一个 节点 
+这样就可以用 TreeMap<Distance, List<Node>> 来解决这个问题
+
 With TreeSet
 ```java
 import java.util.*;
@@ -215,4 +278,11 @@ public class Dijkstra {
   }
 }
 ```
+
+在通信工程领域, 算最短路径，因为有信号衰减的问题，所以 weight 是动态变化的。 
+OSPF不厉害，EIGRP厉害
+
+
+
+
 
