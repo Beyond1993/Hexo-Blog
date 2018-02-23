@@ -41,6 +41,27 @@ The flattened tree should look like:
 好， 那问题来了， 为什么不能正向创建链表?
 
 ```java
+public class Solution {
+    private static TreeNode pointer = null;
+    
+    public void flatten(TreeNode root) {
+        if(root == null)
+            return;
+            
+        if(pointer != null)
+            pointer.right = root;
+        
+        pointer = root;
+            
+        TreeNode right = root.right;
+        flatten(root.left);
+        root.left = null;
+        flatten(right);
+    }
+}
+```
+
+```java
 public void flatten(TreeNode root) {
         if (root == null) return;
         
@@ -77,7 +98,6 @@ public class Solution {
 
 }
 ```
-
 
 ```java
 public class Solution {
