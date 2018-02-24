@@ -7,14 +7,17 @@ tags:
 
 LeetCode 中有一类 Game 游戏
 
-Can I win 
+今天又要和ACM world final 冠军讨论问题了。想想就激动
 
-Predict the Winner
+464 [Can I win](https://leetcode.com/problems/can-i-win/description/) 
 
-Flip Game
+468 [Predict the Winner](https://leetcode.com/problems/predict-the-winner/description/)
 
-打气球
+293 [Flip Game](https://leetcode.com/problems/flip-game/description/)
 
-井子游戏
+294 [Flip Game II](https://leetcode.com/problems/flip-game-ii/description/)
 
+348 [Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe/description/)
+
+312 [Brust Balloons](https://leetcode.com/problems/burst-balloons/description/)
 
