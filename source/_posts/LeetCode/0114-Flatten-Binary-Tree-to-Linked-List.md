@@ -40,46 +40,41 @@ The flattened tree should look like:
 
 好， 那问题来了， 为什么不能正向创建链表?
 
+前序遍历:
 ```java
-public class Solution {
-    private static TreeNode pointer = null;
-    
-    public void flatten(TreeNode root) {
-        if(root == null)
-            return;
-            
-        if(pointer != null)
-            pointer.right = root;
-        
-        pointer = root;
-            
-        TreeNode right = root.right;
-        flatten(root.left);
-        root.left = null;
-        flatten(right);
-    }
+public void flattenPre(TreeNode root) {
+   if (root == null) return;
+
+   TreeNode realRight = root.right;
+   if (lastVisited != null) {
+       lastVisited.left = null;
+       lastVisited.right = root; // prev
+   }
+   lastVisited = root;
+   flattenPre(root.left);
+   flattenPre(realRight);
 }
 ```
 
+中序遍历:
 ```java
-public void flatten(TreeNode root) {
-        if (root == null) return;
-        
-        TreeNode left = root.left;
-        TreeNode right = root.right;
-        
-        root.left = null;
-        
-        flatten(left);
-        flatten(right);
-        
-        root.right = left;
-        TreeNode cur = root;
-        while (cur.right != null) cur = cur.right;
-        cur.right = right;
+public void flattenIn(TreeNode root) {
+   if (root == null) return;
+   flattenIn(root.left);
+   if (root.left != null) {
+       TreeNode temp = root.left;
+       while (temp.right != null) {
+           temp = temp.right;
+       }
+       temp.right = root.right;
+       root.right = root.left;
+       root.left = null;
+   }
+   flattenIn(root.right);
 }
 ```
 
+后序遍历:
 ```java
 public class Solution {
     public void flatten(TreeNode root) {
@@ -95,7 +90,27 @@ public class Solution {
             root = root.right;
         root.right = right;
     }
+}
+```
 
+```java
+public void flatten(TreeNode root) {
+  if (root == null) return;
+        
+  TreeNode left = root.left;
+  TreeNode right = root.right;
+        
+  root.left = null;
+        
+  flatten(left);
+  flatten(right);
+        
+  root.right = left;
+  TreeNode cur = root;
+  while (cur.right != null) { 
+    cur = cur.right;
+  }
+  cur.right = right;
 }
 ```
 
