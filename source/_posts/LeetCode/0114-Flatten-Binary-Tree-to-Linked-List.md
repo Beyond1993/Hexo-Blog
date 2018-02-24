@@ -32,15 +32,28 @@ The flattened tree should look like:
              6
 ```
 
-这题的思路是 reverse order 遍历一棵二叉树. 和这题很相像的是 倒挂一棵二叉树
+这题的着眼点就是, 我不管用什么遍历, 对于当前这个点, 我要怎么处理.
 
-这题的思路，我们不要一上来就, 想创建一个链表。 想想如何 打印 1,2,3,4,5,6 这样就是先序遍历？ 但是我们要求是 
+## 前序遍历:
 
-1 --> 2, 2 --> 3, 写成代码就是 cur.next = ？ 所以我们要，先输出 6,5,4,3,2,1. 反序输出. 而且当前 root.right = prev
+```text
+         1                                 1
+        / \                                  \      realRight --> 5
+       2   5     ---处理 1 这个点 -->          2                    \
+      / \   \                                / \                    6
+     3   4   6                              3   4
 
-好， 那问题来了， 为什么不能正向创建链表?
 
-前序遍历:
+   2                         2  
+  / \     -- 处理 2 -->       \      realRight  --> 4
+ 3   4                         3 
+```
+
+最后处理的 realRight, 其实就是 最后调用 flattenPre(realRight) 变成了 root
+
+要知道 preorder , 是 2,3,4, 所以 在4 这点, 3 是 lastVisited, lastVisited.right = root
+3 的 lastVisited 是 2
+
 ```java
 public void flattenPre(TreeNode root) {
    if (root == null) return;
@@ -93,6 +106,8 @@ public class Solution {
 }
 ```
 
+这两种后序遍历的写法，很奇妙，代码顺序不同，其实本质是一样的， 递归到上一层，就是想当于在调用递归前设置的变量
+
 ```java
 public void flatten(TreeNode root) {
   if (root == null) return;
@@ -106,36 +121,14 @@ public void flatten(TreeNode root) {
   flatten(right);
         
   root.right = left;
-  TreeNode cur = root;
-  while (cur.right != null) { 
-    cur = cur.right;
+  while (root.right != null) { 
+    root = root.right;
   }
-  cur.right = right;
+  root.right = right;
 }
 ```
 
-```java
-public class Solution {
-    private static TreeNode pointer = null;
-    
-    public void flatten(TreeNode root) {
-        if(root == null)
-            return;
-            
-        if(pointer != null)
-            pointer.right = root;
-        
-        pointer = root;
-            
-        TreeNode right = root.right;
-        flatten(root.left);
-        root.left = null;
-        flatten(right);
-    }
-}
-```
-
-Recursion
+Reversed Preorder Recursion
 ```java
 private TreeNode prev = null;
 
@@ -150,7 +143,7 @@ public void flatten(TreeNode root) {
 }
 ```
 
-Iteration
+Reversed Preorder Iteration
 ```java
 /**
  * Definition for a binary tree node.
@@ -188,7 +181,31 @@ public class Solution {
 }
 ```
 
-in-place
+
+One Pointer
+```java
+public class Solution {
+    private static TreeNode pointer = null;
+    
+    public void flatten(TreeNode root) {
+        if(root == null)
+            return;
+            
+        if(pointer != null)
+            pointer.right = root;
+        
+        pointer = root;
+            
+        TreeNode right = root.right;
+        flatten(root.left);
+        root.left = null;
+        flatten(right);
+    }
+}
+```
+
+
+In-Place
 ```java
 class Solution {
 public:
