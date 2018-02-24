@@ -11,6 +11,18 @@ tags:
 
 设计类的题目，理解需求永远是第一位的，要充分了解这个系统的的上下文环境
 
+
+第一节 面向对象设计入门 
+OOA (Analysis), OOD (Design), OOP(Programming) 
+
+如何评价一轮 OOD 面试
+• Communicaton
+• Thinking process
+• Correctness
+• Reasonable
+• (* Bonus) Good practice
+• (* Bonus) Design Pattern
+
 S.O.L.I.D 原则
 * S - Single responsibility principle 一个类只负责一项工作
 * O - Open close priciple 只拓展，不修改原有结构代码
@@ -20,8 +32,12 @@ S.O.L.I.D 原则
 
 1. 设计停车场，（实时教室座位统计系统）
 
-第一节 面向对象设计入门 
-OOA (Analysis), OOD (Design), OOP(Programming) 
+
+
+
+
+
+
 
 5C-解题法
 Clarify: 先确定上下文 
