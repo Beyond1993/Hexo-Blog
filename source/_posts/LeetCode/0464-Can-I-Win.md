@@ -64,6 +64,38 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
+        if((1 + maxChoosableInteger) * maxChoosableInteger / 2 < desiredTotal) return false;
+        int[] state =  new int[maxChoosableInteger+1];
+        return win(state,desiredTotal);
+    }
+
+    private boolean win(int[] state ,int desiredTotal){
+        
+        for(int i = 1; i < state.length; i++){
+            if(state[i] == 0){
+                state[i] = 1;
+                if(desiredTotal - i <= 0 ){
+                    state[i] = 0;
+                    return true;
+                }
+                
+                if (!win(state,desiredTotal - i)) {
+                    state[i] = 0;
+                    return true;
+                }
+                state[i] = 0;
+            }
+        }
+      
+        return false;
+    }
+}
+```
+
+
 Similiar Questions:
 Flip Game II, 
 Guess Number Higher or Lower II
