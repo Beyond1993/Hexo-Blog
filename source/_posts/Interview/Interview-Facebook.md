@@ -23,3 +23,44 @@ word search II 时间复杂度分析
 
 
 https://github.com/tongzhang1994/Facebook-Interview-Coding
+
+```java
+import java.util.*;
+
+public class GFG {
+  public static void main (String[] args) {
+    String s = removeInvalidParentheses(")))(((())(((");
+    System.out.println(s);
+  }
+
+  public static String removeInvalidParentheses(String s) {
+    String r = remove(s, new char[]{'(', ')'});
+    String tmp = remove(new StringBuilder(r).reverse().toString(), new char[]{')', '('});
+    return new StringBuilder(tmp).reverse().toString();
+    }
+
+    public static String remove(String s, char[] p) {
+      StringBuilder sb = new StringBuilder();
+    int stack = 0;
+    for (int i = 0; i < s.length(); i++) {
+
+    if (s.charAt(i) == p[0]) {
+        stack++;
+    }
+
+    if (s.charAt(i) == p[1]) {
+        stack--;
+    }
+
+    if (stack < 0) {
+      stack = 0;
+      continue;
+    }
+    sb.append(s.charAt(i));
+  }
+  return sb.toString();
+    }
+
+}
+```
+
