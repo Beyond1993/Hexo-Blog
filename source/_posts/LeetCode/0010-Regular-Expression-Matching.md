@@ -27,6 +27,21 @@ isMatch("ab", ".*") → true
 isMatch("aab", "c*a*b") → true
 
 
+```java
+public boolean isMatch(String word, String pattern) {
+  if (pattern.isEmpty()) return word.isEmpty();
+  char first = pattern.charAt(0);
+  if (pattern.length() > 1 && pattern.charAt(1) == '*') {
+    int k = 0;
+    do {
+      if (isMatch(word.substring(k), pattern.substring(2))) return true;
+    } while( k < word.length() && match(word.charAt(k++), first));
+    return false;
+  } 
+  return !word
+}
+```
+
 表示状态 T[i][j] s的前i个字符和p的前j个字符是否匹配。
 
 其实这题的题眼是 * 怎么匹配，. 和 p[j] == s[i] 是一样的
