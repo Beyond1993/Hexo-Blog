@@ -41,4 +41,6 @@ http://collabedit.com/6ewxn
 
 https://algorithm.yuanbin.me/zh-hans/index.html
 
+https://qiuzhihui.gitbooks.io/r-book/content/4_longest_increasing_subsequence.html
+
 96. Unique Binary Search Trees
