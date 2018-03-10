@@ -1,10 +1,14 @@
 ---
 title: Java-HashCode
 date: 2018-02-28 20:00:31
-categories:
+categories: Java
 tags:
 ---
 
+HashCode: 
+
+31 is primer
+31 = 2^5 - 1 ==> i << 5 -1  
 
 ```java
 public int hashCode() {
