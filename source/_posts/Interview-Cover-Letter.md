@@ -5,7 +5,7 @@ categories: Interview
 tags:
 ---
 
-Wayne a Software Engineer from Pinterest Search & Ads Team, who graduated from Carnegie Mellon University in May 2017.
+Wayne is a Software Engineer from Pinterest Search & Ads Team, who graduated from Carnegie Mellon University in May 2017.
 
 In Pinterest, his job is building big data pipeline for Ads Product from the log with Kafka, Spark, Hive, Cascading. And Then upload the data to Terrapin(A key-value storage maintained by Pinterest) or RocksDB. What’s more, he tried some search experiments for search ads, such as n-gram token and blacklist experiment with Go.
 
