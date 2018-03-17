@@ -30,6 +30,9 @@ two pointers, character isLetterOrDigit() toLowercase()
 ## 132 Palindrome Patitioning 回文分割,DP, 最少次数
 
 ## 214 Shortest Palindrome
+
+## 647 Palindromic Substrings 
+
 在原有基础上构造最短回文
 暴力解法: 从第一个字符开始找最长回文串，将剩下的翻转
 KMP 的核心就是要解决，字串不匹配后的回溯问题
