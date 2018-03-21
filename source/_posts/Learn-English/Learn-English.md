@@ -63,3 +63,9 @@ patriotic
 imagery 意向，比喻
 
 https://www.youtube.com/watch?v=rmeGVhhbGrM
+
+https://www.youtube.com/watch?v=r_50rESmjYw
+
+https://www.youtube.com/watch?v=hq3yfQnllfQ
+字母顺序
+
