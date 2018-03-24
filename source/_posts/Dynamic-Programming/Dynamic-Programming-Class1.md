@@ -23,6 +23,7 @@ tags:
 
 [LC746 Min Cost Climbing Stairs](http://www.wayne.ink/2018/03/05/LeetCode/0746-Min-Cost-Climbing-Stairs/)
 
+https://www.youtube.com/watch?v=EysGdX2wSPo&feature=em-share_video_user
 
 
 

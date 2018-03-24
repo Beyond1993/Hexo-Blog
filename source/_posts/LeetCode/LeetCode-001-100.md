@@ -1,5 +1,5 @@
 ---
-title: LeetCode 1 ~ 100
+title: LeetCode 001 ~ 100
 date: 2017-10-16 06:08:01
 categories: LeetCode-Index
 tags:
