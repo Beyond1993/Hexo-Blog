@@ -66,6 +66,8 @@ git --squash
 land code
 git fetch
 git rebase origin/master
+
+arc diff
 arc land
 
 
