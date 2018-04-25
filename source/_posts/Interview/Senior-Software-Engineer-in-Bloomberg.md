@@ -5,7 +5,7 @@ categories: Interview
 tags:
 ---
 
-找工作也有一年了，从Pinterest contractor 到 Bloomnerg Senior, 经历了太多。这次写个总结。
+找工作也有一年了，从Pinterest contractor 到 Bloomberg Senior, 经历了太多。这次写个总结。
 
 大大小小的面试也面了30 多家。能把求职能犯的所有错几乎都犯了一遍了。
 
