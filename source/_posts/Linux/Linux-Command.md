@@ -125,3 +125,8 @@ egrep -r  'Daily.+HiveJob' *
 ## 截取列
 -d 指定分隔符， -f 指定第几列
 cut -d , -f 2-51 bulk_editor_test.csv > bulk_temp.csv
+
+
+创建桌面快捷方式
+ln -s /home/wayne/eclipse/jee-neon/eclipse/eclipse  ~/Desktop/
+
