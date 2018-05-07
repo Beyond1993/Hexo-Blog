@@ -1,7 +1,7 @@
 ---
 title: GDB
 date: 2018-05-06 02:19:07
-categories: LeetCode
+categories: Linux
 tags:
 ---
 
