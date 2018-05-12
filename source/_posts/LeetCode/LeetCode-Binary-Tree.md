@@ -63,7 +63,7 @@ void traverse(TreeNode root) {
 
 基本思路，先将左子树不断压栈，左子树为空时，将从栈顶节点の右子树作为当前节点．
 
-前序：
+### 前序：
 ```java
 Stack s = new Stack();
 TreeNode p = root;
@@ -123,7 +123,7 @@ while (!s.empty() || p != null) {
 以前一直认为前序，中序，后序遍历是属于DFS, 这次总结发现了以前还是too young too simple
 用BFS 照样可以做
 
-前序
+#### 前序
  
 ```java
 public List<Integer> preorderTraversal(TreeNode root) {
@@ -147,7 +147,10 @@ public List<Integer> preorderTraversal(TreeNode root) {
    return result;
 }
 ```
-中序 用栈 + BFS 的版本却并不乐观。preOrder可以用栈很好的执行的原因是，将左右节点压入栈后，根节点就再也用不着了；而中序和后序却不一样，左右节点入栈后，根节点后面还需要访问。
+
+####  中序 
+
+用栈 + BFS 的版本却并不乐观。preOrder可以用栈很好的执行的原因是，将左右节点压入栈后，根节点就再也用不着了；而中序和后序却不一样，左右节点入栈后，根节点后面还需要访问。
 因此三个节点都要入栈，而且入栈的先后顺序必须为：右节点，根节点，左节点。但是，当入栈以后，根节点与其左右子树的节点就分不清楚了。
 因此必须引入一个标志位，表示 是否已经将该节点的左右子树入栈了。每次入栈时，根节点标志位为true,左右子树标志位为false。
 ```cpp
@@ -183,7 +186,8 @@ void InOrder2(TNode* root)
     } 
 }
 ```
-后序
+
+#### 后序
 ```java
 public List<Integer> postorderTraversal(TreeNode root) {
     if (root == null) {
