@@ -23,7 +23,9 @@ Apache Kafka 是一种分布式的，基于分布/订阅的消息系统,是由sc
 
 •  消息
 
-•  Topic& 分区 &log 
+•  Topic& partition &log 
+Topic 是针对用户层面的逻辑表达。
+
 •  保留策略
 •  Broker
 •  副本
