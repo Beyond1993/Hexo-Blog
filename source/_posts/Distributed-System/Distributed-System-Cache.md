@@ -1,7 +1,7 @@
 ---
 title: Distributed-System-Cache
 date: 2018-05-13 13:44:09
-categories: Distribued-System
+categories: Distributed-System
 tags:
 ---
 

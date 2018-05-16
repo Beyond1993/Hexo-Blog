@@ -48,7 +48,8 @@ https://zhuanlan.zhihu.com/p/30487008
 安装 Jupyter :
 https://www.digitalocean.com/community/tutorials/how-to-set-up-a-jupyter-notebook-to-run-ipython-on-ubuntu-16-04
 
-把图片放在代码一个目录下.
+注：　把图片放在代码一个目录下.
+启动　： juypter notebook　
 
 
 
