@@ -5,7 +5,7 @@ categories: Machine-Learning
 tags:
 ---
 
-## TensorFLow 基础
+## 1 TensorFLow 基础
 
 tensorFlow 三大属性
 
@@ -14,14 +14,18 @@ interactive session
 
 DistBelief --> TensorFlow
 
+### 1.1 TensorFlow 概要
 ### 1.2 TensoFlow 编程模型简介
 TensorFlow 中的计算可以表示为一个有向图(directed graph), 或称计算图(computation graph), 其中每一个运算操作(operation) 将作为一个节点(node),节点与节点之间的连接称为边(edge)
 
 计算图中每一个节点可以有任意多个输入和任意多个输出，每一个节点描述了一种运算操作，节点意义算是运算操作的实例化(instance)。在计算图的边中流动(flow) 的数据被称为张量(tensor)，故得名 TensorFlow。
 
-## TensorFlow 和其他深度学习框架对比
+## 2 TensorFlow 和其他深度学习框架对比
+### 2.1 主流深度学习框架对比
+### 2.2 各深度学习框架对比
 
 ## 3 TensorFlow 第一步
+### 3.1 TensorFlow 的编译与安装
 ### 3.2 TensorFlow 实现 Softmax Regression 识别手写数字
 
 机器学习领域的Hello World 任务---MNIST 手写数字
@@ -149,6 +153,9 @@ with sess.as_default():
 ## 4 TensoFlow 实现自编码及多层感知机
 ### 4.1 自编码器
 传统机器学习任务很大程度上依赖于好的特征工程，比如对数值，日期时间型，种特征等特征的提取。工程师必须在这些领域有非常深入的理解。
+### 4.2 TensorFlow 实现自编码器
+### 4.3 多层感知机简介
+### 4.4 TensorFlow 实现多层感知机
 
 自编码器(AutoENcoder) 顾名思义，即可以使用自身的高阶特征编码自己。
 ## 5 TensorFLow 实现卷积神经网络
@@ -161,17 +168,19 @@ with sess.as_default():
 
 CNN 可以直接使用图像原始数据作为输入，降低对图像数据预处理的要求, 以避免复杂的特征工程。
 
+### 5.2 TensorFLow 实现简单的卷积网络
+### 5.3 TensorFLow 实现进阶的卷积网络
  
-## TensorFLow 实现经典卷积神经网络
+## 6 TensorFLow 实现经典卷积神经网络
 
-## TensorFlow 实现循环神经网络及 Word2Vec
+## 7 TensorFlow 实现循环神经网络及 Word2Vec
 
-## TesnsorFlow 实现深度强化学习
+## 8 TesnsorFlow 实现深度强化学习
 
-## TensorBoard, 多 GPU 并行及分布式并行
+## 9 TensorBoard, 多 GPU 并行及分布式并行
 
-## TF.Learn 从入门到精通
+## 10 TF.Learn 从入门到精通
 
-## TF.Contrib 的其他组件
+## 11 TF.Contrib 的其他组件
 
 [Github](https://github.com/JiafengZhou/-tensorflow-)
