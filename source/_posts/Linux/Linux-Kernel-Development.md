@@ -11,7 +11,30 @@ tags:
 
 ## 第3章 进程管理
 
+在Unix 中， each thread includes a unique program counter, process stack, set of processor registers.
+
+a process is an active program and related resources.
+
+和 Unix 不同的是， 在linux中， 并没有线程和进程之分， 线程是一种特殊进程。
+
+psef:
+
+UID PID PPID NLWP PGID SID
+
+
+UID
+PID
+PPID parent process id
+NLWP number of light weight process
+
 ## 第4章 进程调度
+
+cooperative multitasking : Linux, Unix, Max OS9, Windows3.1 协作式任务管理器
+preemptive multitasking: 抢占式 任务管理器
+
+Linux 设计来一个 O(1) 的 Scheduler
+
+CFS use a red-black tree to manager the list of runnable process.
 
 ## 第5章 系统调用
 
