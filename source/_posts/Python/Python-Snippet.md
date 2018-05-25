@@ -19,6 +19,17 @@ Use PDB
 ```python
 import pdb
 pdb.set_trace()
+
+n : next
+c : continue
+s : step
+q : quit
+
+dump variable to file
+
+> import cPickle; f=open('./dump1','w+'); cPickle.dump(var,f); f.close()
+> var = cPickle.load(open('./dump1'))
+
 ```
 便捷输出到文件
 ```python
