@@ -5,32 +5,54 @@ categories: Python
 tags:
 ---
 
-def normalization(maps):
-    level1_map = {}
-    level2_map = {}
-    level3_map = {}
+normalization for nested list and maps:
 
-    for k1, v1 in maps.iteritems():
-        for k2, v2 in v1.iteritems():
-            for index in xrange(len(v2)):
-                for k4, v4 in v2[index].iteritems():
-                    if index == 0:
-                       key = v4
-                    else:
-                       value = v4
-                       level3_map[key] = value
-                level2_map[k2] = level3_map
-                level1_map[k1] = level2_map
+```python
+def normalize(collections):
+    if type(collections) is list:
+        new_map = {}
+        for e in collections:
+            temp_map = normalize(e)
+            for k,v in temp_map.iteritems():
+                new_map[k] = v
+        return new_map
 
-    return level1_map
+    maps = collections
+    result = {}
+    for k,v in maps.iteritems():
+        if type(v)  is dict or type(v) is list:
+            normalize(v)
+        else:
+            result[k] = v
+    return result
+```
 
+compare two maps
 
+```python
+def diffMap(d1,d2):
+    message = ['']
+    diffMapHelper(d1, d2, message)
+    return message[0]
 
-test1_map = {'b' :
-              {'a':
-                  [{'key':'key1'}, {'value' : 'value1'}]
-              }
-            }
+def diffMapHelper(d1, d2, message, path = ''):
+    for k in d1.keys():
+        if not d2.has_key():
+            path = path + '\n'
+            path = path + 'as key not in d2\n'
+        else:
+            if type(d1[k]) is dict:
+                if path == ''
+                    path = k
+                else:
+                    path = path + '->' + k
+                diffMapHelper(d1[k], d2[k], path)
+                length = len(k) + 2
+                path = path[:-length]
+            else：
+                if d1[k] != d2[k]:
+                    message[0] += path + '\n'
+                    message[0] += '-' + k + ' : ' + str(d1[k]) + '\n'
+                    message[0] += '-' + k + ' : ' + str(d2[k]) + '\n'
 
-print normalization(test1_map)
-
+```
