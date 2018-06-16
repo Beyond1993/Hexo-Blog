@@ -12,7 +12,7 @@ tags:
 １，链表找中点：
 
 
-
+```java
 ListNode slow = head, fast = head.next;
 
 while( fast != null && fast.next != null) {
@@ -22,6 +22,7 @@ while( fast != null && fast.next != null) {
      slow = slow.next;
 
 }
+```
 
 
 
