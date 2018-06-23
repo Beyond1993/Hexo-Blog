@@ -69,7 +69,7 @@ public void flattenPre(TreeNode root) {
 }
 ```
 
-中序遍历:
+中序遍历: 找到跟节点
 ```java
 public void flattenIn(TreeNode root) {
    if (root == null) return;

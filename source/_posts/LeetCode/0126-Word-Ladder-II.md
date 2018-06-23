@@ -59,7 +59,8 @@ public class Solution {
         return re;
     }
     
-    private void bfs(Set<String> wordList, String start, String end, Map<String, List<String>> graph, Map<String, Integer> level) {
+    private void bfs(Set<String> wordList, String start, String end, 
+                     Map<String, List<String>> graph, Map<String, Integer> level) {
         Queue<String> queue = new LinkedList<String>();
         queue.add(start);
         level.put(start, 0);
@@ -83,7 +84,8 @@ public class Solution {
         
     }
     
-    private void dfs(String cur, String end, Map<String, List<String>> graph, Map<String, Integer> level, List<List<String>> result, List<String> path){
+    private void dfs(String cur, String end, Map<String, List<String>> graph, 
+                     Map<String, Integer> level, List<List<String>> result, List<String> path) {
         path.add(cur);
         if (cur.equals(end)) {
             //result.add(path); ??? 
@@ -97,8 +99,6 @@ public class Solution {
             }
         }
         path.remove(path.size() - 1);
-        
-        
     }
 
     public List<List<String>> findLadders(String beginWord, String endWord, Set<String> wordList) {
@@ -107,13 +107,9 @@ public class Solution {
         Map<String, List<String> > graph = new HashMap<String, List<String>>();
         wordList.add(beginWord);
         wordList.add(endWord);
-        
         List<String> path = new ArrayList<String>();
-        
         bfs(wordList,  endWord, beginWord, graph, level);
-        
         dfs(beginWord, endWord, graph, level, result, path);
-        
         return result;
     }
 }
@@ -145,7 +141,8 @@ two-ends
     return res;
   }
   
-  boolean helper(Set<String> dict, Set<String> set1, Set<String> set2, Map<String, List<String>> map, boolean flip) {
+  boolean helper(Set<String> dict, Set<String> set1, Set<String> set2, 
+                 Map<String, List<String>> map, boolean flip) {
     if (set1.isEmpty()) {
       return false;
     }
@@ -223,5 +220,4 @@ two-ends
   }
 ```
 
-
-这一题和word ladder 是一样的，用map<String, List<String>> 来记录路径，key, 是一个word, List<String> 是bfs 到这个word的路径上的单词。
+这一题和word ladder 是一样的，用map &lt; String, List&lt;String&gt;&gt; 来记录路径，key, 是一个word, List<String> 是bfs 到这个word的路径上的单词。
