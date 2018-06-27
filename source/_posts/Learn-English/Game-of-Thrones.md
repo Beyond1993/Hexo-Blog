@@ -1,7 +1,7 @@
 ---
 title: Game of Thrones
 date: 2018-05-27 02:01:38
-categories: Englih
+categories: English
 tags:
 ---
 

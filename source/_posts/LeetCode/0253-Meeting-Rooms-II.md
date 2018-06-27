@@ -1,6 +1,6 @@
 ---
 title: 0253-Meeting-Rooms-II
-date: 2017-10-16 22:05:30
+date: 2018-10-16 22:05:30
 categories: LeetCode
 tags:
 ---
@@ -128,3 +128,45 @@ public class Solution {
 不能用pq解，不是最优解
 follow up:
 把每个 meeting room 中的 intervals 打印出来
+
+这题可以用经典的扫描线算法。
+
+&uarr;
+
+```text
+    y
+|     ↑   [5,10]
+|     |    +----+ 
+|     | 
+|-->  |              [15,20]
+|     |              +----+
+|     | 
+|     |           [0,30]
+|     +-----------------------------+
+|     |
+|     +----+----+----+----+----+----+-->x
+      0    5    10   15   20   25   30
+```
+左边的扫描线 从左往右扫描，纪录焦点，更新最多的焦点数。
+
+-对所有点进行标记，区分起始点和终止点 
+-对所有点进行排序 
+-依次遍历每个点，遇到起始点+1，遇到终止点-1，并更新记录最大值
+
+```java
+public class Solution {  
+    public int minMeetingRooms(Interval[] intervals) {  
+        Map<Integer, Integer> m = new TreeMap(); // we must use a sorted map
+        for (Interval i : intervals) {
+            m.put(i.start, m.getOrDefault(i.start, 0) + 1);
+            m.put(i.end, m.getOrDefault(i.end, 0) - 1);
+        }
+        int curRooms = 0, maxRooms = 0;
+        for (Integer time : m.keySet()) {
+            maxRooms = Math.max(maxRooms, curRooms += m.get(time));
+        }
+        return maxRooms;
+    }  
+
+}  
+```
