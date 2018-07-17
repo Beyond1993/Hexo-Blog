@@ -7,6 +7,8 @@ tags:
 
 ### 105. [Construct Binary Tree from Preorder and Inorder Traversal](http://www.wayne.ink/2017/12/14/LeetCode/0105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal/)
 
+### 111. [Minimum Depth of Binary Tree](http://www.wayne.ink/2018/07/28/LeetCode/0111-Minimum-Depth-of-Binary-Tree/)
+
 ### 114. [Flatten-Binary-Tree-to-Linked-List](http://www.wayne.ink/2018/02/22/LeetCode/0114-Flatten-Binary-Tree-to-Linked-List/)
 
 ### 121. [Best Time to Buy and Sell Stock](http://www.wayne.ink/2018/01/01/LeetCode/0121-Best-Time-to-Buy-and-Sell-Stock/)

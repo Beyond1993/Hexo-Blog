@@ -1,6 +1,6 @@
 ---
-title: 0111 Mimimum Depth of Binary Tree
-date: 2018-04-28 17:38:23
+title: 0111 Minimum Depth of Binary Tree
+date: 2018-07-28 17:38:23
 categories: LeetCode
 tags:
 ---
