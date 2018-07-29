@@ -27,6 +27,35 @@ PID
 PPID parent process id
 NLWP number of light weight process
 
+In traditional Unix systems, each process consists of one thread. In modern systems, multithreaded program consist of more than one thread.
+
+But in Linux a thread is just a light weight process.
+
+A program itself is not a process, a process is an active program and related resources.
+
+In Linux, we use fork() system, which creates a new process by duplicating an existing one.
+
+In contemporary Linux kernels, fork() is actually implemented via the clone() system call, then exe() call, then exit() call.
+
+A parent process can inquire about the status of a terminated child via the wait4()1system call, which enables a process to wait for the termination of a specific process. When a process exits, it is placed into a special zombie state that represents terminated processes until the parent calls wait() or waitpid().
+
+The waitpid() is enhance version of wait() function with more control. From parent view, I want to check the status if children, from children view, exist() just placed into a zombie state until parent call wait() or waitpid()
+
+The Linux kernel internally refers to processed as tasks. This is the reason for task scheduler, The kernel stores the list of processed in a circular doubly linked list called task list.
+
+Each element is a process descriptor of the type struct task_struct, which is similar to Classs and Oject.
+
+The process descriptor contains the data that describes the executing program—open files, the process’s address space, pending signals, the process’s state, and much more.
+
+PID is an int, actually short int, the maximum value is 32768, the problem is why we use an int(index) to define the id in task list, which is doubly linked list?
+
+How to get the current task?
+
+How to set the priority for processes?
+
+All processes are descendants of the init process.
+
+
 ## 第4章 进程调度
 
 cooperative multitasking : Linux, Unix, Max OS9, Windows3.1 协作式任务管理器
@@ -36,6 +65,29 @@ Linux 设计来一个 O(1) 的 Scheduler
 
 CFS use a red-black tree to manager the list of runnable process.
 
+O(1) scheduler: Rotating Staircase Deadline scheduler, Completely Fair Scheduler (CFS)
+
+I/0-Bound Versus Processor-Bound Processes
+
+I/0 not only the disk, but also any type of blockable resource, such as keyboard input , mouse, or network I/0. Most GUI are I/0 bound, they spend most of their time waiting on user ineraction.
+
+Process Priority
+two separate priority ranges:
+first:
+nice value : -20 ~ +19, default is 0, nice value is smaller, priority is higher. To see a list if nice value ps -el
+
+second:
+real-time priority The values are configurable, but by default range from 0 to 99, inclusive. Opposite from nice values, higher real-time priority values correspond to a greater priority
+
+The core of CFS's scheduling algorithm: Pick the task with the smallest vruntime.
+CFS uses a red-black tree to manage the list of runnable processes and efficiently find the process with the smallest vruntime.
+key for each node is the runnable process’s virtual runtime.
+
+
+The vruntime variable stores the virtual runtime of a process, which is the actual runtime (the amount of time spent running) normalized (or weighted) by the number of runnable processes.
+
+How to calculate the vruntime?
+
 ## 第5章 系统调用
 
 ## 第6章 内核数据结构
@@ -44,7 +96,25 @@ CFS use a red-black tree to manager the list of runnable process.
 
 ## 第8章 下半步和推后执行的工作
 
+
 ## 第9章 内核同步介绍
+Locks are implemented using atomic operations that ensure no race exists.
+In linux, there are different locks
+
+10 Kernel Synchronization Methods
+
+Atomic Operations are the foundation on which other sychronization methods are built.
+
+kernel provides two sets of interfaces for atomic operations: integers, individual bits
+
+other architecture, lock the memory bus.
+
+atomic_t ensures the compiler does not (erroneously but cleverly) optimize access to the value—it is important the atomic operations receive the correct memory address and not an alias
+
+1987年，SUN和TI公司合作开发了RISC微处理器——SPARC。
+
+https://blog.csdn.net/jeffasd/article/details/51321743
+
 
 ### 9.1 临界区和竞争条件
 ### 9.2 加锁
@@ -85,6 +155,30 @@ VFS 使得 用户可以直接适用 open(), read(), write() 这样的系统调�
 而且块设备对执行性能的要求很高, 优化硬盘操作对整个系统性能可以带来大幅度提升
 
 缓存区是为了实现 I/O 的 异步操作，大大提升性能
+
+
+Character Device: is accessed as a stream of data keyboard
+Block Device: is accessed randomly . Such as hard disk, more difficulty to manage
+
+THE SMALLEST ADDRESSABLE UNIT ON A BLOCK DEVICE IS A SECTOR.
+
+Most block devices have 512-byte sectors. But other size like 2-kilobyte is common
+
+Software has different goals and therefore imposes its own smallest logically addressable unit, which is the block. Therefore, block sizes are a power-of-two multiple of the sector size and are not greater than the page size.
+
+Common block sizes are 512 bytes, 1 kilobyte, and 4 kilobytes.
+
+Sector, Block, Buffer, Segment, request queue, double linkedlist. Linus Elevator,
+
+I/O scheduler VS processor scheduler.
+
+I/O schedulers perform two primary actions to minimize seeks: merging and sorting.
+
+Merge : Sort
+
+Linus Elevator will cause starvation.
+
+front merging is rare compared to back merging ??? Don't understand
 ## 第15章 进程地址空间
 
 ## 第16章 页高速缓存和页回写
