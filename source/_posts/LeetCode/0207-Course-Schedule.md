@@ -82,5 +82,42 @@ public class Solution {
     }
 }
 ```
+Python code:
 
+```python
+class Solution:
+    def canFinish(self, numCourses, prerequisites):
+        """
+        :type numCourses: int
+        :type prerequisites: List[List[int]]
+        :rtype: bool
+        """
+        graph = [-1] * numCourses
 
+        for i in range(numCourses):
+            graph[i] = []
+
+        visited = [False] * numCourses
+        
+        for i in range(len(prerequisites)):
+            graph[prerequisites[i][0]].append(prerequisites[i][1])
+
+        for i in range(numCourses):
+            if self.dfs(graph,visited,i) is False:
+                return False
+
+        return True
+
+    def dfs(self, graph, visited, course):
+        if visited[course]: 
+            return False
+
+        visited[course] = True
+
+        for value in graph[course]:
+            if self.dfs(graph, visited, value) is False:
+                return False
+            
+        visited[course] = False
+        return True
+```
