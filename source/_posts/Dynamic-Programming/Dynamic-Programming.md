@@ -86,4 +86,11 @@ https://www.youtube.com/watch?v=EysGdX2wSPo&feature=em-share_video_user
 
 
 
+经典的DP 问题
+0 1 背包
+N 取方格数
+N Partition
+树形动态规划
+
+
 
