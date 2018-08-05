@@ -55,6 +55,30 @@ How to set the priority for processes?
 
 All processes are descendants of the init process.
 
+Process 的五种状态
+
+Task Running
+TASK_INTERRUPTIBLE
+TASK_UNINTERRUPTIBLE
+TASK_TRACE
+TASK_STOPPED
+
+Linux 是怎么实现线程的
+
+创建线程， 分成了 fork() exe()
+终止线程
+
+ Copy-on-write (or COW) is a technique to delay or altogether prevent copying of the data. Rather than duplicate the process address space, the parent and the child can share a single copy.
+
+The Dilemma of the Parentless Task
+这个很有意思，如果一个进程没有父进程怎么办？ 很可能会变成 zombies
+这种情况就需要 reparent。 
+
+
+
+In 2.6 kernel, When a task is ptraced, it is temporarily reparented to the debugging process.
+不太明白
+
 
 ## 第4章 进程调度
 
