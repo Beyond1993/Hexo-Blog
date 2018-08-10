@@ -75,16 +75,14 @@ class Solution:
         queue.append(root)
         while queue:
             
-            one_level_result = []
-            
             node = queue.pop(0)
-            one_level_result.append(node.val)
+            result.append(node.val)
+
             if node.left is not None:
                 queue.append(node.left)
             if node.right is not None:
                 queue.append(node.right)
                 
-            result.append(one_level_result)
                 
         return result
 ```
@@ -95,7 +93,7 @@ class Solution:
 
 |解法1|解法2|
 |:----|:----|
-|[[3],[9,20],[15,7]]| [[3],[9],[20],[15],[7]]|
+|[[3],[9,20],[15,7]]| [3,9,20,15,7]|
 
 自己对着代码走一遍，为什么?
 
@@ -111,7 +109,7 @@ class Solution:
 
 ```
 
-假设从1 这个点出发:
+假设从0 这个点出发:
 BFS 的输出结果可以是 0,    1,3,4,    2,5,6
 也可以是 0,    4,3,1,    6,5,2
 也可以是 0,    4,3,1,    6,2,5
@@ -134,7 +132,7 @@ BFS 的输出结果可以是 0,    1,3,4,    2,5,6
 
 ```python
 def dfs():
-        graph = [[1,3,4], [0,2], [1,3], [0,5,6],[0,6],[3,6], [3,4,5]]
+        graph = [[1,3,4], [0,2], [1,3], [0,2,5,6],[0,6],[3,6], [3,4,5]]
         queue = []
         visited = [False] * len(graph)
         queue.append(0)
