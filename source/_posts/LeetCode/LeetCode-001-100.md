@@ -225,7 +225,7 @@ int sum = ((l2 == null) ? 0 : l2.val ) + ((l1 == null) ? 0 : l1.val) + carry;
 
 ### 98 Validate Binary Search Tree   		23.1%	Medium	
 
-### 99 Recover Binary Search Tree   		29.7%	Hard	
+### 99 [Recover Binary Search Tree](http://www.wayne.ink/2018/08/11/LeetCode/0099-Recover-Binary-Search-Tree/)`   		29.7%	Hard	
 
 ### 100 Same Tree   		46.3%	Easy	
 
