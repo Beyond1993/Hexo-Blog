@@ -198,6 +198,7 @@ How to calculate the vruntime?
 
 ## 第8章 下半步和推后执行的工作
 
+用于延迟 Linux 内核工作的三种机制: 软中断, tasklet, 工作队列
 
 ## 第9章 内核同步介绍
 Locks are implemented using atomic operations that ensure no race exists.
