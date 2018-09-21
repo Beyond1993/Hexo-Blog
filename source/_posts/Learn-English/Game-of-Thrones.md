@@ -12,3 +12,7 @@ It was like seeing a shark on a mountaintop.
 Never believe anything you hear at a woman's tit.
 
 在女人怀里时。
+
+There never was a week when he did not draw a dozen bloody watches.
+
+他没有一周不来十几把那种血腥的，糟糕的抽签
