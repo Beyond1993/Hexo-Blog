@@ -1,7 +1,7 @@
 ---
 title: 自省集
 date: 2017-09-09 09:19:26
-categories: 未分类
+categories: 反思
 tags:
 ---
 2017-09-04
