@@ -24,3 +24,8 @@ tags:
 ```text
 ![](/images/rpc.png)
 ```
+
+3. 更换主题
+只要把相应的主题放到 theme/ 下面就可以了。再修改根目录下的 _config.yml
+
+git clone https://github.com/iissnan/hexo-theme-next themes/next
