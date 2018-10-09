@@ -1,7 +1,7 @@
 ---
 title: Functional-Programming
 date: 2017-12-08 01:41:42
-categories: 未分类
+categories: Go
 tags:
 ---
 

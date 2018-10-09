@@ -1,7 +1,7 @@
 ---
 title: 'Mysql-Backup '
 date: 2017-10-16 05:55:54
-categries:
+categries: Database
 tags:
 ---
 
