@@ -5,6 +5,9 @@ categories: English
 tags:
 ---
 
+人物:
+Jory Cassel 乔里·凯索 史塔克家族的侍卫队长。
+
 Prologue 序言
 单词:
 crowning glory. crowning 加冕, glory 荣耀。 最大荣耀.
@@ -47,6 +50,17 @@ There never was a week when he did not draw a dozen bloody watches.
 他没有一周不来十几把那种血腥的，糟糕的抽签视察.
 
 draw 有抽签的意思.
+
+Bran
+A ruler who hides behind paid executioners soon forgets what death is.
+非常喜欢这句话。统治者或者上流阶级的人 何不食肉糜。
+
+Catelyn
+vein 静脉
+grove 树林
+I was glad for Bran's sake. 
+for somebody's sake 为了某人着想
+a swatch of 一小块, 样本
 
 电视剧:
 It was like seeing a shark on a mountaintop.
