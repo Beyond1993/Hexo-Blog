@@ -1,7 +1,7 @@
 ---
 title: Print Common Nodes in Two Binary Search Trees
 date: 2017-10-11 05:34:22
-categories: Geeksforgeeks
+categories: Algorithm
 tags:
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: GDB
 date: 2018-05-06 02:19:07
-categories: Linux
+categories: C/C++
 tags:
 ---
 
@@ -22,6 +22,7 @@ GDB是GNU开源组织发布的一个强大的UNIX下的程序调试工具。或�
 一个调试示例
 ——————
 源程序：test.c
+```c++
       #include <stdio.h>
      
       int func(int n)
@@ -48,6 +49,7 @@ GDB是GNU开源组织发布的一个强大的UNIX下的程序调试工具。或�
             printf("result[1-250] = %ld \n", func(250) );
               return 0;
      }
+```
 编译生成执行文件：（Linux下）
     $ gcc -g test.c -o test
 使用GDB调试：
@@ -177,6 +179,7 @@ bt程序堆栈  可以追踪运行时函数调用
 
 ## GDB 调试多文件
 文件一： main.cpp
+```c++
 #include "mytool1.h"
 #include "mytool2.h"
 #include "stdio.h"
@@ -185,40 +188,45 @@ int main(int argc, char **argv) {
 mytool1_print("hello");
 mytool2_print("hello,husince");
 }
-
+```
 文件二： mytool1.cpp
+```c++
 #include "mytool1.h"
 #include "stdio.h"
 
 void mytool1_print(char *print_str){
 printf("This is mytool1 print %s\n",print_str);
 }
-
+```
 文件三：mytool1.h
+```txt
 #ifndef _MYTOOL_1_H
 #define _MYTOOL_1_H
 
 void mytool1_print(char *print_str);
 
 #endif
-
+```
 文件四：mytool2.cpp
+```c++
 #include "mytool2.h"
 #include "stdio.h"
 
 void mytool2_print(char *print_str){
 printf("This is mytool2 print %s\n", print_str);
 }
-
+```
 文件五：mytool2.h
+```c++
 #ifndef _MYTOOL_2_H
 #define _MYTOOL_2_H
 
 void mytool2_print(char *print_str);
 
 #endif
-
+```
 以上是源文件， 还写了个makefile:
+```make
 exe : main.o mytool1.o mytool2.o
      g++ -g -o exe $^  -----------------------------------------这一行不能顶格写！！！要tab
 main.o : main.cpp mytool1.h mytool2.h
@@ -229,13 +237,14 @@ mytool2.o : mytool2.cpp mytool2.h
      g++ -g -c mytool2.cpp
 clean :
      rm exe main.o mytool1.o mytool2.o
-
+```
 1.$ gdb exe  ---------------------------------进入gdb
 2.(gdb) b main.cpp:6       -------------------main 的第6行
 3.(gdb) b mytool1.cpp:mytool1_print   --------mytool1.cpp 的 mytool1_print()函数
 
 ## GDB 查看数组 指针
 
+```c++
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -245,7 +254,7 @@ int main(){
     printf("debug array and point \n");
     return 0;
 }
-
+```
 最主要的是 *p@5
 (gdb) n
 7 printf("debug array and point \n");

@@ -1,7 +1,7 @@
 ---
 title: Practice
 date: 2018-02-18 23:04:15
-categories: Advanced_Algorithm_Class
+categories: Algorithm
 tags:
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Class1
 date: 2018-01-30 07:20:36
-categories: Advanced_Algorithm_Class
+categories: Algorithm
 tags:
 ---
 
@@ -15,7 +15,7 @@ tags:
    result = 1
 
 
-  
+```java  
 public int countOfSubArraySum(int[] array, int target) {
    if (array == null || array.length < 2) return 0;
    int sum = 0, result = 0;
@@ -104,7 +104,7 @@ public int closestSum(int[] array, int target) {
 }
 ```
 
-
+```java
 Public int closeSum(int[] array, int target) {
   Arrays.sort(array);
   Int left = 0;
@@ -125,7 +125,7 @@ Public int closeSum(int[] array, int target) {
   } 
 
 }
-
+```
 isLarger
 
 Sum > target left right
