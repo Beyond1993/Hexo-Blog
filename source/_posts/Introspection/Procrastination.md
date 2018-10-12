@@ -1,5 +1,5 @@
 ---
-title: 拖延症
+title: 拖延
 date: 2018-09-24 00:03:21
 categories: 反思
 tags:

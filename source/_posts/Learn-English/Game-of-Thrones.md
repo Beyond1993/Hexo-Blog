@@ -51,16 +51,27 @@ There never was a week when he did not draw a dozen bloody watches.
 
 draw 有抽签的意思.
 
-Bran
+Bran 布兰
 A ruler who hides behind paid executioners soon forgets what death is.
 非常喜欢这句话。统治者或者上流阶级的人 何不食肉糜。
 
-Catelyn
+Catelyn 凯特琳
 vein 静脉
 grove 树林
 I was glad for Bran's sake. 
 for somebody's sake 为了某人着想
 a swatch of 一小块, 样本
+
+Daenerys 丹妮莉斯
+gown 袍子
+pamper 宠
+seldom 很少
+savory 芳香开胃的
+slouch 佝偻
+tunic 长袍
+meekly 谦和的
+wistfully 望眼欲穿
+tatter 破布
 
 电视剧:
 It was like seeing a shark on a mountaintop.

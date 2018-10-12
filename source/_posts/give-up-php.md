@@ -1,3 +1,11 @@
+-
+title: 放弃PHP 
+date: 2017-12-11 23:23:56
+categories: 未分类
+tags:
+---
+
+
 # (GitHub-Flavored) Markdown Editor
 
 这是我的第一篇Markdown博客，今天开始正式放弃php, mysql的CMS网站来记博客．希望hexo能够一直发展下去．
