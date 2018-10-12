@@ -26,3 +26,13 @@ $ youtube-dl url-to-video
 
 ## w3m 命令行浏览器
 sudo apt-get install w3m
+
+## 录屏
+sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+sudo apt-get install update
+sudo apt-get install simplescreenrecorder
+
+because there is no sound with recordmydesktop, I find the simplescreenrecorder solve the problem perfectly!!
+
+## Eclipse 创建桌面快捷方式
+ln -s /home/wayne/eclipse/jee-neon2/eclipse/eclipse ~/Desktop/eclipse
