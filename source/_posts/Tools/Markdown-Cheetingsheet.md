@@ -8,3 +8,7 @@ tags:
 [Syntax Higjlighting Language Support](http://tinker.kotaweaver.com/blog/?p=152)
 [link] (http://www.cnblogs.com/raybiolee/p/4232889.html)
 
+标点  •
+对勾 √ 
+
+
