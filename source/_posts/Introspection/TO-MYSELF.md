@@ -1,5 +1,5 @@
 ---
-title: 自省集
+title: 自省
 date: 2017-09-09 09:19:26
 categories: 反思
 tags:
