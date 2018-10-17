@@ -1,68 +1,96 @@
 ---
-title: Dynamic-Programming
-date: 2017-12-14 20:41:33
+title: Dynamic Programming
+date: 2018-03-05 04:31:11
 categories: Algorithm
 tags:
 ---
 
-http://www.geeksforgeeks.org/top-20-dynamic-programming-interview-questions/
+入门 + 单序列 LIS
+双序列  LCS
+矩阵坐标型 
+背包型 k napsack
+区间及其他类型 matrix multiplication
+
+1. 优化问题或者计数问题
+2. 寻找递归式(大问题化小问题)
+3. 简单的递归写法时间复杂度过高
+   子问题重叠过多
+4. 优化
+  Bottom up [iterative] small--&lt;big
+  Top down with memoization
+
+避免重复计算.
+
+一般DP都能根据递归算出来．
+
+先从Recursion 开始分析．
+
+Top Down VS Bottom Up 用哪个？
+
+1. 哪个好写． memorization
+2. Bottom up 可以空间优化. Top Down 不可以空间优化 
+
+面试中遇到新题，怎么判断用哪种？　还是从recursion 的结构看出来.
+当我的递归只有一个或者两个方向的时候，可以用Bottom up.
+
+最难的部分就是recursion
+
+```text
+ +---->
+ |
+ |
+ V
+```
+
+当有四个方向的时候，用Bottom up 可能会非常麻烦. 这时候用Top Down 比较好.
+
+```text
+    ^
+    |
+<---+--->  
+    |
+    V
+```
 
 
-今天下定决心，做一个DP 的总结。
+[LC746 Min Cost Climbing Stairs](http://www.wayne.ink/2018/03/05/LeetCode/0746-Min-Cost-Climbing-Stairs/)
 
-正常情况下，DP 就是 DFS 的优化，所以正常情况下，是先作出DFS的解，再用DP 优化。
-DFS 的还有一个好处就是验证有没有循环，比如从左上角走到右下角的min sum,假如是可以四个方向走的话，dfs里是有loop, 这样就没法用DP, 那就只能暴力dfs解，因为DP产生了循环优化的问题，没办法divide into optimal problem。
+LC 198 House Robber
+递归式.
 
-### 0 1 backpack
+LC 213 House Robber II
+有环 第一个偷不偷　转成线性
 
-问题描述：
+LC300 Longest increasing subsequence
 
-有 N 件物品和一个容量为 V 的背包。放入第 i 件物品耗费的费用是 Ci
-1，得到的
-价值是 Wi。求解将哪些物品装入背包可使价值总和最大。
-
-
-### Longest Common Subsequence
-
-### Longest Increasing Subsequence
-
-### Edit Distance
-
-### Minimum Partition
-
-### Ways to Cover a Distance
-
-### Longest Path In Matrix
-
-### Subset Sum Problem
-
-### Optimal Strategy for A Game
-
-### Boolean Parentesization Problem
-
-### Shortest Common Supersequence
-
-### Matrix Chain Multiplication
-
-### Partition Problem
-
-### Rod Cutting
-
-### Coin Change Problem
-
-### Word Break Problem
-
-### Maximal Product when cutting Rope
-
-### Dice Throw Problem
-
-### Box Stacking
-
-### Egg Dropping Puzzle
-
- 
+1.如果 f(i) 代表　前 i 个最长长度，如果仅仅这么定义，当我知道第ｉ个数为K, 时，　并不能确定这个长度是否加１，所以我们需要知道前面最长长度的最后一个元素是多少，如果比那个长度的最后一个元素还大，就可以加１．不行，找到刚好比最后一个元素大的长度，这个长度加１．
 
 
-小结：之前认为DP 问题很难的原因是，他太跳跃了，一下子就要定义一个状态转移方程，是不是很尴尬。我们要从生长的观点，来看待DP问题，首先，他有可重复子问题，那么我用DFS的递归也可以解决重复子问题啊，问题是DFS太慢了，好我们可以用记忆化搜索。这都是我们正常思维能想到的，但是怎么一下子跳跃到DP呢，这就需要经验的累计。
+f(i) = max(f(k) + 1, if A[i] > A[k]), k  0  ~ i-1 这样就没有空间优化了
 
-dp[i][j] 区间 i, j 的性质，有 和 差 bool
+LCS
+
+只要考虑前面一个就好了
+
+Game of 5 powers
+
+You are given a string S that consists of character '0' and '1' only. Return the samllest positive integer K such that it is positive to cut S into K pieces, each of them being a power of 5(no leading zeros). if there is no such K, return -1 instead.
+
+e.g. S = "101101101" return 3 (101 = 5)
+e.g. S = "1111101" return 1 (1111101 = 125)
+e.g. S = "0000" return -1;
+e.g. S = "100" return -1;
+
+和回文类似
+https://www.youtube.com/watch?v=EysGdX2wSPo&feature=em-share_video_user
+
+
+
+经典的DP 问题
+0 1 背包
+N 取方格数
+N Partition
+树形动态规划
+
+
+
