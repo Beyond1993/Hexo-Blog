@@ -1,7 +1,7 @@
 ---
-title: 白鹿原-读后感
+title: 白鹿原
 date: 2017-10-01 23:17:08
-categories: 经史子集
+categories: 读书笔记
 tags:
 ---
 

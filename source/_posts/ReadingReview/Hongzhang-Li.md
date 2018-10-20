@@ -1,7 +1,7 @@
 ---
-title: 李鸿章
+title: 李鸿章传
 date: 2018-01-12 19:11:19
-categories: 经史子集
+categories: 读书笔记
 tags:
 ---
 

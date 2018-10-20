@@ -1,12 +1,12 @@
 ---
 title: 走向共和
 date: 2017-09-03 02:40:59
-categories: 经史子集
+categories: 读书笔记
 tags:
 ---
 
 商妇飘零，一曲琵琶知音少；英雄落魄，百年岁月感慨多。
-![](https://i3.hoopchina.com.cn/blogfile/201701/19/BbsImg148482066699101_708x540.jpg?x-oss-process=image/resize,w_800/format,webp)
+![](http://i17.photobucket.com/albums/b69/canary2005/PDVD_001.jpg)
 今天再看走向共和，竟然被袁世凯和沈玉英的爱情感动不已。
 
 现在的我也算是英雄落魄了。

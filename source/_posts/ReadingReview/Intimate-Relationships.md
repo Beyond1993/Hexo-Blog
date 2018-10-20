@@ -1,7 +1,7 @@
 ---
 title: 亲密关系
 date: 2018-10-11 00:11:31
-categories: 读后感
+categories: 读书笔记
 tags:
 ---
 

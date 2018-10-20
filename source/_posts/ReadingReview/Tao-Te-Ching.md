@@ -1,7 +1,7 @@
 ---
-title: 大道废有仁义
+title: 道德经
 date: 2018-10-09 17:58:37
-categories: 经史子集
+categories: 读书笔记
 tags:
 ---
 
