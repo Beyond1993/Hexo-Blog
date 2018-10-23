@@ -38,6 +38,9 @@ Raw Pointer 的缺点：
 ·
 ·
 ·
+C++11 标准中规定了四个智能指针: std::auto_ptr, std::unique_ptr, std::shared_ptr, 以及 std::weak_ptr。它们都是用来设计辅助管理动态分配对象的生命周期，确保这些对象在h正确的时间（包括发生异常时）用正确的方式进行回报，以确保不会产生内存泄漏。
+
+std::unique_ptr 做到了 std::auto_ptr 所能做到的所有事，而且更高效。
 条款18：使用std::unique_ptr管理独占资源
 条款19：使用std::shared_ptr管理共享资源
 条款20：在std::shared_ptr类似指针可以悬挂时使用std::weak_ptr
