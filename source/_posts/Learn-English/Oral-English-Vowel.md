@@ -48,3 +48,19 @@ tags:
 <audio controls height="100" width="100">
   <source src="https://s3.us-east-2.amazonaws.com/wfeng/audio/%E4%B8%AD%E5%85%83%E9%9F%B3%C9%99.m4a">
 </audio>
+
+## 后元音a
+<img src="https://s3.us-east-2.amazonaws.com/wfeng/images/%E5%90%8E%E5%85%83%E9%9F%B3a.jpg" width="30%" height="30%">
+
+<audio controls height="100" width="100">
+  <source src="https://s3.us-east-2.amazonaws.com/wfeng/audio/%E5%90%8E%E5%85%83%E9%9F%B3+a.m4a">
+</audio>
+
+## 后元音ɔ
+<img src="https://s3.us-east-2.amazonaws.com/wfeng/images/%E5%90%8E%E5%85%83%E9%9F%B3%C9%94+.jpg" width="30%" height="30%">
+
+<audio controls height="100" width="100">
+  <source src="https://s3.us-east-2.amazonaws.com/wfeng/audio/%E5%90%8E%E5%85%83%E9%9F%B3%C9%94.m4a">
+</audio>
+
+
