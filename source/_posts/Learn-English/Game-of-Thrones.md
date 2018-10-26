@@ -72,7 +72,10 @@ tunic 长袍
 meekly 谦和的
 wistfully 望眼欲穿
 tatter 破布
-
+treachery 背信弃义
+Eyrie 
+savages
+queer
 电视剧:
 It was like seeing a shark on a mountaintop.
 虎落平阳，龙困浅滩。
