@@ -8,6 +8,7 @@ tags:
 人物:
 Jory Cassel 乔里·凯索 史塔克家族的侍卫队长。
 
+伊利里欧·摩帕提斯（Illyrio Mopatis）
 Prologue 序言
 单词:
 crowning glory. crowning 加冕, glory 荣耀。 最大荣耀.
@@ -76,6 +77,10 @@ treachery 背信弃义
 Eyrie 
 savages
 queer
+palanquin
+spiked bronze cap
 电视剧:
 It was like seeing a shark on a mountaintop.
 虎落平阳，龙困浅滩。
+
+
