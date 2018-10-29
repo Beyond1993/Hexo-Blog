@@ -64,3 +64,20 @@ tags:
 </audio>
 
 
+## 双元音-e-即ei
+<img src="https://s3.us-east-2.amazonaws.com/wfeng/images/%E5%8F%8C%E5%85%83%E9%9F%B3-e-%E5%8D%B3-ei.jpg" width="30%" height="30%">
+<audio controls height="100" width="100">
+  <source src="https://s3.us-east-2.amazonaws.com/wfeng/audio/%E5%8F%8C%E5%85%83%E9%9F%B3-e-%E5%8D%B3-ei-.m4a">
+</audio>
+
+## 其他双元音
+<img src="https://s3.us-east-2.amazonaws.com/wfeng/images/%E5%85%B6%E4%BB%96%E5%8F%8C%E5%85%83%E9%9F%B3.jpg" width="30%" height="30%">
+<audio controls height="100" width="100">
+  <source src="https://s3.us-east-2.amazonaws.com/wfeng/audio/%E5%8F%8C%E5%85%83%E9%9F%B3-e-%E5%8D%B3-ei-.m4a">
+</audio>
+
+元音小结
+国际音标一共有48个，其中元音20个。
+
+单元音： [e] [ae] [a:] [כ] [כ:] [ʌ] [3:] [ə] [i] [i:] [u] [u:] 
+双元音： [ei] [ai] [כi] [əu] [au] [εə] [iə] [uə] 
