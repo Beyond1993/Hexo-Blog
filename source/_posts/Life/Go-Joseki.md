@@ -12,4 +12,10 @@ tags:
 三三定式在二路是不能扳的。
 ![](https://i.ytimg.com/vi/GQQ_zRZ2-O8/maxresdefault.jpg)
 
-### 
+### 小目定式
+
+### 大雪崩定式
+
+### 妖刀定式
+
+### 大斜定式
