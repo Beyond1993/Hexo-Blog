@@ -2,10 +2,10 @@
 title: Reinforcement-Learning-with-Udacity
 date: 2018-12-05 20:31:55
 categories: Machine-Learning
-tags:
+mathjax: true
 ---
 
-$$x = 100 * y + z - 10 / 33 + 10 % 3$$
+$x = 100 * y + z - 10 / 33 + 10 % 3$
 
 强化学习三要素
 
