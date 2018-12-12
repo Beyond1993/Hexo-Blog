@@ -31,3 +31,30 @@ tags:
 git clone https://github.com/iissnan/hexo-theme-next themes/next
 
 4. 添加音频/视频
+
+5. 添加公式
+Mathjax
+
+blog/  npm install hexo-math --save
+
+在全局的 _config.yml 里
+
+```txt
+math:
+  engine: 'mathjax' # or 'katex'
+  mathjax:
+    src: custom_mathjax_source
+    config:
+      # MathJax config
+  katex:
+    css: custom_css_source
+    js: custom_js_source # not used
+    config:
+      # KaTeX config
+```
+
+在 Next/theme/ 里
+```txt
+mathjax: true
+per-page: true
+```

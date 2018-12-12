@@ -5,7 +5,6 @@ categories: Machine-Learning
 mathjax: true
 ---
 
-$x = 100 * y + z - 10 / 33 + 10 % 3$
 
 强化学习三要素
 
@@ -14,6 +13,10 @@ Reward, State, Action
 Sparse Reward 问题。
 
 关于模拟国际象棋的问题.
+
+教机器人走路的模型
+
+$$ r = min(V_x, V_{max}) - 0.005(V_y^2 + V_z^2) - 0.05y^2 - 0.02||u||^2 + 0.02$$
 
 错题集
 Say you just started playing chess against your opponent, and it seems to be going great - you have played 20 moves and already taken five pieces from your opponent. The game hasn't ended yet, so you're not 100% sure you'll win, but it seems likely. What cumulative reward have you received so far?
@@ -37,6 +40,4 @@ C. The reward is -1 for every time step that the agent spends inside the maze. O
 D. The reward is 0 for every time step that the agent spends inside the maze. Once the agent escapes, it receives a reward of +1, and the episode termiantes.
 
 答案是A, C. 对于反馈的设定，一定要有正负反馈两种，情况，才能更快的加速。
-
-$E = mc^2$
 
