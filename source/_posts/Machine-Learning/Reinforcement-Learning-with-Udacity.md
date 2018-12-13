@@ -41,3 +41,16 @@ D. The reward is 0 for every time step that the agent spends inside the maze. On
 
 答案是A, C. 对于反馈的设定，一定要有正负反馈两种，情况，才能更快的加速。
 
+
+原有的 return value:
+
+$$ G_t = R_{t+1} + R_{t+2} + R_{t+3} + R_{t+4} + .... $$
+
+discount value
+$$ G_t = R_{t+1} + (.9)R_{t+2} + (.81)R_{t+3} + (.73)R_{t+4} + ... $$
+
+那怎么定义discount rate 呢？$ \gamma \in [0,1] $
+
+$$ G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2R_{t+3} + \gamma^3R_{t+4} + ... $$
+
+$\gamma$ 不是由agent 自己算出来的，而是由人工设置，以便优化目标。
