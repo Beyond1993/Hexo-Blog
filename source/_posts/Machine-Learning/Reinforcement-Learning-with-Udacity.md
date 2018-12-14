@@ -54,3 +54,12 @@ $$ G_t = R_{t+1} + (.9)R_{t+2} + (.81)R_{t+3} + (.73)R_{t+4} + ... $$
 $$ G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2R_{t+3} + \gamma^3R_{t+4} + ... $$
 
 $\gamma$ 不是由agent 自己算出来的，而是由人工设置，以便优化目标。
+
+$\gamma$ 是 1 就是non discount return value
+$\gamma$ 是 0 就只关注于当前回报。
+
+$\gamma$ 越高说明越注重未来的值，$\gamma$ 越低越注重现在的值。
+
+discounting is particularly relevant to continuing tasks. continuing task 没有end。 如果连续性任务因为没有结束而显得时间太长，我们可以尝试使用discounting value 来忽略以后很久之后的回报.
+
+如果agent 在 任意时间里选择action, 这种情况我们也需要discount rate 来更加专注于当前的reward.
