@@ -63,3 +63,81 @@ $\gamma$ 越高说明越注重未来的值，$\gamma$ 越低越注重现在的�
 discounting is particularly relevant to continuing tasks. continuing task 没有end。 如果连续性任务因为没有结束而显得时间太长，我们可以尝试使用discounting value 来忽略以后很久之后的回报.
 
 如果agent 在 任意时间里选择action, 这种情况我们也需要discount rate 来更加专注于当前的reward.
+
+错题集
+Recall that the agent receives a reward of +1 for every time step, including the final step of the episode. Which discount rates would encourage the agent to keep the pole balanced for as long as possible? (Select all that apply.)
+
+A. The discount rate is 1.
+B. The discount rate is 0.9.
+C. The discount rate is 0.5.
+
+For each of these discount rates, the agent receives a positive reward for each time step where the pole has not yet fallen. Thus, in each case, the agent will try to keep the pole balanced for as long as possible.
+
+答案: ABC
+
+Say that the reward signal is amended to only give reward to the agent at the end of an episode. So, the reward is 0 for every time step, with the exception of the final time step. When the episode terminates, the agent receives a reward of -1. Which discount rates would encourage the agent to keep the pole balanced for as long as possible? (Select all that apply.)
+
+A. The discount rate is 1.
+B. The discount rate is 0.9.
+C. The discount rate is 0.5.
+D. (None of these discount rates would help the agent, and there is a problem with the reward signal)
+
+答案: BC
+ Without discounting, the agent will always receive a reward of -1 (no matter what actions it chooses during the episode), and so the reward signal will not provide any useful feedback to the agent.
+
+With discounting, the agent will try to keep the pole balanced for as long as possible, as this will result in a return that is relatively less negative.
+
+负的更小
+
+问题3:
+
+Say that the reward signal is amended to only give reward to the agent at the end of an episode. So, the reward is 0 for every time step, with the exception of the final time step. When the episode terminates, the agent receives a reward of +1. Which discount rates would encourage the agent to keep the pole balanced for as long as possible? (Select all that apply.)
+
+A. The discount rate is 1.
+B. The discount rate is 0.9.
+C. The discount rate is 0.5.
+D. (None of these discount rates would help the agent, and there is a problem with reward signal.)
+
+答案 D
+
+
+If the discount rate is 1, the agent will always receive a reward of +1 (no matter what actions it chooses during the episode), and so the reward signal will not provide any useful feedback to the agent.
+
+If the discount rate is 0.5 or 0.9, the agent will try to terminate the episode as soon as possible (by either dropping the pole quickly or moving off the edge of the track).
+
+Thus, you are correct - we must redesign the reward signal!
+
+垃圾回收机器人问题
+
+房间里有一个机器人用来捡易拉罐，然后机器人要回基站充电，怎样提高机器人工作效率。
+
+what are the actions? (action space)
+
+$$ 
+A =
+\begin{bmatrix}
+	search \\
+	recharge \\
+	wait \\
+\end{bmatrix}
+$$
+
+what are the states? (state space) (电池电量)
+
+$$ 
+S = 
+\begin{bmatrix}
+        high \\
+        low  \\
+\end{bmatrix}
+$$
+
+In general, the state space $\mathcal{S}$ is the set of all nonterminal states.
+
+In continuing tasks (like the recycling task detailed in the video), this is equivalent to the set of all states.
+
+In episodic tasks, we use $\mathcal{S}^+$ to refer to the set of all states, including terminal states.
+
+The action space $\mathcal{A}$ is the set of possible actions available to the agent.
+
+In the event that there are some states where only a subset of the actions are available, we can also use $\mathcal{A}(s)$ to refer to the set of actions available in state $s\in\mathcal{S}$.
