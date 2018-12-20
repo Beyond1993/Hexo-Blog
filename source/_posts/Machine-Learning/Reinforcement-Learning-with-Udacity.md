@@ -141,3 +141,6 @@ In episodic tasks, we use $\mathcal{S}^+$ to refer to the set of all states, inc
 The action space $\mathcal{A}$ is the set of possible actions available to the agent.
 
 In the event that there are some states where only a subset of the actions are available, we can also use $\mathcal{A}(s)$ to refer to the set of actions available in state $s\in\mathcal{S}$.
+
+discount rate 应该设为接近于1，而非接近于0，不然agent 很可能检测不到未来发生的错误.
+
