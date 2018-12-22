@@ -15,3 +15,6 @@ https://www.youtube.com/watch?v=VOxuvv2ctSY&list=PLiqH0c3SMeGuFH2jevDUbw-Cex0NqS
 这个西南博士的讲课非常好。
 
 他们以自己的一套去了解一个他们达不到的境界，太不了解诸葛亮和中国文化。
+
+能攻心则反侧自消，从古知兵非好战。
+不审势即宽严皆误，后来治蜀要深思。
