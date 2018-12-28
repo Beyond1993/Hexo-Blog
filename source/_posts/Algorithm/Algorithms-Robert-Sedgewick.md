@@ -39,6 +39,8 @@ https://algs4.cs.princeton.edu/code/
 三种不同实现
 #### 1.5.2.1 quick-find 算法
 
+**同一个组只存根结点的ID**
+
 ```java
 public int find(int p) {
   return id[p];
@@ -70,6 +72,8 @@ find() 操作速度显然很快，是O(1), 但是 union 是 O(n)
 假设我们使用quick-find 算法来解决动态连通性问题并且最后只得到了一个连通分量。那么这至少需要调用
 N - 1 次 union(), 又因为每次union() 操作访问数组次数在(N + 3) 到 (2N + 1)之间，即至少(N + 3)(N -1) ~ N^2, 平房级别
 #### 1.5.2.3 quick-union 算法
+
+**每个节点只存只存parent 节点的ID**
 
 #### 1.5.2.4 森林的表示
 
@@ -104,6 +108,7 @@ public void union(int p, int q)
 ##### 1.5.2.8 最优算法
 要实现路径压缩，只需要为find() 添加一个循环，将在路径上遇到的所有节点都直接链接到根节点。我们所得到的结果几乎是完全扁平化的。
 
+**路径压缩意思是一个组的节点只存根结点ID, 加权是说只将小的树连接到大的树上**
 ```java
 public int find(int p) {
   validate(p);
