@@ -144,3 +144,15 @@ In the event that there are some states where only a subset of the actions are a
 
 discount rate 应该设为接近于1，而非接近于0，不然agent 很可能检测不到未来发生的错误.
 
+Policy --> Pi: S --> A 从环境到Action
+
+deterministic policy
+stochastic policy
+
+State-Value Functions, 这个function 记录的是在某一种 policy 下，从某一个点出发的culmutive reward
+
+The state-Value functoin is always correspond to a particular policy
+
+Bellman equation
+在 MDP 中 我们总是可以将当前值 表示为 奖励值 加 下一个状态的折扣率
+

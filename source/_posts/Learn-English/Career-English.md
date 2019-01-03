@@ -82,3 +82,5 @@ Let me know if you need to change the arrangements.
 Informal：
 See you in Brussels.
 Give me a call if anything changes.
+
+The mysql requests/hits are in the ball-park of the cache misses we are seeing and Ubuntu shows that there are 1000k requests
