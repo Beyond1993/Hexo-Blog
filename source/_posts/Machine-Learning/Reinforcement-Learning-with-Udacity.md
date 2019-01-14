@@ -156,3 +156,15 @@ The state-Value functoin is always correspond to a particular policy
 Bellman equation
 在 MDP 中 我们总是可以将当前值 表示为 奖励值 加 下一个状态的折扣率
 
+Two Version MC Prediction
+
+How to treate same status and same action.
+Option1:
+Every-Visit MC
+Try the average the value
+
+Option2:
+First-Visit MC
+Just try First Value.
+
+First-Visit MC
