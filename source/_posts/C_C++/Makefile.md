@@ -86,3 +86,6 @@ ${MODS:%=%.beam}
 第一个%没有带任何过滤条件.%则表示任意字符串.
 第二个%表示在字符串后面添加一个 .beam
 ${MODS:%=%.beam} 的意思是把为变量添加一个 .beam 后缀
+
+
+-g requests that the compiler and linker generate and retain source-level debugging/symbol information in the executable itself.
