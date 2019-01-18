@@ -31,6 +31,25 @@ tags:
 条款17：理解特殊成员函数的生成
 
 ## 第四章 智能指针
+Raw Pointer 的问题
+
+1. 不能确定是否指向single object  or an array
+
+2. 这个指针在结束的时候，并不清楚什么需不需要销毁他所指向的内容.
+
+3. 当我们决定要销毁指针指向的内容的时候，并不知道怎么去做.
+
+4. 问题1导致了我们并不知道 是 delete a single object or array
+
+5. 就算知道指针指向的内容，而且知道怎么去销毁，也很难一次性销毁干净。missing a path leads to resource leaks, 多于一次 会导致 undefined behavior.
+
+6. 不知道是否是野指针
+
+
+std::unique_ptr are same size, same instructions, small and fast enough, as raw pointers
+
+std::unique_ptr is thus a move-only type, can not be copied.
+
 Raw Pointer 的缺点：
 ·从声明看不出它是指向一个单个的对象还是一个数组
 ·当你使用完它的时候，从它的声明看不出你是否应该把它销毁，例如，当指针拥有它当前指向的对象时？不太懂
