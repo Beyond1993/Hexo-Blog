@@ -5,6 +5,67 @@ categories: Algorithm
 tags:
 ---
 
+
+point 1: ​动态规划的 实质是​分治思想​和​解决冗余 
+point 2: ​dp问题的特性 
+1.最优子结构性质 
+   通俗地讲就是问题的最优解包含其子问题的最优解。 
+2.子问题重叠性质 
+   递归算法求解问题时，每次产生的子问题并不总是新问题，有些子问题出现多次。 
+   子问题的解依赖于更小子问题的解 
+3.自底向上的求解方法 
+   求解时需要采用自底向上的方法，将每一级子问题的最优值记录下来，直到问题所要求的规模。 
+ 
+point 3:​ 适合求解的问题：max/min/length/largest/smallest/... 
+ 
+point 4: ​动态规划算法适合用来求解最优化问题，步骤： 
+(1)        definition: ​分析最优解的性质，刻画最优解的结构特征​。   dp[i] 它的含义  
+(2)induction rule: ​递归定义最优值 (即建立递归式)。                      dp[i] = dp[i - 1] .. ..dp[0] 
+(3)init & iterative: ​初始化 & 以自底向上的方式计算出最优值。  
+(4)              result: ​根据计算最优值时得到的信息，构造出最优解。 
+ 
+point 5：​DP VS Greedy 
+相同点： 1. 分治思想 
+               2. 最优子结构性质 
+不同点：1. Greedy子问题独立，DP子问题重叠 
+              2. Greedy从顶向下，DP从底向上 
+ 
+point 6：​DP问题求解图示 
+A 代表数据本身， dp代表得到的结果 
+←           dealt      →   cur   ←      undealt    →  
+  xxxxxxxxxxxxxxxxxx​     ​x​    ​xxxxxxxxxxxxxxxx
+
+_yyyyyyyyyyyyyyyyyy <- 注： 第一个字符"-" 是初始化可能需要增加的补位
+
+- cached data -
+           <--i j
+
+```java
+/**
+          n
+         / \ 
+      n-1   n-2
+    /  \    / \
+  n-2 n-3 n-3 n-4
+
+f(n) = f(n-1) + f(n-2)
+
+1 2 3 4 5 6 ... n
+1 2 3 5 8 13 ...
+
+definition: dp[i] present number of ways reach to i-th stair
+dedution: dp[i] = dp[i-1] + dp[i-2]
+init status: dp[0] = 1, dp[1] = 2
+result: dp[n-1]
+*/
+
+public class ClimbStairs {
+
+}
+
+```
+
+
 入门 + 单序列 LIS
 双序列  LCS
 矩阵坐标型 
