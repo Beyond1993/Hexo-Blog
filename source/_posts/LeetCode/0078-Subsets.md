@@ -53,13 +53,13 @@ public class Solution {
 左放，右不放
 
 ```text
-              {}
-            /   \
-          a      {}
-         / \     /  \   
-        ab a{}  a     {}
-       / \     / \    / \
-     abc ab{} ab  ac ac a  bc 
+                {}
+              /   \
+           a           {}
+         /   \        /  \   
+        ab    a{}     b     {}
+       / \     / \   / \    / \
+     abc ab{} ac  a bc  b  c  {} 
 ```
 
 ```text
@@ -94,13 +94,13 @@ public class ​Q03_Subsets {
    // solution 1: brute force enum 
    //   depth: elements of input data, the ith level present the ith element in input data 
    // branch: for each expanding node,  status of current processing element are becoming branches 
-   ​/**                       {} 
+   ​/**                {} 
     *                  /           \ 
-    * a             a             {} 
-    *           /      \            /  \ 
-    * b     ab        a       b    {} 
-    *        /   \      /\      / \     /\ 
-    * c  abc ab ac a bc  b c {} 
+    * a              a              {} 
+    *             /      \         /  \ 
+    * b         ab         a       b    {} 
+    *          /   \      / \     / \   / \ 
+    * c     abc    ab    ac  a   bc  b c  {} 
     */ 
    ​public ​List<String> subset1(String str) { 
        ​if ​(str == ​null​) ​return new ​LinkedList<>(); 
