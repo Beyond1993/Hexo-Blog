@@ -64,3 +64,14 @@ end   向前进 ，一直到尽头。
 相同就停手，   路上还原否。
 
 
+operators: two pointer + simple data structure
+
+reorder --> rotation/sorting
+reverse --> reverse stirng/word
+remove --> remove space/duplicate
+compress --> encode/decode
+search --> index of/ word search / trie tree / word ladder
+modify --> replace / minimum replacement / edit distance
+match  --> pattern match/ regular match
+transform --> integer/ Roman Integer/ String
+others --> buffer read / longest valid parentheses/ is UTF-8/ palindrome
