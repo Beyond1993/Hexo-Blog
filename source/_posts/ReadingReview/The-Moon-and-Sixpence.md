@@ -35,5 +35,9 @@ notorious 臭名昭著的
 tragic 悲惨的
 flesh 果肉
 refuge 避难所
-
+scrupulously 严格
+strain 应变
+asceticism 禁欲主义
+mortification 屈辱
+salutary 有益
 
