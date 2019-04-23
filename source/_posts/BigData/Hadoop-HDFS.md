@@ -5,6 +5,10 @@ categories: BigData
 tags:
 ---
 
+https://comsince.github.io/download/bigdata/Hadoop_Common_HDFS.pdf
+
+深入解析 Hadoop common 和 HDFS 
+
 [Hadoop 系统架构指南](https://hadoop.apache.org/docs/r1.0.4/cn/hdfs_design.html)
 
 ![Architecture](https://hadoop.apache.org/docs/r1.0.4/cn/images/hdfsarchitecture.gif)
