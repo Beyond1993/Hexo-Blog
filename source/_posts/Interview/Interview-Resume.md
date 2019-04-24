@@ -8,9 +8,14 @@ tags:
 04/2018 ~ now
 
 Bloomberg Derivative Team
-• Distributed Cache to protect database
-• Added Distributed cache layer in SET infstructure 
+
+• Create new workflow from Bloomberg UI to comdb2 database.
+• Added Data layer to SET UI in Bloomberg terminal.
 • 
+
+• Added Distributed Chipmunk cache layer in SET infstructure 
+• Design integration test cases for disributed cache system.
+• Deployed cache in 26 product machines, for each machine. 63 million traffic one day. average QPS is 730 r/s, maxium QPS is 7000 r/s, total cache size 3.2G, maixum one key value size 25M , average is 100K.
 
 • Compare complicated Service Responses from development environment and Production
 • Implement compare algorithm rather than use Third Libary.
