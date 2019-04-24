@@ -8,10 +8,13 @@ tags:
 04/2018 ~ now
 
 Bloomberg Derivative Team
+• Distributed Cache to protect database
+• Added Distributed cache layer in SET infstructure 
+• 
 
 • Compare complicated Service Responses from development environment and Production
 • Implement compare algorithm rather than use Third Libary.
-• Set the toealnc for different results
+• Set the tolerance for different feilds in response.
 
 
 
