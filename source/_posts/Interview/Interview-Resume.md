@@ -9,18 +9,20 @@ tags:
 
 Bloomberg Derivative Team
 
+```txt
 • Create new workflow from Bloomberg UI to comdb2 database.
 • Added Data layer to SET UI in Bloomberg terminal.
-• 
+• Design request schema and API for new feature.
 
 • Added Distributed Chipmunk cache layer in SET infstructure 
 • Design integration test cases for disributed cache system.
-• Deployed cache in 26 product machines, for each machine. 63 million traffic one day. average QPS is 730 r/s, maxium QPS is 7000 r/s, total cache size 3.2G, maixum one key value size 25M , average is 100K.
+• Deployed cache in 26 product machines, for each machine. 63 million traffic one day.
+average QPS is 730 r/s, maxium QPS is 7000 r/s, total cache size 3.2G, maixum one key value size 25M , average is 100K.
 
 • Compare complicated Service Responses from development environment and Production
 • Implement compare algorithm rather than use Third Libary.
 • Set the tolerance for different feilds in response.
-
+```
 
 
 Software Engineer | Pinterest (Search & Ads Team)                                          07/2017 – now
