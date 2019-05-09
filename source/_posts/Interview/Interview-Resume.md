@@ -10,6 +10,12 @@ tags:
 Bloomberg Derivative Team
 
 ```txt
+••••••
+
+• C++ Linux Migration from Unix to Linux.
+• Build C++ symbol dependency graph with Perl and Python.
+• Reorgnize the C++ code workflow make it clear and Linux compatiable.
+
 • Create new workflow from Bloomberg UI to comdb2 database.
 • Added Data layer to SET UI in Bloomberg terminal.
 • Design request schema and API for new feature.
