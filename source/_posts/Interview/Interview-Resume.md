@@ -12,42 +12,42 @@ Bloomberg Derivative Team
 ```txt
 ••••••
 
-• C++ Linux Migration from Unix to Linux.
-• Build C++ symbol dependency graph with Perl and Python.
-• Reorgnize the C++ code workflow make it clear and Linux compatiable.
+• C++ Linux Migration from UnixMachines to Linux Machines.
+• Buid C++ symbol dependenies graph with Perl and Python.
+• Reorgnie and Optimize the C++ code workflow from Bloomberg UI to Comdb2 database.
 
 • Create new workflow from Bloomberg UI to comdb2 database.
-• Added Data layer to SET UI in Bloomberg terminal.
+• Ad Data layer to SET UI in Bloomberg terminal.
 • Design request schema and API for new feature.
 
-• Added Distributed Chipmunk cache layer in SET infstructure 
+• Ad Distributed Chipmunk cache layer in SET infstructure 
 • Design integration test cases for disributed cache system.
-• Deployed cache in 26 product machines, for each machine. 63 million traffic one day.
+• Deply cache in 26 product machines, for each machine. 63 million traffic one day.
 average QPS is 730 r/s, maxium QPS is 7000 r/s, total cache size 3.2G, maixum one key value size 25M , average is 100K.
 
-• Compare complicated Service Responses from development environment and Production
-• Implement compare algorithm rather than use Third Libary.
-• Set the tolerance for different feilds in response.
-```
+Automatic Test Project
+• Design the new Algorithmfor pricing platform response analysis
+• Use Python to implement the new algorithm to compare two different results from development and production machines.
+• Build the automtic Test tool to improve the performance and save time for test```
 
 
 Software Engineer | Pinterest (Search & Ads Team)                                          07/2017 – now
 ```text
 Crawler System Project
 • Add feature for Pinterest Crawler System (Aragog) to solve web robot rules problem
-•  Used Python to scraped Ads information from the Google and Bing and upload to Hive table
-•  Built the Jupyter report for Pinterest sales team with python Pandas Dataframe
+•Use Python to scraped Ads information from the Google and Bing and upload to Hive table
+•Build the Jupyter report for Pinterest sales team with python Pandas Dataframe
 
 Keyword generator Project
 •  Create daily, weekly, monthly workflow for keyword information for keyword generator
 •  Use Hive, Cascading etl sequence file from hive to Hfile, upload to key value system (Terrapin) 
-•  Added the normalization and stem feature for interest to keyword pipeline, optimize the job
+•  Ad the normalization and stem feature for interest to keyword pipeline, optimize the job
 •  https://ads-latest.pinterest.com/advertiser/549756433034/keyword_generator/
 
 Search & Ads Experiments
-• Created query expansion experiments for Search Ads in Pinterest
-• Added option to use unigram and ngrams for broad match retrieval with Golang
-• Improved + 0.9% for CTR (click through rate), + 1.6 % for revenue 
+• Creat query expansion experiments for Search Ads in Pinterest
+• Ad option to use unigram and ngrams for broad match retrieval with Golang
+• Improv + 0.9% for CTR (click through rate), + 1.6 % for revenue 
 
 pCTR Model
 • Trained ads pCTR model for Pinterest Search & Ads Team
@@ -55,8 +55,8 @@ pCTR Model
 • Saved the model to AWS S3 as json file, which is used for keyword generator tools 
 
 Real Time Spark Workflow
-• Created ads long click counts workflow in Ads Serving Real Time Stats System
-• Implemented a spark job with scala transfer the data from Kafka to s3
+• Creat ads long click counts workflow in Ads Serving Real Time Stats System
+• Implemen a spark job with scala transfer the data from Kafka to s3
 • Join Accuracy is 97.63 % for 10 min, 99.99 % for 24 hours
 ```
 
