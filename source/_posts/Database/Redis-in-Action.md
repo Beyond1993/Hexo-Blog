@@ -38,7 +38,6 @@ We don't use pub / sub very much because two reasons
 
 one: in olde version if redis, a client that had subscribed to channels but didn't read sent messages fast enougth, 消息积压. will kill redis, or make operate system crash.
 
-### 6.5.1 Single-recipient publich/subscribe replacement
 
 
 
@@ -47,6 +46,8 @@ one: in olde version if redis, a client that had subscribed to channels but didn
 ## 5 Using Redis for application support
 
 ## 6 Application component in Redis
+
+### 6.5.1 Single-recipient publich/subscribe replacement
 
 ## 7 Search-based application
 
