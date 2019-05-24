@@ -17,6 +17,10 @@ tags:
 
 #### 3.2.1 Leases
 
+
+通过租约令牌，memcached 可以验证和判断是否这个数据应该被存储，由此仲裁并发写操作。 （但问题是，如何仲裁并发写操作？）
+
+
 #### 3.2.2 Memcache Pools
 
 #### 3.2.3 Replication Within Pools
