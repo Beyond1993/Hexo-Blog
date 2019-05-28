@@ -12,22 +12,21 @@ Bloomberg Derivative Team
 ```txt
 ••••••
 
-• C++ Linux Migration from UnixMachines to Linux Machines.
-• Buid C++ symbol dependenies graph with Perl and Python.
-• Reorgnie and Optimize the C++ code workflow from Bloomberg UI to Comdb2 database.
+• C++ Linux Migration from UnixMachines to Linux Machines
+• Buid C++ symbol dependenies graph with Perl and Python
+• Reorgnie and Optimize the C++ code workflow from Bloomberg UI to Comdb2 database
 
-• Create new workflow from Bloomberg UI to comdb2 database.
-• Ad Data layer to SET UI in Bloomberg terminal.
-• Design request schema and API for new feature.
+• Create new workflow from Bloomberg UI to comdb2 database
+• Ad Data layer to SET UI in Bloomberg terminal
+• Design request schema and API for new feature
 
-• Ad Distributed Chipmunk cache layer in SET infstructure 
-• Design integration test cases for disributed cache system.
-• Deply cache in 26 product machines, for each machine. 63 million traffic one day.
-average QPS is 730 r/s, maxium QPS is 7000 r/s, total cache size 3.2G, maixum one key value size 25M , average is 100K.
+• Design three level Cache and integration test cases for distributed SET infrastructure
+• Use Redis and BBCache in Chipmunk Cache for different business workflow
+• Deploy cache in 1300 product machines, handle maximum 1 million / s QPS for cluster
 
 Automatic Test Project
 • Design the new Algorithmfor pricing platform response analysis
-• Use Python to implement the new algorithm to compare two different results from development and production machines.
+• Use Python to implement the new algorithm to compare two different results from development and production machines
 • Build the automtic Test tool to improve the performance and save time for test```
 
 
