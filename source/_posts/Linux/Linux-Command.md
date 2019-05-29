@@ -133,3 +133,7 @@ ln -s /home/wayne/eclipse/jee-neon/eclipse/eclipse  ~/Desktop/
 
 查看进程
 psef dlibmg
+
+look up the size of current folder
+
+du -sh *
