@@ -17,6 +17,49 @@ UPDATE (2017/1/4):
 The wordDict parameter had been changed to a list of strings (instead of a set of strings). Please reload the code definition to get the latest changes.
 
 
+```java
+class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {  
+        if (s.length() == 0) {
+            return true;
+        }
+        boolean res = false;
+        for (String word: wordDict) {
+            if (s.startsWith(word)) {
+                res = res || wordBreak(s.substring(word.length()), wordDict);
+            }
+        }
+        return res;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {  
+        return wordBreakHelper(s, wordDict, new HashMap<String, Boolean>());       
+    }
+    private boolean wordBreakHelper(String s, List<String> wordDict, Map<String, Boolean> map) {
+        
+        if (map.containsKey(s)) {
+            return map.get(s);
+        }
+        
+        if (s.length() == 0) {
+            return true;
+        }
+        boolean res = false;
+        for (String word: wordDict) {
+            if (s.startsWith(word)) {
+                res = res || wordBreakHelper(s.substring(word.length()), wordDict, map);
+            }
+        }
+        map.put(s,res);
+        return res;
+
+    }
+}
+```
 
 //动态规划四要素：
 

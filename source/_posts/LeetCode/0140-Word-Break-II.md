@@ -19,14 +19,15 @@ A solution is ["cats and dog", "cat sand dog"].
 UPDATE (2017/1/4):
 The wordDict parameter had been changed to a list of strings (instead of a set of strings). Please reload the code definition to get the latest changes.
 
+
 ```java
 public class Solution {
-    public List<String> wordBreak(String s, Set<String> wordDict) {
-        return DFS(s, wordDict, new HashMap<String, LinkedList<String>>());
+    public List<String> wordBreak(String s, List<String> wordDict) {
+        return helper(s, wordDict, new HashMap<String, LinkedList<String>>());
     }       
 
     // DFS function returns an array including all substrings derived from s.
-    List<String> DFS(String s, Set<String> wordDict, HashMap<String, LinkedList<String>>map) {
+    List<String> helper(String s, List<String> wordDict, HashMap<String, LinkedList<String>>map) {
         if (map.containsKey(s)) 
             return map.get(s);
             
@@ -37,11 +38,12 @@ public class Solution {
         }               
         for (String word : wordDict) {
             if (s.startsWith(word)) {
-                List<String>sublist = DFS(s.substring(word.length()), wordDict, map);
+                List<String>sublist = helper(s.substring(word.length()), wordDict, map);
                 for (String sub : sublist) 
                     res.add(word + (sub.isEmpty() ? "" : " ") + sub);               
             }
-        }       
+        }
+        //this substring already show
         map.put(s, res);
         return res;
     }
