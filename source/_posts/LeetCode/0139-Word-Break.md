@@ -88,3 +88,30 @@ public class Solution {
     }
 }
 ```
+
+```java
+class Solution {
+    public boolean canCross(int[] stones) {
+        Boolean[][] MM = new Boolean[stones.length][stones.length];
+        return helper(stones, 0, 0, MM);
+    }
+    
+    public boolean helper(int[] stones, int start, int k, Boolean[][] MM) {
+        
+        if (MM[k][start] != null) {
+            return MM[k][start];
+        }
+        
+        if (start == stones.length - 1) return MM[k][start] = true;
+        
+        for (int end = start + 1; end < stones.length; ++ end) {
+            int step = stones[end] - stones[start];
+            if ((step >= k - 1 && step <= k + 1) && helper(stones, end, step, MM)) {
+                return MM[step][start] = true;
+            }
+        }
+        
+        return MM[k][start] = false;
+    }
+}
+```
