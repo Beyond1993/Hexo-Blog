@@ -34,6 +34,14 @@ Same with other integers chosen by the first player, the second player will alwa
 这题真的很经典.
 
 
+```txt
+
+     A: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+     B: 
+
+```
+
 ```java
 class Solution {
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
@@ -50,6 +58,7 @@ class Solution {
         for(int i = 1; i < state.length; i++){
             if(state[i] == 0){
                 state[i] = 1;
+                // 对方有一个false 就我就可以赢，返回 true
                 if(desiredTotal - i <= 0 || !win(state,desiredTotal - i,map)){
                     map.put(key,true);
                     state[i] = 0;
