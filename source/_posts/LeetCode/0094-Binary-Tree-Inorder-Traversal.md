@@ -49,7 +49,30 @@ public List<Integer> inorderTraversal(TreeNode root) {
 
 
 
-
+```java
+public class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<Integer>();
+        if (root == null) {
+            return list;
+        }
+        
+        Stack<TreeNode> s = new Stack<TreeNode>();
+        TreeNode p = root;
+        while (!s.isEmpty() || p != null) {
+            while(p != null) {
+                s.push(p);
+                p = p.left;
+            }
+            TreeNode node = s.pop();
+            list.add(node.val);
+            p = node.right;
+            
+        }
+        return list;
+    }
+}
+```
 
 
 

@@ -52,6 +52,28 @@ hold[i][1] = Math.max(unhold[i-1][0] - prices[i], hold[i-1][1])
 又因为 unhold[i-1][0] = 0, 没有交易，收益为0，可以化简为
 
 hold[i][1] = Math.max( -prices[i], hold[i-1][1])
+
+T[i][k][0]  T[i][k][1]
+
+
+这个T[i][k][0] T[i][k][1]
+
+代表第 1 ～ i 天，买卖了K 次，手里没有股票的状态。
+1 ～ i天，买卖了 K次，手里有一支股票的状态。
+
+
+这两个状态怎么来的？
+T[i][k][0]
+T[i-1][k][0] 1 ~ i - 1 天， 买卖K次，手里没有股票，可以到达。
+
+T[i-1][k][1] + price[i] , 1 ~ i -1 天，买卖K次， 手里有一支股票，然后卖掉。
+
+T[i][k][1]
+
+T[i-1][k][1] 
+T[i-1][k-1][0] - price[i]
+
+
  
 ```java
 public int maxProfit(int[] prices) {
