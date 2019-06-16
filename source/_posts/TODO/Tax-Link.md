@@ -65,3 +65,16 @@ Customer@twoporeguyssystem.com
 
 831-420-0710
 
+理清丝路.
+
+step1: 先问会计事务所能不能用子公司的ein 报税.
+
+step2: 直接电话 CEO
+
+step3: Linkedin 问, 取得 CEO 联系方式 
+
+step4: 去加州
+
+step5: 找调查公司调查.
+
+
