@@ -1,38 +1,72 @@
 ---
 title: 0407 Trapping Rain Water II
-date: 2018-02-20 00:41:31
-categories: LeetCode
+date: 2019-06-23 23:41:28
+categories: Leetcode
 tags:
 ---
 
-Given an m x n matrix of positive integers representing the height of each unit cell in a 2D elevation map, compute the volume of water it is able to trap after raining.
 
-Note:
-Both m and n are less than 110. The height of each unit cell is greater than 0 and is less than 20,000.
+```java
+class Solution {
+    int[] dx = {1, -1, 0, 0};
+    int[] dy = {0, 0, 1, -1};
+    
+    public int trapRainWater(int[][] heightMap) {
+        if (heightMap == null || heightMap.length == 0) return 0;
+        PriorityQueue<int[]> pq = new PriorityQueue<int[]>(
+            (a,b) -> a[2] - b[2]
+        );
+        boolean[][] visited = new boolean[heightMap.length][heightMap[0].length];
+        //add eadge
+        for (int i = 0; i < heightMap.length; i++) {
+            pq.offer(new int[]{i, 0, heightMap[i][0]});
+            visited[i][0] = true;
+        }
+        
+        for (int i = 0; i < heightMap.length; i++) {
+            pq.offer(new int[]{i, heightMap[0].length-1, heightMap[i][heightMap[0].length-1]});
+            visited[i][heightMap[0].length-1] = true;
+        }
 
-Example:
-
-Given the following 3x6 height map:
-[
-  [1,4,3,1,3,2],
-  [3,2,1,3,2,4],
-  [2,3,3,2,3,1]
-]
-
-Return 4.
-
-![](https://leetcode.com/static/images/problemset/rainwater_empty.png)
-
-The above image represents the elevation map [[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]] before the rain.
-
-![](https://leetcode.com/static/images/problemset/rainwater_fill.png)
-
-After the rain, water is trapped between the blocks. The total volume of water trapped is 4.
-
-思路
-https://aaronice.gitbooks.io/lintcode/content/heap/trapping_rain_water_ii.html
-
-就是说，找到一点，计算周围4点的水量，再标记过已访问过
-
-
-初始化的四周的点
+        
+        for(int j = 1; j < heightMap[0].length - 1; j++) {
+            pq.offer(new int[]{0, j, heightMap[0][j]});
+            visited[0][j] = true;
+        }
+        
+        for (int j = 1; j < heightMap[0].length - 1; j++) {
+            pq.offer new int[]{heightMap.length - 1, j, heightMap[heightMap.length - 1][j]});
+            visited[heightMap.length -1][j] = true;
+        }        
+        
+        int sum = 0;
+        
+        while(!pq.isEmpty()) {
+            int[] cur = pq.poll();
+            
+            // explore point around
+            for (int i = 0 ; i < 4; i++) {
+                if (cur[0] + dx[i] <= 0 || cur[0] + dx[i] >= heightMap.length
+                    || cur[1] + dy[i] <= 0 || cur[1] + dy[i] >= heightMap[0].length
+                    || visited[cur[0] + dx[i]][cur[1] + dy[i]]) {
+                    continue;   
+                }
+                
+                visited[cur[0] + dx[i]][cur[1] + dy[i]] = true;
+                
+                int nextHeight = heightMap[cur[0] + dx[i]][cur[1] + dy[i]];
+                
+                if (nextHeight >= cur[2]) {
+                    pq.offer(new int[]{cur[0] + dx[i], cur[1] + dy[i], nextHeight});    
+                } else {
+                   // System.out.println((cur[0] + dx[i]) + " " + (cur[1] + dy[i]) + " " + nextHeight + " " + cur[2]);
+                    sum += cur[2] - nextHeight;
+                    pq.offer(new int[]{cur[0] + dx[i], cur[1] + dy[i], cur[2]});
+                }
+                
+            }
+        }
+        return sum;
+    }
+}
+```
