@@ -1,7 +1,7 @@
 ---
 title: 0407 Trapping Rain Water II
 date: 2019-06-23 23:41:28
-categories: Leetcode
+categories: LeetCode
 tags:
 ---
 
