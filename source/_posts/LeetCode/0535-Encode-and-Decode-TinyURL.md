@@ -37,27 +37,28 @@ Per second: 3,000,000/86400 = 35
 
 basic solution
 
-```c++
+```cpp
 class Shortner {
     map<string, string> mLongToShort;
     map<string, string> mShortToLong;
 
-    string insert(string longURL) 
+    string insert(string longURL)
     {
-        if (mLongToShort.Find(longURL) == NULL) 
+        if (mLongToShort.Find(longURL) == NULL)
         {
             string shortURL = GenerateShortURL();
             mLongToShort[ longURL ] = shortURL;
             mShortToLong[ shortURL ] = longURl;
- 
+
         }
-      
+
         return mLongToShort[longURL];
 
      }
 
 }
-```   
+```
+
 理论上可以直接把长链接 hash, 但是这个 hash 算法怎么设计，是一个cost 很大的事情
 
 string GenerateShortURL() 
@@ -72,7 +73,7 @@ string GenerateShortURL()
 |Yearly URL| 36,500,000 | 36,500,500 |
 |Usable characters |[0-9] = 10 | [0-9a-zA-Z] = 62 |
 |Encoding length |Log10(36,500,000) = 7.6 = 8 | Log62(36,500,500) = 4.2 = 5 |
-Example |goo.gl/36500000 | goo.gl/2t9jG |
+|Example |goo.gl/36500000 | goo.gl/2t9jG |
 
 
 ```java
