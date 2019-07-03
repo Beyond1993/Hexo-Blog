@@ -5,9 +5,74 @@ categories: LeetCode
 tags:
 ---
 
+由于推特 限制了140个字符，一个长链接占据了大量的空间。短链接应运而生。
+
 TinyURL is a URL shortening service where you enter a URL such as https://leetcode.com/problems/design-tinyurl and it returns a short URL such as http://tinyurl.com/4e9iAk.
 
 Design the encode and decode methods for the TinyURL service. There is no restriction on how your encode/decode algorithm should work. You just need to ensure that a URL can be encoded to a tiny URL and the tiny URL can be decoded to the original URL.
+
+
+Tiny URL
+Tiny URL 是系统设计中的hello word.
+Scenario:
+插入短链接，
+查找长链接
+Necessary:
+月活跃用户，日活跃用户.
+
+Daily active users
+*1,000,000
+
+Insert
+Per day: 1,000,000 1% (function usage) 10(function frequency) = 1000,000
+Per Year: 100,000 365 = 36,500,000
+Per second: 100,000/86400 = 1.2
+Lookup:
+Per day: 1,000,000 100 % (function usage) * 3 (function frequency) = 3,000,000
+Per second: 3,000,000/86400 = 35
+
+一般请求数超过100 ／ 一秒， 就需要考虑分布式架构
+但是35只是一个平均值，可能白天到达七八十， 高峰期过一百，就需要分布式了.
+
+
+basic solution
+
+```c++
+class Shortner {
+    map<string, string> mLongToShort;
+    map<string, string> mShortToLong;
+
+    string insert(string longURL) 
+    {
+        if (mLongToShort.Find(longURL) == NULL) 
+        {
+            string shortURL = GenerateShortURL();
+            mLongToShort[ longURL ] = shortURL;
+            mShortToLong[ shortURL ] = longURl;
+ 
+        }
+      
+        return mLongToShort[longURL];
+
+     }
+
+}
+```   
+理论上可以直接把长链接 hash, 但是这个 hash 算法怎么设计，是一个cost 很大的事情
+
+string GenerateShortURL() 
+{
+    return string(mLongToShort.size());
+}
+
+怕被攻击
+
+|    | Before         | After 
+|:---|:--------------|:---------|    
+|Yearly URL| 36,500,000 | 36,500,500 |
+|Usable characters |[0-9] = 10 | [0-9a-zA-Z] = 62 |
+|Encoding length |Log10(36,500,000) = 7.6 = 8 | Log62(36,500,500) = 4.2 = 5 |
+Example |goo.gl/36500000 | goo.gl/2t9jG |
 
 
 ```java
