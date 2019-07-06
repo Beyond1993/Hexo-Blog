@@ -57,15 +57,15 @@ OOD mirco service mvc 等设计模式，都体现了这种特性。 解耦合。
 
 Part II Distributed Data
 
-5. Repliation
+## 5. Repliation
 
-6. Partitioning
+## 6. Partitioning
 
-7. Transactions
+## 7. Transactions
 
-8. The Trouble with Distributed Systems
+## 8. The Trouble with Distributed Systems
 
-9. Consistency and Consensus
+## 9. Consistency and Consensus
 
 Part III.  Derived Data
 
