@@ -202,3 +202,4 @@ class Node {
     public Node(int v) {val = v;}
 }
 ```
+相当于把双链表当作stack 用，每次push 就把节点放入tail 前一个位置。一开始初始化成 head tail 两个dummy 互指也是为了之后的代码方便。
