@@ -50,3 +50,31 @@ class Solution {
     }
 }
 ```
+
+```java
+class Solution {
+    public int triangleNumber(int[] nums) {
+        if (nums == null && nums.length < 3) {
+            return 0;
+        }
+        
+        Arrays.sort(nums);
+        int count = 0;
+        for (int a = nums.length - 1; a >= 2; a--) {
+            
+            int b = a-1;
+            int c = 0;
+            while(b > c) 
+            {
+                if (nums[b] + nums[c] > nums[a]) {
+                    count +=  b - c;
+                    b--;
+                } else {
+                    c++;
+                }
+            }
+        }
+        return count;
+    }
+}
+```
