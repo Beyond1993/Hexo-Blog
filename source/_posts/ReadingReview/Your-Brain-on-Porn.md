@@ -12,6 +12,8 @@ I count him braver who overcomes his desires than him who conquers his enemies; 
 
 我认为, 与战胜敌人的人相比，战胜欲望的人更加勇敢。战胜自我是最艰难的胜利。
 
+破山中贼易，破心中贼难.  ---王阳明
+
 go cold turkey 立马就摆脱上瘾机制.
 
 ## What are we dealing with ?
