@@ -79,6 +79,8 @@ tags:
 ## 煮海螺
 水加姜料酒煮开就捞出，挑出螺肉，加辣椒葱姜蒜爆炒十秒，加料酒酱油盐糖生粉，炒十秒
 
+![](https://wfeng.s3.us-east-2.amazonaws.com/Cooking/Fried_Conch.jpeg)
+
 ## 蒸
 
 ## 隔水炖
@@ -110,4 +112,10 @@ tags:
 中途要加橄榄油 防止 煎焦
 放黄油。
 
+### 青椒肉丝
+猪肉切成条，洗净，放盐，胡椒粉，料酒，鸡蛋清，生抽，淀粉，搅拌均匀，油封。
+
+葱姜蒜爆香，下猪肉，炒至 微熟 放切好的青椒.
+
+![](https://wfeng.s3.us-east-2.amazonaws.com/Cooking/Green_Pepper_Shredded_Pork.jpeg)
 

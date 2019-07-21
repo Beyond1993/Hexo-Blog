@@ -57,6 +57,8 @@ one: in olde version if redis, a client that had subscribed to channels but didn
 
 ## 10 Scaling Redis
 
+
+
 ## 11 Scripting Redis with Lua
 
 the c***k will insert an empty value into redis for the requested key. but how to get the actual value from db.
