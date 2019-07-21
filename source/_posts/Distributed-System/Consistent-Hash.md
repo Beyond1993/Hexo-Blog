@@ -5,6 +5,7 @@ categories: Distributed-System
 tags:
 ---
 
+缓存失效
 
 ```java
 import java.util.Collection;  
@@ -53,3 +54,11 @@ public class ConsistentHash<T> {
  
 } 
 ```
+
+
+一台机器 设置 1000 个 virtaul machine. 
+
+
+当这一台机器挂掉，所有请求 转移到 下一个点，但是下一个虚拟机并不一定在一台机器上。
+
+[Consistent Hash](https://juejin.im/post/5b8f93576fb9a05d11175b8d)
