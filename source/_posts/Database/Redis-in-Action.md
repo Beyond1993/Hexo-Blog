@@ -53,6 +53,9 @@ one: in olde version if redis, a client that had subscribed to channels but didn
 
 ## 8 Building a simple social networks
 
+### 8.5 Streaming API
+我们将使用 Redis 的 PUBLISH 命令 和 SUBSCRIBE 命令来实现流服务器的其中一部分功能: 当用户发布一条消息时，程序会将这条消息通过 PUBLISH 发送给某个频道， 而各个过滤器则通过 SUBSCRIBE 来订阅并接收那个频道的消息，并在发现与过滤器相匹配的消息时，将消息回传(yield back) 给 web 服务器，然后由服务器将这些消息发送给客户端.
+
 ## 9 Reducing memory use
 
 ## 10 Scaling Redis
