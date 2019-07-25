@@ -43,3 +43,31 @@ public List<Interval> merge(List<Interval> intervals) {
 ```
 
 follow up [The-Sky-Line-Problem](http://52.14.116.56/2017/10/09/LeetCode/0218-The-Skyline-Problem/)
+
+
+```java
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        if (intervals == null || intervals.length == 0) {
+            return intervals;
+        }
+        List<int[]> res = new ArrayList<int[]>();
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        res.add(intervals[0]);
+        for (int i = 1; i < intervals.length; i++) {
+            int[] cur = intervals[i];
+            
+            if (cur[0] <= res.get(res.size() - 1)[1]) {
+                res.get(res.size() - 1)[1] = Math.max(cur[1], res.get(res.size() - 1 )[1]);
+            } else {
+                res.add(cur);
+            }   
+        }
+        int[][] result = new int[res.size()][2];
+        for (int i = 0; i < res.size(); i++) {
+            result[i] = res.get(i);
+        }
+        return result;
+    }
+}
+```
