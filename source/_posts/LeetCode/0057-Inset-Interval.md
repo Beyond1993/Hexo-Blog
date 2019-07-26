@@ -27,8 +27,11 @@ public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
 }
 ```
 
+这个解，就是分三段，第一段把 不在 newInterval 内的解加进去，
+第二段就是合并，第三段把多余的解加进去。
+
 ```java
-public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
+pun aw qqwqblic List<Interval> insert(List<Interval> intervals, Interval newInterval) {
         TreeMap<Integer, Interval> treeMap = new TreeMap<>();
         for(Interval interval : intervals) {
             treeMap.put(interval.start, interval);
