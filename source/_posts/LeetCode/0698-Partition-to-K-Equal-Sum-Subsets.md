@@ -86,3 +86,46 @@ class Solution {
     }
 }
 ```
+
+```java
+class Solution {
+    public boolean canPartitionKSubsets(int[] nums, int k) {
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+        }
+        if(sum % k != 0){
+            return false;
+        }
+        int[] visited = new int[nums.length];
+        int target = sum / k;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] > target){
+                return false;
+            }
+        }
+        return partitionK(nums, target, k, 0, visited, 0);    
+    }
+    
+    private boolean partitionK(int[] nums, int target, int group, int sum, int[] visited, int position){
+        if(group == 0) return true;
+        if(sum == target){
+            return partitionK(nums, target, group - 1, 0, visited, 0);
+        }
+        if(sum > target){
+            return false;
+        }
+        for(int i = position; i < nums.length; i++){
+            if(visited[i] == 0){
+                visited[i] = 1;
+                if(partitionK(nums, target, group, sum + nums[i], visited, i + 1)){
+                    return true;
+                }
+                visited[i] = 0;
+            }
+        }
+        return false;
+    }
+    
+}
+```
