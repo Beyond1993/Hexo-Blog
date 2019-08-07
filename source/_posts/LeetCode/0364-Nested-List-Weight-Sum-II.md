@@ -46,3 +46,68 @@ public class Solution {
     }
 }
 ```
+
+```java
+
+class Solution {
+    public int depthSumInverse(List<NestedInteger> nestedList) {
+        if (nestedList == null) return 0;
+        Queue<NestedInteger> queue = new LinkedList<NestedInteger>();
+        int levelSum = 0;
+        int total = 0;
+        for (NestedInteger next: nestedList) {
+            queue.offer(next);
+        } 
+        while (!queue.isEmpty()) {
+            int size = queue.size();   
+            for (int i = 0; i < size; i++) {
+                NestedInteger current = queue.poll();
+                if (current.isInteger())  {
+                    levelSum += current.getInteger();
+                } else {
+                    List<NestedInteger> nextList = current.getList();
+                    for (NestedInteger next: nextList) {
+                        queue.offer(next);
+                    }
+                }
+            }
+            total += levelSum;
+        }
+        return total;
+    }
+}
+```
+
+```c++
+class Solution {
+public:
+    int depthSumInverse(vector<NestedInteger>& nestedList) {
+        vector<int> result;
+        for(auto ni : nestedList) {
+            dfs(ni, 0, result);
+        }
+        //post processing 
+        int sum = 0;
+        for(int i = result.size()-1,level = 1; i >=0; i--, level++) {
+            sum += result[i]*level;
+        }
+        
+        return sum;
+    }
+    
+private:
+    void dfs(NestedInteger &ni, int depth, vector<int> & result) {
+        if(result.size() < depth+1) result.resize(depth+1);
+        if(ni.isInteger()) {
+            result[depth] += ni.getInteger();
+        } else {
+            for(auto n_ni : ni.getList()) {
+                dfs(n_ni, depth+1, result);
+            }
+        }
+        
+    }
+    
+    
+};
+```

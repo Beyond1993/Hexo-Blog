@@ -29,6 +29,7 @@ public class Solution {
         
         if (pattern.isEmpty()) return str.isEmpty();
         
+        // 已经匹配过了
         if (map.containsKey(pattern.charAt(0))) {
             
             String val = map.get(pattern.charAt(0));
@@ -37,7 +38,7 @@ public class Solution {
             
             if (wordPatternMatch(pattern.substring(1), str.substring(val.length()))) return true;
             
-        } else {
+        } else { // 建立新的匹配
             for (int i = 1; i <= str.length(); i++) {
                 
                 if (set.contains(str.substring(0,i))) continue;
@@ -67,7 +68,8 @@ public class Solution {
 
 我们考虑 pattern : 'aba', str : 'aaa'
 
-如果不用set,  就变成 a --> a,  b --> a, 但是我们知道这是一一对应的关系，所以 b --> aa, 这才对，所以已经在Map&t;Character, String&gt; 的 String 里出现的值，我们直接跳过. 
+如果不用set,  就变成 a --> a,  b --> a, 但是我们知道这是一一对应的关系，所以 b --> aa, 这才对，
+所以已经在Map&lt;Character, String&gt; 的 String 里出现的值，我们直接跳过. 
 
 下面这个链接说 f(n) = n*(n-1)*...*1 = n^n
 
