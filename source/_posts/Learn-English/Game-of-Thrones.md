@@ -42,6 +42,8 @@ shimmer 发微光
 
 
 句子:
+Dead is Dead, We have no business with the dead.
+
 Never believe anything you hear at a woman's tit.
 
 在女人怀里时。
