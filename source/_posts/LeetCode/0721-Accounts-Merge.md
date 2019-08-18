@@ -61,3 +61,69 @@ public:
      }
 };
 ```
+
+
+```java
+
+class Solution {
+    
+    public List<List<String>> accountsMerge(List<List<String>> accounts) {
+        UnionFind uf = new UnionFind();
+        Map<String, String> emailToName = new HashMap<>();
+        Map<String, Integer> emailToID = new HashMap<>();
+        int id = 0;
+        for (List<String> account: accounts) {
+            String name = "";
+            for (String email : account) {
+                if (name == "") {
+                    name = email;
+                    continue;
+                }
+                
+                emailToName.put(email, name);
+                if (!emailToID.containsKey(email)) {
+                    emailToID.put(email, id++);
+                }
+                // 以第一个 email 为root, union  
+                uf.union(emailToID.get(account.get(1)), emailToID.get(email));
+            }
+        }
+        
+        Map<Integer, List<String>> res = new HashMap<>();
+        
+        // 找到相同的 ID 的 component 放到一起
+        for (String email : emailToName.keySet()) {
+            int index = uf.find(emailToID.get(email));
+            res.computeIfAbsent(index, x -> new ArrayList()).add(email);
+        }
+        
+        // 给这个 component 加上 Name
+        for (List<String> component: res.values()) {
+            Collections.sort(component);
+            component.add(0, emailToName.get(component.get(0)));
+        }
+        
+        return new ArrayList(res.values());
+    }
+    
+    class UnionFind {
+        int[] father;
+        public UnionFind() {
+            father = new int[10001];
+            for (int i = 0; i <= 10000; i++) {
+                father[i] = i;
+            }
+        }
+            
+        public int find(int x) {
+            if (father[x] == x) return x;
+            return find(father[x]);
+        }
+
+        public void union(int x, int y) {
+            father[find(x)] = find(y);
+        }
+        
+    }
+}
+```
