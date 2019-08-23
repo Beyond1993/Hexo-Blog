@@ -5,6 +5,13 @@ categories: Tools
 tags:
 ---
 
+安装 Next 主题
+
+git clone https://github.com/theme-next themes/next
+
+update blog/_config.yml theme : next
+
+
 1. 配置目录
 修改
 blog/scaffolds/post.md
