@@ -1,7 +1,7 @@
 ---
 title: Odyssey
 date: 2019-07-14 02:12:19
-categories: 阅读笔记
+categories: 读书笔记
 tags:
 ---
 
