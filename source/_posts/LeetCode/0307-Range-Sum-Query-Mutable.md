@@ -24,75 +24,58 @@ You may assume the number of calls to update and sumRange function is distribute
 
 ```java
 public class NumArray {
-  int start, end, sum;
-  SegmentTreeNode left, right;
-  public SegmentTreeNode(int start, int end) {
-    this.start = start;
-    this.end = end;
-    this.left = null;
-    this.right = null;
-    this.sum = 0;
-  }
-  
-  SegmentTreeNode root = null;
-  public NumArray(int[] nums) {
-    root = buildTree(nums, 0 , nums.length - 1);
-  }
-
-  private SegmentTreeNode buildTree(int[] nums, int start, int end) {
-    if (start > end) {
-       return null;
+    class SegmentTreeNode {
+        int start, end, sum;
+        SegmentTreeNode left, right;
+        public SegmentTreeNode(int start, int end) {
+            this.start = start;
+            this.end = end;
+            this.left = null;
+            this.right = null;
+            this.sum = 0;
+        }
     }
-    SegmentTreeNode ret = new SegmentTreeNode(start, end);
-    if (start == end) {
-        ret.sum = nums[start];
-    } else {
-      int mid = start + (end - start) / 2;
-      ret.left = buildTree(nums, start, mid);
-      ret.sum = ret.left.sum + ret.right.sum;
+    SegmentTreeNode root = null;
+    public NumArray(int[] nums) { root = buildTree(nums, 0, nums.length-1);}
+    private SegmentTreeNode buildTree(int[] nums, int start, int end) {
+        if (start > end) { return null; }
+        SegmentTreeNode ret = new SegmentTreeNode(start, end);
+        if (start == end) {
+            ret.sum = nums[start];
+        } else {
+            int mid = start  + (end - start) / 2;             
+            ret.left = buildTree(nums, start, mid);
+            ret.right = buildTree(nums, mid + 1, end);
+            ret.sum = ret.left.sum + ret.right.sum;
+        }         
+        return ret;
     }
-    return ret;
-  }
-  
-  void update(int i, int val) {
-    update(root, i, val);
-  }
-
-  void update(SegmentTreeNode root, int pos, int val) {
-    if (root.start == root.end) {
-      root.sum = val;
-    } else {
-      int mid = root.start + (root.end - root.start) / 2;
-      if (pos <= mid) {
-        update(root.left, pos, val);
-      } else {
-        root.sum = root.left.sum + root.right.sum;
-      }
-    }
-  }
-
-  public int sumRange(int i, int j) {
-    return sumRange(root, i, j);
-  }
-
-  public sumRange(int i, int j) {
-    return sumRange(root, i, j);
-  }
-
-  public int sumRange(SegmentTreeNode root, int start, int end) {
-    if (root.end == end && root.start == start) {
-      return root.sum;
+    void update(int i, int val) { update(root, i, val); }
+    
+    void update(SegmentTreeNode root, int pos, int val) {
+        if (root.start == root.end) {
+           root.sum = val;
+        } else {
+            int mid = root.start + (root.end - root.start) / 2;
+            if (pos <= mid) {update(root.left, pos, val);} 
+            else { update(root.right, pos, val); }
+            root.sum = root.left.sum + root.right.sum;
+        }
     }
 
-    int mid = (root.start + root.end - root.start) / 2;
-    if (end <= mid) {
-      return sumRange(root.left, start, end);
-    } else if (start >= mid + 1) {
-      return sumRange(root.right, start, end);
-    } else {
-      return sumRange(root.right, mid + 1, end) + sumRange(root.left, start, mid);
+    public int sumRange(int i, int j) { return sumRange(root, i, j); }
+    
+    public int sumRange(SegmentTreeNode root, int start, int end) {
+        if (root.end == end && root.start == start) { return root.sum; } 
+        int mid = root.start + (root.end - root.start) / 2;
+        if (end <= mid) {
+            return sumRange(root.left, start, end);
+        } else if (start >= mid+1) {
+            return sumRange(root.right, start, end);
+        }  else {    
+            return sumRange(root.right, mid+1, end) + sumRange(root.left, start, mid);
+        }
     }
-  }
 }
 
 /**
@@ -102,3 +85,92 @@ public class NumArray {
  * int param_2 = obj.sumRange(i,j);
  */
 ```
+```java
+class NumArray {
+    
+    class Node {
+        int start;
+        int end;
+        Node left;
+        Node right;
+        int sum;
+        
+        Node (int s, int e) {
+            this.start = s;
+            this.end = e;
+        }
+    }
+    
+    int[] innerNums;
+    Node root;
+    
+    private Node build(int l, int r) {
+        if (l == r) {
+            Node node = new Node(l, r);
+            node.sum = this.innerNums[l];
+            return node;
+        }
+        Node curNode = new Node(l,r);
+        int mid = (l + r) >>> 1;
+        curNode.left = build(l, mid);
+        curNode.right = build(mid+1, r);
+        
+        curNode.sum = curNode.left.sum + curNode.right.sum;
+        
+        return curNode;
+        
+    }
+    
+    public NumArray(int[] nums) {
+        if (nums == null || nums.length == 0) return; 
+        
+        this.innerNums = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            this.innerNums[i] = nums[i];
+        }
+        
+        this.root = build(0, nums.length - 1);
+    }
+    
+    
+    private void update(int i, int val, Node root) {
+        if (root.start == root.end && root.start == i) {
+            root.sum = val;
+            return;
+        }
+        
+        int mid = (root.start + root.end) >>> 1;
+        
+        if (i <= mid ) {
+            update(i, val, root.left);
+        } else {
+            update(i, val, root.right);
+        }
+        
+        root.sum = root.left.sum + root.right.sum;
+    }
+    
+    public void update(int i, int val) {
+        update(i, val, this.root);
+    }
+    private int sumRange(int i, int j, Node root) {
+        if (root.start == i && root.end == j) {
+            return root.sum;
+        }
+        int mid = (root.start + root.end) >>> 1;
+        int sum = 0;
+        if (mid >= j) {
+            sum = sumRange(i, j, root.left);
+        } else if (mid < i) {
+            sum = sumRange(i, j, root.right);
+        } else {
+            sum = sumRange(i, mid, root.left) + sumRange(mid + 1, j, root.right);
+        }
+        return sum;
+    }
+    public int sumRange(int i, int j) {
+       return sumRange(i, j, this.root);   
+    }
+}
+```
+

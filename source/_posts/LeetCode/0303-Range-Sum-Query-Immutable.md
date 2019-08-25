@@ -32,3 +32,5 @@ class NumArray {
  * int param_1 = obj.sumRange(i,j);
  */
 ```
+
+主要是取 preSum 之后, 如果 i == 0, 直接 取 preSum[j]
