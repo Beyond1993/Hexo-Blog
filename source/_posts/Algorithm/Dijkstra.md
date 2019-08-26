@@ -18,7 +18,9 @@ Dijkstra 算法
 ### 2. 二叉堆 （就是一般意义的堆)
 
 
-用 priority queue 的好处不是heap pop 出来的一定是当前最小的.
+用 priority queue 的好处
+
+**不是heap pop 出来的一定是当前最小的.***
 
 而是有些路径根本不用去遍历。相当于一个剪枝的过程.
 
@@ -30,11 +32,11 @@ Dijkstra 算法
 node1 ---5---node3 --1-- node5
     \                    / 
       3                 1
-       \ ----node4--1--/
+       \ ----node4-----/
 ```
 
 
-如果用 pq的话， node2 出堆之后，就是node5 出堆, 然后紧接着把 node3 的distance 变成 4，这样就不会用 node1 --5-- node3 这条边去尝试了.
+如果用 pq的话， node2 出堆之后，就是node5 出堆, 然后紧接着把 node3 的distance 变成 4，这样就不会用 node1 --5-- node3 这条边去尝试node5 了.
 这种的时间复杂度是 E  + VlogV
 
 http://www.cnblogs.com/dzkang2011/p/3828965.html
@@ -55,8 +57,7 @@ A ---- 5 ---- B ------3-----D
 
 有两种思路
 
-思路1: 利用另外辅助的数据结构，维护Minimum distance. 比如 Map, Distance[][], 这样子priority queue 里会有很多冗余节点，可能对 priority queue 操作的时间复杂度 log(v*v) ==> 2logv.
-
+思路1: 利用另外辅助的数据结构，维护Minimum distance. 比如 Map, Distance[][], 这样子priority queue 里会有很多冗余节点，可能对 priority queue 操作的时间复杂度 log(v*v) ==> 2logv. 当pq 里的某个节点 要更新成最小节点时，因为这个节点不一定在堆顶, 直接加入新的重复节点
 
 先来看看 505 The Maze II 的 Dijsktra 解法. 就是用一个全局的distance[][] 来记录当前的位置.
 这就是一个很常规的解法。要先判断。distance[s[0][s[1]] + count < distance[x - dir[0][y - dir[1]]
@@ -93,6 +94,7 @@ public class Solution {
                     y += dir[1];
                     count++;
                 }
+                // x - dir[0], y - dir[1] 意味着退了一步
                 if (distance[s[0]][s[1]] + count < distance[x - dir[0]][y - dir[1]]) {
                     distance[x - dir[0]][y - dir[1]] = distance[s[0]][s[1]] + count;
                     queue.offer(new int[]{x - dir[0], y - dir[1], distance[x - dir[0]][y - dir[1]]});
