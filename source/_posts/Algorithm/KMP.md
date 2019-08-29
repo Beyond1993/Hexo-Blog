@@ -14,3 +14,5 @@ tags:
 再将最长公共前后缀表的值整体右移一位
 
 ![](http://img.blog.csdn.net/20140819173649739)
+
+https://www.ics.uci.edu/~eppstein/161/syl.html
