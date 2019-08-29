@@ -106,11 +106,6 @@ class Solution {
         for (int i = 0; i < board.length; i++) {
             if (board[i][0] == 'O') {
                 dfs(i, 0, board);
-            }
-        }
-        
-        for (int i = 0; i < board.length; i++) {
-            if (board[i][board[0].length - 1] == 'O') {
                 dfs(i, board[0].length - 1, board);
             }
         }
@@ -118,11 +113,6 @@ class Solution {
         for (int j = 0; j < board[0].length; j++) {
             if (board[0][j] == 'O') {
                 dfs(0, j, board);
-            }
-        }
-        
-        for (int j = 0; j < board[0].length; j++) {
-            if (board[board.length - 1][j] == 'O') {
                 dfs(board.length -1, j, board);
             }
         }
