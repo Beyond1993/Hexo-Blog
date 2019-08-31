@@ -51,6 +51,44 @@ public class Solution {
 ```
 
 
+
+```java
+class Solution {
+    public int trap(int[] height) {
+        if (height == null || height.length < 3) {
+            return 0;
+        }
+        int l = 0, r = height.length - 1;
+        int area = 0;
+        int leftMax = -1;
+        int rightMax = -1;
+        while (l < r) {
+            // 只能从 高度小的一边更新，
+           // 为什么不用 leftMax <= rightMax, 因为这只是上一轮的左右最高值。
+           // 我并不知道当前比较位置的值, 我得确切的知道当前高度的值 
+            if (height[l] <= height[r]) {
+                if (height[l] >= leftMax) {
+                    leftMax = Math.max(leftMax, height[l]);
+                } else {
+                    area += leftMax - height[l];
+                }
+                ++ l;
+            } else {
+                if (height[r] >= rightMax) {
+                    rightMax = Math.max(rightMax, height[r]);
+                } else {
+                    area += rightMax - height[r];
+                }
+                r--;
+            }
+        }
+        return area;
+    }
+}
+```
+
+
+
 其实leftMax 和 rightMax 都是单调序列. 所以可以简化
 ```java
 public class Solution {
