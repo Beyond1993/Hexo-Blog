@@ -26,3 +26,40 @@ class Solution {
     }
 }
 ```
+
+
+```java
+class Solution {
+    public int longestDecomposition(String text) {
+        
+        int leftHash = 0;
+        int rightHash = 0;
+        int n = text.length();
+        int cur = 1;
+        int res = 0;
+        int l = 0;
+        int r = n - 1;
+        while(l < r) {
+            leftHash = 26 * leftHash + (text.charAt(l) - 'a') ;
+            rightHash = rightHash + (text.charAt(r) - 'a') * cur;
+            cur *= 26;
+            
+            if (leftHash == rightHash) {
+                leftHash = 0;
+                rightHash = 0;
+                res += 2;
+                cur = 1;
+            }
+            l++;
+            r--; 
+        }
+        if (l > r && leftHash != rightHash) {
+            res += 1;
+        }
+        if (l == r) {
+            res += 1;
+        }
+        return res;
+    }
+}
+```
