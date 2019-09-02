@@ -14,12 +14,21 @@ https://leetcode.com/problems/binary-tree-inorder-traversal/description/
 http://blog.163.com/guo_linda/blog/static/1237730572010928251143/
 
 ## 递归版本:
-```cpp
-```
 
 ## 非递归版本
 
 最常见非递归DFS版本:
+
+遍历的方向永远是 从右上角 到左下角，一层一层的
+
+```txx
+    /
+   /  /
+  /  /  /
+V   V  V
+```
+
+
 ```java
 public List<Integer> inorderTraversal(TreeNode root) {
     List<Integer> list = new ArrayList<Integer>();

@@ -215,6 +215,113 @@ public List<Integer> postorderTraversal(TreeNode root) {
 }
 ```
 
+### 统一格式
+PreOrder
+```java
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<Integer>();
+        if (root == null) {
+            return res;
+        }
+        
+        Stack<TreeNode> stack = new Stack<>();
+        
+        stack.push(root);
+        
+        while(!stack.isEmpty()) {
+            TreeNode cur = stack.pop();
+            if (cur == null) continue;
+            
+            stack.push(cur.right);
+            stack.push(cur.left);
+            
+            if (cur.right == null && cur.left == null) {
+                res.add(cur.val);
+            } else {
+                stack.push(new TreeNode(cur.val));
+            }
+        }
+        return res;
+    }
+}
+
+```
+
+InOrder
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<Integer>();
+        if (root == null) {
+            return res;
+        }
+        
+        Stack<TreeNode> stack = new Stack<>();
+        
+        stack.push(root);
+        // break the tree, actually is visited
+        while(!stack.isEmpty()) {
+
+            TreeNode cur = stack.pop();
+            if (cur == null) continue;
+
+            stack.push(cur.right);
+            
+            if (cur.right == null && cur.left == null) {
+                res.add(cur.val);
+            } else {
+                stack.push(new TreeNode(cur.val));
+            }
+
+            stack.push(cur.left);
+        }
+        return res;
+    }
+}
+```
+
+PosterOrder
+```java
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<Integer>();
+        if (root == null) {
+            return res;
+        }
+        
+        Stack<TreeNode> stack = new Stack<>();
+        
+        stack.push(root);
+        // break the tree, actually is visited
+        while(!stack.isEmpty()) {
+            TreeNode cur = stack.pop();
+            if (cur == null) continue;
+            if (cur.right == null && cur.left == null) {
+                res.add(cur.val);
+            } else {
+                stack.push(new TreeNode(cur.val));
+            }
+            
+            stack.push(cur.right);
+            stack.push(cur.left);
+        }
+        return res;
+    }
+}
+```
+
+
 
 **树的前中后三序搜索是如此重要， 如此重要，是如此重要，很多很多题，都是Traversal的变种题**
 [114. Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
