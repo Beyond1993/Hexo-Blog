@@ -28,22 +28,24 @@ You can't take two courses simultaneously.
 一天只能上一门课(虽然对这个表示不能苟同), 求我们怎么选可以选最多的课。
 
 ```java
-int scheduleCourse(vector<vector<int>>& courses) {
-        int curTime = 0;
-        priority_queue<int> q;//Max heap
-        sort(courses.begin(), courses.end(), [](vector<int>& a, vector<int>& b) {return a[1] < b[1];});
-      
-        for (auto course : courses) {//course = [100,200]
-            curTime += course[0];//course[0]=100 course[1] = 200
-            q.push(course[0]);//
-            if (curTime > course[1]) {//We cannot finish this course before deadline
-                curTime -= q.top(); q.pop();//Pop the course which take most time
+class Solution {
+    public int scheduleCourse(int[][] courses) {
+        Arrays.sort(courses, (a,b) -> a[1] - b[1]);
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        int total = 0;
+        for (int[] course : courses) {
+            int days = course[0];
+            int deadline = course[1];
+            pq.offer(days);            
+            total += days;
+            while(total > deadline) {
+                total -= pq.poll();
             }
         }
-        return q.size();
+        return pq.size();
     }
-```
-  
+}
+``` 
 
 这题就是贪心算法, 先按照截止日期排序，时间不够里 再不断从最大堆里拿出 duration，
 
