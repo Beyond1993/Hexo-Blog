@@ -67,4 +67,78 @@ public class Solution {
 }
 ```
 
+```java
+class Solution {
+    public List<String> removeInvalidParentheses(String s) {
+        List<String> result = new ArrayList<>();     
+        Set<String> set = new HashSet<String>();     
+        remove(s,set,0,new char[]{'(',')'});
+        for (String str : set) {
+            result.add(str);
+        }
+        return result;
+    }
+    // last_j remove duolication
+    public void remove(String s, Set<String> set,int last_i,char[] store ) {
+        
+        for(int i = last_i, stack=0; i<s.length(); i++) {
+            if (s.charAt(i) == store[0]) {
+                stack++;
+            } else if (s.charAt(i) == store[1]) {
+                stack--;
+            }
+            if (stack >= 0) {
+                continue;
+            }
+            for (int j = 0; j <= i; j++) {
+                if (s.charAt(j) == store[1] && (j == 0 || s.charAt(j - 1) != store[1])) {
+                    remove(s.substring(0, j) + s.substring(j + 1), set, i, store);
+                }
+            }
+            return; // 只要有一个invalid, i 就不往后走了，直接返回上一层. 保证加入 set 里的是合法.
+        }
+        if (store[0]=='(') {
+            String reversed = (new StringBuilder(s)).reverse().toString();
+            remove(reversed, set,0, new char[]{')','('});
+        } else {
+            String reversed = (new StringBuilder(s)).reverse().toString();
+            set.add(reversed);  
+        }
+    }
+}
+```
 
+```java
+class Solution {
+      public List<String> removeInvalidParentheses(String s) {
+        List<String > result=new ArrayList<>();
+        remove(s,result,0,0,new char[]{'(',')'});
+       return result;
+    }
+    public void remove(String s,List<String> result,int last_i,int last_j,char[] store ){
+        for(int i=last_i, stack=0; i<s.length(); i++) {
+            if (s.charAt(i) == store[0]) {
+                stack++;
+            } else if (s.charAt(i) == store[1]) {
+                stack--;
+            }
+            if (stack >= 0) {
+                continue;
+            }
+            for (int j = last_j; j <= i; j++) {
+                if (s.charAt(j) == store[1] && (j == last_j || s.charAt(j - 1) != store[1])) {
+                    remove(s.substring(0, j) + s.substring(j + 1), result, i, j, store);
+                }
+            }
+            return;
+        }
+            String reversed = (new StringBuilder(s)).reverse().toString();
+            if (store[0]=='(') {
+                remove(reversed,result,0,0,new char[]{')','('});
+            } else {
+                result.add(reversed);
+            }
+
+    }
+}
+```
