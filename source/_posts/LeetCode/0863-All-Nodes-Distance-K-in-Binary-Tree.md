@@ -34,3 +34,54 @@ have values 7, 4, and 1.
 
 Note that the inputs "root" and "target" are actually TreeNodes.
 The descriptions of the inputs above are just serializations of these objects.
+
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    List<Integer> res = new ArrayList<>();
+    Map<TreeNode, TreeNode> parent = new HashMap<>();
+    Set<TreeNode> set = new HashSet<>();
+    public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
+        dfs(root, null);
+        searchK(target, K);
+        return res;    
+    }
+    
+    private void dfs(TreeNode root, TreeNode prev) {
+       if (root == null) {
+           return;
+       }
+       parent.put(root, prev);
+       dfs(root.left, root);
+       dfs(root.right, root);
+       
+    }
+    
+    private void searchK(TreeNode node, int k) {
+        if (node == null) {
+            return;
+        }
+        if (set.contains(node)) {
+            return;  
+        }   
+        set.add(node);
+
+        if (k == 0) {
+            res.add(node.val);
+        }
+        
+        searchK(node.left, k - 1);
+        searchK(node.right, k - 1);
+        searchK(parent.get(node), k-1);
+    }
+}
+```

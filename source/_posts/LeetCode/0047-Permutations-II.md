@@ -37,8 +37,9 @@ public void helper(ArrayList<List<Integer>> results,
     }
 
     for(int i = 0; i < nums.length; i++) {
-        if ( visited[i] == 1 || ( i != 0 && nums[i] == nums[i - 1]
-        && visited[i-1] == 0)){
+        if ( visited[i] == 1) continue;
+        // 前一个相等数如果没有被访问，说明这个数在当前位置已经试过了. 就不需要再试了
+        if ( i != 0 && nums[i] == nums[i - 1] && visited[i-1] == 0)){
             continue;
         }
 

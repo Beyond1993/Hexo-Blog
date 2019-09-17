@@ -6,8 +6,78 @@ tags:
 ---
 
 
+Given a positive integer n, break it into the sum of at least two positive integers and maximize the product of those integers. Return the maximum product you can get.
+
+Example 1:
+
+Input: 2
+Output: 1
+Explanation: 2 = 1 + 1, 1 × 1 = 1.
+Example 2:
+
+Input: 10
+Output: 36
+Explanation: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
 
 剪绳子
+
+给一段长度为 n 的绳子, 至少剪一次，每次剪完算乘积，求最大乘积
+
+//递归写法
+```java
+class Solution {
+    Map<Integer,Integer> map = new HashMap<>();
+    
+    public int integerBreak(int n) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 1; i <= n / 2; i++)
+            max = Math.max(max, dfs(i) * dfs(n-i));
+        return max;
+    }
+
+    private int dfs(int n) {
+        //System.out.println(n);
+        if (n == 0)
+            return 1;
+        if (map.containsKey(n))
+            return map.get(n);
+       
+        int max = n;
+        for (int i = 1; i <= n / 2; i++)
+            max = Math.max(max, dfs(i) * dfs(n-i));
+        map.put(n, max);
+        return max;
+    }
+}
+```
+
+
+```java
+class Solution {
+    Map<Integer,Integer> map = new HashMap<>();
+    
+    public int integerBreak(int n) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 1; i < n ; i++)
+            max = Math.max(max, dfs(i) * dfs(n-i));
+        return max;
+    }
+
+    private int dfs(int n) {
+        if (n == 0)
+            return 1;
+        if (map.containsKey(n))
+            return map.get(n);
+       
+        int max = n;
+        for (int i = 1; i < n ; i++)
+            max = Math.max(max, dfs(i) * dfs(n-i));
+        map.put(n, max);
+        return max;
+    }
+}
+```
+
 
 ```java
 class Solution {
