@@ -11,6 +11,8 @@ tags:
 先用 mask, 取出每一位的 1 或者 0，创建新的reverse 变量，如果不是 0， 比如 100, 001,00100
 就+1, 如果是0 就加0
 
+倒着从原来的数里取每一位，加到新结果的末位
+
 ```java
 public class Solution {
     // you need treat n as an unsigned value
