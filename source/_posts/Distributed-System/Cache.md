@@ -5,6 +5,9 @@ categories: Distributed-System
 tags:
 ---
 
+
+![](https://wfeng.s3.us-east-2.amazonaws.com/System-Design-Images/cache.png)
+
 Cache 的作用有两个
 
 1. reuse
@@ -26,3 +29,36 @@ cache 一般是不能保持强一致性的，确实有cache 的数据不是最�
 
 
 还有一个问题就是 如果 cache 的 key 是多个表结合的情况，这样子有一条数据delete之后，可能会出现这条数据的key 的信息不足，这样就不能找到相对应的 data 了.
+
+
+1. 参数 
+
+In-process Cache
+
+Out of process Cache: Redis serilize deserilize CPU slow
+
+申请 instance  
+key :
+Value
+
+Dev: 15 ms
+Production latency : 2 ms, 多于10ms 就不上 prod 了。
+
+为什么要用 Redis ?
+
+Business requirement for ‘Real-time’ sync
+
+
+Chip updater listen to update and broadcast
+Chip server receive broadcast and update Redis
+
+
+
+
+
+
+
+
+
+
+

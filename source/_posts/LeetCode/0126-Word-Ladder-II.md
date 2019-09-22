@@ -197,3 +197,99 @@ public class Solution {
 ```
 
 这一题和word ladder 是一样的，用map &lt; String, List&lt;String&gt;&gt; 来记录路径，key, 是一个word, List<String> 是bfs 到这个word的路径上的单词。
+
+
+新的代码:
+
+```java
+class Solution {
+    public List<List<String>> findLadders(String start, String end, List<String> wordList) {
+   HashSet<String> dict = new HashSet<String>(wordList);
+   List<List<String>> res = new ArrayList<List<String>>();         
+   HashMap<String, ArrayList<String>> nodeNeighbors = new HashMap<String, ArrayList<String>>();// Neighbors for every node
+   HashMap<String, Integer> distance = new HashMap<String, Integer>();// Distance of every node from the start node
+   ArrayList<String> path = new ArrayList<String>();
+
+   dict.add(start);          
+   bfs(start, end, dict, nodeNeighbors, distance);                 
+   dfs(start, end, dict, nodeNeighbors, distance, path, res);   
+   return res;
+}
+
+// BFS: Trace every node's distance from the start node (level by level).
+private void bfs(String start, String end, Set<String> dict, HashMap<String, ArrayList<String>> nodeNeighbors, HashMap<String, Integer> distance) {
+  for (String str : dict)
+      nodeNeighbors.put(str, new ArrayList<String>());
+
+  Queue<String> queue = new LinkedList<String>();
+  queue.offer(start);
+  distance.put(start, 0);
+
+  while (!queue.isEmpty()) {
+      int count = queue.size();
+      boolean foundEnd = false;
+      for (int i = 0; i < count; i++) {
+          String cur = queue.poll();
+          int curDistance = distance.get(cur);                
+          ArrayList<String> neighbors = getNeighbors(cur, dict);
+
+          for (String neighbor : neighbors) {
+              nodeNeighbors.get(cur).add(neighbor);
+              if (!distance.containsKey(neighbor)) {// Check if visited
+                  distance.put(neighbor, curDistance + 1);
+                  if (end.equals(neighbor))// Found the shortest path
+                      foundEnd = true;
+                  else
+                      queue.offer(neighbor);
+                  }
+              }
+          }
+
+          if (foundEnd)
+              break;
+      }
+  }
+
+// Find all next level nodes.    
+    private ArrayList<String> getNeighbors(String node, Set<String> dict) {
+  ArrayList<String> res = new ArrayList<String>();
+  char chs[] = node.toCharArray();
+
+  for (char ch ='a'; ch <= 'z'; ch++) {
+      for (int i = 0; i < chs.length; i++) {
+          if (chs[i] == ch) continue;
+          char old_ch = chs[i];
+          chs[i] = ch;
+          if (dict.contains(String.valueOf(chs))) {
+              res.add(String.valueOf(chs));
+          }
+          chs[i] = old_ch;
+      }
+
+  }
+  return res;
+}
+
+// DFS: output all paths with the shortest distance.
+    private void dfs(String cur, String end, Set<String> dict, HashMap<String, ArrayList<String>> nodeNeighbors, HashMap<String, Integer> distance, ArrayList<String> path, List<List<String>> res) {
+        path.add(cur);
+        if (end.equals(cur)) {
+           res.add(new ArrayList<String>(path));
+        } else {
+           for (String next : nodeNeighbors.get(cur)) {            
+                if (distance.get(next) == distance.get(cur) + 1) {
+                     dfs(next, end, dict, nodeNeighbors, distance, path, res);
+                }
+            }
+        }           
+       path.remove(path.size() - 1);
+    }
+}
+```
+
+注意事项：
+
+1. 剪枝
+2. path 的增加和删减都是 在 for 循环之外的，否则 会出现 [cog, dog, log]
+
+这类情况
