@@ -32,3 +32,6 @@ row is guaranteed to be a permutation of 0...len(row)-1.
 求最少交换次数使得 夫妻能挨着.
 
 这题应该是 Union Find
+
+
+

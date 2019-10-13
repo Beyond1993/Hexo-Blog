@@ -34,6 +34,9 @@ https://www.1point3acres.com/bbs/thread-543567-1-1.html
 
 https://www.1point3acres.com/bbs/thread-539063-1-1.html
 
+找亲戚关系
+
+```java
 // "static void main" must be defined in a public class.
 public class Main {
     static Map<String, List<String> > graph = new HashMap<>();
@@ -122,5 +125,25 @@ private static void getRelationShip(List<String> temp, String person1, String pe
 {"Marge", "wife", "homer"}
 {"Lisa", "daughter""Homer"}
 */
+```
+
+Random Pick with Weight
+```java
+
+
+```
+
+简历介绍 + 经典面经, 判定是不是bot. 这个题我说了地里面的lazy deletion解法, 面试官要求进一步优化空间(handle很多人一天只登录了一次的情况).
+没做出来, 代码也没写.
+面试官直接说答案是存 Map<user id, count of login event in timeframe> + Queue<Event(user id, timestamp)>.
+只存一个timeframe(比如60s)里面的所有event. 每当有新的timestamp扫描进来的时候, 移除queue里面所有超时的event, 同时更新map里面userid对应的count
+
+
+
+
+A bot is an id that visit the site m times in the last nseconds,
+given a list of logs with id and time sorted by time, returnall the bots's id
+
+
 
 
