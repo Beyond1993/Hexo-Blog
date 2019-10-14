@@ -145,5 +145,46 @@ A bot is an id that visit the site m times in the last nseconds,
 given a list of logs with id and time sorted by time, returnall the bots's id
 
 
+```java
+// "static void main" must be defined in a public class.
+public class Main {
+    public static void main(String[] args) {
+        int[][] events = {{1, 5}, {2,6}, {2,8}, {1,12}, {2,13}, {1,14}, {2,34},{3,40}}; 
+        System.out.println(getBots(3,10,events));
+    }
+    
+    public static List<Integer> getBots(int m, int n, int[][] events)
+    {
+        
+        Map<Integer, Integer> map = new HashMap<>();
+        Deque<int[]> queue = new LinkedList<>();
+        List<Integer> result = new ArrayList<Integer>();
+        queue.addLast(events[0]);
+        map.put(events[0][0], 1); // {1,5} <1,1>
+        for (int i = 1; i < events.length; i++) {
+            int id = events[i][0];
+            int timestamp = events[i][1]; //6
+            
+            map.put(id, map.getOrDefault(id, 0) + 1); // <2,1>
+            queue.addLast(events[i]); // {1,5}, {2,6}
+           
+            while(!queue.isEmpty()) {
+                int[] event = queue.peekFirst();
+                if (event[1] <= timestamp - n) { //34 - 10 = 24
+                    queue.poll();
+                    map.put(event[0], map.get(event[0]) - 1);
+                } else {
+                    break;
+                }
+            }
+            if (map.get(id) >= m) {
+                result.add(id);
+            }          
+        }
+        return result;
+    }
+}
+```
+
 
 
