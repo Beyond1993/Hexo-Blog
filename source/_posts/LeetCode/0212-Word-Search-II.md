@@ -1,6 +1,4 @@
 ---
-title: 0212-Word-Search-II
-date: 2018-01-03 04:20:01
 categories: LeetCode
 tags:
 ---
@@ -25,3 +23,6 @@ You may assume that all inputs are consist of lowercase letters a-z.
 时间复杂度 : k*len + m*n*4^len
 
 如果不建树， k*len + k*m*n*4^len
+
+
+

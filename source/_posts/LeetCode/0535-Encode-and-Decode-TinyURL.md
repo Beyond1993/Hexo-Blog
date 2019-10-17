@@ -75,6 +75,31 @@ string GenerateShortURL()
 |Encoding length |Log10(36,500,000) = 7.6 = 8 | Log62(36,500,500) = 4.2 = 5 |
 |Example |goo.gl/36500000 | goo.gl/2t9jG |
 
+就是把10 进制编码成62进制
+
+算法有了。解决数据问题。
+
+
+Average size of longURL = 100 bytes
+Average size of shortURL = 4 bytes(int)
+State = 4 byte 链接超时 过期
+Daily new URL = 100,000 * 108 = 10.8 MB
+Yearly new URL = 10.8 * 365 = 4 GB
+
+How to support random ?
+    Random(0, range)
+How to avoid confilcting ?
+    Try agian
+How to implement time-limited service ?
+    Expir/state
+How to cache ?
+    pre-load lazy load
+    Replacement, LRU, 99% LRU 最优
+多个机器。机器编号前两位.
+
+一个master 写， 多个 salve 读。
+
+
 
 ```java
 public class Codec {
