@@ -188,3 +188,11 @@ public class Main {
 
 
 https:://docs.google.com/document/d/1iaydfHhZ6NWgNq7kv6lDg11kusfXF51EDE-Y00WHNBY/edit
+
+
+设计一个Object，记录库存有多少，售出了多少与购买纪录
+如果有进货，要满足之前没有满足的购买纪录
+每一笔存货有进货价钱，售出价钱大于进货价钱才能卖出
+
+
+design  先是一个API 一个类似message app,  然后加上各种 高并发情况怎么处理，怎么保证信息一定送到 DB怎么design  然后是OOD design 21点
