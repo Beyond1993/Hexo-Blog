@@ -6,6 +6,10 @@ tags:
 ---
 
 
+https://www.1point3acres.com/bbs/tag-48-2.html
+
+https://www.1point3acres.com/bbs/forum.php?mod=collection&action=view&ctid=229044&page=4
+
 https://www.1point3acres.com/bbs/collection/229044
 
 https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=556842&ctid=229044
