@@ -200,3 +200,5 @@ https:://docs.google.com/document/d/1iaydfHhZ6NWgNq7kv6lDg11kusfXF51EDE-Y00WHNBY
 
 
 design  先是一个API 一个类似message app,  然后加上各种 高并发情况怎么处理，怎么保证信息一定送到 DB怎么design  然后是OOD design 21点
+
+https://blog.csdn.net/u012576214/article/details/48347719
