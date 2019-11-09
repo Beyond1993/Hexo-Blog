@@ -51,3 +51,67 @@ In this question, we represent the board using a 2D array. In principle, the boa
 4. 如果死细胞周围正好有三个活细胞，则该位置死细胞复活
 
 状态机
+
+in place 的解法就是 下一个状态怎么存.
+
+低位记录当前状态保持不变, 高位记录下一个状态。
+
+```java
+class Solution {
+    public int getLiveNeighbors(int[][] board, int x, int y) {
+        int[] dx = {-1, 0, 1};
+        int[] dy = {-1, 0, 1};
+        int count = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (dx[i] == 0 && dy[j] == 0) {
+                    continue;
+                }
+                if (x + dx[i] < 0 || x + dx[i] >= board.length 
+                    || y + dy[j] < 0 || y + dy[j] >= board[0].length) {
+                    continue;
+                }
+                
+                count += board[x+dx[i]][y+dy[j]] & 1;
+                
+            }
+        }
+        return count;
+    }
+    
+    public void gameOfLife(int[][] board) {
+        
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                int liveNeighbors = getLiveNeighbors(board, i, j);
+                
+                if ( (board[i][j] & 1)  == 1 && liveNeighbors < 2) {
+                    board[i][j] = 1; //01
+                }
+                
+                if ( (board[i][j] & 1) == 1 && (liveNeighbors == 2 || liveNeighbors == 3)) {
+                    board[i][j] = 3; // 11
+                }
+                
+                if ( (board[i][j] & 1) == 1 && liveNeighbors > 3) {
+                    board[i][j] = 1; //01
+                }
+                
+                if ( (board[i][j] & 1) == 0 && liveNeighbors == 3) {
+                    board[i][j] = 2; //10
+                }
+            }
+        }
+        
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                board[i][j] = board[i][j] >> 1;
+            }
+        }
+    }
+}
+```
+
+
+
+
