@@ -55,3 +55,47 @@ class Solution {
 }
 ```
 
+
+```java
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        int n = nums.length;
+        int[] tails = new int[n];
+        tails[0] = nums[0];
+        int len = 1;
+        for (int i = 0; i < nums.length; i++) {
+            int index = binarySearch(tails, nums[i], len);
+            if (index == len) {
+                tails[len] = nums[i];
+                len++;
+            } else {
+                tails[index] = nums[i];
+            }
+        }
+        return len;
+    }
+    
+    private int binarySearch(int[] tails, int num, int len) {
+        if (num > tails[len-1]) {
+            return len; 
+        }
+        int l = 0;
+        int r = len - 1;
+        
+        while(l < r) {
+            int mid = (l + r) / 2;
+            if (tails[mid] < num) {
+                l = mid + 1;
+            } else if (tails[mid] > num){
+                r = mid;
+            } else {
+                return mid;
+            }
+        }
+        return l;
+    }
+}
+```
