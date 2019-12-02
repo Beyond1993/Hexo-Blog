@@ -7,6 +7,8 @@ tags:
 什么是读写锁
 http://blog.csdn.net/lzm1340458776/article/details/27964243
 
+https://www.tutorialspoint.com/java_concurrency/concurrency_readwritelock.htm
+
 读与读之间不需要加锁，读和写之间，写和写之间需要加锁。
 
 怎么实现读写锁
