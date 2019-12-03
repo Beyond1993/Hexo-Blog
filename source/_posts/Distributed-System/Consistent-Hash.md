@@ -5,6 +5,9 @@ categories: Distributed-System
 tags:
 ---
 
+![Consistent Hash](https://wfeng.s3.us-east-2.amazonaws.com/System-Design-Images/consistent-hash.png)
+
+
 缓存失效
 
 ```java

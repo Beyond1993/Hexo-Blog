@@ -5,6 +5,10 @@ categories: LeetCode
 tags:
 ---
 
+比如一开始我有一些油，我一路开下去。
+这一路上会经历一些加油站，但是我并没有加油。
+比如我经历了三个加油站，当我发现没办法到达第四个加油站。
+我从前三个油**最多**的加油站里挑一个加油。
 
 
 There are N gas stations along a circular route, where the amount of gas at station i is gas[i].
