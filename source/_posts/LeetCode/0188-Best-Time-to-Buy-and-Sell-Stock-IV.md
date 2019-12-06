@@ -21,3 +21,26 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/discuss/54114
 
 这种问题，就是要找到generate 的解法
 
+
+https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/StockBuySellKTransactions.java
+
+
+```java
+public int maxProfitSlowSolution(int prices[], int K) {
+   if (K == 0 || prices.length == 0) {
+      return 0;
+   }   
+   int T[][] = new int[K+1][prices.length];
+   for (int i = 1; i < T.length; i++) {
+       for (int j = 1; j < T[0].length; j++) {
+           int maxVal = 0;
+           for (int m = 0; m < j; m++) {
+               maxVal = Math.max(maxVal, prices[j] - prices[m] + T[i-1][m]);
+       }    
+       T[i][j] = Math.max(T[i][j-1], maxVal);
+   }
+    }
+printActualSolution(T, prices);
+return T[K][prices.length - 1];
+}
+```

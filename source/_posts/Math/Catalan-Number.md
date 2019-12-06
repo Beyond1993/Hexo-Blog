@@ -6,3 +6,7 @@ tags:
 ---
 
 
+
+卡特兰数
+
+https://zhuanlan.zhihu.com/p/56821103
