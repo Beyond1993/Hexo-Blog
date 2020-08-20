@@ -1,6 +1,10 @@
 ---
 title: 1249 Minimum Remove to Make Valid Parentheses
+<<<<<<< HEAD
 date: 2020-04-08 01:47:56
+=======
+date: 2020-01-04 19:07:43
+>>>>>>> d571013a4275977115b5aa65ea5ba20fb00af641
 categories: LeetCode
 tags:
 ---
@@ -15,6 +19,8 @@ It is the empty string, contains only lowercase characters, or
 It can be written as AB (A concatenated with B), where A and B are valid strings, or
 It can be written as (A), where A is a valid string.
  
+
+
 
 Example 1:
 
@@ -34,6 +40,7 @@ Example 4:
 
 Input: s = "(a(b(c)d)"
 Output: "a(b(c)d)"
+<<<<<<< HEAD
  
 
 Constraints:
@@ -69,7 +76,6 @@ class Solution {
                 if (left > 0) {
                    left--;
                    sb.append(')');
-                }
             } else {
                 sb.append(c);
             }
@@ -78,5 +84,4 @@ class Solution {
     }
 }
 ```
-
 

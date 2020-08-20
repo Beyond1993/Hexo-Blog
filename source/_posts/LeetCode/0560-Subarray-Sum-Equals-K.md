@@ -48,3 +48,28 @@ class Solution {
 }
 ```
 sum - k 就是之前算好的 sum `
+
+错误答案，这题不能用slid window
+```java
+class Solution {
+    public int subarraySum(int[] A, int t) {
+       int i = 0, j = 0;
+       int winSum = 0;
+        int res = 0;
+        while(i < A.length && j < A.length) {
+            winSum += A[j];
+            if (winSum == t) {
+                res++;
+                j++;
+            } else if (winSum < t) {
+                j++;
+            } else {
+                winSum -= A[i];
+                i++;
+                j++;
+            }
+        }
+        return res;
+    }
+}
+```

@@ -54,4 +54,17 @@ public void helper(ArrayList<List<Integer>> results,
 
 这种题，就是画图，画图. 画back track tree
 
+中间那个树直接整个都跳过了
+
+```txt
+          1
+     /    |  \
+    1     1    2
+  /| \   /|\  / |\
+ 1 1 2  1 1 2 1 1 2
+ 
+
+```
+
+
 ![](/images/backtrack_tree.png)
