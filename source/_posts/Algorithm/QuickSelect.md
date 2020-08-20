@@ -37,7 +37,7 @@ public final class QuickSelect {
   private static int partition(int[] array, int left, int right, int pivotIndex) {
     int pivotValue = array[pivotIndex];
     swap(array, pivotIndex, right); // move pivot to end
-    int storeIndex = left;
+    int storeIndex = left; // storeIndex 存的是从左往右 第一个比 pivotValue 大的元素
     for(int i = left; i < right; i++) {
       if(array[i] < pivotValue) {
         swap(array, storeIndex, i);

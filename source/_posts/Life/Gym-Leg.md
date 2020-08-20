@@ -1,7 +1,7 @@
 ---
 title: Gym-Leg
 date: 2019-07-07 03:35:53
-categories: Life
+categories: 生活
 tags:
 ---
 

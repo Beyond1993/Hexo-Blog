@@ -119,3 +119,6 @@ public class Solution {
 }
 ```
 
+1.DP 的顺序要满足拓扑序,
+2.i - j < 3 这个条件
+

@@ -138,3 +138,44 @@ public class Solution {
     }
 }
 ```
+
+DFS 使用 priorityqueue size 作为second key,make sure FIFO
+```java
+class Solution {
+    Map<Integer, PriorityQueue<int[]>> map = new TreeMap<>();
+    public List<List<Integer>> verticalOrder(TreeNode root) { 
+        dfs(root, 0, 0);
+        List<List<Integer>> res = new ArrayList<>();
+        for(Map.Entry<Integer, PriorityQueue<int[]>> entry : map.entrySet()) {
+          Integer key = entry.getKey();
+          PriorityQueue<int[]> values = entry.getValue();
+          List<Integer> l = new ArrayList<>();
+          while(!values.isEmpty()) {
+              l.add(values.poll()[0]);
+          }
+          res.add(l);
+        }
+        return res;
+    }
+    
+    private void dfs(TreeNode root, int index, int level) {
+        if (root == null) {
+            return;
+        }
+        if (map.containsKey(index)) {
+            map.get(index).offer(new int[]{root.val, level, map.get(index).size()});
+        } else {
+            PriorityQueue<int[]> list = new PriorityQueue<>((a, b) -> {
+                if (a[1] == b[1]) {
+                    return a[2] - b[2];
+                }
+                return a[1] - b[1];
+            });
+            list.offer(new int[]{root.val, level, 1});
+            map.put(index, list);
+        } 
+        dfs(root.left, index - 1,  level + 1);
+        dfs(root.right, index + 1, level + 1);   
+    }
+}
+```

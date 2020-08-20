@@ -5,6 +5,11 @@ categories: LeetCode
 tags:
 ---
 
+最朴素的想法。随机找一个单词，和secret 比较 得到 match 的数量 n。
+
+再反向的找所有的单词，排除 match 数量不一致的单词，数量一致的单词加入candidates。
+
+一开始是想用 dfs 搜索，直到发现答案。 但是超时。固定循环10次 AC
 
 ```java
 /**

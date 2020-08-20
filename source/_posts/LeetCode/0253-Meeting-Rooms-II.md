@@ -182,3 +182,39 @@ public class Solution {
 
 follow up:
 把每个 meeting room 中的 intervals 打印出来
+
+
+```java
+class Solution {
+    public int minMeetingRooms(int[][] intervals) {
+        Integer[] nums = new Integer[intervals.length * 2];
+        int index = 0;
+        for (int i = 0; i < intervals.length; i++) {
+            nums[index++] = intervals[i][0];
+            nums[index++] = -intervals[i][1];
+        }
+        
+        Arrays.sort(nums, new Comparator<Integer>() { 
+            public int compare(Integer a, Integer b) {
+                if ( Math.abs(a) == Math.abs(b)) {
+                    return a - b;
+                }
+                return Math.abs(a) - Math.abs(b);
+            }
+        });
+        
+        int count = 0;
+        int max = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] >= 0) {
+                count++;
+                max = Math.max(max, count);
+            } else {
+                count--;
+            }
+        }
+        return max;
+    }
+}
+```
+

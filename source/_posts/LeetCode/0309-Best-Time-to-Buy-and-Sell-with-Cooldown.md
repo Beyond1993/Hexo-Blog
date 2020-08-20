@@ -19,3 +19,38 @@ transactions = [buy, sell, cooldown, buy, sell
 
 增加条件，在卖出股票后，至少隔一天再买。
 
+
+分两种情况,
+
+前一天卖了，
+前一天没卖
+
+我写的答案
+
+```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        if (prices.length <= 1) return 0;
+        int n = prices.length;
+        
+        int[] buy = new int[n];
+        int[] sell = new int[n]; 
+       
+        buy[0] = -prices[0];
+        buy[1] = Math.max(-prices[0], -prices[1]);
+        
+        sell[0] = 0;
+        sell[1] = prices[1] - prices[0];
+        
+        for (int i = 2; i < prices.length; i++) {
+            buy[i]  = Math.max(sell[i-2] - prices[i], buy[i-1]);
+            sell[i] = Math.max(buy[i-1] + prices[i], sell[i-1]);
+        }
+        
+        return Math.max(0, Math.max(buy[n-1], sell[n-1]));
+    }
+}
+```
+
+
+
