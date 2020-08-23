@@ -29,26 +29,8 @@ tags: Binary-Search
 模版的方法并不是直接在while中确定最优解，而是通过start + 1 < end, 保留两个可能情况
 
 放弃九章模版, 直接判断, left = mid + 1, right = mid, return left
-```java
-public int pickIndex() {
-        int cur = rand.nextInt(this.sum) + 1;
-        int l = 0;
-        int r = this.preSum.length - 1;
-        
-        while(l < r) {
-            int mid = l + (r - l) / 2;
-            //if (preSum[mid] == cur) {
-            //    return mid;
-            //} else 
-            if (preSum[mid] >= cur) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        return l;
-}
-```
+
+[模版](http://www.wayne.ink/2019/10/14/Algorithm/Do-you-really-know-how-to-write-a-binary-search/)
 
 三步翻转法，对应旋转数组recover
 O(1) space, O(n) time
