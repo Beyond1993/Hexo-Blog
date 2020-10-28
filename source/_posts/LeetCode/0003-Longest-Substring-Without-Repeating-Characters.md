@@ -5,7 +5,7 @@ categories: LeetCode
 tags:
 ---
 
-[SLiding-Window](http://www.wayne.ink/2017/11/05/LeetCode/LeetCode-Sliding-Window/)
+[Sliding-Window](http://www.wayne.ink/2017/11/05/LeetCode/LeetCode-Sliding-Window/)
 
 靠，这道题我一直理解错了，这题求的是最长不重复字串，相同字符不能出现两次，可能是aaa, 这样子长度就是1, 而不是 3
 而另一种题型是，字符的总类不超过K个，可以有重复字符。aaa, 的长度是3 完全是两种题型。真蛋疼。
@@ -54,5 +54,29 @@ int lengthOfLongestSubstring(string s) {
     }
 ```
 
+### 方法三
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String input) {
+        char[] array = input.toCharArray();
+        boolean[] isExist = new boolean[256];
 
+        int j = 0;
+        int i = 0;
+        int max = 0;
+        while (i < array.length) {
+            
+            if(!isExist[array[i]]) {
+                isExist[array[i]] = true;
+                max = Math.max(max, i - j + 1);
+                i++;
+            } else {
+                isExist[array[j]] = false;
+                j++;
+            }
+        }
+        return max;
+    }
+}
+```
 
