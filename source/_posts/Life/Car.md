@@ -18,4 +18,9 @@ mercedes c300 coupe
 一开始可以拿一个二手车练手。
 
 
+划痕三种类型:
+
+Paint Transfer 
+Light Scratches
+Deep Scratches
 
