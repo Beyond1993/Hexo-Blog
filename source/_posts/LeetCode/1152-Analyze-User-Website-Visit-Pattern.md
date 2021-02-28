@@ -1,7 +1,7 @@
 ---
 title: 1152 Analyze User Website Visit Pattern
-date: 2020-06-14 20:56:17
-categories: LeetCode
+date: 2021-03-01 00:45:13
+categories:
 tags:
 ---
 
@@ -11,99 +11,75 @@ A 3-sequence is a list of websites of length 3 sorted in ascending order by the 
 
 Find the 3-sequence visited by the largest number of users. If there is more than one solution, return the lexicographically smallest such 3-sequence.
 
- 
-
-Example 1:
-
-Input: username = ["joe","joe","joe","james","james","james","james","mary","mary","mary"], timestamp = [1,2,3,4,5,6,7,8,9,10], website = ["home","about","career","home","cart","maps","home","home","about","career"]
-Output: ["home","about","career"]
-Explanation: 
-The tuples in this example are:
-["joe", 1, "home"]
-["joe", 2, "about"]
-["joe", 3, "career"]
-["james", 4, "home"]
-["james", 5, "cart"]
-["james", 6, "maps"]
-["james", 7, "home"]
-["mary", 8, "home"]
-["mary", 9, "about"]
-["mary", 10, "career"]
-The 3-sequence ("home", "about", "career") was visited at least once by 2 users.
-The 3-sequence ("home", "cart", "maps") was visited at least once by 1 user.
-The 3-sequence ("home", "cart", "home") was visited at least once by 1 user.
-The 3-sequence ("home", "maps", "home") was visited at least once by 1 user.
-The 3-sequence ("cart", "maps", "home") was visited at least once by 1 user.
-
 
 ```java
 class Solution {
     public List<String> mostVisitedPattern(String[] username, int[] timestamp, String[] website) {
-        int n = username.length;
-
-        //step 1: sort by time stamp
-        String[][] sessions = new String[n][3];
-        for (int i = 0; i < n; i++) {
-            sessions[i][0] = username[i];
-            sessions[i][1] = String.valueOf(timestamp[i]);
-            sessions[i][2] = website[i];
-        }
-        Arrays.sort(sessions, (a, b) -> Integer.parseInt(a[1]) - Integer.parseInt(b[1]));
-
-        // step 2: build Map<user, web sequence>
-        Map<String, List<String>> visited = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            String user = sessions[i][0];
-            String web = sessions[i][2];
-            if (!visited.containsKey(user)) {
-                visited.put(user, new ArrayList<>());
+        
+        HashMap<String, TreeMap<Integer, String>> utwRecords = new HashMap<>();
+        for (int i = 0; i < username.length; i++) {
+            if (!utwRecords.containsKey(username[i])) {
+                utwRecords.put(username[i], new TreeMap<Integer, String>());
             }
-            visited.get(user).add(web);
+            utwRecords.get(username[i]).put(timestamp[i], website[i]);
         }
 
-        // step 3: build Map<3-seq, count>
-        Map<String, Integer> seqMap = new HashMap<>();
-        int maxCount = 0;
-        String maxSeq = "";
+    
+        HashMap<String, ArrayList<String>> uwRecords = new HashMap<>();
+        for (String name : utwRecords.keySet()) {
+            uwRecords.put(name, new ArrayList<String>());
+            for (Integer time : utwRecords.get(name).keySet()) {
+                uwRecords.get(name).add(utwRecords.get(name).get(time));
+            }
+        }
 
-        for (List<String> list : visited.values()) {
-            if (list.size() < 3) continue;
-            Set<String> subsequences = getAll3SubSequences(list);
-            for (String subseq : subsequences) {
-                seqMap.put(subseq, seqMap.getOrDefault(subseq, 0) + 1);
-                if (seqMap.get(subseq) > maxCount) {
-                    maxCount = seqMap.get(subseq);
-                    maxSeq = subseq;
-                } else if (seqMap.get(subseq) == maxCount && maxSeq.compareTo(subseq) > 0) {
-                    maxSeq = subseq;
+        
+        HashMap<String, Integer> cntWP = new HashMap<>();
+        
+        int maxCnt = 0;
+        
+        String res = new String();
+        for (String name : uwRecords.keySet()) {
+            
+            int len = uwRecords.get(name).size();
+            
+            HashSet<String> single = new HashSet<>();
+            for (int i = 0; i < len-2; i++) {
+                for (int j = i+1; j < len-1; j++) {
+                    for (int k = j+1; k < len; k++) {
+                       
+                        String cur = (new StringBuilder()).append(uwRecords.get(name).get(i))
+                        .append("->")
+                        .append(uwRecords.get(name).get(j))
+                        .append("->")
+                        .append(uwRecords.get(name).get(k)).toString();
+                        single.add(cur);
+                    }
+                }
+            }
+
+            for (String str : single) {
+                if (!cntWP.containsKey(str)) {
+                    cntWP.put(str, 0);
+                }
+                cntWP.put(str, cntWP.get(str)+1);
+
+                int curCnt = cntWP.get(str);
+                
+                if (curCnt > maxCnt | (curCnt == maxCnt && str.compareTo(res) < 0)) {
+                    maxCnt = curCnt;
+                    res = str;
                 }
             }
         }
 
-        // step 4: build result list
-        List<String> res = new ArrayList<>();
-        String[] arr = maxSeq.split(",");
-        for (String s : arr) res.add(s);
-
-        return res;
-    }
-
-    public Set<String> getAll3SubSequences(List<String> list) {
-        int n = list.size();
-        String[] arr = new String[n];
-        int idx = 0;
-        for (String s : list) arr[idx++] = s;
-
-        Set<String> set = new HashSet<>();
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                for (int k = j + 1; k < n; k++) {
-                    String s = arr[i] + "," + arr[j] + "," + arr[k];
-                    set.add(s);
-                }
-            }
+        
+        ArrayList<String> ans = new ArrayList<>();
+        for (String str : res.split("->")) {
+            ans.add(str);
         }
-        return set;
+
+        return ans;
     }
 }
 ```
