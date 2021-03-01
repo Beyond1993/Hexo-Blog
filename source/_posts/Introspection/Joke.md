@@ -1,7 +1,7 @@
 ---
 title: Joke
 date: 2020-03-29 00:18:42
-categories: 玩笑 
+categories: 反思 
 tags:
 ---
 
