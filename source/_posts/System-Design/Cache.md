@@ -1,7 +1,7 @@
 ---
 title: Cache
 date: 2018-06-06 21:15:28
-categories: Distributed-System
+categories: System Design
 tags:
 ---
 
@@ -52,6 +52,10 @@ Business requirement for ‘Real-time’ sync
 Chip updater listen to update and broadcast
 Chip server receive broadcast and update Redis
 
+
+https://zhuanlan.zhihu.com/p/77492338
+
+https://zhuanlan.zhihu.com/p/82695411
 
 
 
