@@ -1,5 +1,5 @@
 ---
-title: 1057 Campus bikes
+title: 1057 Campus Bikes
 date: 2019-08-10 03:45:51
 categories: LeetCode
 tags:
