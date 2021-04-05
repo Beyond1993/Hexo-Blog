@@ -122,3 +122,65 @@ public class Solution {
 1.DP 的顺序要满足拓扑序,
 2.i - j < 3 这个条件
 
+
+### 反向指针
+
+```java
+class Solution {
+    int max = 1;
+    String res = "";
+    //Map<String, Boolean> cache = new HashMap<>();
+    public String longestPalindrome(String s){
+        
+        if(s.isEmpty()){
+            return s;
+        }
+        
+        int[][] cache = new int[s.length()][s.length()];
+        
+        helper(s, 0, s.length() - 1, cache);
+        
+        if (max == 1) {
+            return s.substring(0, 1);
+        }
+        
+        return res;
+    }
+    
+    private boolean helper(String s, int i, int j, int[][] cache){
+        
+        if(i == j){
+            return true;
+        }
+        
+        if(i > j){
+            return false;
+        }
+
+        // if (cache.get(i + " " + j) != null) {
+        //     return cache.get(i + " " + j);
+        // }
+    
+        if(cache[i][j] != 0) {
+            return cache[i][j] == 1 ? true : false;
+        }
+        
+        if(s.charAt(i) == s.charAt(j) && (helper(s, i + 1, j - 1, cache) || i + 1 == j)){
+            cache[i][j] = 1;
+            if(max < j - i + 1){
+                max = j - i + 1;
+                res = s.substring(i, j + 1);
+            }
+
+        }else{
+            
+            helper(s, i + 1, j, cache);
+            helper(s, i, j - 1, cache);
+            cache[i][j] = -1;
+        }
+        
+        //cache.put(i + " " + j, isPalindrome);
+        return cache[i][j] == 1 ? true : false;
+    }
+}
+```
