@@ -5,6 +5,8 @@ categories: LeetCode
 tags:
 ---
 
+这题带锁
+
 最直观的解法.
 
 ```java
