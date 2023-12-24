@@ -180,5 +180,72 @@ class Solution {
 }
 ```
 
-test
+这个写法比较简单，先通过dfs 找到最左最右两边的值，root 以0 开始，min 肯定是负数，max 是正数，然后bfs 的时候刚好 -min 就对应了root 在最后数组里的index
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+
+    private int min = 0;
+    private int max = 0;
+
+    public List<List<Integer>> verticalOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+
+        helper(root, 0);
+        for (int i = min; i <= max; i++) {
+            res.add(new ArrayList<>());
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<Integer> index = new LinkedList<>();
+        index.offer(-min);
+        queue.offer(root);
+
+        while(!queue.isEmpty()) {
+            TreeNode cur = queue.poll();
+            int idx = index.poll();
+            res.get(idx).add(cur.val);
+
+            if (cur.left != null ) {
+                queue.offer(cur.left);
+                index.offer(idx - 1);
+            }
+
+            if (cur.right != null ) {
+                queue.offer(cur.right);
+                index.offer(idx + 1);
+            }
+        }
+
+        return res;
+    }
+
+    private void helper(TreeNode root, int index) {
+        if (root == null) return;
+        min = Math.min(index, min);
+        max = Math.max(index, max);
+        helper(root.left, index - 1);
+        helper(root.right, index + 1);
+    }
+}
+
+```
 
