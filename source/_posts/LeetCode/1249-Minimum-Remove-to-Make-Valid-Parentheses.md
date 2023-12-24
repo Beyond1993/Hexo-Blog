@@ -74,6 +74,7 @@ class Solution {
             } else if (c == ')') {
                 right--; // 消耗 一个 右扩号
                 if (left > 0) {
+                   // 对应消耗一个左括号
                    left--;
                    sb.append(')');
             } else {

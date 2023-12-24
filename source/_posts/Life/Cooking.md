@@ -103,9 +103,6 @@ tags:
 二、枸杞洗干净备用。把雪梨从梨柄处两到三厘米的地方横向切开，然后用尖利的水果刀把梨核挖去。
 
 
-
-
-
 三、将清洗干净的枸杞放进去挖空的雪梨里面，再加入冰糖，然后放到隔水炖盅里面，炖煮半个小时之后，就可以吃了。这是非常滋补的一种甜品，很适合滋阴润肺，经常咳嗽或者肝火旺盛的人可以多喝。
 
 ### 煎牛排
@@ -127,7 +124,7 @@ tags:
 
 
 
-担担面	
+### 担担面	
 
 ### 尖椒腐乳炒西洋菜 加 炒完 大火 焖一分钟 
 
@@ -164,4 +161,12 @@ Costco 小笼包，几乎没有汤，拿来煎一煎，Trader Joe's 的小笼包
 ### 炒面
 最好用熟菜油，橄榄油温度起不来，先放 洋葱 青椒， 再放鸡蛋，再放豆干，再放香肠，最后放炒面
 
+### 空气炸锅 炸大虾
+Costco 大虾 刷油390F, 15分钟
+
+### 油焖大虾
+![](https://wfeng.s3.us-east-2.amazonaws.com/Cooking/shrimp1.jpg)
+![](https://wfeng.s3.us-east-2.amazonaws.com/Cooking/shrimp2.jpg)
+![](https://wfeng.s3.us-east-2.amazonaws.com/Cooking/shrimp3.jpg)
+![](https://wfeng.s3.us-east-2.amazonaws.com/Cooking/shrimp4.jpg)
 
