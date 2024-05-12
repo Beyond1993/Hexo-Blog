@@ -65,3 +65,10 @@ math:
 mathjax: true
 per-page: true
 ```
+
+
+常见命令:
+```txt
+hexo new page --path LeetCode/0691-Stickers-to-Spell-Word 在 source/_posts/LeetCode 目录下生成 0691-Stickers-to-Spell-Word.md 文件
+```
+

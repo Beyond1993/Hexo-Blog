@@ -76,6 +76,20 @@ LRU
     }
 ```
 
+```python
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        indexMap = {}
+        for i, v in enumerate(nums):
+            temp = target - v;
+            if temp in indexMap :
+                return [i, indexMap.get(temp)]
+            else :
+                indexMap[v] = i;    
+        return  []   
+        
+```
+
 解法四: O(n) 优化空间复杂度。
 
 Follow UP:
