@@ -1,2 +1,4 @@
 cd Hexo
 hexo server -p 80
+
+how to start server
