@@ -15,6 +15,30 @@ http://blog.163.com/guo_linda/blog/static/1237730572010928251143/
 
 ## 递归版本:
 
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        res = []   
+        def helper(root: Optional[TreeNode]):
+            nonlocal res
+            if not root:
+                return 
+            
+            helper(root.left)
+            res.append(root.val)
+            helper(root.right)
+        helper(root)
+        return res    
+        
+```
+
 ## 非递归版本
 
 最常见非递归DFS版本:
