@@ -10,8 +10,12 @@ cmd + space : swich screen
 
 control + [ : escapse
 
+option + , : escapse
+
 ### Safari
 hold cmd : will show the options
+
+ctrl + tab : switch tab
 
 cmd + tab : next tab
 
@@ -37,4 +41,5 @@ the problem is we can not select and click link with keyboard.
 
 control + [ : escapse
 
+option + , : escapse
 
