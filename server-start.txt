@@ -4,3 +4,5 @@ hexo server -p 80
 how to start server
 
 hexo new page --path LeetCode/0691-Stickers-to-Spell-Word 在 source/_posts/LeetCode 目录下生成 0691-Stickers-to-Spell-Word.md 文件
+
+手机可以支持中文。。。
