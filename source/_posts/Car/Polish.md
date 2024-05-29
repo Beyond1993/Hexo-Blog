@@ -39,3 +39,23 @@ tags:
 
 
 还有一种东西叫镀晶，好像二者成分不一样
+
+
+感觉 一味的打磨也不是个事，正确的思路还是 应该先用液态玻璃或者镀晶覆盖原划痕。
+
+液态玻璃
+
+镀晶
+
+镀晶清漆喷雾
+
+清漆
+
+但是镀晶 或者 液态玻璃 涂之前也要打磨抛光
+
+
+买了 亚马逊 coating spray 试一下.
+
+https://www.amazon.com/gp/product/B07LHB3B2Q/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&th=1
+
+remerber to try with really small range first. 
