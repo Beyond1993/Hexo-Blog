@@ -59,3 +59,9 @@ tags:
 https://www.amazon.com/gp/product/B07LHB3B2Q/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&th=1
 
 remerber to try with really small range first. 
+
+今天用长羊毛重切盘 + 刮痕研磨剂 试了一下打磨，效果非常好。
+原来我买的DA机有六档，之前一直没用过。。。
+
+
+
