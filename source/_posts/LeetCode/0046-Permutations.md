@@ -58,4 +58,25 @@ public List<List<Integer>> permute(int[] nums) {
 我之前在想能不能用, 递归自身的性质，来调节tmp的变量.
 
 
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        temp = []
+
+        def dfs():
+            if len(nums) == len(temp):
+                ans.append(temp[:])
+                return
+            
+            for i in range(len(nums)):
+                if nums[i] in temp:
+                    continue
+                temp.append(nums[i])
+                dfs()
+                temp.pop()
+        dfs()
+        return ans
+
+```
 
