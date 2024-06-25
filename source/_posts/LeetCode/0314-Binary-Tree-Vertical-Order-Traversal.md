@@ -249,3 +249,52 @@ class Solution {
 
 ```
 
+
+python queue pop() 是取最后一个，pop(0) 才是第一个
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if root is None:
+            return []
+        res = []
+        indexMap = {}
+        queue = []
+        indice = []
+        queue.append(root)
+        indice.append(0)
+        minId, maxId = 0, 0
+        while queue:
+            cur = queue.pop(0)
+            index = indice.pop(0)
+
+            # print(cur.val, index)
+
+            if index not in indexMap:
+                indexMap[index] = [cur.val]
+            else:
+                indexMap[index].append(cur.val)
+            
+            if cur.left is not None:
+                queue.append(cur.left)
+                indice.append(index - 1)
+                minId = min(minId, index - 1)
+
+            if cur.right is not None:
+                queue.append(cur.right)
+                indice.append(index + 1)
+                maxId = max(maxId, index + 1)
+            
+        for i in range(minId, maxId + 1):
+            res.append(indexMap[i])
+
+        return res
+```
+
+
