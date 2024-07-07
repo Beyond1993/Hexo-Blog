@@ -41,3 +41,49 @@ stickers[i] and target consist of lowercase English letters.
 
 
 这题还是挺难的，这不是一个sub string 的问题，而是一个计数问题。相当于把stickers 的字符统计出来，并且用最少的stickers 包含target 里所有的字符
+
+
+这是一个状态压缩DP.  为什么要叫状态压缩呢，是因为需要从所有的status 逐步迭代到最终状态。
+
+
+举例 "abc" -> 111
+
+a --> 100
+b --> 010
+c --> 001
+ab --> 110
+bc --> 011
+ac --> 101
+abc --> 111
+
+
+
+状态转移图:
+
+
+
+```txt
+         +------------------+ 
+         ab   bc---------+  |
+         ^     ^         |  |
+       /   \ /   \       |  |
+      a     b     c      v  v
+       \         /        abc
+         \    /           ^
+           v              |
+           ac ------------+
+```
+
+
+
+
+
+
+
+
+1. 一共 2^k 个状态，k 是 target string 长度
+2. 通过当前状态 + 第 i 个贴纸 ==> 推导出下一个状态
+3. 转移方程 : nums[state'] = min(nums[state'], nums[state] + 1)， +1 表示用了一个贴纸
+4. 从小往大转移
+5. 填充 getNextState() 函数
+
