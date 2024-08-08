@@ -12,4 +12,8 @@ tags:
 
 鹰嘴钳 : Pump Pliers Set
 
+室内水龙头: faucet
 
+室外水龙头: spigot
+
+水龙头密封胶:loctile 609
