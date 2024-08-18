@@ -30,6 +30,11 @@ tags: Binary-Search
 
 放弃九章模版, 直接判断, left = mid + 1, right = mid, return left
 
+
+造成死循环的原因是，写了 left = mid, 或者 right = mid, 这样就一直跳不出来了，
+如果是left = mid + 1, right = mid - 1, 就完全不会有死循
+
+
 [模版](http://www.wayne.ink/2019/10/14/Algorithm/Do-you-really-know-how-to-write-a-binary-search/)
 
 三步翻转法，对应旋转数组recover
