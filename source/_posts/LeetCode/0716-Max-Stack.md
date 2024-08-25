@@ -117,7 +117,25 @@ class MaxStack {
 
 解法二是 double linked list + treeMap
 
-treeMap 的 key 是 number, value is doubled linked list.
+维护两个数据结构
+Doubled Linked List 替代 stack,
+TreeMap, treemap 的 key 是 integer 数值，因为有重复元素， 所以value 是 list of node. 
+可以通过最大key 的最后一个node 直接找到 其在 双链表里的位置。
+
+比如 3，4，3，2，1
+
+双链表:
+
+3 <—> 4 <—> 3 <—> 2 <—> 1
+
+TreeMap:
+
+{
+  1: [node1]
+  2: [node2]
+  3: [node3, node3]
+  4: [node4]
+}
 
 
 ```java
