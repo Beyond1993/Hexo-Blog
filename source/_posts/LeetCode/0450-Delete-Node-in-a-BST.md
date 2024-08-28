@@ -5,6 +5,13 @@ categories: LeetCode
 tags:
 ---
 
+1. Node is a leaf --> 直接删
+2. Node has 1 child --> 用这个child 代替Node 的位置
+3. Node has 2 children  --> 用右子树里最小的节点代替 Node 的位置
+	a. Node's right child's does not have left child --> 右子树节点代替Node
+	b. Node's right child has left child --> 右子树最"左下" 的节点代替Node
+
+
 http://www.wayne.ink/2017/12/12/CMU-Course/CMU-08722-Data-Structures-Lecture-15/
 
 删除BST 的节点。
