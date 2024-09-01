@@ -16,7 +16,8 @@ tags:
 
 https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
-方法一: 采用计数法
+### 方法一
+采用计数法
 ```java
 public int lengthOfLongestSubstring(String s) {
     if (s == null || s.isEmpty()) return 0;
@@ -39,7 +40,39 @@ public int lengthOfLongestSubstring(String s) {
 }
 ```
 
-方法二: 有没有发现, 滑动窗口，不再是计数，而是记录位置有没有!! dict[s[i]] 记录最近这个字符出现的位置. 所以要先判断，再赋值.
+```python
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if not s:
+            return 0
+
+        # Initialize the character count map
+        char_map = [0] * 128  # For ASCII characters
+        begin = 0
+        end = 0
+        max_len = 0
+
+        while end < len(s):
+            # Check if the character at `end` index is seen before in the current window
+            if char_map[ord(s[end])] == 0:
+                char_map[ord(s[end])] += 1
+            # Update the maximum length found so far
+            max_len = max(max_len, end - begin)
+
+            end += 1
+
+            # Adjust the beginning of the window if a duplicate character is found
+            while end < len(s) and char_map[ord(s[end])] > 0:
+                char_map[ord(s[begin])] -= 1
+                begin += 1
+
+        # Return the length of the longest substring
+        return max_len + 1
+```
+
+
+### 方法二
+有没有发现, 滑动窗口，不再是计数，而是记录位置有没有!! dict[s[i]] 记录最近这个字符出现的位置. 所以要先判断，再赋值.
 ```cpp
 int lengthOfLongestSubstring(string s) {
         vector<int> dict(256, -1);
@@ -52,6 +85,24 @@ int lengthOfLongestSubstring(string s) {
         }
         return maxLen;
     }
+```
+
+```python
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if not s :
+            return 0
+        cMap = [-1] * 256
+
+        maxSize, start = 0, -1
+
+        for i in range(len(s)):
+            if cMap[ord(s[i])] > start:
+                start = cMap[ord(s[i])]
+            cMap[ord(s[i])] = i
+            maxSize = max(maxSize, i - start)
+        return maxSize
+
 ```
 
 ### 方法三
