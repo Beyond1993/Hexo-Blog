@@ -34,11 +34,11 @@ public class Solution {
             }  
             if(minHeap.peek() <= intervals[i].start) {  
                 minHeap.poll();  
-                minHeap.add(intervals[i].end);  
             } else {  
-                minHeap.add(intervals[i].end);  
                 rooms++;  
             }  
+
+            minHeap.add(intervals[i].end);  
         }  
         return rooms;  
     }  
@@ -50,6 +50,27 @@ class IntervalComparator implements Comparator<Interval> {
     }  
 } 
 ```
+
+```python
+def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        intervals.sort(key=lambda x : x[0])
+        min_heap = []
+        room = 0
+        for interval in intervals:
+            if not min_heap:
+                heapq.heappush(min_heap, interval[1])
+                room += 1
+                continue
+            if min_heap[0] <= interval[0]:
+                heapq.heappop(min_heap)
+            else:
+                room += 1
+                
+            heapq.heappush(min_heap, interval[1])
+
+        return room
+```
+
 
 这个思路应该是最优解.很多时候，O(nlogn) 不是最优解。 要优化到O(n) 才行，
 
