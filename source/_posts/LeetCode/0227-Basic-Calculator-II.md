@@ -66,3 +66,53 @@ class Solution {
     }
 }
 ```
+
+这个python 解法里有个巧思, 就是s[i] 遇到当前的 operator, 实际上算的operator 不是 当前s[i], 二是上一次的operator
+
+```python
+class Solution:
+    def calculate(self, s: str) -> int:
+        stack = []
+        operator = '+'
+        num = 0 
+
+        s = s.strip()
+        for i in range(len(s)):
+           ## print('i', i, 'stack', stack, 'num', num)
+            if s[i] == '':
+                continue
+            if s[i].isdigit():
+                num = num * 10 + int(s[i])
+            if s[i] in ['+', '-', '*', '/'] or (i==len(s)-1):
+                if operator == '+':
+                    stack.append(num)
+                    # print('here', stack)
+
+                elif operator == '-':
+                    # print('i', i, '*', '-', stack, num)
+                    stack.append(-num)
+
+                elif operator == '*':
+                    # print('i', i, '*', stack, stack[-1]*num)
+                    stack.append(stack.pop()*num)
+                    # print(stack)
+
+                elif operator == '/':
+                    print(int(stack[-1]/num))
+                    stack.append(int(stack.pop()/num))
+                else:
+                    stack.append(num)
+                # stack.append(num)
+                operator = s[i]
+                num = 0
+            # print('i', i, 'stack', stack)
+        stack.append(num)
+
+        # print(stack)
+        res = 0
+        for n in stack:
+            res += n 
+        return res
+```
+
+
