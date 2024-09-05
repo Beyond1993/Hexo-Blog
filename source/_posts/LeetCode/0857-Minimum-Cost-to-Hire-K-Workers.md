@@ -20,3 +20,5 @@ https://www.youtube.com/watch?v=3a_HFrdpjos
 
 
 这就是一个典型的贪心算法，先找出最低ratio 的人，再在这K 个人去掉quality 最多的
+
+枚举所有可能答案group里最差的那个ratio的情况, 然后考虑怎么保留其余的worker（剔除最大quality)
