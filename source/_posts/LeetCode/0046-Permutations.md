@@ -80,3 +80,23 @@ class Solution:
 
 ```
 
+```python
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        self.res = []
+        self.temp = []
+        self.dfs(nums)
+        return self.res
+
+    def dfs(self, nums: List[int]):
+        if len(nums) == len(self.temp):
+            self.res.append(self.temp[:])
+        
+        for i in nums:
+            if i in self.temp:
+                continue
+            self.temp.append(i)
+            self.dfs(nums)
+            self.temp.pop()
+        
+```
+
