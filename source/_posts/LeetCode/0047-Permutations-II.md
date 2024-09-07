@@ -52,6 +52,74 @@ public void helper(ArrayList<List<Integer>> results,
  } 
 ```
 
+
+
+```python
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        if not nums:
+            return nums
+        nums.sort()
+
+        res = []
+        temp = []
+        visited = [False]*len(nums)
+        def dfs():
+            if len(nums) == len(temp):
+                res.append(temp[:])
+                return
+            
+            for i in range(len(nums)):
+                ## 第一种情况 这个数字已经用过了
+                if visited[i]:
+                    continue
+                ## 第二种情况，前面的i-1 已经用过了，但是目前这个i 和i-1 一样
+                ## 代码比较tricky, 为什么是 i -1 not visited?
+                if i > 0 and not visited[i-1] and nums[i-1] == nums[i]:
+                    continue
+                visited[i] = True
+                temp.append(nums[i])
+		print(i, temp)
+                dfs()
+                temp.pop()
+                visited[i] = False
+        dfs()
+        return res
+```
+
+not visited, visited 都是可行解.
+
+但是 not visited[i-1] 剪枝更高效
+
+
+visited[i-1]
+```txt
+[1]
+[1, 2]
+[1]
+[1, 1]
+[1, 1, 2]
+[1, 2]
+[1, 2, 1]
+[2]
+[2, 1]
+[2, 1]
+[2, 1, 1]
+```
+
+not visited[i-1]
+
+```txt
+[1]
+[1, 1]
+[1, 1, 2]
+[1, 2]
+[1, 2, 1]
+[2]
+[2, 1]
+[2, 1, 1]
+```
+
 这种题，就是画图，画图. 画back track tree
 
 中间那个树直接整个都跳过了
@@ -67,4 +135,9 @@ public void helper(ArrayList<List<Integer>> results,
 ```
 
 
-![](/images/backtrack_tree.png)
+![](/images/lc_47.jpg)
+从图片可以看出，对于第一种  visited[i-1], 发现前面一个已经放过然后跳过，只是剪枝了自己节点下第三层的情况。
+
+对于第二种 not visited[i-1], 相当于把整棵树都剪枝了。
+
+not visited[i-1] 剪枝的点更高
