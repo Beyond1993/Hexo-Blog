@@ -80,6 +80,9 @@ class Solution:
 优于DFS
 
 
+![](/images/lc_399.png)
+
+
 BFS
 ```python
 def calcEquation(equations, values, queries):
