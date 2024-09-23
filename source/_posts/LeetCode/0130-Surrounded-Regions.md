@@ -146,4 +146,55 @@ class Solution {
 }
 ```
 
+python union find:
+
+```python
+class Solution:
+    def solve(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+
+        def find(x):
+            if p[x] == x: return x
+            p[x] = find(p[x])
+            return p[x]
+
+        def union(x, y):
+            p_x = find(x)
+            p_y = find(y)
+            p[p_y] = p_x  
+
+        def isConnected(x, y):
+            return find(x) == find(y)
+
+        m, n = len(board), len(board[0])
+        
+        if m <= 1:
+            return
+        
+        p = [i for i in range(m * n + 1)]
+        
+        direction = [[-1,0], [1,0], [0, -1], [0, 1]]
+
+        for i in range(m):
+            for j in range(n):
+                if board[i][j] == 'X': continue
+                if i == 0 or j == 0 or i == m - 1 or j == n - 1:
+                    union(m * n, i * n + j)
+                    continue
+                for d in direction:
+                    ni, nj = i + d[0], j + d[1]
+                    if board[ni][nj] == 'O':
+                        union(i * n + j, ni * n + nj)
+        
+        for i in range(m):
+            for j in range(n):
+                if board[i][j] == 'O' and not isConnected(i * n + j, m * n):
+                    board[i][j] = 'X'
+            
+```
+
+
+
 

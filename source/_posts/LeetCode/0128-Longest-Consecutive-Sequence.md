@@ -52,3 +52,43 @@ class Solution {
 }
 ```
 
+```python
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        nums = list(set(nums))
+        unionMap = {}
+
+        for i in range(len(nums)):
+            curV = nums[i]
+            if curV in unionMap: continue
+            upper = curV + 1
+            lower = curV - 1
+
+            if upper in unionMap and lower in unionMap:
+                upperInterval = unionMap.pop(upper)
+                lowerInterval = unionMap.pop(lower)
+                unionMap[upperInterval[1]] = [lowerInterval[0], upperInterval[1]]
+                unionMap[lowerInterval[0]] = [lowerInterval[0], upperInterval[1]]
+
+            elif upper in unionMap and lower not in unionMap:
+                upperInterval = unionMap.pop(upper)
+                unionMap[curV] = [curV, upperInterval[1]]
+                unionMap[upperInterval[1]] = [curV, upperInterval[1]]
+            elif upper not in unionMap and lower in unionMap:
+                lowerInterval = unionMap.pop(lower)
+                unionMap[lowerInterval[0]] = [lowerInterval[0], curV] 
+                unionMap[curV] = [lowerInterval[0], curV]
+            else:
+                unionMap[curV] = [curV, curV]
+            ##print("curV", curV, unionMap)
+
+        res = 0
+        for value in unionMap.values():
+            #print(value)
+            res = max(res, value[1] - value[0] + 1)
+        return res
+```
+            
+union find 
+
+
