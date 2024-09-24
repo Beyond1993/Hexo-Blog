@@ -174,3 +174,90 @@ class NumArray {
 }
 ```
 
+Python 非递归数组写法 不需要new TreeeNode
+
+```python
+class NumArray:
+    def __init__(self, nums: List[int]):
+        self.n = len(nums)
+        self.tree = [0] * 2 * self.n
+        for i in range(self.n):
+            self.tree[i + self.n] = nums[i]
+        for i in range(self.n-1, 0, -1):
+            self.tree[i] = self.tree[2*i] + self.tree[2*i+1]
+        print(self.tree)
+
+    def update(self, index: int, val: int) -> None:
+        index += self.n
+        self.tree[index] = val
+        while index > 1:
+            self.tree[index//2] = self.tree[index] + self.tree[index^1]
+            index //= 2
+
+    def sumRange(self, left: int, right: int) -> int:
+        left += self.n
+        right += self.n
+        res = 0
+        while left <= right:
+            if left & 1:
+                # if left odd:
+                res += self.tree[left]
+                left += 1
+            if right & 1 ==0:
+                # if right even
+                res += self.tree[right]
+                right -= 1
+            left //= 2
+            right //= 2
+        return res        
+```
+
+Python Recursive :
+
+```python
+class TreeNode:
+    def __init__(self, val, start, end, left_child = None, right_child = None):
+        self.val = val     # sum of the interval belongs to this node
+        self.start = start # start of the node's interval
+        self.end = end     # end of the node's interval
+        self.left_child = left_child   # left child node
+        self.right_child = right_child # right child node
+
+class SegmentTree:
+    def __init__(self, nums):
+        self.nums = nums
+        self.root = self.build(0, len(nums) - 1)
+    
+    def build(self, start, end):
+        if start == end:
+            return TreeNode(self.nums[start], start, end)
+        left_child = self.build(start, (start+end)//2)
+        right_child = self.build((start+end)//2 + 1, end)
+        return TreeNode(left_child.val + right_child.val, start, end, left_child, right_child)
+    
+    def update(self, root, index, value):
+        if root.start == root.end and index == root.start: # target
+            root.val = value
+            return value
+        if root.start > index or root.end < index:
+            return root.val
+        root.val = self.update(root.left_child, index, value) + self.update(root.right_child, index, value)
+        return root.val
+
+    def query(self, root, left, right):
+        if root.start > right or root.end < left: return 0
+        if root.start >= left and root.end <= right: return root.val
+        return self.query(root.left_child, left, right) + self.query(root.right_child, left, right)
+
+class NumArray:
+    def __init__(self, nums: List[int]):
+        self.tree = SegmentTree(nums)
+        self.root = self.tree.root
+
+    def update(self, index: int, val: int) -> None:
+        self.tree.update(self.root, index, val)
+
+    def sumRange(self, left: int, right: int) -> int:
+        return self.tree.query(self.root, left, right)
+```
+
