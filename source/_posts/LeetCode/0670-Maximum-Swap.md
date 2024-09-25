@@ -20,6 +20,11 @@ Explanation: No swap.
 Note:
 The given number is in the range [0, 10^8]
 
+错误思路: 找到最大值，从左往右遍历，找到比最大值小，并且index 小的值交换
+
+
+正确思路: 先给每个value 建立index map, 然后遍历数组，遇到第一个，index 靠后 但是 值比当前大，并在数组里的数字，交换
+
 
 ```java
 class Solution {
