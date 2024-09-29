@@ -71,3 +71,40 @@ smallest = heap[0]
 print("Smallest element:", smallest)
 ```
 
+自定义Class sort 重写  __lt__ 函数
+
+```python
+import heapq
+
+class Task:
+    def __init__(self, name, priority):
+        self.name = name
+        self.priority = priority
+
+    def __lt__(self, other):
+        # Define less-than for max-heap behavior (higher priority first)
+        return self.priority > other.priority
+
+    def __repr__(self):
+        return f"Task(name={self.name}, priority={self.priority})"
+
+# Create an empty list to use as a heap
+task_heap = []
+
+# Adding tasks to the heap
+tasks = [
+    Task("task_low", 1),
+    Task("task_high", 3),
+    Task("task_medium", 2),
+]
+
+for task in tasks:
+    heapq.heappush(task_heap, task)
+
+print("Heap after adding tasks:", task_heap)
+
+# Popping elements based on priority
+while task_heap:
+    task = heapq.heappop(task_heap)
+    print("Popped task:", task)
+```

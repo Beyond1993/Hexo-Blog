@@ -22,3 +22,15 @@ Special thanks to @mithmatt for adding this problem and creating all test cases.
 但是现在是维护一个size 为 k 的最小堆, 这样去除里 n - k 个 最小的元素, heap 里面保留里 K 个最大的值, 但这又是最小堆，所以堆顶元素是 K 个最大的里面最小的.
 
 
+```python
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        ## 维护一个size 为 k 的最小堆
+        heap = []
+        for num in nums:
+            heapq.heappush(heap, num)
+            if len(heap) > k:
+                heapq.heappop(heap)
+        return heap[0]
+        
+```
