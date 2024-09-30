@@ -5,6 +5,13 @@ categories: LeetCode
 tags:
 ---
 
+这题没啥算法，就是找规律。
+
+1. 从后往前排， 找到第一个降序 A(x)
+2. 从后往前排，找到第一个比 A(x) 大的数 A(y)
+3. 交换 A(x), A(y)
+4. 将 x 之后的数字重新排序
+
 http://www.wayne.ink/2019/08/31/LeetCode/0556-Next-Greater-Element-III/
 
 ```java
