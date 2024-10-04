@@ -1,4 +1,6 @@
 ---
+title: 0212-Word-Search-II
+date: 2020-01-01 07:28:47
 categories: LeetCode
 tags:
 ---
@@ -20,9 +22,9 @@ Return ["eat","oath"].
 Note:
 You may assume that all inputs are consist of lowercase letters a-z.
 
-时间复杂度 : k*len + m*n*4^len
+时间复杂度 : k \* len + m \* n \* 4^len
 
-如果不建树， k*len + k*m*n*4^len
+如果不建树， k \* len + k \* m \* n \* 4^len
 
-
+Trie, or prefixTree
 

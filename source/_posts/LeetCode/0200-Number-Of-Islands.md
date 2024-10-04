@@ -182,6 +182,65 @@ class Solution:
         return num_islands  
 ```
 
+对于 deque 来说， popleft 就是 bfs
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+
+        dire = [[0, 1], [0, -1], [-1, 0], [1, 0]]
+        
+        def bfs(i, j):
+            q = collections.deque()
+            q.append((i, j))
+
+            while q: 
+                x, y = q.popleft()
+                for d in dire:
+                    nextX = x + d[0]
+                    nextY = y + d[1]
+                    if nextX < 0 or nextX == len(grid) or nextY < 0 or nextY == len(grid[0]) or grid[nextX][nextY] == "0":
+                        continue
+                    q.append((nextX, nextY))
+                    grid[nextX][nextY] = "0"
+        count = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == "1":
+                    bfs(i, j)
+                    count += 1
+        return count
+```
+
+用 pop() 就是 dfs
+
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+
+        dire = [[0, 1], [0, -1], [-1, 0], [1, 0]]
+        
+        def bfs(i, j):
+            q = collections.deque()
+            q.append((i, j))
+
+            while q: 
+                x, y = q.pop()
+                for d in dire:
+                    nextX = x + d[0]
+                    nextY = y + d[1]
+                    if nextX < 0 or nextX == len(grid) or nextY < 0 or nextY == len(grid[0]) or grid[nextX][nextY] == "0":
+                        continue
+                    q.append((nextX, nextY))
+                    grid[nextX][nextY] = "0"
+        count = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == "1":
+                    bfs(i, j)
+                    count += 1
+        return count
+```
+
 
 711 Number of Dis
 
