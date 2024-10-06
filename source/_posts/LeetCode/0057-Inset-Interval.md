@@ -1,5 +1,5 @@
 ---
-title: 0057 Inset Interval
+title: 0057 Insert Interval
 date: 2019-07-25 02:41:20
 categories: LeetCode
 tags:
@@ -31,7 +31,7 @@ public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
 第二段就是合并，第三段把多余的解加进去。
 
 ```java
-pun aw qqwqblic List<Interval> insert(List<Interval> intervals, Interval newInterval) {
+public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
         TreeMap<Integer, Interval> treeMap = new TreeMap<>();
         for(Interval interval : intervals) {
             treeMap.put(interval.start, interval);

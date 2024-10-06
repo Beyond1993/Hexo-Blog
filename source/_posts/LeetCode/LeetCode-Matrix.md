@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Matrix
 date: 2017-10-16 07:23:18
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 

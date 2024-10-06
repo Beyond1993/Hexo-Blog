@@ -1,5 +1,5 @@
 ---
-title: Sort Colors
+title: 75 Sort Colors
 date: 2024-08-12 06:51:13
 categories: LeetCode
 tags:

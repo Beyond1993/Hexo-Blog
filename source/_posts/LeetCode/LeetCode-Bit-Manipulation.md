@@ -1,7 +1,7 @@
 ---
 title: LeetCode-Bit-Manipulation
 date: 2017-10-16 07:07:21
-categories: LeetCode
+categories: LeetCode-Index
 tags:
 ---
 

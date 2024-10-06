@@ -12,7 +12,7 @@ For example,
 Given [1,3],[2,6],[8,10],[15,18],
 return [1,6],[8,10],[15,18].
 
-思路: 保持两个记录位置。start, end. 先按照start排序，若果 Ki+1.start <= Ki.end, 说明有重叠，end = Ki+1.end  或者 Ki.end
+思路: 贪心法, 保持两个记录位置。start, end. 先按照start排序，若果 Ki+1.start <= Ki.end, 说明有重叠，end = Ki+1.end  或者 Ki.end
 
 ```java
 public List<Interval> merge(List<Interval> intervals) {
@@ -70,4 +70,75 @@ class Solution {
         return result;
     }
 }
+```
+
+扫描线:
+http://47.113.101.198/2024/10/06/LeetCode/LeetCode-Scanline/
+
+记录一条扫描线，一旦扫描线扫到空白区域，说明这个连续的区间可以合并。
+
+```python
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        boundaries = []
+        
+        for interval in intervals:
+            boundaries.append((interval[0], 1))  
+            boundaries.append((interval[1], -1)) 
+        
+        # Sort boundaries. If two boundaries have the same value, end (-1) should come before start (+1)
+        boundaries.sort(key=lambda x: (x[0], -x[1]))
+        # for example [1, 4], [4, 5]
+        # it should be [1, 1], [4, 1] [4, -1], [5, -1]
+        print(boundaries)
+
+        res = []
+        is_matched = 0
+        left = None  
+
+        for boundary in boundaries:
+            if is_matched == 0:
+                left = boundary[0] 
+            
+            is_matched += boundary[1] 
+            
+            if is_matched == 0:
+                right = boundary[0]  
+                res.append([left, right])  
+        
+        return res
+```
+
+
+想明白这个就可以写成:
+
+```python
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        boundaries = []
+        
+        for interval in intervals:
+            boundaries.append((interval[0], -1))  
+            boundaries.append((interval[1], 1)) 
+        
+        boundaries.sort()
+        # for example [1, 4], [4, 5]
+        # it should be [1, 1], [4, 1] [4, -1], [5, -1]
+        # print(boundaries)
+
+        res = []
+        is_matched = 0
+        left = None  
+
+        for boundary in boundaries:
+            if is_matched == 0:
+                left = boundary[0] 
+            
+            is_matched += boundary[1] 
+            
+            if is_matched == 0:
+                right = boundary[0]  
+                res.append([left, right])  
+        
+        return res
 ```
