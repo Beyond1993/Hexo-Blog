@@ -4,6 +4,33 @@ date: 2019-07-25 02:41:20
 categories: LeetCode
 tags:
 ---
+这题的关键在于，中间这段的判断， 不需要写的很复杂：
+while i < n and intervals[i][0] <= newInterval[1]
+```python
+class Solution:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        if not intervals:
+            return [newInterval]
+        res = []
+        n = len(intervals)
+        i = 0
+        while i < n and intervals[i][1] < newInterval[0]:
+            res.append(intervals[i])
+            i += 1
+        start, end = newInterval[0], newInterval[1]
+        while i < n and intervals[i][0] <= newInterval[1]:
+            start = min(intervals[i][0], newInterval[0], start)
+            end = max(intervals[i][1], newInterval[1], end)
+           # print(start, end)
+            i += 1
+        res.append([start, end])
+
+        while i < n and intervals[i][0] > newInterval[1]:
+            res.append(intervals[i])
+            i += 1
+
+        return res
+```
 
 
 ```java
