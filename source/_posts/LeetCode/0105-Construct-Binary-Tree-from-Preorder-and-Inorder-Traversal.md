@@ -27,6 +27,7 @@ private TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, in
         }
     }
     TreeNode left = helper(preStart + 1, inStart, index- 1, preorder, inorder);
+    // index - inStart + 1 是左子树的长度(个数)
     TreeNode right = helper(preStart + index - inStart + 1, index + 1, inEnd, preorder, inorder);
     root.left = left;
     root.right = right;
@@ -40,4 +41,84 @@ public TreeNode buildTree(int[] preorder, int[] inorder) {
 这题还有迭代写法
 ```java
 ```
+
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+
+        def helper(pre_start, in_start, in_end):
+            if pre_start >= len(preorder) or in_start > in_end:
+                return None
+           
+            root = TreeNode(preorder[pre_start])
+
+            ## find inorder index
+            index = 0
+            for i in range(in_start, in_end + 1, 1):
+                if inorder[i] == preorder[pre_start]:
+                    index = i
+                    break
+
+            left = helper(pre_start + 1, in_start, index - 1)
+            right = helper(pre_start + index - in_start + 1, index + 1, in_end)
+            root.left = left
+            root.right = right
+            return root
+        return helper(0, 0, len(preorder) - 1)
+```
+
+简化:
+
+```python
+from typing import List, Optional
+
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        
+        def helper(pre_start, in_start, in_end):
+            # If there are no elements to construct the tree
+            if pre_start >= len(preorder) or in_start > in_end:
+                return None
+            
+            # The first element in preorder is the root
+            root = TreeNode(preorder[pre_start])
+            
+            # Find the index of the root in inorder
+            index = inorder.index(preorder[pre_start], in_start, in_end + 1)
+
+            # Construct the left and right subtrees
+            root.left = helper(pre_start + 1, in_start, index - 1)
+            root.right = helper(pre_start + index - in_start + 1, index + 1, in_end)
+
+            return root
+
+        return helper(0, 0, len(inorder) - 1)
+```
+
+最简:
+```python
+def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        if not preorder or not inorder:
+            return None
+        root = TreeNode(preorder[0])
+        mid = inorder.index(preorder[0])
+        root.left = self.buildTree(preorder[1: mid + 1], inorder[:mid])
+        root.right = self.buildTree(preorder[mid + 1: ], inorder[mid + 1:])
+        return root
+```
+
 
