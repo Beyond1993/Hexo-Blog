@@ -54,6 +54,7 @@ while( fast != null && fast.next != null) {
 
 第四步：将cur 指针后移一位， cur = last->next;
 
+```c++
 while(cur != NULL){
 
     last->next = cur->next;
@@ -65,6 +66,7 @@ while(cur != NULL){
     cur = last->next;
 
 }
+```
 
 这是一个完美的圈。
 
