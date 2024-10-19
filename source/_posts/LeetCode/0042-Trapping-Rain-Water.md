@@ -117,4 +117,196 @@ public class Solution {
 ```
 
 
+容易出错的写法1:
 
+两边同时移动，拿case 1 举例，index right 等于 6 的时候 高度是1 ，rightMax 是3， 此时代码算出来的积水是 3 - 1 = 2
+
+但是 应该算 leftMax, rightMax 的较小值， 2 - 1 = 1
+
+就是左边 右边高度 哪个小，就按照哪个算
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        leftMax, rightMax = 0, 0
+
+        left, right = 0, len(height) - 1
+        res = 0
+        while left < right:
+            
+            if height[left] >= leftMax:
+                leftMax = height[left]
+            else:
+                res += leftMax - height[left]
+                print("left", left, height[left] , leftMax, res)
+            left += 1
+
+            if height[right] >= rightMax:
+                rightMax = height[right]
+            else:
+                res += rightMax - height[right]
+                print("right", right, height[right], rightMax, res)
+            
+            right -= 1
+
+        return res
+```
+
+容易出错的写法2:
+
+这里左右哪个高度小，不能用 leftMax, rightMax 算，应该用当前的高度，height[left], height[right] 做比较
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        
+        left, right = 0, len(height) - 1
+
+        leftMax, rightMax = height[left], height[right]
+
+        res = 0
+        while left < right:
+            if leftMax <= rightMax:
+                if height[left] > leftMax:
+                    leftMax = height[left]
+                else:
+                    res += leftMax - height[left]
+                    print("left", left, height[left] , leftMax, res)
+                left += 1
+            else:
+                if height[right] > rightMax:
+                    rightMax = height[right]
+                else:
+                    res += rightMax - height[right]
+                    print("right", right, height[right], rightMax, res)
+                right -= 1
+
+        return res
+```
+
+正确答案:
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        
+        left, right = 0, len(height) - 1
+
+        leftMax, rightMax = height[left], height[right]
+
+        res = 0
+        while left < right:
+            if height[left] <= height[right]:
+                if height[left] >= leftMax:
+                    leftMax = height[left]
+                else:
+                    res += leftMax - height[left]
+                    print("left", left, height[left] , leftMax, res)
+                left += 1
+            else:
+                if height[right] >= rightMax:
+                    rightMax = height[right]
+                else:
+                    res += rightMax - height[right]
+                    print("right", right, height[right], rightMax, res)
+                right -= 1
+
+        return res
+```
+
+最简答案:
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if not height:
+            return 0
+
+        l, r = 0, len(height) - 1
+        leftMax, rightMax = height[l], height[r]
+        res = 0
+        while l < r:
+            if leftMax < rightMax:
+                l += 1
+                leftMax = max(leftMax, height[l])
+                res += leftMax - height[l]
+            else:
+                r -= 1
+                rightMax = max(rightMax, height[r])
+                res += rightMax - height[r]
+        return res
+```
+
+
+其他解法:
+
+1. Brute Force
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if not height:
+            return 0
+        n = len(height)
+        res = 0
+
+        for i in range(n):
+            leftMax = rightMax = height[i]
+
+            for j in range(i):
+                leftMax = max(leftMax, height[j])
+            for j in range(i + 1, n):
+                rightMax = max(rightMax, height[j])
+                
+            res += min(leftMax, rightMax) - height[i]
+        return res
+```
+
+2. Prefix & Suffix Arrays
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        n = len(height)
+        if n == 0:
+            return 0
+        
+        leftMax = [0] * n
+        rightMax = [0] * n
+        
+        leftMax[0] = height[0]
+        for i in range(1, n):
+            leftMax[i] = max(leftMax[i - 1], height[i])
+        
+        rightMax[n - 1] = height[n - 1]
+        for i in range(n - 2, -1, -1):
+            rightMax[i] = max(rightMax[i + 1], height[i])
+        
+        res = 0
+        for i in range(n):
+            res += min(leftMax[i], rightMax[i]) - height[i]
+        return res
+```
+
+3. Stack
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if not height:
+            return 0
+        stack = []
+        res = 0
+
+        for i in range(len(height)):
+            while stack and height[i] >= height[stack[-1]]:
+                mid = height[stack.pop()]
+                if stack:
+                    right = height[i]
+                    left = height[stack[-1]]
+                    h = min(right, left) - mid
+                    w = i - stack[-1] - 1
+                    res += h * w
+            stack.append(i)
+        return res
+```
