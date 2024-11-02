@@ -81,16 +81,19 @@ class Solution {
 }
 ```
 
+1: case1: ( ( ) )
+2: case2: ( ) ) ) (
+3: case3: ) ) ( (
+
 ```python
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
         l, r = 0, 0
-        lst = list(s)
-        for c in lst:
+        for c in s:
             if c == ')':
                 r += 1
         res = []
-        for i in range(len(lst)):
+        for i in range(len(s)):
             c = lst[i]
             if c =='(': # 遇到左括号，并且数量小于右括号，直接加到结果
                 if l < r:
@@ -108,3 +111,78 @@ class Solution:
 
 ```
 
+这里还有一种更加简单好记的解法, 先统计 validRight
+
+```python
+ass Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+        left, validRight = 0, 0
+
+        for c in s:
+            if c == '(':
+                left += 1
+            elif c == ')' and left > validRight:
+                validRight += 1
+        l, r = 0, 0
+        res = []
+        for c in s:
+            if c == '(':
+                if l >= validRight: continue
+                l += 1
+            elif c == ')':
+                if r >= validRight or r >= l: continue
+                r += 1
+            res.append(c)
+        return "".join(res)
+```
+
+最简洁代码:
+
+```python
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+        left, validRight = 0, 0
+
+        for c in s:
+            if c == '(':
+                left += 1
+            elif c == ')' and left > validRight:
+                validRight += 1
+        l, r = 0, 0
+        res = []
+        for c in s:
+            if c == '(':
+                if l >= validRight: continue
+                l += 1
+            elif c == ')':
+                if r >= l: continue
+                r += 1
+            res.append(c)
+        return "".join(res)
+```
+
+or 
+
+```python
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+        left, validRight = 0, 0
+
+        for c in s:
+            if c == '(':
+                left += 1
+            elif c == ')' and left > validRight:
+                validRight += 1
+        l, r = 0, 0
+        res = []
+        for c in s:
+            if c == '(':
+                if l >= validRight: continue
+                l += 1
+            elif c == ')':
+                if r == l: continue
+                r += 1
+            res.append(c)
+        return "".join(res)
+```
+        

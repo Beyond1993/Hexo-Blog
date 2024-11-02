@@ -32,6 +32,37 @@ The additive sequence is: 1, 99, 100, 199.
 
 这题的难点在于数字长度是不固定的。
 
-
-
-
+```python
+class Solution:
+    def isAdditiveNumber(self, num: str) -> bool:
+        length = len(num)
+        
+        # Try all possible pairs of lengths for the first two numbers
+        for i in range(1, (length // 2) + 1):  # Length of the first number
+            for j in range(1, length - i):  # Length of the second number
+                # Check leading zeros
+                num1 = num[:i]
+                num2 = num[i:i + j]
+                if (len(num1) > 1 and num1[0] == '0') or (len(num2) > 1 and num2[0] == '0'):
+                    continue
+                
+                # Initialize the sequence
+                if self.isValidAdditive(int(num1), int(num2), num[i + j:]):
+                    return True
+        
+        return False
+    
+    def isValidAdditive(self, num1: int, num2: int, remaining_str: str, ) -> bool:
+        if not remaining_str:  # If there's nothing left, the sequence is valid
+            return True
+        
+        sum_ = num1 + num2
+        sum_str = str(sum_)
+        
+        # Check if the remaining string starts with the sum
+        if not remaining_str.startswith(sum_str):
+            return False
+        
+        # Continue with the next numbers
+        return self.isValidAdditive(num2, sum_, remaining_str[len(sum_str):])
+```
