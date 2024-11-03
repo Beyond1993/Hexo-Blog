@@ -52,7 +52,7 @@ class Solution:
         
         return False
     
-    def isValidAdditive(self, num1: int, num2: int, remaining_str: str, ) -> bool:
+    def isValidAdditive(self, num1: int, num2: int, remaining_str: str) -> bool:
         if not remaining_str:  # If there's nothing left, the sequence is valid
             return True
         
@@ -65,4 +65,37 @@ class Solution:
         
         # Continue with the next numbers
         return self.isValidAdditive(num2, sum_, remaining_str[len(sum_str):])
+```
+
+time complexity: 上面两层for 循环是 O(n^2), isAdditive 调用的递归深度是 O(n), O(n^3)
+space complexity: 递归调用栈是 O(n) 
+
+```python
+class Solution:
+    def isAdditiveNumber(self, num: str) -> bool:
+        length = len(num)
+
+        def isAdditive(num1, num2, remain_str):
+            if not remain_str: return True
+            Sum = num1 + num2
+            sum_str = str(Sum)
+
+            if not remain_str.startswith(sum_str):
+                return False
+
+            return isAdditive(num2, Sum, remain_str[len(sum_str):])
+
+        def isInValidNum(num):
+            return len(num) > 1 and num[0] == '0'
+
+        for i in range(1, length // 2 + 1): ## num1 length
+            for j in range (1, length - i): ## num2 length
+                num1 = num[:i]
+                num2 = num[i: i + j]
+                if isInValidNum(num1) or isInValidNum(num2):
+                    continue
+                remain_str = num[i + j:]
+                if isAdditive(int(num1), int(num2), remain_str):
+                    return True
+        return False
 ```

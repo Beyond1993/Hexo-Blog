@@ -1,5 +1,5 @@
 ---
-title: page
+title: 0071 Simplify Path
 date: 2024-11-02 08:07:34
 categories: LeetCode
 tags:
