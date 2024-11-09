@@ -131,3 +131,41 @@ class Solution {
 }
 ```
 
+最直观的思路，一旦发现重复的字符，就start +1, 正常 end + 1
+```python
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        cMap = {}
+        start, end = 0, 0 
+        res = 0
+        for c in s:
+            if c in cMap and cMap[c] == 1:
+                start += 1
+                cMap[c] = 0
+            else:
+                cMap[c] = 1
+                end += 1
+            res = max(res, end - start)
+        return res
+```
+
+但是有个重复的例子 "pwwkew", 就会出问题，因为w 会出现好几次，
+所以map 里应该存 index, 而不是存次数
+
+```python
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if len(s) == 0: return 0
+        if len(s.strip()) == 0: return 1
+        cMap = {}
+        start, end = -1, 0 
+        res = 0
+        for i in range(len(s)):
+            c = s[i]
+            if c in cMap and cMap[c] > start:
+                start = cMap[c]
+                
+            cMap[c] = i 
+            res = max(res, i - start)
+        return res
+```
