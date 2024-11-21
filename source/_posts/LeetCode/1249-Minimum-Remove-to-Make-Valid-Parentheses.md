@@ -186,3 +186,27 @@ class Solution:
         return "".join(res)
 ```
         
+```python
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+        left, validRight = 0, 0
+
+        for c in s:
+            if c == '(':
+                left += 1
+            elif c == ')' and left > validRight:
+                validRight += 1
+            
+        l, r, res = 0, 0, ""
+
+        for c in s:
+            if c == '(':
+                if l >= validRight: continue
+                l += 1
+            elif c == ')':
+                if r >= l: continue
+                r += 1
+            
+            res += c
+        return res
+```
