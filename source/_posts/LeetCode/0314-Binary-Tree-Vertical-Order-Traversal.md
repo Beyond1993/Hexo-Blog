@@ -298,3 +298,44 @@ class Solution:
 ```
 
 
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root : return []
+        index_map = {}
+
+        q = collections.deque()
+        cur_index = 0
+        min_left, max_right = 0, 0
+        q.append((root, 0))
+
+        while q:
+            size = len(q)
+            for i in range(size):
+                cur_node, cur_index = q.popleft()
+                min_left = min(min_left, cur_index)
+                max_right = max(max_right, cur_index)
+                
+                if cur_index not in index_map:
+                    index_map[cur_index] = [cur_node.val]
+                else:
+                    index_map[cur_index].append(cur_node.val)
+                
+                if cur_node.left:
+                    q.append((cur_node.left, cur_index - 1))
+
+                if cur_node.right:
+                    q.append((cur_node.right, cur_index + 1))
+
+        res = []
+        for i in range(min_left, max_right + 1):
+            res.append(index_map[i])
+
+        return res
+```
