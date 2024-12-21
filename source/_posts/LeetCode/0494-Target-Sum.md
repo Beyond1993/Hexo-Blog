@@ -20,6 +20,53 @@ Explanation:
 +1+1+1-1+1 = 3
 +1+1+1+1-1 = 3
 
+brute force
+```python
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        
+        count = 0
+        def dfs(i, sum_):
+            nonlocal count
+            if i == len(nums) - 1:
+                if sum_ == target:
+                    count += 1
+                return
+            dfs(i + 1, sum_ + nums[i + 1])
+            dfs(i + 1, sum_ - nums[i + 1])
+        dfs(-1, 0)
+        return count
+```
+accepted
+```python
+from typing import List
+
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        # Using memoization to store results for overlapping subproblems
+        memo = {}
+
+        def dfs(i, curr_sum):
+            # Base case: if we've processed all numbers
+            if i == len(nums):
+                return 1 if curr_sum == target else 0
+            
+            # Check if the result is already computed
+            if (i, curr_sum) in memo:
+                return memo[(i, curr_sum)]
+            
+            # Recursive case: add or subtract the current number
+            add = dfs(i + 1, curr_sum + nums[i])
+            subtract = dfs(i + 1, curr_sum - nums[i])
+            
+            # Store the result in the memoization dictionary
+            memo[(i, curr_sum)] = add + subtract
+            return memo[(i, curr_sum)]
+
+        # Start recursion from the first index with a sum of 0
+        return dfs(0, 0)
+```
+
 There are 5 ways to assign symbols to make the sum of nums be target 3.
 Note:
 The length of the given array is positive and will not exceed 20.
@@ -52,7 +99,7 @@ Explanation:
 
 There are 5 ways to assign symbols to make the sum of nums be target 3.
 
-
+```c++
 class Solution0 {
 public:
     int counts=0;
@@ -74,7 +121,7 @@ public:
         dfs(nums,target,index+1, sum-nums[index]);
     }
 };
-
+```
 
 <index sum> count ==>
 
@@ -84,7 +131,8 @@ public:
 //dp[2]
 //dp[3]  
 
-//O( 
+//O(
+```c++ 
 class Solution1 {
 public:
     int findTargetSumWays(vector<int>& nums, int S) {
@@ -104,16 +152,19 @@ public:
         return dp[start][sum] = cnt1 + cnt2;
     }
 };
+```
 
+```txt
    0 , 1
    /   \
   0,1  0,1
-
+```
 2 ^ n
 
 
 http://collabedit.com/4gjd8
 
+```java
 public class Solution {
     public int findTargetSumWays(int[] nums, int s) {
         int sum = 0; 
@@ -134,6 +185,7 @@ public class Solution {
         return dp[sum+s];
     }
 }
+```
 
 
 
@@ -169,7 +221,7 @@ if (dp[i-1][sum]){
 return dp[nums.length][S]
 
 
-
+```c++
 public class Solution {
     public int findTargetSumWays(int[] nums, int S) {
         int[][] dp = new int[nums.length][2001];
@@ -224,7 +276,7 @@ class Solution {
                 }
             }
         }
-        
+```        
         
         
   
