@@ -29,7 +29,8 @@ Explanation: Your function can return either index number 1 where the peak eleme
 
 
 这题有个假设，就是 必须是从山脚开始起步的
-比如 [6,5,4,3,2,6,4] 就不符合要求。
+对于 左右两个端点，比如index 0, index -1 缺失，说明就是比左边大，同理index Len - 1 也是
+比如 [6,5,4,3,2,6,4], peak index is 0
 
 
 ```java
@@ -52,4 +53,25 @@ public class Solution {
         
     }
 }
+```
+
+```python
+class Solution:
+    def findPeakElement(self, nums: List[int]) -> int:
+        
+        ## 和左右邻居 判断，如果自己是peak， 就返回
+        ## 如果自己不是peak, 就是比自己大的那一边找，因为只要这个邻居比自己大，
+        ## 不管这个邻居之后是递增还是递减，之后答案肯定在这边
+
+        l, r = 0, len(nums) - 1
+
+        while l <= r:
+            m = l + ((r - l) // 2)
+            if m > 0 and nums[m] < nums[m - 1]:
+                r = m -1
+            elif m < len(nums) - 1 and nums[m] < nums[m + 1]:
+                l = m + 1
+            else:
+                return m
+        return 0
 ```

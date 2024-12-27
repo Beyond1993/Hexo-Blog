@@ -57,3 +57,24 @@ class Solution {
 9 8 7 
     
 last index of digit
+
+
+```python
+class Solution:
+    def maximumSwap(self, num: int) -> int:
+        nums = list(str(num))
+        valueMap = {}
+        
+        for i in range(len(nums)):
+            valueMap[nums[i]] = i
+
+        for i in range(len(nums)):
+            for k in range(9, int(nums[i]), -1):
+                index = valueMap.get(str(k), -1)
+        
+                if index > i:
+                    print(k, index, i)
+                    nums[index], nums[i] = nums[i], nums[index]
+                    return int("".join(nums))
+        return num
+```
