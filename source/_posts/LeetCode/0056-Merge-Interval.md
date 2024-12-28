@@ -142,3 +142,31 @@ class Solution:
         
         return res
 ```
+
+```python
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        boundries = []
+
+        for interval in intervals:
+            boundries.append((interval[0], 1))
+            boundries.append((interval[1], -1))
+
+        boundries.sort(key=lambda x : (x[0], -x[1]))
+        ## this sort does not work
+        ## boundries.sort(x[0], -x[1])
+
+        is_matched = 0
+        left, right = 0, 0
+        res = []
+        for b in boundries:
+            if is_matched == 0:
+                left = b[0]
+            
+            is_matched += b[1]
+            if is_matched == 0:
+                right = b[0]
+                res.append([left, right])
+
+        return res
+```
