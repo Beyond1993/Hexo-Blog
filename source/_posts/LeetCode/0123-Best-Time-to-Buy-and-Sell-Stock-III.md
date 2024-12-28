@@ -32,7 +32,69 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 
 最多可以买卖2次
+```python
+class Solution(object):
+    def maxProfit(self, prices: List[int]) -> int:
+        t1_cost, t2_cost = float("inf"), float("inf")
+        t1_profit, t2_profit = 0, 0
+
+        for price in prices:
+            # the maximum profit if only one transaction is allowed
+            # for first buy price ,the lower,the better
+            t1_cost = min(t1_cost, price)
+            # the profit left after first sell,the higher,the better
+            t1_profit = max(t1_profit, price - t1_cost)
+
+            # reinvest the gained profit in the second transaction
+            # the cost of second buy ,the lower,the better 
+            t2_cost = min(t2_cost, price - t1_profit)
+            # afterSecondSell will be the max profit ultimately
+            t2_profit = max(t2_profit, price - t2_cost)
+
+        return t2_profit
+```
+
+```python
+def maxProfit(prices):
+    # Initialize variables for tracking the best outcomes
+    first_buy = float('inf')  # for first buy price, the lower, the better
+    after_first_sell = 0  # the profit after first sell, the higher, the better
+    after_second_buy = float('-inf')  # the profit left after second buy, the higher, the better
+    after_second_sell = 0  # the profit left after second sell, the higher, the better
+
+    for cur_price in prices:
+        first_buy = min(first_buy, cur_price)  # for first buy price, the lower, the better
+        after_first_sell = max(after_first_sell, cur_price - first_buy)  # the profit after first sell, the higher, the better
+        after_second_buy = max(after_second_buy, after_first_sell - cur_price)  # the profit left after second buy, the higher, the better
+        after_second_sell = max(after_second_sell, after_second_buy + cur_price)  # the profit left after second sell, the higher, the better
+
+    return after_second_sell  # after_second_sell will be the max profit ultimately
+
+# Example usage
+prices = [3, 3, 5, 0, 0, 3, 1, 4]
+print(maxProfit(prices))  # Output: 6
+```
 
 
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if not prices:
+            return 0
 
+        after_first_buy_profit = float('-inf')
+        after_first_sell_profit = 0
+        after_second_buy_profit = float('-inf')
+        after_second_sell_profit = 0
+
+        for price in prices:
+            ## buy 要花钱，所以是profit 是 - price
+            after_first_buy_profit = max(after_first_buy_profit, -price)  # Maximize the profit after the first buy
+            after_first_sell_profit = max(after_first_sell_profit, price + after_first_buy_profit)  # Maximize profit after first sell
+            after_second_buy_profit = max(after_second_buy_profit, after_first_sell_profit - price)  # Maximize the effective cost of the second buy
+            after_second_sell_profit = max(after_second_sell_profit, after_second_buy_profit + price)  # Maximize profit after second sell
+
+        return after_second_sell_profit
+        
+```
 

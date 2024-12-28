@@ -28,5 +28,5 @@ public int maxProfit(int[] prices) {
   }
 }
 ```
-
-
+similar question
+http://47.113.101.198/2018/01/01/LeetCode/0123-Best-Time-to-Buy-and-Sell-Stock-III/
