@@ -72,3 +72,33 @@ class Solution:
         return None
 ```
 
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+        self.parent = None
+"""
+
+class Solution:
+    def lowestCommonAncestor(self, p: 'Node', q: 'Node') -> 'Node':
+        ## 只需要把p, q 都加进来，然后bfs 找他们的parent
+        node_set = set()
+
+        q = collections.deque([p, q])
+
+        while q:
+            cur = q.popleft()
+            if cur in node_set:
+                return cur
+            
+            node_set.add(cur)
+
+            if cur.parent:
+                q.append(cur.parent)
+        
+        return None
+```
