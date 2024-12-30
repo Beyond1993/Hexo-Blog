@@ -61,4 +61,27 @@ class Solution {
 }
 ```
 
+```python
+class Solution:
+    def validPalindrome(self, s: str) -> bool:
+        
+        def isPalin(s, i, j):
+            while i < j:
+                if s[i] != s[j]: return False
+                i +=1
+                j -=1
+            return True
+        
+        l = 0
+        r = len(s) - 1
+
+        while l < r :
+            if s[l] != s[r]:
+                return isPalin(s, l + 1, r) or isPalin(s, l, r - 1)
+            l += 1
+            r -= 1
+        return True
+```
+
+
 follow up: 如果 去除 N 个咋算

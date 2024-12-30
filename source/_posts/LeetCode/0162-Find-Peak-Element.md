@@ -26,9 +26,6 @@ Output: 1 or 5
 Explanation: Your function can return either index number 1 where the peak element is 2, 
              or index number 5 where the peak element is 6.
 
-
-
-这题有个假设，就是 必须是从山脚开始起步的
 对于 左右两个端点，比如index 0, index -1 缺失，说明就是比左边大，同理index Len - 1 也是
 比如 [6,5,4,3,2,6,4], peak index is 0
 
@@ -75,3 +72,27 @@ class Solution:
                 return m
         return 0
 ```
+
+follow up:
+Finding a local minimum is very similar to finding a peak. A local minimum is an element that is smaller than its neighbors. Again, we can use a binary search approach for O(log n) time complexity.
+
+```python
+def findLocalMin(nums):
+    left, right = 0, len(nums) - 1
+
+    while left < right:
+        mid = (left + right) // 2
+
+        if nums[mid] < nums[mid + 1]:
+            # You're in the ascending part of the array
+            # The local minimum is on the left (including mid)
+            right = mid
+        else:
+            # You're in the descending part of the array
+            # The local minimum is on the right
+            left = mid + 1
+
+    # left and right converge to the local minimum
+    return left
+```
+
