@@ -14,6 +14,59 @@ Note:
 1.The length of the array is in range [1, 20,000].
 2.The range of numbers in the array is [-1000, 1000] and the range of the integer k is [-1e7, 1e7].
 
+如果都是正数，这种解法是可以的，但是考虑负数， 1,1,-1,1, 对于这种情况 2 会出现两次， 如果k - 
+```python
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        sum_ = 0
+        sum_set = set()
+        sum_set.add(0)
+        count = 0
+        for num in nums:
+            sum_ += num
+            if (sum_ - k) in sum_set:
+                count += 1
+            sum_set.add(sum_)
+        return count
+```
+正确答案 :
+
+```python
+def subarraySum(self, nums: List[int], k: int) -> int:
+        count, sum_ = 0, 0
+        map_ = {}
+        map_[0] = 1
+        for num in nums:
+            sum_ += num
+            if sum_ - k in map_:
+                count += map_[sum_ - k]
+            map_[sum_] = map_.get(sum_, 0) + 1
+        return count
+```
+
+map{0, 1} 是为了整个数组的sum 是 k, 比如 [1,2,3] k = 6
+
+如果没有, map {0, 1}, 最后一次就会漏掉。
+
+然后为什么不能用 set(), 
+
+因为要记录 sum - k  的次数， 比如
+
+1, 1, 1, -1, 1, 1
+
+k = 2
+
+当 i 是 5 的时候，sum - k = 4 - 2 = 2, 就是 以 i = 5 为结尾的， 有多少 数组和为k, 这时候就是看之前 sum - k = 2 的prefix  sum 有几个。
+
+
+
+
+
+
+
+
+
+
 
 ```java
 public int subarraySum(int[] nums, int k) {
