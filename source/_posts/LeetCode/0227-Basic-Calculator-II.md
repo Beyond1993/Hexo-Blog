@@ -115,4 +115,31 @@ class Solution:
         return res
 ```
 
+better:
 
+```python
+class Solution:
+    def calculate(self, s: str) -> int:
+        s = s.strip().replace(" ", "")
+        stack = []
+        operator = "+"
+        num = 0
+        for i in range(len(s)):
+            if s[i].isdigit() :
+                num = num * 10 + int(s[i])
+                ## continue, 这里不能continue, 否则最后一个数字直接就直接跳出去了。 比如 3/2, 到2 就结束了，不会算最后的3/2
+            ## if s[i] is operator or last num
+            if s[i] in "+-*/" or i == len(s) - 1:
+                if operator == "+":
+                    stack.append(num)
+                elif operator == "-":
+                    stack.append(-num)
+                elif operator == "*":
+                    stack.append(stack.pop() * num)
+                elif operator == "/":
+                    stack.append(int(stack.pop() / num))
+
+                operator = s[i]
+                num = 0
+        return sum(stack) + num
+```
