@@ -14,9 +14,10 @@ class Solution:
 
         for right in range(len(nums)):
             
-            if nums[right] == 0 and k >= 0:
+            if nums[right] == 0:
                 k -= 1
 
+            ## if k == 0, 则刚好满足条件，不需要判断 k
             while k < 0:
                 if nums[left] == 0:
                     k += 1
