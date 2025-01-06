@@ -26,6 +26,111 @@ isMatch("aa", ".*") → true
 isMatch("ab", ".*") → true
 isMatch("aab", "c*a*b") → true
 
+```txt
+or 语句的两种情况
+这段代码通过 or 连接了两个条件，表示你有两种选择来匹配字符串 s 和模式 p：
+
+1. self.isMatch(s, p[2:]) — 跳过 * 和它前面的字符：
+这个条件表示 将 * 当作匹配零次 前面的字符。
+
+什么时候会走这个条件？
+
+当你决定跳过 * 和它前面那个字符时，表示你认为模式中的 * 匹配 零次 前面的字符。这样，你就可以将字符串 s 和模式 p[2:]（去掉前面那个字符和 * 后）继续匹配。
+举个例子： 假设 s = "aa"，p = "a*".
+
+首先检查 first_match = True，因为 s[0] = "a" 和 p[0] = "a" 匹配。
+然后，模式中有 *，此时我们有两个选择：
+跳过 *：调用 self.isMatch(s, p[2:])，即 self.isMatch("aa", "")，它表示检查 "aa" 能否匹配空模式 ""。这显然会返回 False，因为 "aa" 不是空字符串。
+总结：
+
+这个条件的作用是将 * 当作 匹配零次 前面的字符。在 "a*" 这种模式下，它会检查 "aa" 是否能匹配空模式，但在这种情况下显然是不能匹配的，因此返回 False。
+2. (first_match and self.isMatch(s[1:], p)) — 将 * 当作匹配一次或多次：
+这个条件表示 将 * 当作匹配一次或多次 前面那个字符。
+
+什么时候会走这个条件？
+
+当 first_match 为 True（即 s[0] 和 p[0] 匹配）时，我们决定将 * 当作匹配 一次 或 多次 前面的字符。此时，我们从字符串 s 中去掉第一个字符，并继续检查剩下的部分 s[1:] 是否能与模式 p 匹配。
+举个例子： 假设 s = "aa"，p = "a*".
+
+首先，first_match = True（因为 s[0] = "a" 和 p[0] = "a" 匹配）。
+然后，模式中有 *，此时我们有两个选择：
+使用 * 匹配一个字符：调用 self.isMatch(s[1:], p)，即 self.isMatch("a", "a*")，表示去掉字符串 s 的第一个字符后，检查 "a" 是否能匹配 "a*".
+这个过程会重复，继续尝试将 "a" 和 "a*" 匹配，直到我们最终匹配到空字符串 "" 与空模式 ""，返回 True。
+```
+
+```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        if not p:
+            return not s
+        print(s, p)
+        
+        first_match = len(s) > 0 and (p[0] == s[0] or p[0] == '.')
+
+        if len(p) >= 2 and p[1] == '*':
+            ## self.isMatch(s, p[2:]) means * 号前面出现0次, bc, a*bc 
+            ## first_match and self.isMatch(s[1:], p) * 号前匹配一次或多次 aaa a*
+            return self.isMatch(s, p[2:]) or (first_match and self.isMatch(s[1:], p))
+        else:
+            return first_match and self.isMatch(s[1:], p[1:])
+```
+
+```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        if not p: return not s
+
+        first_match = len(s) > 0 and (s[0] == p[0] or p[0] == ".")
+
+        if len(p) >= 2 and p[1] == "*":
+            zero_match = self.isMatch(s, p[2:])
+            many_match = first_match and self.isMatch(s[1:], p)
+            return zero_match or many_match
+        else:
+            single_match = self.isMatch(s[1:], p[1:])
+            return single_match
+```
+
+use memo search:
+
+memo[(i, j)] 代表 s[i:] 和 p[j:] 是否匹配
+
+```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        # Memoization cache
+        memo = {}
+
+        def dp(i, j):
+            # If the result for the current state is already computed, return it from memo
+            if (i, j) in memo:
+                return memo[(i, j)]
+
+            # Base case: if the pattern is exhausted, the string should also be exhausted
+            if j == len(p):
+                return i == len(s)
+
+            # Check if the first characters match or the pattern has a dot (.)
+            first_match = i < len(s) and (s[i] == p[j] or p[j] == '.')
+
+            # Handle the '*' case
+            if j + 1 < len(p) and p[j + 1] == '*':
+                # Either the '*' matches zero or more of the previous character
+                result = (dp(i, j + 2) or  # '*' matches zero occurrences
+                          (first_match and dp(i + 1, j)))  # '*' matches one or more occurrences
+            else:
+                # No '*' after the current character, just move to the next character
+                result = first_match and dp(i + 1, j + 1)
+
+            # Store the result in the memoization cache
+            memo[(i, j)] = result
+            return result
+
+        # Start the recursion from the beginning of both the string and the pattern
+        return dp(0, 0)
+
+```
+
 
 ```java
 public boolean isMatch(String word, String pattern) {
@@ -150,6 +255,5 @@ public boolean isMatch(String s, String p) {
     return t[m][n];
 }
 ```
-
 
 
