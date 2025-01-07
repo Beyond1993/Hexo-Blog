@@ -5,6 +5,40 @@ date: 2024-08-29 08:38:31
 tags:
 ---
 
+整体思路是 扫两遍
+
+第一遍扫没有填海的
+
+第二遍扫 填过一次海的。
+
+color 主要是标记 不同岛屿
+
+Example:
+Consider the following grid (a 5x5 grid for simplicity):
+
+grid = [    [1, 1, 0, 0, 0],
+    [1, 1, 0, 0, 1],
+    [0, 0, 0, 1, 1],
+    [0, 0, 1, 1, 0],
+    [0, 0, 0, 0, 0]
+]
+After the DFS traversal, the grid might look like this (with the colors representing different islands):
+
+grid = [    [2, 2, 0, 0, 0],
+    [2, 2, 0, 0, 3],
+    [0, 0, 0, 3, 3],
+    [0, 0, 3, 3, 0],
+    [0, 0, 0, 0, 0]
+]
+
+这样在遍历自己周边岛屿的时候，不会有重复
+colors = {self.getColor(j, i - 1), self.getColor(j, i + 1),
+self.getColor(j - 1, i), self.getColor(j + 1, i)}
+
+colors 的长度从0 到 4 不等
+
+由于要更新 grid[x][y] = color, 所以color 必须选一个 非 0， 1 的值	
+
 
 ```python3
 class Solution:

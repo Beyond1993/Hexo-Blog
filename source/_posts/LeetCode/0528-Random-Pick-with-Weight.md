@@ -5,6 +5,9 @@ categories: LeetCode
 tags:
 ---
 
+注意和这题区分开来:
+
+http://47.113.101.198/2025/01/07/LeetCode/0398_Random_Pick_Index/
 
 Given an array w of positive integers, where w[i] describes the weight of index i, write a function pickIndex which randomly picks an index in proportion to its weight.
 
