@@ -180,3 +180,212 @@ public class Solution {
 two-end  方法，类似交替bfs, 一旦发现出现了，就return len + 1, 这样子就确保了路径是最短的。
 
 Time Complexity - O(n * 26 ^ L)  虽然26 ^ L 就可以找到最后的单词了，但这是一个路径. 
+
+
+the basic solution
+ 
+```python
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if endWord not in wordList:
+            return 0 
+        
+
+        def getNeighbors(word, wortList):
+            
+            res = []
+
+            for word2 in wordList:
+                if len(word) != len(word2):
+                    continue
+                diff = 0
+                for i in range(len(word2)):
+                    if word[i] != word2[i]:
+                        diff += 1
+                if diff == 1: 
+                    res.append(word2)
+            return res
+
+        q = collections.deque()
+        q.append((beginWord, 1))
+        visited = set()
+        visited.add(beginWord)
+
+        while q: 
+            cur, step = q.popleft()
+            neighbors = getNeighbors(cur, wordList)
+            for neighbor in neighbors:
+                if neighbor == endWord: 
+                    return step + 1
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    q.append((neighbor, step + 1))
+        return 0
+```
+
+precompute the get neighbors:
+
+```python
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if endWord not in wordList:
+            return 0 
+        
+        def getNeighbors(word, wortList):
+            res = []
+            for word2 in wordList:
+                if len(word) != len(word2):
+                    continue
+                diff = 0
+                for i in range(len(word2)):
+                    if word[i] != word2[i]:
+                        diff += 1
+                if diff == 1: 
+                    res.append(word2)
+            return res
+
+        neighborsMap = {}
+        allowWords = wordList + [beginWord]
+        for word in allowWords:
+            neighborsMap[word] = getNeighbors(word, allowWords)
+
+        q = collections.deque()
+        q.append((beginWord, 1))
+        visited = set()
+        visited.add(beginWord)
+
+        while q: 
+            cur, step = q.popleft()
+            neighbors = neighborsMap[cur]
+            for neighbor in neighbors:
+                if neighbor == endWord: 
+                    return step + 1
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    q.append((neighbor, step + 1))
+        return 0
+```
+
+This solution works but can be further optimized for efficiency:
+
+Word Pattern Dictionary:
+Instead of comparing each word pair in getNeighbors, preprocess the word list by generating intermediate patterns. For example:
+For hot, generate patterns h*t, ho*, and *ot.
+Store these patterns in a dictionary for efficient lookup.
+Bidirectional BFS:
+Perform BFS from both beginWord and endWord simultaneously to reduce the search space.
+
+
+```python
+from typing import List
+import collections
+
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if endWord not in wordList:
+            return 0
+        
+        # Preprocessing: Create a dictionary of patterns
+        wordList = set(wordList)  # Use a set for faster lookups
+        pattern_dict = collections.defaultdict(list)
+        
+        for word in wordList:
+            for i in range(len(word)):
+                pattern = word[:i] + "*" + word[i+1:]
+                pattern_dict[pattern].append(word)
+        
+        # Bidirectional BFS Initialization
+        begin_set = {beginWord}
+        end_set = {endWord}
+        visited = set()
+        steps = 1
+        
+        while begin_set and end_set:
+            # Always expand the smaller set for efficiency
+            if len(begin_set) > len(end_set):
+                begin_set, end_set = end_set, begin_set
+            
+            next_set = set()
+            for word in begin_set:
+                visited.add(word)
+                for i in range(len(word)):
+                    pattern = word[:i] + "*" + word[i+1:]
+                    for neighbor in pattern_dict[pattern]:
+                        if neighbor in end_set:  # If the two searches meet
+                            return steps + 1
+                        if neighbor not in visited:
+                            next_set.add(neighbor)
+            
+            begin_set = next_set
+            steps += 1
+        
+        return 0
+```
+
+```txt
+详细解释：Word Pattern Dictionary
+在解决单词接龙问题时，找到一个单词的“邻居”是关键问题。邻居定义为只相差一个字符的单词，例如 hot 和 dot 是邻居。然而，直接逐一比较每个单词（像你在 getNeighbors 方法中实现的那样）在单词列表很大的时候效率很低。
+
+为了解决这个问题，我们可以通过 Word Pattern Dictionary 的方法大大优化寻找邻居的过程。
+
+核心思想
+单词模式 (Pattern)
+
+将单词中的每个字符依次替换为 *，生成一个单词模式。
+单词模式的作用是将一类具有某种相似性的单词归为一组。
+
+示例
+
+对于单词 hot：
+
+第一个字符替换成 *，得到模式 *ot
+第二个字符替换成 *，得到模式 h*t
+第三个字符替换成 *，得到模式 ho*
+如果我们将所有单词的模式都存储在字典中，每个模式对应一组单词，那么找到某个单词的邻居就可以通过这些模式来快速定位。
+
+构建 Word Pattern Dictionary
+我们构建一个字典（pattern_dict），字典的键是单词模式，值是所有符合该模式的单词列表。
+
+示例
+
+给定单词列表：["hot", "dot", "dog", "lot", "log", "cog"]
+
+对 hot 生成模式：
+*ot -> ["hot"]
+h*t -> ["hot"]
+ho* -> ["hot"]
+对 dot 生成模式：
+*ot -> ["hot", "dot"]
+d*t -> ["dot"]
+do* -> ["dot"]
+对 dog 生成模式：
+*og -> ["dog"]
+d*g -> ["dog"]
+do* -> ["dot", "dog"]
+以此类推，最终生成的 pattern_dict：
+
+{
+    "*ot": ["hot", "dot", "lot"],
+    "h*t": ["hot"],
+    "ho*": ["hot"],
+    "d*t": ["dot"],
+    "do*": ["dot", "dog"],
+    "*og": ["dog", "log", "cog"],
+    "d*g": ["dog"],
+    "l*t": ["lot"],
+    "lo*": ["lot", "log"],
+    "c*g": ["cog"],
+    "co*": ["cog"]
+}
+快速查找邻居
+构建 pattern_dict 后，找到一个单词的邻居非常快速。
+对于单词 hot：
+
+生成其模式：*ot, h*t, ho*
+在 pattern_dict 中查找这些模式对应的单词列表。
+*ot -> ["hot", "dot", "lot"]
+h*t -> ["hot"]
+ho* -> ["hot"]
+将这些单词去重后，得到 hot 的邻居：["dot", "lot"]
+这比逐一比较每个单词要高效得多。
+```
