@@ -22,4 +22,22 @@ Note:
 
 You can assume that you can always reach the last index.
 
+dp solution
+
+```python
+class Solution:
+    def jump(self, nums):
+        dp = [-1] * (len(nums) + 1)
+        dp[0] = 0
+        i = 0 
+        while i < len(nums) and dp[i] != -1:
+            for j in range(nums[i] + 1):
+                if i + j < len(dp):
+                    if dp[i + j] != -1:
+                        dp[i + j] = min(dp[i+j], dp[i] + 1)
+                    else:
+                        dp[i+j] = dp[i] + 1
+            i += 1
+        return dp[len(nums) - 1]
+```
 
