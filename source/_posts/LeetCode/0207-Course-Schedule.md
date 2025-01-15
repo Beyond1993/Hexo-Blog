@@ -121,3 +121,61 @@ class Solution:
         visited[course] = False
         return True
 ```
+
+```python
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        if len(prerequisites) <= 1: return True
+        graph = defaultdict(list)
+        indegree = {}
+        for v in prerequisites:
+            graph[v[0]].append(v[1])
+            indegree[v[1]] = indegree.get(v[1], 0) + 1
+        
+        q = deque()
+
+        for k in range(numCourses):
+            if k not in indegree or indegree[k] == 0:
+                q.append(k)
+        count = 0
+        while q:
+            cur = q.popleft()
+            count += 1
+            for neighbor in graph[cur]:
+                indegree[neighbor] -= 1
+                if indegree[neighbor] == 0:
+                    q.append(neighbor)
+        
+        return count == numCourses
+```
+
+
+
+```python
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        # 构建图和入度表
+        graph = defaultdict(list)
+        indegree = {i: 0 for i in range(numCourses)}  # 初始化所有课程入度为 0
+        
+        for course, prereq in prerequisites:
+            graph[prereq].append(course)  # 构建邻接表
+            indegree[course] += 1         # 增加入度
+        
+        # 将所有入度为 0 的节点加入队列
+        q = deque([node for node in indegree if indegree[node] == 0])
+        count = 0
+
+        # 拓扑排序 BFS
+        while q:
+            cur = q.popleft()
+            count += 1  # 每遍历一个节点，表示完成一门课程
+            for neighbor in graph[cur]:
+                indegree[neighbor] -= 1  # 减少邻居节点的入度
+                if indegree[neighbor] == 0:  # 入度为 0，加入队列
+                    q.append(neighbor)
+        
+        # 如果完成的课程数量等于总课程数量，则返回 True
+        return count == numCourses
+```
+

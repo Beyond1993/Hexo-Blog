@@ -1,5 +1,5 @@
 ---
-title: page
+title: 0346_Moving_Average_from_Data_Stream
 date: 2024-11-15 13:18:00
 categories: LeetCode
 tags:
@@ -31,6 +31,30 @@ class MovingAverage:
             self.nums[self.index] = val
             self.index = (self.index + 1) % self.size
             return sum(self.nums) / self.size
+```
+
+```python
+class MovingAverage:
+
+    def __init__(self, size: int):
+        self.size = size
+        self.window_sum = 0
+        self.count = 0
+        self.queue = deque()
+        
+    def next(self, val: int) -> float:
+        if self.count >= self.size:
+            del_val = self.queue.popleft()
+            self.window_sum -= del_val
+        
+        self.window_sum += val    
+        self.queue.append(val)
+        self.count += 1
+        return self.window_sum / min(self.count, self.size)
+        
+# Your MovingAverage object will be instantiated and called as such:
+# obj = MovingAverage(size)
+# param_1 = obj.next(val)
 ```
 
 queue, time O(size), 因为 [] pop(0)不是 O(1), 需要移动后面的元素
