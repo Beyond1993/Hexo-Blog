@@ -28,5 +28,16 @@ public int maxProfit(int[] prices) {
   }
 }
 ```
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        res = 0
+        for i in range(len(prices) - 1):
+            if prices[i + 1] > prices[i]:
+                res += prices[i+1] - prices[i]
+        return res
+```
 similar question
 http://47.113.101.198/2018/01/01/LeetCode/0123-Best-Time-to-Buy-and-Sell-Stock-III/
+
+
