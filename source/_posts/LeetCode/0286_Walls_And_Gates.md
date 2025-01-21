@@ -46,3 +46,44 @@ rooms = [
 
 提示
 你可以假设每个房间至少有一个门。
+
+```python
+from collections import deque
+from typing import List
+
+class Solution:
+    def __init__(self):
+        self.gate = 0
+        self.directions = [(0, -1), (-1, 0), (0, 1), (1, 0)]  # left, up, right, down
+
+    def wallsAndGates(self, rooms: List[List[int]]) -> None:
+        if not rooms:
+            return
+
+        rows_count = len(rooms)
+        cols_count = len(rooms[0])
+
+        # 1. Find all gates
+        q = deque()
+        for r in range(rows_count):
+            for c in range(cols_count):
+                if rooms[r][c] == self.gate:
+                    q.append((r, c))
+
+        # 2. Find shortest distance to gate using BFS
+        while q:
+            r, c = q.popleft()
+            candidate_distance = rooms[r][c] + 1
+
+            for d_r, d_c in self.directions:
+                adj_r, adj_c = r + d_r, c + d_c
+                if adj_r < 0 or adj_r >= rows_count or adj_c < 0 or adj_c >= cols_count:
+                    continue
+                
+                # Update distance if the new candidate distance is smaller
+                if candidate_distance < rooms[adj_r][adj_c]:  # Walls (-1) are ignored as candidate_distance > -1
+                    rooms[adj_r][adj_c] = candidate_distance
+                    ## 放回queue 是为了再更新这个节点的neighbors 距离
+                    q.append((adj_r, adj_c))
+```
+
