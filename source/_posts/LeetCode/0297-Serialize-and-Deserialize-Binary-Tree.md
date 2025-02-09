@@ -124,3 +124,57 @@ class Codec:
 # deser = Codec()
 # ans = deser.deserialize(ser.serialize(root))
 ```
+
+```python
+class Codec:
+    
+    # Encodes a tree to a single string using BFS.
+    def serialize(self, root):
+        if not root:
+            return ""
+        
+        queue = deque([root])
+        result = []
+        
+        while queue:
+            node = queue.popleft()
+            if node:
+                result.append(str(node.val))
+                queue.append(node.left)
+                queue.append(node.right)
+            else:
+                result.append("X")  # Marker for None nodes
+                
+        # Remove trailing "X"s to minimize serialized size
+        while result and result[-1] == "X":
+            result.pop()
+
+        return ",".join(result)
+    
+    # Decodes your encoded data to tree using BFS.
+    def deserialize(self, data):
+        if not data:
+            return None
+        
+        values = deque(data.split(","))
+        root_val = values.popleft()
+        root = TreeNode(int(root_val))
+        queue = deque([root])
+        
+        while queue:
+            node = queue.popleft()
+            
+            if values:  # Check if there are more values to process
+                left_val = values.popleft()
+                if left_val != "X":
+                    node.left = TreeNode(int(left_val))
+                    queue.append(node.left)
+            
+            if values:  # Check if there are more values to process
+                right_val = values.popleft()
+                if right_val != "X":
+                    node.right = TreeNode(int(right_val))
+                    queue.append(node.right)
+        
+        return root
+```
