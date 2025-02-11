@@ -73,6 +73,30 @@ class Solution:
         return 0
 ```
 
+这个二分法其实不太对，用了左右都是闭区间的写法，
+如果用左闭右开的写法，应该是这样:
+```python
+class Solution:
+    def findPeakElement(self, nums: List[int]) -> int:
+        
+        ## 和左右邻居 判断，如果自己是peak， 就返回
+        ## 如果自己不是peak, 就是比自己大的那一边找，因为只要这个邻居比自己大，
+        ## 不管这个邻居之后是递增还是递减，之后答案肯定在这边
+
+	# 注意这里r = len(nums), 不是 len(nums) - 1
+        l, r = 0, len(nums)
+
+        while l < r:
+            m = l + ((r - l) // 2)
+            if m > 0 and nums[m] < nums[m - 1]:
+                r = m
+            elif m < len(nums) - 1 and nums[m] < nums[m + 1]:
+                l = m + 1
+            else:
+                return m
+        return 0
+```
+
 follow up:
 Finding a local minimum is very similar to finding a peak. A local minimum is an element that is smaller than its neighbors. Again, we can use a binary search approach for O(log n) time complexity.
 
