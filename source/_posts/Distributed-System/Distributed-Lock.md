@@ -1,7 +1,7 @@
 ---
 title: Distributed Lock
 date: 2021-03-15 12:21:23
-categories: Distributed System
+categories: Distributed-System
 tags:
 ---
 
