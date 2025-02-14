@@ -32,13 +32,34 @@ OOM issue.
 8. Miss tell miss ddl.
 reporitise the tasks. 
 
+10 条军规
 1.	Customer Obsession: Business Integrity Appeal Project
 2.	Dive Deep: Oncall OOM issue.
-3.	Bias for Action: Discuss with over thinking Appeal Project.
+3.	Bias for Action: Policy Center Platform, api data permission is waiting for approvel, hard code to demo
+```txt
+In the Policy Center Platform project,  
+our service needs to call the Chinese team's API  
+to retrieve data and display it in the Web UI.  
+
+However, since the API permission is still awaiting approval  
+and the Chinese team is on public holiday for the Spring Festival,  
+I decided to temporarily hardcode the data  
+in the backend for the demo scheduled for tomorrow.  
+
+The user was satisfied with the sample data MVP  
+and provided positive feedback.  
+
+Through this experience, I learned to proactively  
+consider holiday schedules and code freeze periods  
+to better anticipate and mitigate potential delays in the future.
+```
+
+
+
 4.	Insist on the highest standards: SLA 99.9% to 99.99 %
-5.	Ownership: Apple ID on call
-6.	Earns Trust: 
-7.	Deliver Results:
-8.	Learn and Be Curious: Learn C++ 
+5.	Ownership: Apple ID oncall
+6.	Earns Trust: Policy Center SOP
+7.	Deliver Results: Bloomber Cache
+8.	Learn and Be Curious: Learn C++, database, Open Source Antlr4 tool
 9.	Have backbone, disagree and commit : compare tool algotrithm
 10.	Invent & Simplify: Rule Simplification from Jason to Domain language
