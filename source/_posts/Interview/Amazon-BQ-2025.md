@@ -63,3 +63,15 @@ to better anticipate and mitigate potential delays in the future.
 8.	Learn and Be Curious: Learn C++, database, Open Source Antlr4 tool
 9.	Have backbone, disagree and commit : compare tool algotrithm
 10.	Invent & Simplify: Rule Simplification from Jason to Domain language
+
+不好的项目:
+1. one mistake:
+* cpc ctr problem. focus on tech, ignore the business envrioment, thresholde 
+
+* priorityqueue top k, beta
+
+2. Miss Deadline. It does not miss the deadline, PC platform, release the mvp first.
+
+3. Conflicts:   PC platform Permission, Metrics for auditor, PM ask for all permission, but I think the core requirments is let auditor know the business impact, and how the regulation is applied in system. Some engineering permssion and metrics is not the key componenet
+
+
