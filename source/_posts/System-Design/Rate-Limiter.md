@@ -27,6 +27,39 @@ def fixed_window_rate_limiter(key, limit, expire_time):
     return current_count <= limit  # 超出限制返回 False
 ```
 
+## 2️⃣ 滑动窗口限流 (Sliding Window, ZSET)
+✅ 适用场景
+防止瞬间流量突增，适用于 API 限流，限制短时间高并发请求。
+比固定窗口更平滑，避免边界问题，但 ZSET 操作相对较重。
+📌 Python 实现 (redis-py)
+
+```python
+def sliding_window_rate_limiter(key, limit, window_size):
+    current_time = int(time.time())
+    window_start = current_time - window_size  # 当前时间窗口的起始时间
+    
+    # 使用 ZSET 存储每个请求的时间戳
+    client.zadd(key, {current_time: current_time})
+    
+    # 移除过期的请求（窗口外的时间戳）
+    client.zremrangebyscore(key, '-inf', window_start)
+    
+    # 获取当前窗口内的请求数
+    request_count = client.zcard(key)
+    
+    if request_count > limit:
+        return False  # 超过限制
+    return True  # 未超过限制
+
+# 示例使用
+print(sliding_window_rate_limiter('api_request', limit=100, window_size=60))  # 限制每分钟100次请求
+
+```
+## 3️⃣ 漏桶限流 (Leaky Bucket)
+✅ 适用场景
+适用于流量平滑处理，防止突发流量冲击后端。
+严格按照固定速率处理请求，但不适合允许突发的场景。
+📌 Python 实现 (redis-py)
 ```python
 def leaky_bucket_rate_limiter(key, capacity, leak_rate):
     current_time = int(time.time())
@@ -58,32 +91,11 @@ print(leaky_bucket_rate_limiter('api_request', capacity=100, leak_rate=1))  # �
 
 ```
 
-```python
-import threading
-import time
-
-class LeakyBucket:
-    def __init__(self, capacity, leak_rate):
-        self.capacity = capacity
-        self.leak_rate = leak_rate  # 每秒流出的请求数
-        self.water = 0  # 当前水量
-        self.last_time = time.time()
-        self.lock = threading.Lock()
-
-    def allow_request(self):
-        with self.lock:
-            now = time.time()
-            elapsed = now - self.last_time
-            self.water = max(0, self.water - elapsed * self.leak_rate)  # 按速率减少水量
-            self.last_time = now
-
-            if self.water < self.capacity:
-                self.water += 1  # 新增请求
-                return True
-            return False  # 水满，请求被限流
-
-```
-
+## 4️⃣ 令牌桶限流 (Token Bucket)
+✅ 适用场景
+允许短时间突发请求，但长期受限于固定速率。
+适用于 API 限流，限流同时允许一定的突发流量。
+📌 Python 实现 (redis-py)
 
 ```python
 import time
@@ -109,7 +121,7 @@ def token_bucket_limiter(key, capacity, refill_rate):
 ```
 
 
-### 🚀 Redis 限流算法比较
+## 🚀 Redis 限流算法比较
 
 | **算法** | **原理** | **流量模式** | **是否允许突发** | **实现方式** | **适用场景** | **优点** | **缺点** |
 |----------|--------|------------|-----------------|------------|-----------|---------|---------|
@@ -118,7 +130,7 @@ def token_bucket_limiter(key, capacity, refill_rate):
 | **漏桶 (Leaky Bucket)** | 固定速率处理请求，超出部分丢弃 | 严格匀速 | ❌ 不允许突发 | `Redis HSET` / 队列 | **平滑处理**, 网络带宽限流 | **平滑流量**, 保护后端 | **响应慢**, 不能处理突发 |
 | **令牌桶 (Token Bucket)** | 按固定速率补充令牌, 请求消耗令牌 | 允许突发 | ✅ 允许短时间突发 | `HSET + Lua` | **高并发 API 限流** | **支持突发流量**, 高效 | **超限后请求受限**, 需要额外管理 |
 
-### 🔹 选择建议
+## 🔹 选择建议
 
 | **需求** | **推荐算法** |
 |----------|-----------|
