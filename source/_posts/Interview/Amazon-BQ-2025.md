@@ -1,7 +1,7 @@
 ---
 title: Amazon-BQ-2025
 date: 2025-02-14 07:50:51
-categories: LeetCode
+categories: Interview
 tags:
 ---
 
@@ -33,9 +33,19 @@ OOM issue.
 reporitise the tasks. 
 
 10 条军规
-1.	Customer Obsession: Business Integrity Appeal Project
-2.	Dive Deep: Oncall OOM issue.
-3.	Bias for Action: Policy Center Platform, api data permission is waiting for approvel, hard code to demo
+1. Customer Obsession: Business Integrity Appeal Project
+
+```txt
+1. set different groups for users. 
+Help engineering reduce the Oncall number of ticket, let the good advertiser's ticket can be handled faster.
+```
+
+2.Dive Deep: Oncall OOM issue.
+
+
+
+
+3. Bias for Action: Policy Center Platform, api data permission is waiting for approvel, hard code to demo
 ```txt
 In the Policy Center Platform project,  
 our service needs to call the Chinese team's API  
@@ -53,8 +63,6 @@ Through this experience, I learned to proactively
 consider holiday schedules and code freeze periods  
 to better anticipate and mitigate potential delays in the future.
 ```
-
-
 
 4.	Insist on the highest standards: SLA 99.9% to 99.99 %
 5.	Ownership: Apple ID oncall
@@ -74,4 +82,20 @@ to better anticipate and mitigate potential delays in the future.
 
 3. Conflicts:   PC platform Permission, Metrics for auditor, PM ask for all permission, but I think the core requirments is let auditor know the business impact, and how the regulation is applied in system. Some engineering permssion and metrics is not the key componenet
 
+## Amazon AWS:
+Automation Project:
+
+The documentaion automation.
+
+1. Conflict with PM. 
+```txt
+PM ask to do the full automation, but I think we can release mvp and waiting for feedback.
+
+```
+
+2. Miss Deadline:
+```
+Piroritize the tasks into smaller pieces and release mvp
+
+```
 
