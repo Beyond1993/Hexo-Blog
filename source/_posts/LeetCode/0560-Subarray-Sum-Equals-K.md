@@ -58,16 +58,6 @@ k = 2
 
 当 i 是 5 的时候，sum - k = 4 - 2 = 2, 就是 以 i = 5 为结尾的， 有多少 数组和为k, 这时候就是看之前 sum - k = 2 的prefix  sum 有几个。
 
-
-
-
-
-
-
-
-
-
-
 ```java
 public int subarraySum(int[] nums, int k) {
   Map<Integer, Integer> map = new HashMap<>();
