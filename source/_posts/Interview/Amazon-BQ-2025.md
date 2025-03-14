@@ -84,7 +84,7 @@ The documentaion automation.
 PM ask to do the full automation, but I think we can release mvp and waiting for feedback.
 
 2. Miss Deadline:
-
+System refactor, too many tasks and high risk, replace the rule engine first and then iterate.
 Piroritize the tasks into smaller pieces and release mvp
 
 
