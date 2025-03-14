@@ -6,47 +6,41 @@ tags:
 ---
 
 
-
-1. tell me the cases:
+## Questions:
+### 1. tell me the cases:
 
 Minor project, different ages. source different age select most stricted one
 
 帮助公司省钱，避免了官司
 
-2. tell me why you can not find the issue early? other team API version update.
+### 2. tell me why you can not find the issue early? other team API version update.
 
-
-3. tell me the case mentor others
+### 3. tell me the case mentor others
 OOM issue.
 
-4. tell me great complishment.
+### 4. tell me great complishment.
 
-5. tell me your wrong direction
-
-
-6. Tech mistake: Priority Qeueu OOM.
+### 5. tell me your wrong direction
 
 
-7. Take risk: 新的 API get region， risk， not full test  , code switch
+### 6. Tech mistake: Priority Qeueu OOM.
 
-8. Miss tell miss ddl.
+
+### 7. Take risk: 新的 API get region， risk， not full test  , code switch
+
+### 8. Miss tell miss ddl.
 reporitise the tasks. 
 
-10 条军规
-1. Customer Obsession: Business Integrity Appeal Project
+## Amazon 10 条军规
+### 1. Customer Obsession: Business Integrity Appeal Project
 
-```txt
 1. set different groups for users. 
 Help engineering reduce the Oncall number of ticket, let the good advertiser's ticket can be handled faster.
-```
 
-2.Dive Deep: Oncall OOM issue.
+### 2.Dive Deep: Oncall OOM issue.
 
-
-
-
-3. Bias for Action: Policy Center Platform, api data permission is waiting for approvel, hard code to demo
-```txt
+### 3. Bias for Action: 
+Policy Center Platform, api data permission is waiting for approvel, hard code to demo
 In the Policy Center Platform project,  
 our service needs to call the Chinese team's API  
 to retrieve data and display it in the Web UI.  
@@ -62,17 +56,16 @@ and provided positive feedback.
 Through this experience, I learned to proactively  
 consider holiday schedules and code freeze periods  
 to better anticipate and mitigate potential delays in the future.
-```
 
-4.	Insist on the highest standards: SLA 99.9% to 99.99 %
-5.	Ownership: Apple ID oncall
-6.	Earns Trust: Policy Center SOP
-7.	Deliver Results: Bloomber Cache
-8.	Learn and Be Curious: Learn C++, database, Open Source Antlr4 tool
-9.	Have backbone, disagree and commit : compare tool algotrithm
-10.	Invent & Simplify: Rule Simplification from Jason to Domain language
+### 4. Insist on the highest standards: SLA 99.9% to 99.99 %
+### 5. Ownership: Apple ID oncall
+### 6. Earns Trust: Policy Center SOP
+### 7. Deliver Results: Bloomber Cache
+### 8. Learn and Be Curious: Learn C++, database, Open Source Antlr4 tool
+### 9. Have backbone, disagree and commit : compare tool algotrithm
+### 10.Invent & Simplify: Rule Simplification from Jason to Domain language
 
-不好的项目:
+## 不好的项目:
 1. one mistake:
 * cpc ctr problem. focus on tech, ignore the business envrioment, thresholde 
 
@@ -88,14 +81,15 @@ Automation Project:
 The documentaion automation.
 
 1. Conflict with PM. 
-```txt
 PM ask to do the full automation, but I think we can release mvp and waiting for feedback.
 
-```
-
 2. Miss Deadline:
-```
+
 Piroritize the tasks into smaller pieces and release mvp
 
-```
 
+## Tiktok Data Engineering 
+
+1. Offline data backfill, different source data is not accurate
+2. offline to online, QPS is high, urgent
+3. real time counter.
