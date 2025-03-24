@@ -135,3 +135,83 @@ class Solution:
 
         return result
 ```
+
+binary_search
+```python
+from typing import List
+
+# 使用二分查找查找位置
+def binary_search(arr: List[int], target: int) -> int:
+    lo, hi = 0, len(arr)
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if arr[mid] < target:
+            lo = mid + 1
+        else:
+            hi = mid
+    return lo
+
+# 计算窗口的中位数
+def get_median(medians: List[int], k: int) -> float:
+    if k % 2 == 1:
+        return medians[k // 2]
+    else:
+        return (medians[k // 2] + medians[k // 2 - 1]) / 2
+
+class Solution:
+    def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
+        # 当窗口大小为1时，中位数就是每个元素本身
+        if k == 1:
+            return list(map(float, nums))
+
+        # 初始化窗口，使用排序后的前 k 个元素
+        medians = sorted(nums[:k])
+        res = [get_median(medians, k)]  # 计算并添加第一个窗口的中位数
+
+        # 如果窗口大小等于数组长度，直接返回结果
+        if k == len(nums):
+            return res
+
+        # 遍历滑动窗口中的其他元素
+        for i in range(k, len(nums)):
+            # 移除窗口最左边的元素
+            pos_to_remove = binary_search(medians, nums[i - k])
+            medians.pop(pos_to_remove)
+
+            # 插入当前元素并保持窗口有序
+            pos_to_insert = binary_search(medians, nums[i])
+            medians.insert(pos_to_insert, nums[i])
+
+            # 计算新的窗口的中位数并添加到结果中
+            res.append(get_median(medians, k))
+
+        return res
+```
+
+
+
+python 有一类数据结构 sortedcontainers, 里面的add, remove 是基于红黑树实现的，时间复杂度都是 logN, 这里可以用sortedList
+
+```python
+from sortedcontainers import SortedList
+
+class Solution:
+    def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
+        def get_median():
+            median = window[len(window) // 2]
+            if len(window) % 2 == 0:
+                median += window[len(window) // 2 - 1]
+                median /= 2
+            return median
+
+        medians = []
+        window = SortedList(nums[:k])
+        medians.append(get_median())
+        for i in range(k, len(nums)):  # O(n)
+            window.add(nums[i])  # O(log k)
+            window.remove(nums[i - k])  # O(log k) 
+            medians.append(get_median())
+        
+        return medians
+```
+
