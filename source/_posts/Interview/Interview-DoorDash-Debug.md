@@ -5,6 +5,8 @@ categories: LeetCode
 tags:
 ---
 
+https://www.1point3acres.com/bbs/thread-1114588-1-1.html
+
 https://leetcode.com/discuss/post/5837893/doordash-onsite-interview-by-anonymous_u-ljv0/
 
 https://www.1point3acres.com/bbs/thread-1066887-1-1.html
@@ -16,6 +18,7 @@ https://www.1point3acres.com/bbs/thread-1110839-1-1.html
 
 https://www.1point3acres.com/bbs/thread-1110797-1-1.html
 
+https://www.geeksforgeeks.org/load-balancing-algorithms/)/
 
 ```python
 
@@ -281,3 +284,9 @@ class TestStickyBalancerThreadSafety(unittest.TestCase):
         self.assertIn(self.backend2, self.balancer.backends)
 
 ```
+
+https://www.1point3acres.com/bbs/thread-1104009-1-1.html
+
+Debugging是面经提到的给order分配dasher的问题，一个map里存dasher和index，添加删除的时候pick dasher会出bug，要修的是更新map时map里的index也要修改。
+
+
