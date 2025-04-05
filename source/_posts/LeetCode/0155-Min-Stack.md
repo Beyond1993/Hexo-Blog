@@ -67,6 +67,7 @@ public class MinStack {
 }
 ```
 
+这里有个优化，就是减少空间使用，只有在 x <= min 的时候push, 这样减少一个space
 
 ```java
 public class MinStack {
