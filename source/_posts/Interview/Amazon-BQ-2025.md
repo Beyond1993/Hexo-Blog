@@ -5,6 +5,23 @@ categories: Interview
 tags:
 ---
 
+### not enough data, make decision, CPU memory usage, mirgriate it immeditaly
+
+### earn trust. Faas Oncall 
+
+### competing project
+
+### priotize the the project
+
+### conflict
+PM conflict..
+
+## Strauggle
+dependency API. 
+
+unclear requirment
+
+implement fall back logic
 
 ## Questions:
 ### 1. tell me the cases:
