@@ -5,16 +5,18 @@ categories: Interview
 tags:
 ---
 
-### not enough data, make decision, CPU memory usage, mirgriate it immeditaly
+### Q1: not enough data,but you have to  make decision
+An alert occurred due to a sharp increase in CPU and memory usage on one instance, and the root cause was unclear in a short time. The oncall was a junior engineer with little experience, and the issue needed urgent resolution. I took responsibility to migrate the instance and supported the oncall in handling the situation. Afterward, our team implemented a new metric to detect this kind of issue earlier, before instance-level alerts are triggered.
 
-### earn trust. Faas Oncall 
+### Q2 earn trust. 
+The Apple service bug caused online Redis data to be corrupted, and ads couldn’t be delivered to users. While waiting for the external fix, we wanted to take action in parallel. I proposed backfilling data from the previous day’s Hive table into online Redis. With 1M QPS, this was risky. I built a fast service, verified it with unit tests and 10 real messages, and used a grey release to backfill gradually. I fixed the issue two days before Apple’s fix and avoided revenue loss. I later proposed this as a standard disaster tolerance solution across teams. 
 
 ### competing project
 
 ### priotize the the project
 
 ### conflict
-PM conflict..
+We had an urgent feature to launch involving dynamic JSON rule updates for ad delivery. A teammate (PM or Engineer) wanted to release all changes at once to save time, while I pushed for a grey rollout due to the high QPS and risk of breaking delivery logic. The urgency caused some tension, but I proposed reviewing similar past incidents and consulted SRE to assess risk. After aligning, we agreed on a phased rollout. It went smoothly without issues, and the teammate later appreciated the safer approach. This helped us build mutual respect and improved future collaboration.
 
 ## Strauggle
 dependency API. 
