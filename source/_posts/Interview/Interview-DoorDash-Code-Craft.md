@@ -162,7 +162,12 @@ class DasherRewardCalculator:
         Returns a dictionary {dasher_id: reward}, rewards 0 if balance insufficient.
         """
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {executor.submit(self.calculate_reward, dasher_id): dasher_id for dasher_id in dasher_ids}
+            ## futures = {executor.submit(self.calculate_reward, dasher_id): dasher_id for dasher_id in dasher_ids}
+            futures = {}
+            for dasher_id in dasher_ids:
+                future = executor.submit(self.calculate_reward, dasher_id)
+                futures[future] = dasher_id
+            
             results = {}
             for future in futures:
                 dasher_id = futures[future]
