@@ -13,7 +13,8 @@ The Apple service bug caused online Redis data to be corrupted, and ads couldnâ€
 
 ### competing project
 
-### priotize the the project
+### prioritize the the project
+In the Privacy Policy Center project, I prioritized the frontend work first to demo platform features early, reduce migration risk, and gather user feedback. This allowed us to validate the direction before tackling the backend refactor. My manager supported the decision, and users gave positive feedback on the early demo. Their input helped refine the design, and the phased approach led to a smoother backend transition.
 
 ### conflict
 We had an urgent feature to launch involving dynamic JSON rule updates for ad delivery. A teammate (PM or Engineer) wanted to release all changes at once to save time, while I pushed for a grey rollout due to the high QPS and risk of breaking delivery logic. The urgency caused some tension, but I proposed reviewing similar past incidents and consulted SRE to assess risk. After aligning, we agreed on a phased rollout. It went smoothly without issues, and the teammate later appreciated the safer approach. This helped us build mutual respect and improved future collaboration.

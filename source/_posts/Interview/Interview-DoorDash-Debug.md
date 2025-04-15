@@ -1,7 +1,7 @@
 ---
 title: DoorDash-Debug
 date: 2025-03-19 06:47:28
-categories: LeetCode
+categories: Interview
 tags:
 ---
 

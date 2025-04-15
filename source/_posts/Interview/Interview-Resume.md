@@ -5,48 +5,23 @@ categories: Interview
 tags:
 ---
 
-04/2018 ~ now
-
-Bloomberg Derivative Team
-
-```txt
-••••••
-
-• C++ Linux Migration from UnixMachines to Linux Machines
-• Buid C++ symbol dependenies graph with Perl and Python
-• Reorgnie and Optimize the C++ code workflow from Bloomberg UI to Comdb2 database
-
-• Create new workflow from Bloomberg UI to comdb2 database
-• Ad Data layer to SET UI in Bloomberg terminal
-• Design request schema and API for new feature
-
-• Design three level Cache and integration test cases for distributed SET infrastructure
-• Use Redis and BBCache in Chipmunk Cache for different business workflow
-• Deploy cache in 1300 product machines, handle maximum 1 million / s QPS for cluster
-
-Automatic Test Project
-• Design the new Algorithmfor pricing platform response analysis
-• Use Python to implement the new algorithm to compare two different results from development and production machines
-• Build the automtic Test tool to improve the performance and save time for test```
-
-
 Software Engineer | Pinterest (Search & Ads Team)                                          07/2017 – now
 ```text
 Crawler System Project
-• Add feature for Pinterest Crawler System (Aragog) to solve web robot rules problem
-•Use Python to scraped Ads information from the Google and Bing and upload to Hive table
-•Build the Jupyter report for Pinterest sales team with python Pandas Dataframe
+•  Add feature for Pinterest Crawler System (Aragog) to solve web robot rules problem
+•  Used Python to scraped Ads information from the Google and Bing and upload to Hive table
+•  Built the Jupyter report for Pinterest sales team with python Pandas Dataframe
 
 Keyword generator Project
 •  Create daily, weekly, monthly workflow for keyword information for keyword generator
 •  Use Hive, Cascading etl sequence file from hive to Hfile, upload to key value system (Terrapin) 
-•  Ad the normalization and stem feature for interest to keyword pipeline, optimize the job
+•  Added the normalization and stem feature for interest to keyword pipeline, optimize the job
 •  https://ads-latest.pinterest.com/advertiser/549756433034/keyword_generator/
 
 Search & Ads Experiments
-• Creat query expansion experiments for Search Ads in Pinterest
-• Ad option to use unigram and ngrams for broad match retrieval with Golang
-• Improv + 0.9% for CTR (click through rate), + 1.6 % for revenue 
+• Created query expansion experiments for Search Ads in Pinterest
+• Added option to use unigram and ngrams for broad match retrieval with Golang
+• Improved + 0.9% for CTR (click through rate), + 1.6 % for revenue 
 
 pCTR Model
 • Trained ads pCTR model for Pinterest Search & Ads Team
@@ -54,8 +29,8 @@ pCTR Model
 • Saved the model to AWS S3 as json file, which is used for keyword generator tools 
 
 Real Time Spark Workflow
-• Creat ads long click counts workflow in Ads Serving Real Time Stats System
-• Implemen a spark job with scala transfer the data from Kafka to s3
+• Created ads long click counts workflow in Ads Serving Real Time Stats System
+• Implemented a spark job with scala transfer the data from Kafka to s3
 • Join Accuracy is 97.63 % for 10 min, 99.99 % for 24 hours
 ```
 
