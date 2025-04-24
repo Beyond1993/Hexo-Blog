@@ -83,7 +83,7 @@ public class Solution {
 }
 ```
 Python code:
-
+这个会超时... 可以加一个check 数组，记录是否访问过
 ```python
 class Solution:
     def canFinish(self, numCourses, prerequisites):
@@ -119,6 +119,39 @@ class Solution:
                 return False
             
         visited[course] = False
+        return True
+```
+
+accepted  版本:
+```python
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        graph = [[] for _ in range(numCourses)]
+        
+        for dest, src in prerequisites:
+            graph[dest].append(src)
+
+        visited = [False] * numCourses  # 当前路径访问状态
+        checked = [False] * numCourses  # 标记是否已经验证无环
+
+        for course in range(numCourses):
+            if not self.dfs(graph, visited, checked, course):
+                return False
+        return True
+
+    def dfs(self, graph, visited, checked, course):
+        if checked[course]:
+            return True
+        if visited[course]:
+            return False  # 出现环
+
+        visited[course] = True
+        for neighbor in graph[course]:
+            if not self.dfs(graph, visited, checked, neighbor):
+                return False
+        visited[course] = False
+        checked[course] = True  # 标记这个节点已经处理好，没有环
+
         return True
 ```
 
