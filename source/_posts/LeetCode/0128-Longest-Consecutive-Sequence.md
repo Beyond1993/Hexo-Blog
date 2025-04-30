@@ -31,6 +31,7 @@ Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefor
 // 0  1,2,3,4   5,6,7..    
 只需要跟新 两端的节点，因为中间的访问不到。
 
+
 ```java
 class Solution {
     public int longestConsecutive(int[] nums) {
@@ -90,5 +91,27 @@ class Solution:
 ```
             
 union find 
+
+
+比较直观的一个方法，先转成set，然后 通过 num - 1 是否在 num_set 里找到这个序列的起点, 如果是起点，就连续的判断，得到一个可能解，每个元素只会被遍历一次，所以是 O（N）
+
+```python
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        num_set = set(nums)
+        max_streak = 0
+
+        for num in num_set:
+            if num - 1 not in num_set:
+                current_num = num
+                current_streak = 1
+
+                while current_num + 1 in num_set:
+                    current_num += 1
+                    current_streak += 1
+                
+                max_streak = max(max_streak, current_streak)
+        return max_streak
+```
 
 

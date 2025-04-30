@@ -5,6 +5,11 @@ categories: LeetCode
 tags:
 ---
 
+🌳 一棵有效的树，要满足两个条件：
+1. 连通性：所有节点都在一个连通图中；
+
+2. 无环性：图中不能有环。
+
 Union Find
 ```java
 public class Solution {

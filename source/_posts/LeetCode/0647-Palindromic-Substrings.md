@@ -5,6 +5,52 @@ categories: LeetCode
 tags:
 ---
 
+扩展法:
+
+分奇偶:
+```python
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        def extendAroundCenter(left: int, right: int) -> int:
+            count = 0
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                count += 1
+                left -= 1
+                right += 1
+            return count
+
+        total = 0
+        for i in range(len(s)):
+            # 奇数长度：以 s[i] 为中心
+            total += extendAroundCenter(i, i)
+
+            # 偶数长度：以 s[i] 和 s[i+1] 为中心
+            total += extendAroundCenter(i, i + 1)
+
+        return total
+```
+
+统一中心法:
+```python
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        n = len(s)
+        count = 0
+
+        for center in range(2 * n - 1):
+            left = center // 2
+            right = left + (center % 2)
+
+            while left >= 0 and right < n and s[left] == s[right]:
+                count += 1
+                left -= 1
+                right += 1
+
+        return count
+```
+
+
+
 
 在原有基础上构造最短回文
 暴力解法: 从第一个字符开始找最长回文串，将剩下的翻转
