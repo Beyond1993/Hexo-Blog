@@ -85,6 +85,25 @@ class MyCalendar {
 ```
 
 
+```python
+class MyCalendar:
+
+    def __init__(self):
+        self.books = []
+        
+
+    def book(self, startTime: int, endTime: int) -> bool:
+        for book in self.books:
+            ## 大头小于小尾 就一定有交集，这是判断两个interval 交集的公式
+            if max(startTime, book[0]) < min(book[1], endTime):
+                return False
+        self.books.append([startTime, endTime])
+        return True
+
+# Your MyCalendar object will be instantiated and called as such:
+# obj = MyCalendar()
+# param_1 = obj.book(startTime,endTime)
+```
 
 
 
