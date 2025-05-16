@@ -39,3 +39,27 @@ public void dfs1(int n, int left, int right, List<String> list, StringBuilder bu
   
 }
 ```
+
+```python
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        res = []
+        def dfs(n, left, right, path):
+            if len(path) == n * 2:
+                res.append("".join(path))
+            
+            if left < n:
+                path.append('(')
+                dfs(n, left + 1, right, path)
+                # 这行不是回溯！它只是给局部变量 path 赋了一个新列表的引用，但原始列表没变。
+                # path = path[:-1]
+                path.pop()
+            
+            if right < left:
+                path.append(')')
+                dfs(n, left, right + 1, path)
+                path.pop()
+            
+        dfs(n, 0, 0, [])
+        return res
+```
