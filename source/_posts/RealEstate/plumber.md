@@ -16,4 +16,10 @@ tags:
 
 室外水龙头: spigot
 
-水龙头密封胶:loctile 609
+金属水龙头密封胶:loctile 609
+
+PVC 水管: Loctite 567 / RectorSeal T Plus 2
+
+U 型管: P-trap, 对于上螺母，由于对接的螺口在下面，所以顺时针是拧紧，逆时针是松开，但是对于下螺母，就是接到污水的地方，由于螺口在上面，所以逆时针是拧上去，拧紧，顺时针是松开。
+
+example: https://www.youtube.com/watch?v=gslukvKt2pE
