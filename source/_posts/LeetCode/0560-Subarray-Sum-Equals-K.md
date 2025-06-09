@@ -116,3 +116,63 @@ class Solution {
     }
 }
 ```
+
+
+```python
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        count, sum_ = 0, 0
+        map_ = {}
+        map_[0] = 1
+
+        for num in nums:
+            sum_ += num
+            if sum_ - k in map_:
+                count += map_[sum_ - k]
+            map_[sum_] = map_.get(sum_, 0) + 1
+        return count
+
+        # map_[0] = 1
+
+        # 这表示：
+
+        # 前缀和为 0 的子数组出现了 1 次（也可以理解为“起点在数组开头之前”的空子数组）。
+        # 为了在当前前缀和 sum_ 恰好等于 k 时，也能被正确统计。
+        # 处理的是 [0:i] sum == k,
+        # 因为我们的代码是先 count += map[sum_ - k], 再跟新 map_[sum_] = xx, 如果不加这个，
+        # count += map_[0] = count, 没有更新
+
+
+        # 当然也可以写成：
+        # count, sum_ = 0, 0
+        # map_ = {}
+        # for num in nums:
+        #     sum_ += num
+        # if sum_ == k:
+        #     count += 1  # 处理从 index 0 开始的子数组
+        # count += map_.get(sum_ - k, 0)
+        # map_[sum_] = map_.get(sum_, 0) + 1
+
+        
+
+    # 用 set 会漏解
+    # def subarraySum(self, nums: List[int], k: int) -> int:
+    #     sum_ = 0
+    #     sum_set = {0}  # 初始加入0，处理从开头开始的子数组
+    #     count = 0
+    #     for num in nums:
+    #         sum_ += num
+    #         # 如果 sum_ - k 在 sum_set 中，意味着存在一个子数组和为 k
+    #         if (sum_ - k) in sum_set:
+    #             count += 1
+    #         # 把当前的累积和 sum_ 添加到 sum_set 中
+    #         sum_set.add(sum_)
+    #     return count
+
+       
+### nums: {1, -1, 0}, k = 0 ==> sum [1, 0, 0]
+### set: {0}, {0, 1} ==> 2
+## => map: {1, 1} {0, 2}, {0, 3}, 因为到 -1 的时候，0 已经出现过一次了。
+
+```
+
