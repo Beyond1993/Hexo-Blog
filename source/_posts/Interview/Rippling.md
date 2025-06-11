@@ -5,6 +5,10 @@ categories: Interview
 tags:
 ---
 
+
+第一轮 SD: Goole News 题目
+https://www.1point3acres.com/bbs/thread-1130291-1-1.html
+https://www.1point3acres.com/bbs/thread-1128128-1-1.html
 Snapshot题目
 https://www.1point3acres.com/bbs/thread-1125149-1-1.html
 Music player题目

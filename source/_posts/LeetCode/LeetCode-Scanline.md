@@ -17,12 +17,13 @@ https://archive.org/details/jiuzhang-algorithm/07.%E4%B9%9D%E7%AB%A0%E7%AE%97%E6
 
 比如对于区间  [2,3] [3,4]
 
-在merge interval 里，start 标记为 -1， end 标记为 1. 这里应该合并成一个区间 [2, 4]
+case1 :在merge interval 里，start 标记为 -1， end 标记为 1. 这里应该合并成一个区间 [2, 4]
 所以扫描线的数组就应该是 [2,-1] [3,-1] [3, 1], [4, 1]
 
-但是在meeting room 里，这两个区间是分开的， 可以用一个meeting room， start 标记为1， end 标记为 -1
+
+case2: 但是在meeting room 里，这两个区间是分开的， 可以用一个meeting room， start 标记为1， end 标记为 -1
 [2, 1], [3, -1], [3, 1], [4, -1]
 
 这里都是按第一，第二个元素 从小到大排序的
 
-
+**针对case1, 这里也可以统一写成 [start, 1], [end, -1], 然后排序的时候就是 intervals.sort(key=lambda x: (x[0], -x[1])) 第二个元素从大往小排 **
