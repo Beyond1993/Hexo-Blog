@@ -68,7 +68,7 @@ public class Solution {
 ```
 滑动窗口型的两指针，有点像二分法，难点在条件的判断上.
 
-滑动窗口的三要素：map, counter，两指针
+**滑动窗口的四要素：map, counter, index, 两指针**
 
 
 Map <Character, Integer>  = <char,count>
