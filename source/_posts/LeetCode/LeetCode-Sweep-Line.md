@@ -1,5 +1,5 @@
 ---
-title: Scanline algorithm
+title: Sweep Line algorithm
 date: 2024-10-06 07:02:22
 categories: LeetCode-Index
 tags:
@@ -29,3 +29,75 @@ case2: 但是在meeting room 里，这两个区间是分开的， 可以用一�
 **针对case1, 这里也可以统一写成 [start, 1], [end, -1], 然后排序的时候就是 intervals.sort(key=lambda x: (x[0], -x[1])) 第二个元素从大往小排 **
 
 所以 start 是1， 还是-1，是根据首位相连的时候要不要merge 来决定的，如果要merge 就是 [2, -1],[3, -1], 如果不需要merge 就是 [2, 1] [3, -1]
+
+
+总结:
+统一将start 作为1， 这样有具体的意义，表示一个区间已经开始， 然后end作为，-1， 表示一个区间结束，在meeting room 里就是代表一个会议的开始和结束，扫描线 
+
+1. 扫描线的适用场景
+扫描线本质上是：
+
+把区间拆成“事件”（start, +1）和（end, -1）
+
+按时间排序
+
+维护一个当前重叠计数 count
+
+用 count 做一些事情（最大值、并发区间、覆盖统计等）
+
+它的强项是：
+
+求最大重叠数（LeetCode 253 会议室 II）
+
+求某个时间点覆盖了多少区间
+
+统计覆盖长度（比如“被覆盖的总时间”）
+
+多维扫描（矩形面积等）
+
+它的弱项是：
+
+直接求“合并后的区间范围”
+
+
+扫描线并不是merge interval 最优解，但是依然贴出来加深理解
+
+```python
+def merge_intervals(intervals):
+    events = []
+    for s, e in intervals:
+        events.append((s, 1))
+        events.append((e, -1))
+    events.sort(key=lambda x: (x[0], -x[1]))
+
+    merged = []
+    active = 0
+    start = None
+
+    for time, typ in events:
+        if active == 0 and typ == 1:
+            start = time
+        active += typ
+        if active == 0:
+            merged.append([start, time])
+    return merged
+```
+
+```python
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        events = []
+
+        for interval in intervals:
+            events.append([interval[0], 1])
+            events.append([interval[1], -1])
+
+        events.sort()
+        count = 0
+        room = 0
+        for event in events:
+            count += event[1]
+            room = max(room, count)
+
+        return room
+```
