@@ -84,6 +84,50 @@ class MyCalendar {
 }
 ```
 
+```python
+class MyCalendar:
+
+    def __init__(self):
+        self.books = sortedcontainers.SortedDict()
+
+    def floor_key(self, key):
+        i = self.books.bisect_right(key)
+        if i == 0:
+            return None
+        return self.books.keys()[i-1]
+    
+    def ceil_key(self, key):
+        i = self.books.bisect_left(key)
+        if i == len(self.books.keys()):
+            return None
+        return self.books.keys()[i]
+    
+
+    def book(self, startTime: int, endTime: int) -> bool:
+        ## find previous book
+        ## prev_start <= startTime
+        prev_start = self.floor_key(startTime)
+        if prev_start is not None:
+            prev_end = self.books[prev_start]
+            if prev_end > startTime: return False
+        
+        ## find next interval
+        ## next_start >= startTime
+        next_start = self.ceil_key(startTime)
+        if next_start is not None:
+            next_end = self.books[next_start]
+            if next_start < endTime: return False
+        self.books[startTime] = endTime
+        return True
+
+
+# Your MyCalendar object will be instantiated and called as such:
+# obj = MyCalendar()
+# param_1 = obj.book(startTime,endTime)
+```
+
+
+
 
 ```python
 class MyCalendar:
@@ -105,5 +149,96 @@ class MyCalendar:
 # param_1 = obj.book(startTime,endTime)
 ```
 
+再跟新两个只用 bisect_right的写法
+```python
+import bisect
 
+class MyCalendar:
+    def __init__(self):
+        self.bookings = []  # [(start, end)]
 
+    def book(self, start, end):
+        i = bisect.bisect_right(self.bookings, (start, end))
+
+        # 检查前一个区间冲突
+        if i > 0 and self.bookings[i-1][1] > start:
+            return False
+        
+        # 检查后一个区间冲突
+        if i < len(self.bookings) and self.bookings[i][0] < end:
+            return False
+        
+        # 无冲突 -> 插入
+        self.bookings.insert(i, (start, end))
+        return True
+```
+这里的insert O（N）， 可以优化
+
+```python
+from sortedcontainers import SortedList
+
+class MyCalendar:
+    def __init__(self):
+        self.bookings = SortedList()
+
+    def book(self, start, end):
+        i = self.bookings.bisect_right((start, end))
+
+        # 检查前一个区间
+        if i > 0 and self.bookings[i-1][1] > start:
+            return False
+        # 检查后一个区间
+        if i < len(self.bookings) and self.bookings[i][0] < end:
+            return False
+
+        # 插入 O(log N)
+        self.bookings.add((start, end))
+        return True
+```
+
+全都用 bisect_right 的写法
+```python
+import sortedcontainers
+
+class MyCalendar:
+    def __init__(self):
+        self.books = sortedcontainers.SortedDict()  # {start: end}
+
+    def floor_key(self, key):
+        """最后一个 <= key 的 start"""
+        i = self.books.bisect_right(key)
+        if i == 0:
+            return None
+        return self.books.keys()[i-1]
+
+    def ceil_key(self, key):
+        """第一个 >= key 的 start（用 bisect_right 也可以）"""
+        i = self.books.bisect_right(key)
+        if i == len(self.books):
+            return None
+        # 如果 key 本身存在，ceil 就是它本身
+        if i > 0 and self.books.keys()[i-1] == key:
+            return self.books.keys()[i-1]
+        return self.books.keys()[i]
+
+    def book(self, startTime: int, endTime: int) -> bool:
+        # 1️⃣ 找前一个会议（floor）
+        prev_start = self.floor_key(startTime)
+        if prev_start is not None:
+            prev_end = self.books[prev_start]
+            if prev_end > startTime:
+                return False
+
+        # 2️⃣ 找后一个会议（ceil）
+        next_start = self.ceil_key(startTime)
+        if next_start is not None:
+            next_end = self.books[next_start]
+            if next_start < endTime:
+                return False
+
+        # 3️⃣ 插入 O(log N)
+        self.books[startTime] = endTime
+        return True
+```
+
+http://47.113.101.198/2025/04/15/Python/Python-Bisect/
