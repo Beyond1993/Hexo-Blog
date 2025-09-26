@@ -4,6 +4,20 @@ date: 2017-10-09 19:23:39
 categories: LeetCode-Index
 tags:
 ---
+# 重叠公式
+
+http://47.113.101.198/2017/12/07/LeetCode/0729-My-Calendar-I/
+
+**开头的最大值比结尾的最小值要小**
+
+这一句话，就概括了所有的四种重叠的情况。
+
+这一题考的本质是，一个interval 是否重叠的公式。
+
+**if (Math.max(b[0], start) < Math.min(b[1], end)) return false;**
+
+
+# Sweep Line
 
 一般扫描线问题都有两种解法，Sort 或者 priorityQueue
 

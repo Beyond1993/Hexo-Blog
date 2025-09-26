@@ -130,6 +130,36 @@ class UnionFind:
     def get_count(self):
         return self.count
 ```
+简单版
+```python
+class UnionFind:
+    def __init__(self, n):
+        self.count = n
+        self.parent = [i for i in range(n)]
+   
+    def find(self, x):
+        if self.parent[x] == x:
+            return x
+        self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+
+    def union(self, x, y):union
+        p_x = self.find(x)
+        p_y = self.find(y)
+        if p_x != p_y:
+            self.parent[p_x] = p_y
+            self.count -= 1
+
+
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        uf = UnionFind(n)
+        for edge in edges:
+            uf.union(edge[0], edge[1])
+        return uf.count
+```
+
 
 Union-Find Problems:
 * LeetCode 399. Evaluate Division https://youtu.be/UwpvInpgFmo
